@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -36,7 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
-      <body className="bg-paper text-ink font-sans">{children}</body>
+      <body className="bg-paper text-ink font-sans">
+          <CustomCursor />
+          {children}
+        </body>
     </html>
   );
 }
