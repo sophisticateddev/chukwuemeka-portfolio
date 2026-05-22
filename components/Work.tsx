@@ -13,7 +13,7 @@ export default function Work() {
           <h2 className="font-serif text-3xl md:text-4xl text-ink">Work</h2>
           <span className="text-sm text-muted">{workProjects.length} case studies</span>
         </div>
-        <div className="mt-5 h-px bg-border" />
+        <div className="mt-5 h-px bg-rim" />
       </FadeUp>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
@@ -23,7 +23,7 @@ export default function Work() {
               <motion.article
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="flex flex-col rounded-2xl overflow-hidden border border-border bg-white hover:border-ink/20 hover:shadow-sm transition-all duration-300 h-full"
+                className="flex flex-col rounded-2xl overflow-hidden border border-rim bg-white hover:border-ink/20 hover:shadow-sm transition-all duration-300 h-full"
               >
                 {/* Thumbnail — fixed height */}
                 <div
@@ -55,7 +55,7 @@ export default function Work() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[11px] px-2.5 py-1 rounded-full bg-bg text-muted border border-border"
+                          className="text-[11px] px-2.5 py-1 rounded-full bg-paper text-muted border border-rim"
                         >
                           {tag}
                         </span>

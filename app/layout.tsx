@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
-      <body className="bg-bg text-ink font-sans">{children}</body>
+      <body className="bg-paper text-ink font-sans">{children}</body>
     </html>
   );
 }

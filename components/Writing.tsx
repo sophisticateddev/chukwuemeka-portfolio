@@ -16,7 +16,7 @@ export default function Writing() {
             </h2>
           </div>
         </div>
-        <div className="mt-6 h-px bg-border" />
+        <div className="mt-6 h-px bg-rim" />
       </FadeUp>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -25,10 +25,10 @@ export default function Writing() {
             <motion.article
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="group cursor-pointer rounded-2xl border border-border bg-white p-6 hover:border-ink/20 hover:shadow-sm transition-all duration-300"
+              className="group cursor-pointer rounded-2xl border border-rim bg-white p-6 hover:border-ink/20 hover:shadow-sm transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-4">
-                <span className="text-[11px] px-2.5 py-1 rounded-full bg-bg text-muted border border-border tracking-wide">
+                <span className="text-[11px] px-2.5 py-1 rounded-full bg-paper text-muted border border-rim tracking-wide">
                   {article.tag}
                 </span>
                 <span className="text-xs text-muted">{article.readTime}</span>

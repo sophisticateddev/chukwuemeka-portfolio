@@ -21,7 +21,7 @@ export default function About() {
         <h2 className="font-serif text-4xl md:text-5xl text-ink">
           The person behind the work
         </h2>
-        <div className="mt-6 h-px bg-border" />
+        <div className="mt-6 h-px bg-rim" />
       </FadeUp>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
@@ -59,7 +59,7 @@ export default function About() {
                 {skills.map((s) => (
                   <span
                     key={s}
-                    className="text-sm px-3 py-1.5 rounded-full border border-border text-ink"
+                    className="text-sm px-3 py-1.5 rounded-full border border-rim text-ink"
                   >
                     {s}
                   </span>
@@ -73,7 +73,7 @@ export default function About() {
         <FadeUp delay={0.2}>
           <div className="space-y-5">
 
-            <div className="rounded-2xl bg-white border border-border p-6">
+            <div className="rounded-2xl bg-white border border-rim p-6">
               <span className="text-2xl mb-3 block">⚽</span>
               <h3 className="font-serif text-xl text-ink mb-2">
                 Football is my other UX research
@@ -86,7 +86,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-white border border-border p-6">
+            <div className="rounded-2xl bg-white border border-rim p-6">
               <span className="text-2xl mb-3 block">🍳</span>
               <h3 className="font-serif text-xl text-ink mb-2">
                 I used to cater for events
@@ -98,7 +98,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-white border border-border p-6">
+            <div className="rounded-2xl bg-white border border-rim p-6">
               <span className="text-2xl mb-3 block">📚</span>
               <h3 className="font-serif text-xl text-ink mb-2">
                 I mentor on ADPList
@@ -112,7 +112,7 @@ export default function About() {
             </div>
 
             <div className="flex items-center gap-3 text-sm text-muted pt-1">
-              <span className="w-8 h-px bg-border" />
+              <span className="w-8 h-px bg-rim" />
               <span>Nottingham, UK · Originally from Nigeria</span>
             </div>
           </div>

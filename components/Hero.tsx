@@ -52,7 +52,7 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
               href="/Chukwuemeka_Iheonye_Resume.pdf"
               download="Chukwuemeka_Iheonye_Resume.pdf"
-              className="inline-flex items-center gap-2 bg-ink text-bg text-sm font-medium px-5 py-2.5 rounded-full hover:bg-accent transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-5 py-2.5 rounded-full hover:bg-accent transition-colors duration-200"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +63,7 @@ export default function Hero() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               href="mailto:kingsleyiheonye@gmail.com"
-              className="inline-flex items-center gap-2 text-sm text-muted border border-border px-5 py-2.5 rounded-full hover:border-ink hover:text-ink transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm text-muted border border-rim px-5 py-2.5 rounded-full hover:border-ink hover:text-ink transition-colors duration-200"
             >
               Get in touch
             </motion.a>

@@ -29,7 +29,7 @@ export default function CaseStudyPage({ params }: Props) {
   const next = workProjects[(currentIndex + 1) % workProjects.length];
 
   return (
-    <main className="bg-bg min-h-screen">
+    <main className="bg-paper min-h-screen">
 
       {/* Back nav */}
       <div className="px-6 md:px-10 max-w-6xl mx-auto pt-8">
@@ -45,7 +45,7 @@ export default function CaseStudyPage({ params }: Props) {
       </div>
 
       {/* Hero */}
-      <header className="px-6 md:px-10 max-w-6xl mx-auto pt-14 pb-12 border-b border-border">
+      <header className="px-6 md:px-10 max-w-6xl mx-auto pt-14 pb-12 border-b border-rim">
         <p className="text-xs text-accent tracking-widest uppercase mb-4">{project.category}</p>
         <h1 className="font-serif text-4xl md:text-6xl text-ink leading-tight mb-6 max-w-3xl">
           {project.title}
@@ -109,7 +109,7 @@ export default function CaseStudyPage({ params }: Props) {
           {/* Problems */}
           {d.problems && d.problems.length > 0 && (
             <section>
-              <div className="h-px bg-border mb-10" />
+              <div className="h-px bg-rim mb-10" />
               <h2 className="font-serif text-2xl text-ink mb-6">The Problem</h2>
               <ul className="space-y-3">
                 {d.problems.map((p, i) => (
@@ -125,7 +125,7 @@ export default function CaseStudyPage({ params }: Props) {
           {/* Goals */}
           {d.goals && d.goals.length > 0 && (
             <section>
-              <div className="h-px bg-border mb-10" />
+              <div className="h-px bg-rim mb-10" />
               <h2 className="font-serif text-2xl text-ink mb-6">Goals</h2>
               <ul className="space-y-3">
                 {d.goals.map((g, i) => (
@@ -141,7 +141,7 @@ export default function CaseStudyPage({ params }: Props) {
           {/* Process */}
           {d.process && (
             <section>
-              <div className="h-px bg-border mb-10" />
+              <div className="h-px bg-rim mb-10" />
               <h2 className="font-serif text-2xl text-ink mb-4">Process</h2>
               <p className="text-base text-muted leading-relaxed">{d.process}</p>
             </section>
@@ -150,11 +150,11 @@ export default function CaseStudyPage({ params }: Props) {
           {/* Research findings */}
           {d.researchFindings && d.researchFindings.length > 0 && (
             <section>
-              <div className="h-px bg-border mb-10" />
+              <div className="h-px bg-rim mb-10" />
               <h2 className="font-serif text-2xl text-ink mb-6">Research Findings</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {d.researchFindings.map((f, i) => (
-                  <div key={i} className="rounded-xl border border-border bg-white p-5">
+                  <div key={i} className="rounded-xl border border-rim bg-white p-5">
                     <p className="text-sm text-muted leading-relaxed">{f}</p>
                   </div>
                 ))}
@@ -165,7 +165,7 @@ export default function CaseStudyPage({ params }: Props) {
           {/* Outcomes */}
           {d.outcomes && d.outcomes.length > 0 && (
             <section>
-              <div className="h-px bg-border mb-10" />
+              <div className="h-px bg-rim mb-10" />
               <h2 className="font-serif text-2xl text-ink mb-6">Outcomes</h2>
               <ul className="space-y-3">
                 {d.outcomes.map((o, i) => (
@@ -182,7 +182,7 @@ export default function CaseStudyPage({ params }: Props) {
       )}
 
       {/* Next project */}
-      <div className="border-t border-border px-6 md:px-10 max-w-6xl mx-auto py-14">
+      <div className="border-t border-rim px-6 md:px-10 max-w-6xl mx-auto py-14">
         <p className="text-xs text-muted tracking-widest uppercase mb-4">Next project</p>
         <Link
           href={`/work/${next.slug}`}

@@ -30,7 +30,7 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg/90 backdrop-blur-md border-b border-border"
+          ? "bg-paper/90 backdrop-blur-md border-b border-rim"
           : "bg-transparent"
       }`}
     >
@@ -38,7 +38,7 @@ export default function Nav() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-9 h-9 rounded-full bg-ink text-bg flex items-center justify-center font-serif text-base font-normal hover:bg-accent transition-colors duration-200"
+          className="w-9 h-9 rounded-full bg-ink text-paper flex items-center justify-center font-serif text-base font-normal hover:bg-accent transition-colors duration-200"
           aria-label="Back to top"
         >
           C
@@ -90,7 +90,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-bg border-b border-border px-6 pb-6 pt-2"
+            className="md:hidden bg-paper border-b border-rim px-6 pb-6 pt-2"
           >
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (

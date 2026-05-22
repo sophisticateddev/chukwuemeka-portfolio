@@ -9,12 +9,12 @@ export default function Experience() {
       <FadeUp className="mb-14">
         <p className="text-xs text-accent tracking-widest uppercase mb-2">Background</p>
         <h2 className="font-serif text-4xl md:text-5xl text-ink">Experience</h2>
-        <div className="mt-6 h-px bg-border" />
+        <div className="mt-6 h-px bg-rim" />
       </FadeUp>
 
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-0 md:left-[180px] top-0 bottom-0 w-px bg-border hidden md:block" />
+        <div className="absolute left-0 md:left-[180px] top-0 bottom-0 w-px bg-rim hidden md:block" />
 
         <div className="space-y-10 md:space-y-0">
           {experience.map((item, i) => (
@@ -31,12 +31,12 @@ export default function Experience() {
                 {/* Dot */}
                 <div className="hidden md:flex items-start pt-1.5 px-0">
                   <div className="relative">
-                    <div className="w-2.5 h-2.5 rounded-full bg-border border-2 border-bg ring-1 ring-border -translate-x-[5px]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-rim border-2 border-paper ring-1 ring-rim -translate-x-[5px]" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="md:pl-8 pb-10 md:pb-12 flex-1 border-b border-border last:border-0">
+                <div className="md:pl-8 pb-10 md:pb-12 flex-1 border-b border-rim last:border-0">
                   <h3 className="font-serif text-xl text-ink leading-snug mb-0.5">
                     {item.role}
                   </h3>
