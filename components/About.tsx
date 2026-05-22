@@ -81,21 +81,20 @@ export default function About() {
               <p className="text-sm text-muted leading-relaxed">
                 I watch matches with a notebook. Literally. Formations, pressing
                 triggers, how managers adapt at half-time — it's all systems
-                thinking with better aesthetics. Chelsea fan. Will argue about
-                it if you bring it up.
+                thinking with better aesthetics. Will argue about it if you
+                bring it up.
               </p>
             </div>
 
             <div className="rounded-2xl bg-white border border-border p-6">
               <span className="text-2xl mb-3 block">🍳</span>
               <h3 className="font-serif text-xl text-ink mb-2">
-                Cooking is where I prototype without pressure
+                I used to cater for events
               </h3>
               <p className="text-sm text-muted leading-relaxed">
-                Nigerian cuisine is my baseline. Egusi, jollof, ofe onugbu —
-                I cook from memory, not recipes. I've been slowly working on a
-                spice blend that works for both Nigerian and West African dishes.
-                Still in beta.
+                Nigerian cuisine is my baseline — egusi, jollof, ofe onugbu.
+                I cooked professionally for events before design took over full
+                time. I cook from memory, not recipes, and I still get requests.
               </p>
             </div>
 
