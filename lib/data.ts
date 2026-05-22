@@ -1,6 +1,7 @@
 export const workProjects = [
   {
     id: 1,
+    slug: "albert-sustainability-platform",
     title: "albert — Sustainability Platform",
     category: "Product Design",
     year: "2024–Present",
@@ -11,6 +12,7 @@ export const workProjects = [
   },
   {
     id: 2,
+    slug: "carbon-loans",
     title: "Carbon Loans",
     category: "Fintech · Product Design",
     year: "2022–2024",
@@ -21,6 +23,7 @@ export const workProjects = [
   },
   {
     id: 3,
+    slug: "carbon-zero",
     title: "Carbon Zero",
     category: "Fintech · Product Design",
     year: "2022–2024",
@@ -31,6 +34,7 @@ export const workProjects = [
   },
   {
     id: 4,
+    slug: "africhange",
     title: "Africhange",
     category: "Fintech · UX Design",
     year: "2022",
@@ -41,6 +45,7 @@ export const workProjects = [
   },
   {
     id: 5,
+    slug: "nippyboxes",
     title: "NippyBoxes",
     category: "Logistics · Product Design",
     year: "2021",
@@ -51,6 +56,7 @@ export const workProjects = [
   },
   {
     id: 6,
+    slug: "coinbycedar",
     title: "Coinbycedar",
     category: "Web3 · Product Design",
     year: "2021",
