@@ -19,34 +19,35 @@ export default function About() {
       <FadeUp className="mb-14">
         <p className="text-xs text-accent tracking-widest uppercase mb-2">About</p>
         <h2 className="font-serif text-4xl md:text-5xl text-ink">
-          The Designer
+          The person behind the work
         </h2>
         <div className="mt-6 h-px bg-border" />
       </FadeUp>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-        {/* Left — professional */}
+        {/* Left — personal first, then professional */}
         <FadeUp delay={0.1}>
           <div className="space-y-6">
             <p className="text-base text-muted leading-relaxed">
-              Product Designer with over six years of experience designing
-              intuitive, user-centred digital products across fintech, SaaS, and
-              emerging digital platforms. I work across the full product
-              lifecycle — from user research and concept exploration to
-              high-fidelity design and developer handoff.
+              I'm Chukwuemeka — a product designer who grew up in Nigeria and
+              now lives in Nottingham. I'm the kind of person who rewatches
+              football matches to study formations, argues that jollof rice is
+              a design problem (too many variables, not enough constraints), and
+              genuinely believes the best ideas come from conversations that
+              start with "what if we just…"
             </p>
             <p className="text-base text-muted leading-relaxed">
-              I specialise in simplifying complex systems into clear, engaging
-              user journeys, particularly for mobile and web applications. At
-              BAFTA I led UX across digital platforms aligned to WCAG
-              accessibility standards. At Carbon MFB I led redesigns that
-              increased engagement by 40% and improved retention by 25% — for
-              products used by over 3 million people.
+              Professionally, I've spent 6+ years designing digital products
+              across fintech, SaaS, and enterprise — at places like BAFTA,
+              Carbon MFB (3M+ users), and Writesea. I work across the full
+              product lifecycle: from sitting with users to understand what's
+              actually broken, to shipping high-fidelity designs that
+              engineers can build without three rounds of back-and-forth.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              Currently designing for Writesea, an AI writing and publishing
-              platform. Based in Nottingham, UK — open to remote and
-              hybrid-friendly roles.
+              I care about craft — but I care more about whether the thing
+              actually works for the person using it. If the design is
+              beautiful but confusing, it's not done yet.
             </p>
 
             {/* Skills */}
@@ -68,35 +69,50 @@ export default function About() {
           </div>
         </FadeUp>
 
-        {/* Right — personal */}
+        {/* Right — specific personal things */}
         <FadeUp delay={0.2}>
-          <div className="space-y-8">
-            <div className="rounded-2xl bg-white border border-border p-6">
-              <span className="text-2xl mb-3 block">🍳</span>
-              <h3 className="font-serif text-xl text-ink mb-2">
-                Cooking is my other design practice
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                I approach the kitchen the same way I approach a product — with
-                curiosity, iteration, and a healthy disregard for recipes as
-                written. Nigerian cuisine is my foundation; everything else is
-                exploration.
-              </p>
-            </div>
+          <div className="space-y-5">
 
             <div className="rounded-2xl bg-white border border-border p-6">
               <span className="text-2xl mb-3 block">⚽</span>
               <h3 className="font-serif text-xl text-ink mb-2">
-                Football keeps me honest
+                Football is my other UX research
               </h3>
               <p className="text-sm text-muted leading-relaxed">
-                A lifelong football fan who believes the beautiful game is really
-                just systems design with better aesthetics. I watch more than I
-                should, and argue about formations with anyone who'll listen.
+                I watch matches with a notebook. Literally. Formations, pressing
+                triggers, how managers adapt at half-time — it's all systems
+                thinking with better aesthetics. Chelsea fan. Will argue about
+                it if you bring it up.
               </p>
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-muted">
+            <div className="rounded-2xl bg-white border border-border p-6">
+              <span className="text-2xl mb-3 block">🍳</span>
+              <h3 className="font-serif text-xl text-ink mb-2">
+                Cooking is where I prototype without pressure
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                Nigerian cuisine is my baseline. Egusi, jollof, ofe onugbu —
+                I cook from memory, not recipes. I've been slowly working on a
+                spice blend that works for both Nigerian and West African dishes.
+                Still in beta.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-border p-6">
+              <span className="text-2xl mb-3 block">📚</span>
+              <h3 className="font-serif text-xl text-ink mb-2">
+                I mentor on ADPList
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                I spend time mentoring junior designers — particularly those
+                breaking into the industry from non-traditional backgrounds.
+                If you're early in your career and want to talk, my ADPList
+                is open.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 text-sm text-muted pt-1">
               <span className="w-8 h-px bg-border" />
               <span>Nottingham, UK · Originally from Nigeria</span>
             </div>

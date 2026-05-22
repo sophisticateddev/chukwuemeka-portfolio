@@ -7,16 +7,13 @@ import { workProjects } from "@/lib/data";
 
 export default function Work() {
   return (
-    <section id="work" className="py-24 md:py-32 px-6 md:px-10 max-w-6xl mx-auto">
-      <FadeUp className="mb-14">
+    <section id="work" className="pt-4 pb-24 md:pb-32 px-6 md:px-10 max-w-6xl mx-auto">
+      <FadeUp className="mb-10">
         <div className="flex items-baseline justify-between">
-          <div>
-            <p className="text-xs text-accent tracking-widest uppercase mb-2">Selected Work</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-ink">Projects</h2>
-          </div>
-          <span className="hidden md:block text-sm text-muted">{workProjects.length} case studies</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-ink">Work</h2>
+          <span className="text-sm text-muted">{workProjects.length} case studies</span>
         </div>
-        <div className="mt-6 h-px bg-border" />
+        <div className="mt-5 h-px bg-border" />
       </FadeUp>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
