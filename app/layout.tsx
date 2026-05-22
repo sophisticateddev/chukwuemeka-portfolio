@@ -20,11 +20,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Chukwuemeka Iheonye — Senior Product Designer",
   description:
-    "Senior Product Designer based in the UK. Crafting purposeful digital products with clarity and intention.",
+    "Senior Product Designer with 6+ years of experience. Based in Nottingham, UK. Open to remote and hybrid opportunities.",
   openGraph: {
     title: "Chukwuemeka Iheonye — Senior Product Designer",
     description:
-      "Senior Product Designer based in the UK. Crafting purposeful digital products with clarity and intention.",
+      "Senior Product Designer with 6+ years of experience across fintech, SaaS, and enterprise — currently at albert (BAFTA).",
     type: "website",
   },
 };

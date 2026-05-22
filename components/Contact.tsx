@@ -3,6 +3,13 @@
 import { motion } from "framer-motion";
 import FadeUp from "./FadeUp";
 
+const socials = [
+  { label: "LinkedIn", href: "https://linkedin.com/in/chukwuemeka-iheonye/" },
+  { label: "Figma", href: "https://figma.com/@kingsleyiheonye" },
+  { label: "ADPList", href: "https://adplist.org/mentors/chukwuemeka-iheonye" },
+  { label: "Twitter", href: "https://twitter.com" },
+];
+
 export default function Contact() {
   return (
     <section
@@ -28,30 +35,37 @@ export default function Contact() {
               <span className="italic text-bg/60">worth using.</span>
             </h2>
             <p className="text-sm text-bg/60 leading-relaxed mb-10">
-              Whether you have a project in mind, a role to fill, or just want
-              to talk design — my inbox is always open.
+              Have a project in mind? Whether you need a new product designed,
+              a design system built, or a senior designer to embed in your team
+              — I'd love to hear from you.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="mailto:kingsleyiheonye@gmail.com"
                 className="inline-flex items-center justify-center gap-2 bg-accent text-bg text-sm font-medium px-6 py-3.5 rounded-full hover:bg-accent/90 transition-colors duration-200"
               >
-                Say hello →
+                kingsleyiheonye@gmail.com
               </motion.a>
+            </div>
 
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href="https://linkedin.com/in/chukwuemeka-iheonye"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-transparent text-bg text-sm font-medium px-6 py-3.5 rounded-full border border-bg/20 hover:border-bg/40 transition-colors duration-200"
-              >
-                LinkedIn
-              </motion.a>
+            {/* Social links */}
+            <div className="flex flex-wrap gap-3">
+              {socials.map((s) => (
+                <motion.a
+                  key={s.label}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-bg/50 border border-bg/15 rounded-full px-4 py-2 hover:border-bg/30 hover:text-bg/80 transition-colors duration-200"
+                >
+                  {s.label}
+                </motion.a>
+              ))}
             </div>
           </FadeUp>
         </div>
@@ -60,7 +74,7 @@ export default function Contact() {
       {/* Footer */}
       <div className="mt-10 flex items-center justify-between text-xs text-muted">
         <span>© {new Date().getFullYear()} Chukwuemeka Iheonye</span>
-        <span>Designed & built with intention</span>
+        <span>Nottingham, UK · Open to remote</span>
       </div>
     </section>
   );

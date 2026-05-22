@@ -3,12 +3,12 @@
 import FadeUp from "./FadeUp";
 
 const skills = [
-  "Product Strategy",
+  "User Interface Design",
   "UX Research",
-  "Interaction Design",
   "Design Systems",
-  "Prototyping",
-  "Figma",
+  "End-to-End Design",
+  "Mentorship",
+  "Framer & Webflow",
 ];
 
 export default function About() {
@@ -27,20 +27,24 @@ export default function About() {
         <FadeUp delay={0.1}>
           <div className="space-y-6">
             <p className="text-base text-muted leading-relaxed">
-              I'm a Senior Product Designer with 7+ years of experience building
-              digital products that people actually want to use. I sit at the
-              intersection of research, craft, and strategy — equally comfortable
-              in a discovery workshop and pixel-pushing in Figma.
+              I'm a Senior Product Designer with 6+ years of experience crafting
+              user-centered digital experiences across fintech, SaaS, nonprofit,
+              and enterprise platforms. I specialise in turning complex problems
+              into intuitive, elegant solutions — balancing business goals with
+              real user needs.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              I've designed across fintech, health, and B2B SaaS — often as the
-              only designer on a team, which means I've learned to work fast,
-              communicate clearly, and advocate hard for the user when everyone
-              else is looking at the backlog.
+              Most recently at albert (a BAFTA initiative), I redesigned the
+              UK's national media sustainability platform — achieving a 25%
+              improvement in accessibility and engagement. Before that, I led
+              design at Carbon MFB, Africa's fastest-growing digital bank, where
+              my work shaped products used by over 3 million people.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              Right now I'm based in the UK and open to senior IC or lead roles,
-              full-time or contract. Remote-first. Occasional London.
+              I'm passionate about design that makes a difference — whether I'm
+              embedded in a product team, running discovery, or jumping into
+              high-priority projects to push things forward. Currently based in
+              Nottingham, UK, and open to remote or hybrid opportunities.
             </p>
 
             {/* Skills */}
@@ -85,15 +89,14 @@ export default function About() {
               </h3>
               <p className="text-sm text-muted leading-relaxed">
                 A lifelong football fan who believes the beautiful game is really
-                just systems design with better aesthetics. I play when I can,
-                watch more than I should, and argue about formations with
-                anyone who'll listen.
+                just systems design with better aesthetics. I watch more than I
+                should, and argue about formations with anyone who'll listen.
               </p>
             </div>
 
             <div className="flex items-center gap-3 text-sm text-muted">
               <span className="w-8 h-px bg-border" />
-              <span>Based in the UK · Originally from Nigeria</span>
+              <span>Nottingham, UK · Originally from Nigeria</span>
             </div>
           </div>
         </FadeUp>

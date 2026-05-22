@@ -14,7 +14,7 @@ export default function Hero() {
       >
         <span className="inline-flex items-center gap-2 text-xs text-muted border border-border rounded-full px-3 py-1.5 tracking-wider uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          Available for projects
+          Open to remote &amp; hybrid
         </span>
       </motion.div>
 
@@ -37,9 +37,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="flex items-center gap-4 text-sm text-muted"
       >
-        <span>UK · Open to remote</span>
+        <span>Nottingham, UK</span>
         <span className="w-px h-4 bg-border" />
-        <span>Fintech · Health · B2B SaaS</span>
+        <span>Fintech · SaaS · Enterprise</span>
       </motion.div>
 
       {/* Scroll cue */}
