@@ -112,38 +112,56 @@ export const articles = [
 export const experience = [
   {
     id: 1,
-    role: "Senior Product Designer",
-    company: "albert (BAFTA)",
-    location: "London, UK · Remote",
-    period: "July 2024 — Present",
+    role: "Product Designer",
+    company: "Writesea",
+    location: "Remote",
+    period: "Oct 2024 — Present",
     description:
-      "Leading product design on the UK's national media sustainability platform. Redesigned core journeys to achieve a 25% improvement in accessibility and engagement — working directly with stakeholders across the UK media industry.",
+      "Leading UX and product design for an AI-powered writing and publishing platform. Designing end-to-end flows from onboarding to content creation, running usability testing, and contributing to the design system — shipping AI-enabled features iteratively in agile sprints.",
   },
   {
     id: 2,
-    role: "Lead Designer",
-    company: "Carbon MFB",
-    location: "Lagos · Remote",
-    period: "March 2022 — March 2024",
+    role: "Senior Product Designer",
+    company: "BAFTA",
+    location: "London, UK",
+    period: "Jul 2024 — Jun 2025",
     description:
-      "Led design across Carbon's product suite — loans, BNPL, savings, and investments — for Africa's fastest-growing digital bank. Shaped design strategy and delivery for products serving over 3 million users.",
+      "Led UX design across digital platforms from research through delivery. Developed journey maps, user flows, and UI designs aligned with WCAG accessibility standards. Advocated for user-centred design principles across stakeholders and digital teams.",
   },
   {
     id: 3,
-    role: "Senior Product Designer",
-    company: "Softcom",
-    location: "Lagos · Remote",
-    period: "July 2021 — August 2022",
+    role: "Lead Product Designer",
+    company: "Carbon MFB",
+    location: "Remote",
+    period: "Nov 2022 — Mar 2024",
     description:
-      "Designed across B2B and enterprise SaaS products, working closely with engineering and product to ship features that streamlined operations for clients across Nigeria and West Africa.",
+      "Designed and launched mobile financial products across iOS and Android. Led end-to-end redesign of savings and BNPL journeys, increasing engagement by 40%. Maintained and extended a scalable design system across multiple product lines, and presented design strategy to senior leadership.",
   },
   {
     id: 4,
+    role: "Senior UX Researcher",
+    company: "Carbon MFB",
+    location: "Remote",
+    period: "Mar 2022 — Nov 2022",
+    description:
+      "Conducted qualitative and quantitative research to inform product decisions. Developed information architecture models, optimised onboarding workflows, and delivered design iterations that improved user retention by 25%.",
+  },
+  {
+    id: 5,
+    role: "Senior Product Designer",
+    company: "Softcom",
+    location: "Lagos, Nigeria",
+    period: "Jul 2021 — Aug 2022",
+    description:
+      "Designed B2C and B2B2C SaaS applications with a strong focus on usability and accessibility. Created mobile-first, platform-specific experiences and worked closely with developers to ensure implementation aligned with design intent.",
+  },
+  {
+    id: 6,
     role: "Senior UX/UI Designer",
     company: "SBSC",
     location: "Lagos, Nigeria",
-    period: "October 2020 — June 2021",
+    period: "Oct 2020 — Jun 2021",
     description:
-      "Drove UX and UI design across multiple client projects — from discovery and research through to high-fidelity delivery — spanning fintech, enterprise, and nonprofit sectors.",
+      "Designed responsive web and mobile fintech applications. Conducted usability testing and delivered iterative design improvements across client engagements.",
   },
 ];

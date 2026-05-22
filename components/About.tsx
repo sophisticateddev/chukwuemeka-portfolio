@@ -3,12 +3,14 @@
 import FadeUp from "./FadeUp";
 
 const skills = [
-  "User Interface Design",
-  "UX Research",
+  "End-to-End Product Design",
+  "Interaction Design & UX Strategy",
+  "Mobile Design (iOS & Android)",
+  "User Research & Usability Testing",
+  "Information Architecture",
   "Design Systems",
-  "End-to-End Design",
-  "Mentorship",
-  "Framer & Webflow",
+  "Wireframing & Prototyping",
+  "Agile & Scrum",
 ];
 
 export default function About() {
@@ -27,24 +29,24 @@ export default function About() {
         <FadeUp delay={0.1}>
           <div className="space-y-6">
             <p className="text-base text-muted leading-relaxed">
-              I'm a Senior Product Designer with 6+ years of experience crafting
-              user-centered digital experiences across fintech, SaaS, nonprofit,
-              and enterprise platforms. I specialise in turning complex problems
-              into intuitive, elegant solutions — balancing business goals with
-              real user needs.
+              Product Designer with over six years of experience designing
+              intuitive, user-centred digital products across fintech, SaaS, and
+              emerging digital platforms. I work across the full product
+              lifecycle — from user research and concept exploration to
+              high-fidelity design and developer handoff.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              Most recently at albert (a BAFTA initiative), I redesigned the
-              UK's national media sustainability platform — achieving a 25%
-              improvement in accessibility and engagement. Before that, I led
-              design at Carbon MFB, Africa's fastest-growing digital bank, where
-              my work shaped products used by over 3 million people.
+              I specialise in simplifying complex systems into clear, engaging
+              user journeys, particularly for mobile and web applications. At
+              BAFTA I led UX across digital platforms aligned to WCAG
+              accessibility standards. At Carbon MFB I led redesigns that
+              increased engagement by 40% and improved retention by 25% — for
+              products used by over 3 million people.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              I'm passionate about design that makes a difference — whether I'm
-              embedded in a product team, running discovery, or jumping into
-              high-priority projects to push things forward. Currently based in
-              Nottingham, UK, and open to remote or hybrid opportunities.
+              Currently designing for Writesea, an AI writing and publishing
+              platform. Based in Nottingham, UK — open to remote and
+              hybrid-friendly roles.
             </p>
 
             {/* Skills */}
