@@ -16,18 +16,18 @@ export default function Work() {
         <div className="mt-5 h-px bg-border" />
       </FadeUp>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
         {workProjects.map((project, i) => (
-          <FadeUp key={project.id} delay={i * 0.07}>
-            <Link href={`/work/${project.slug}`} className="block group">
+          <FadeUp key={project.id} delay={i * 0.07} className="h-full">
+            <Link href={`/work/${project.slug}`} className="block group h-full">
               <motion.article
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="rounded-2xl overflow-hidden border border-border bg-white hover:border-ink/20 hover:shadow-sm transition-all duration-300 h-full"
+                className="flex flex-col rounded-2xl overflow-hidden border border-border bg-white hover:border-ink/20 hover:shadow-sm transition-all duration-300 h-full"
               >
-                {/* Thumbnail */}
+                {/* Thumbnail — fixed height */}
                 <div
-                  className="h-52 w-full relative flex items-end p-5"
+                  className="h-52 w-full shrink-0 relative flex items-end p-5"
                   style={{ backgroundColor: project.color }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center opacity-20">
@@ -39,18 +39,18 @@ export default function Work() {
                   </span>
                 </div>
 
-                {/* Content */}
-                <div className="p-5">
+                {/* Content — grows to fill, tags pinned to bottom */}
+                <div className="flex flex-col flex-1 p-5">
                   <p className="text-[11px] text-accent tracking-widest uppercase mb-1.5">
                     {project.category}
                   </p>
                   <h3 className="font-serif text-xl text-ink mb-2 leading-snug group-hover:text-accent transition-colors duration-200">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed mb-4">
+                  <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
                     {project.description}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <div className="flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
                         <span
