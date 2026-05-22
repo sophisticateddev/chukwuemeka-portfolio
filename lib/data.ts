@@ -1,3 +1,10 @@
+export type ProjectImage = {
+  src: string;        // e.g. /images/work/carbon-loans/hero.jpg
+  alt: string;        // descriptive alt text for accessibility
+  caption?: string;   // optional caption shown below the image
+  wide?: boolean;     // true = spans full width; false (default) = 2-col grid
+};
+
 export type Project = {
   id: number;
   slug: string;
@@ -17,6 +24,18 @@ export type Project = {
     process?: string;
     researchFindings?: string[];
     outcomes?: string[];
+    /**
+     * Hero image shown at the top of the case study page.
+     * Drop the file in: public/images/work/<slug>/hero.jpg
+     * Then set this to: "/images/work/<slug>/hero.jpg"
+     */
+    hero?: string;
+    /**
+     * Gallery images shown after Research Findings.
+     * Drop files in: public/images/work/<slug>/
+     * Use wide:true for full-width images (e.g. final screens, wireframe spreads).
+     */
+    images?: ProjectImage[];
   };
 };
 

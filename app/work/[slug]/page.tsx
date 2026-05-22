@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { workProjects } from "@/lib/data";
 
@@ -44,7 +45,7 @@ export default function CaseStudyPage({ params }: Props) {
         </Link>
       </div>
 
-      {/* Hero */}
+      {/* Hero header */}
       <header className="px-6 md:px-10 max-w-6xl mx-auto pt-14 pb-12 border-b border-rim">
         <p className="text-xs text-accent tracking-widest uppercase mb-4">{project.category}</p>
         <h1 className="font-serif text-4xl md:text-6xl text-ink leading-tight mb-6 max-w-3xl">
@@ -81,20 +82,33 @@ export default function CaseStudyPage({ params }: Props) {
         </div>
       </header>
 
-      {/* Thumbnail */}
-      <div
-        className="w-full h-[340px] md:h-[500px] flex items-center justify-center relative overflow-hidden"
-        style={{ backgroundColor: project.color }}
-      >
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="w-72 h-72 rounded-full border-2 border-ink" />
-          <div className="w-48 h-48 rounded-full border border-ink absolute translate-x-24 translate-y-12" />
-          <div className="w-32 h-32 rounded-full border border-ink absolute -translate-x-20 -translate-y-8" />
+      {/* Hero image — real image if provided, colour placeholder otherwise */}
+      {d?.hero ? (
+        <div className="w-full h-[340px] md:h-[560px] relative overflow-hidden">
+          <Image
+            src={d.hero}
+            alt={`${project.title} — cover image`}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
         </div>
-        <p className="relative z-10 text-xs text-ink/30 tracking-widest uppercase">
-          Project visuals coming soon
-        </p>
-      </div>
+      ) : (
+        <div
+          className="w-full h-[340px] md:h-[500px] flex items-center justify-center relative overflow-hidden"
+          style={{ backgroundColor: project.color }}
+        >
+          <div className="absolute inset-0 flex items-center justify-center opacity-10">
+            <div className="w-72 h-72 rounded-full border-2 border-ink" />
+            <div className="w-48 h-48 rounded-full border border-ink absolute translate-x-24 translate-y-12" />
+            <div className="w-32 h-32 rounded-full border border-ink absolute -translate-x-20 -translate-y-8" />
+          </div>
+          <p className="relative z-10 text-xs text-ink/30 tracking-widest uppercase">
+            Add hero image → public/images/work/{project.slug}/hero.jpg
+          </p>
+        </div>
+      )}
 
       {/* Case study body */}
       {d && (
@@ -157,6 +171,37 @@ export default function CaseStudyPage({ params }: Props) {
                   <div key={i} className="rounded-xl border border-rim bg-white p-5">
                     <p className="text-sm text-muted leading-relaxed">{f}</p>
                   </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Image gallery — shown between research and outcomes */}
+          {d.images && d.images.length > 0 && (
+            <section>
+              <div className="h-px bg-rim mb-10" />
+              <h2 className="font-serif text-2xl text-ink mb-6">Design</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {d.images.map((img, i) => (
+                  <figure
+                    key={i}
+                    className={`rounded-2xl overflow-hidden border border-rim bg-white${img.wide ? " sm:col-span-2" : ""}`}
+                  >
+                    <div className={`relative w-full ${img.wide ? "aspect-[16/7]" : "aspect-[4/3]"}`}>
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover"
+                        sizes={img.wide ? "100vw" : "(min-width: 640px) 50vw, 100vw"}
+                      />
+                    </div>
+                    {img.caption && (
+                      <figcaption className="text-xs text-muted px-5 py-3 border-t border-rim">
+                        {img.caption}
+                      </figcaption>
+                    )}
+                  </figure>
                 ))}
               </div>
             </section>
