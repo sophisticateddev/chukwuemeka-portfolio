@@ -13,14 +13,14 @@ export default function Work() {
           label="Selected work"
           title="Products used by millions,"
           titleMuted="designed to be understood."
-          intro={`${workProjects.length} case studies across fintech, sustainability, logistics and Web3.`}
+          intro={`${workProjects.length} case studies across games, fintech, sustainability, logistics and Web3.`}
         />
 
         <ul className="grid gap-4 md:grid-cols-2">
           {workProjects.map((project, i) => (
-            <li key={project.id}>
-              <FadeUp delay={(i % 2) * 0.08} className="h-full">
-                <WorkCard project={project} index={i} />
+            <li key={project.id} className={i === 0 ? "md:col-span-2" : ""}>
+              <FadeUp delay={i === 0 ? 0 : ((i - 1) % 2) * 0.08} className="h-full">
+                <WorkCard project={project} index={i} featured={i === 0} />
               </FadeUp>
             </li>
           ))}

@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { workProjects } from "@/lib/data";
+import CaseStudyView from "@/components/case-study/CaseStudyView";
 
 interface Props {
   params: { slug: string };
@@ -69,6 +70,8 @@ export default function CaseStudyPage({ params }: Props) {
   const d = project.details;
   const currentIndex = workProjects.findIndex((p) => p.slug === params.slug);
   const next = workProjects[(currentIndex + 1) % workProjects.length];
+
+  if (project.caseStudy) return <CaseStudyView project={project} cs={project.caseStudy} next={next} />;
 
   const meta = [
     { label: "Role", value: d?.role },

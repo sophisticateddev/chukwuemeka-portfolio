@@ -7,8 +7,18 @@ import Arrow from "./Arrow";
 import CountUp from "./CountUp";
 import type { Project } from "@/lib/data";
 
-export default function WorkCard({ project, index }: { project: Project; index: number }) {
+export default function WorkCard({
+  project,
+  index,
+  featured = false,
+}: {
+  project: Project;
+  index: number;
+  /** Lead case study: spans the grid, cover beside the text on desktop */
+  featured?: boolean;
+}) {
   const ref = useRef<HTMLElement>(null);
+  const cover = project.cover ?? project.details?.hero;
 
   // Spotlight follows the pointer via CSS variables — no re-renders.
   const onPointerMove = (e: React.PointerEvent) => {
@@ -23,7 +33,7 @@ export default function WorkCard({ project, index }: { project: Project; index: 
     <article
       ref={ref}
       onPointerMove={onPointerMove}
-      className="group relative isolate flex h-full flex-col rounded-2xl border border-line bg-surface p-3 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:border-control focus-within:border-control motion-safe:hover:-translate-y-1 motion-safe:focus-within:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(198,241,53,0.25)]"
+      className={`group relative isolate flex h-full flex-col ${featured ? "md:flex-row md:gap-2" : ""} rounded-2xl border border-line bg-surface p-3 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:border-control focus-within:border-control motion-safe:hover:-translate-y-1 motion-safe:focus-within:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(198,241,53,0.25)]`}
     >
       <span
         aria-hidden="true"
@@ -35,14 +45,14 @@ export default function WorkCard({ project, index }: { project: Project; index: 
       />
 
       {/* Cover — real image when provided, headline metric otherwise */}
-      <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-raised">
-        {project.details?.hero ? (
+      <div className={`relative aspect-[16/9] overflow-hidden rounded-xl bg-raised ${featured ? "md:aspect-auto md:min-h-[360px] md:w-[58%] md:shrink-0" : ""}`}>
+        {cover ? (
           <Image
-            src={project.details.hero}
+            src={cover}
             alt=""
             fill
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
+            sizes={featured ? "(min-width: 768px) 60vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+            className="object-cover object-top transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
           />
         ) : (
           <div className="flex h-full flex-col justify-between p-5 md:p-6">
@@ -61,8 +71,14 @@ export default function WorkCard({ project, index }: { project: Project; index: 
       </div>
 
       <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
+        {featured && (
+          <p className="eyebrow mb-3 flex items-center gap-2 text-accent">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent motion-safe:animate-pulse" />
+            Featured case study
+          </p>
+        )}
         <p className="eyebrow">{project.category}</p>
-        <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
+        <h3 className={`mt-2 font-display font-semibold tracking-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
           {/* Stretched link: the whole card is one click target, one tab stop */}
           <Link
             href={`/work/${project.slug}`}

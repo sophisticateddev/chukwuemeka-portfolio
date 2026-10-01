@@ -1,3 +1,6 @@
+import type { CaseStudy } from "./case-study";
+import { characterGuess } from "@/content/case-studies/character-guess";
+
 export type ProjectImage = {
   src: string;        // e.g. /images/work/carbon-loans/hero.jpg
   alt: string;        // descriptive alt text for accessibility
@@ -16,6 +19,10 @@ export type Project = {
   color: string;
   /** Headline fact shown on the card and case study hero */
   highlight: { value: string; label: string };
+  /** Card cover image; falls back to details.hero, then the highlight metric */
+  cover?: string;
+  /** Rich, recruiter-focused case study. When present, it replaces the classic layout. */
+  caseStudy?: CaseStudy;
   details?: {
     overview: string;
     role: string;
@@ -42,6 +49,20 @@ export type Project = {
 };
 
 export const workProjects: Project[] = [
+  {
+    id: 7,
+    slug: "character-guess",
+    title: "Character Guess",
+    category: "Consumer · Game · Designed & built with AI",
+    year: "2025–now",
+    description:
+      "A family game night turned into a live multiplayer quiz game. I designed it end to end and built the front end with Claude Code, in a team of three.",
+    tags: ["Product design", "AI-built", "Design system"],
+    color: "#1A1033",
+    highlight: { value: "100+", label: "beta players, all word of mouth" },
+    cover: "/images/work/character-guess/landing-desktop-dark.jpg",
+    caseStudy: characterGuess,
+  },
   {
     id: 1,
     slug: "albert-sustainability-platform",
