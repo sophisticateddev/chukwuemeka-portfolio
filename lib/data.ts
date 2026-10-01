@@ -280,51 +280,107 @@ export const workProjects: Project[] = [
   },
 ];
 
-export const articles = [
+export type Article = {
+  id: number;
+  /** Used for on-site articles at /writing/<slug> and for the cover illustration */
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
+  tag: string;
+  excerpt: string;
+  /** Set for articles published elsewhere; omit for articles hosted on this site */
+  url?: string;
+  source?: "Medium";
+};
+
+// Newest first. On-site article bodies live in content/articles/<slug>.tsx.
+export const articles: Article[] = [
   {
     id: 1,
+    slug: "mastering-the-8pt-grid",
     title: "Mastering the 8pt Grid: The Secret to Pixel-Perfect UI",
     date: "April 21, 2025",
-    readTime: "4 min read",
+    readTime: "6 min read",
     tag: "Design",
     excerpt:
-      "The 8pt grid isn't a constraint — it's a cheat code. Here's how to use it to build interfaces that feel effortlessly precise.",
+      "The 8pt grid isn't a constraint, it's a cheat code. Here's how I use it to build interfaces that feel effortlessly precise.",
   },
   {
     id: 2,
+    slug: "designing-for-everyone",
     title: "Designing for Everyone: 5 Accessibility Tips Every Designer Should Know",
     date: "March 13, 2025",
-    readTime: "5 min read",
+    readTime: "7 min read",
     tag: "Accessibility",
     excerpt:
-      "Accessibility is not a feature. It's a baseline. Here are five practical things you can do in your next design review.",
+      "Accessibility is not a feature. It's a baseline. Five practical things you can bring to your next design review.",
   },
   {
     id: 3,
-    title: "How AI Is Shaping Better UX — Whether You Know It or Not",
+    slug: "how-ai-is-shaping-better-ux",
+    title: "How AI Is Shaping Better UX, Whether You Know It or Not",
     date: "February 14, 2025",
-    readTime: "5 min read",
+    readTime: "6 min read",
     tag: "AI & Design",
     excerpt:
       "AI is already embedded in the products we design. Understanding it changes how you make decisions, not just how fast you make them.",
   },
   {
     id: 4,
+    slug: "from-flexbox-to-figma",
     title: "From Flexbox to Figma: How Flexbox Inspired Auto Layout",
     date: "January 1, 2025",
-    readTime: "4 min read",
+    readTime: "6 min read",
     tag: "Figma",
     excerpt:
-      "Auto Layout in Figma didn't come from nowhere. Understanding its CSS roots makes you dramatically better at using it.",
+      "Auto Layout didn't come from nowhere. Understanding its CSS roots makes you dramatically better at using it, and at talking to engineers.",
   },
   {
     id: 5,
+    slug: "how-to-prioritize-like-a-pro",
     title: "How to Prioritize Like a Pro: Juggling Multiple Design Projects Without Losing Your Mind",
     date: "December 5, 2024",
-    readTime: "5 min read",
+    readTime: "6 min read",
     tag: "Process",
     excerpt:
       "Most designers don't have a prioritisation problem. They have a clarity problem. Here's the framework that fixed mine.",
+  },
+  {
+    id: 6,
+    slug: "understanding-figma-constraints",
+    title: "Understanding Figma Constraints: From Zero to Hero",
+    date: "January 23, 2021",
+    readTime: "4 min read",
+    tag: "Figma",
+    excerpt:
+      "Constraints were a nightmare until they clicked. A walkthrough of how they decide what stretches, what stays put, and why your icons keep resizing.",
+    url: "https://medium.com/figma-africa/understanding-figma-constraints-from-zero-to-hero-137725c4136",
+    source: "Medium",
+  },
+  {
+    id: 7,
+    slug: "twitter-dm-redesign",
+    title: "Twitter DM Redesign",
+    date: "February 3, 2020",
+    readTime: "2 min read",
+    tag: "Case study",
+    excerpt:
+      "I lost a design gig because a DM notification vanished before I read it. So I redesigned how Twitter handles unread messages.",
+    url: "https://kingsleyiheonye.medium.com/twitter-dm-redesign-c65d0297badd",
+    source: "Medium",
+  },
+  {
+    id: 8,
+    slug: "users-should-have-a-say",
+    title: "The Users Should Have a Say in Your Design Process (Bicycle Design)",
+    date: "December 10, 2019",
+    readTime: "3 min read",
+    tag: "UX",
+    excerpt:
+      "A bike-builder concept that hands people control over every choice, and why feeling in charge makes a purchase feel like yours.",
+    url: "https://medium.com/figma-africa/the-users-should-have-a-say-in-your-design-process-bicycle-design-edbf73920534",
+    source: "Medium",
   },
 ];
 

@@ -56,6 +56,41 @@
     @apply btn border border-control text-ink hover:border-ink hover:bg-ink/5;
   }
 
+  /* Long-form article body. Blocks marked .not-prose opt out. */
+  .prose-article {
+    @apply max-w-[68ch] text-lg leading-[1.75] text-muted;
+  }
+  .prose-article > :where(p, ul, ol):not(.not-prose) {
+    @apply mt-6;
+  }
+  .prose-article > :where(h2):not(.not-prose) {
+    @apply mt-16 font-display text-3xl font-semibold leading-tight tracking-tight text-ink;
+  }
+  .prose-article > :where(h3):not(.not-prose) {
+    @apply mt-10 font-display text-xl font-semibold tracking-tight text-ink;
+  }
+  .prose-article :where(strong) {
+    @apply font-semibold text-ink;
+  }
+  .prose-article > :where(ul, ol) {
+    @apply space-y-3 pl-6;
+  }
+  .prose-article > ul {
+    @apply list-disc marker:text-accent;
+  }
+  .prose-article > ol {
+    @apply list-decimal marker:font-mono marker:text-accent;
+  }
+  .prose-article :where(a):not(.not-prose a) {
+    @apply text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-accent;
+  }
+  .prose-article :where(code):not(pre code) {
+    @apply rounded bg-raised px-1.5 py-0.5 font-mono text-[0.85em] text-ink;
+  }
+  .prose-article > p:first-of-type::first-letter {
+    @apply float-left mr-3 mt-1 font-display text-6xl font-semibold leading-[0.85] text-accent;
+  }
+
   /* Underline that grows from the left on hover / keyboard focus */
   .link-grow {
     @apply bg-gradient-to-r from-current to-current bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size,color] duration-300 ease-out hover:bg-[length:100%_1px] focus-visible:bg-[length:100%_1px];
