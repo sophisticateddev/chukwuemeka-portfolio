@@ -460,4 +460,22 @@ export const experience = [
     description:
       "Designed responsive web and mobile fintech applications. Conducted usability testing and delivered iterative design improvements across client engagements.",
   },
+  {
+    id: 7,
+    role: "Product Designer",
+    company: "ThankYouCash (Connected Analytics)",
+    location: "Lagos, Nigeria",
+    period: "Dec 2019 — Sep 2020",
+    description:
+      "Designed loyalty and rewards experiences for 400+ merchants, from fuel stations to coffee brands, serving 200K+ customers. Shaped how businesses issue rewards and how customers earn and redeem them across web and mobile.",
+  },
+  {
+    id: 8,
+    role: "Product Designer & Front-end Developer",
+    company: "Traindemy",
+    location: "Lagos, Nigeria",
+    period: "Jun 2019 — Dec 2019",
+    description:
+      "Where it started: designing and building a platform to take vocational education digital. Worked across design and front-end code for 40+ teachers and 10,000+ learners.",
+  },
 ];

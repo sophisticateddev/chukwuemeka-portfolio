@@ -11,7 +11,7 @@ export default function Experience() {
           id="experience-title"
           index="03"
           label="Experience"
-          title="Six years, from research"
+          title="Seven years, from research"
           titleMuted="to shipped product."
         />
 

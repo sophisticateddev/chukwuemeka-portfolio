@@ -7,7 +7,7 @@ import Magnetic from "./Magnetic";
 import RevealWords from "./RevealWords";
 
 const stats = [
-  { value: "6+", label: "years designing digital products" },
+  { value: "7+", label: "years designing digital products" },
   { value: "3M+", label: "users served at Carbon MFB" },
   { value: "1 min", label: "Africhange transfers, down from 2 hours" },
   { value: "+25%", label: "accessibility & engagement at albert" },
@@ -43,7 +43,7 @@ export default function Hero() {
 
         <FadeUp delay={0.7}>
           <p className="mt-8 max-w-2xl text-lg text-muted md:text-xl md:leading-relaxed">
-            6+ years across fintech, SaaS and enterprise. I take ideas from research to Figma
+            7+ years across fintech, SaaS and enterprise. I take ideas from research to Figma
             to working code, using AI to prototype faster, test sooner and ship products that
             hold up for real people.
           </p>

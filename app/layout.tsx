@@ -29,11 +29,11 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
   description:
-    "Senior Product Designer with 6+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in Nottingham, UK.",
+    "Senior Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in Nottingham, UK.",
   openGraph: {
     title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
     description:
-      "Senior Product Designer with 6+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
+      "Senior Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
     type: "website",
   },
 };

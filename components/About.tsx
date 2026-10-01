@@ -46,7 +46,7 @@ export default function About() {
           <FadeUp className="space-y-6 text-lg text-muted">
             <p>
               I’m Chukwuemeka, a product designer who grew up in Nigeria and now lives in
-              Nottingham. I’ve spent 6+ years designing digital products at places like BAFTA,
+              Nottingham. I’ve spent 7+ years designing digital products at places like BAFTA,
               Carbon MFB and Writesea, where I design AI-powered writing and publishing tools.
             </p>
             <p>
