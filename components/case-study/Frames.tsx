@@ -31,12 +31,13 @@ export function PhoneFrame({
 /** Browser window mockup for 1440×900 captures (16:10). */
 export function BrowserFrame({
   shot,
-  url = "characterguess.com",
+  url,
   priority = false,
   className = "",
   sizes = "(min-width: 1024px) 800px, 100vw",
 }: {
   shot: Shot;
+  /** Shown in the address bar; omit to show an empty bar */
   url?: string;
   priority?: boolean;
   className?: string;
@@ -50,7 +51,9 @@ export function BrowserFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
         </span>
-        <span className="mx-auto truncate rounded-md bg-canvas px-3 py-1 font-mono text-[11px] text-muted">{url}</span>
+        <span className="mx-auto min-w-[40%] truncate rounded-md bg-canvas px-3 py-1 text-center font-mono text-[11px] text-muted">
+          {url ?? "\u00A0"}
+        </span>
         <span className="w-[46px]" />
       </div>
       <div className="relative aspect-[16/10]">

@@ -37,7 +37,11 @@ export type CaseStudy = {
   team?: Section<{
     members: { name: string; role: string; owned: string; me?: boolean }[];
   }>;
-  insights?: Section<{ items: { title: string; body: string }[] }>;
+  insights?: Section<{ intro?: string; items: { title: string; body: string }[] }>;
+  /** How the work was done, with research and design artefacts */
+  process?: Section<{ steps: { title: string; body: string }[]; artifacts?: Shot[] }>;
+  /** The starting point of a redesign */
+  before?: Section<{ intro?: string; shots: Shot[] }>;
   decisions?: Section<{ items: Decision[] }>;
   evolution?: Section<{ items: { date: string; title: string; body: string }[] }>;
   mobile?: Section<{ intro?: string; shots: Shot[] }>;

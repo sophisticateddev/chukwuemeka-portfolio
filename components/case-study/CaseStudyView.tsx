@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import Arrow from "@/components/Arrow";
@@ -35,9 +36,11 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
     cs.origin && { id: "origin", label: "Origin" },
     cs.context && { id: "context", label: "Problem & context" },
     cs.team && { id: "team", label: "Role & team" },
-    cs.insights && { id: "insights", label: "Insights" },
+    cs.insights && { id: "insights", label: "Research & insights" },
+    cs.process && { id: "process", label: "Process" },
     cs.decisions && { id: "decisions", label: "Key decisions" },
     cs.evolution && { id: "evolution", label: "How V1 evolved" },
+    cs.before && { id: "before", label: "Before" },
     cs.mobile && { id: "mobile", label: "Mobile" },
     cs.web && { id: "web", label: "Web" },
     cs.designSystem && { id: "design-system", label: "Design system" },
@@ -47,6 +50,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
     cs.reflection && { id: "reflection", label: "Reflection & next" },
   ].filter(Boolean) as { id: string; label: string }[];
   const label = (id: string) => sections.find((s) => s.id === id)!.label;
+  const host = cs.liveUrl ? new URL(cs.liveUrl).host : project.title;
 
   return (
     <main id="main" tabIndex={-1} className="outline-none">
@@ -112,7 +116,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
             </div>
 
             <FadeUp delay={0.25} className="relative pb-10 pr-6 sm:pr-16">
-              {cs.hero.desktop && <BrowserFrame shot={cs.hero.desktop} priority />}
+              {cs.hero.desktop && <BrowserFrame shot={cs.hero.desktop} url={host} priority />}
               <div
                 className={
                   cs.hero.desktop ? "absolute -bottom-2 right-0 w-[34%] max-w-[200px]" : "mx-auto w-[60%] max-w-[280px]"
@@ -229,6 +233,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
           {cs.insights && (
             <Block id="insights" label={label("insights")} takeaway={cs.insights.takeaway}>
+              {cs.insights.intro && <p className="mb-8 max-w-[68ch] text-lg text-muted">{cs.insights.intro}</p>}
               <ol className="grid gap-4 md:grid-cols-2">
                 {cs.insights.items.map((it, i) => (
                   <li key={it.title} className="rounded-2xl border border-line bg-surface p-6">
@@ -238,6 +243,32 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                   </li>
                 ))}
               </ol>
+            </Block>
+          )}
+
+          {cs.process && (
+            <Block id="process" label={label("process")} takeaway={cs.process.takeaway}>
+              <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {cs.process.steps.map((s, i) => (
+                  <li key={s.title} className="rounded-2xl border border-line bg-surface p-6">
+                    <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">{s.title}</h3>
+                    <p className="mt-2 text-muted">{s.body}</p>
+                  </li>
+                ))}
+              </ol>
+              {cs.process.artifacts && (
+                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                  {cs.process.artifacts.map((a) => (
+                    <figure key={a.src}>
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-white">
+                        <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 450px, 100vw" className="object-contain p-2" />
+                      </div>
+                      {a.caption && <figcaption className="mt-3 text-sm text-muted">{a.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </div>
+              )}
             </Block>
           )}
 
@@ -305,6 +336,22 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
             </Block>
           )}
 
+          {cs.before && (
+            <Block id="before" label={label("before")} takeaway={cs.before.takeaway}>
+              {cs.before.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.before.intro}</p>}
+              <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                {cs.before.shots.map((s) => (
+                  <li key={s.src}>
+                    <figure>
+                      <PhoneFrame shot={s} sizes="(min-width: 640px) 220px, 45vw" className="opacity-90 grayscale-[35%]" />
+                      {s.caption && <figcaption className="mt-4 text-sm text-muted">{s.caption}</figcaption>}
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            </Block>
+          )}
+
           {cs.mobile && (
             <Block id="mobile" label={label("mobile")} takeaway={cs.mobile.takeaway}>
               {cs.mobile.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.mobile.intro}</p>}
@@ -333,7 +380,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               <div className="grid gap-8 md:grid-cols-2">
                 {cs.web.shots.map((s, i) => (
                   <figure key={s.src} className={i === 0 ? "md:col-span-2" : ""}>
-                    <BrowserFrame shot={s} sizes={i === 0 ? "(min-width: 1024px) 900px, 100vw" : "(min-width: 768px) 450px, 100vw"} />
+                    <BrowserFrame shot={s} url={host} sizes={i === 0 ? "(min-width: 1024px) 900px, 100vw" : "(min-width: 768px) 450px, 100vw"} />
                     {s.caption && <figcaption className="mt-3 text-sm text-muted">{s.caption}</figcaption>}
                   </figure>
                 ))}

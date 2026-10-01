@@ -1,5 +1,10 @@
 import type { CaseStudy } from "./case-study";
 import { characterGuess } from "@/content/case-studies/character-guess";
+import { carbonLoans } from "@/content/case-studies/carbon-loans";
+import { carbonZero } from "@/content/case-studies/carbon-zero";
+import { africhange } from "@/content/case-studies/africhange";
+import { nippyboxes } from "@/content/case-studies/nippyboxes";
+import { coinbycedar } from "@/content/case-studies/coinbycedar";
 
 export type ProjectImage = {
   src: string;        // e.g. /images/work/carbon-loans/hero.jpg
@@ -104,6 +109,8 @@ export const workProjects: Project[] = [
     tags: ["Fintech", "Mobile", "Redesign"],
     color: "#E8E4DC",
     highlight: { value: "+15%", label: "target lift in loan applications" },
+    cover: "/images/work/carbon-loans/cover.jpg",
+    caseStudy: carbonLoans,
     details: {
       overview:
         "The redesign aimed to reward loyal customers, enhance the user experience across the loan journey, and increase profit margins. Carbon MFB is one of Africa's fastest-growing digital banks, serving over 3 million users across Nigeria.",
@@ -148,6 +155,8 @@ export const workProjects: Project[] = [
     tags: ["BNPL", "Fintech", "B2C"],
     color: "#E4E1D8",
     highlight: { value: "< 1 min", label: "from purchase to payment" },
+    cover: "/images/work/carbon-zero/cover.jpg",
+    caseStudy: carbonZero,
     details: {
       overview:
         "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product's long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
@@ -182,6 +191,8 @@ export const workProjects: Project[] = [
     tags: ["Fintech", "Redesign", "Research"],
     color: "#E4DDE4",
     highlight: { value: "1 min", label: "transfer time, down from 2 hours" },
+    cover: "/images/work/africhange/cover.jpg",
+    caseStudy: africhange,
     details: {
       overview:
         "The goal was to redesign and improve the user experience of a money transfer product enabling individuals to send money from North America to Africa with ease. Despite many competing apps in the space, few had solved truly seamless and fast cross-border transfers to Africa.",
@@ -222,6 +233,8 @@ export const workProjects: Project[] = [
     tags: ["Logistics", "Mobile", "B2C"],
     color: "#DCE0E4",
     highlight: { value: "80%", label: "of users couldn’t compare prices" },
+    cover: "/images/work/nippyboxes/cover.jpg",
+    caseStudy: nippyboxes,
     details: {
       overview:
         "NippyBoxes is a decentralised logistics booking and management system acting as both a delivery agent and an aggregator of third-party delivery agents — essentially an 'Uber for delivery services' with its own fleet of vehicles. The platform serves individuals, corporate clients, and fleet owners.",
@@ -262,7 +275,7 @@ export const workProjects: Project[] = [
   {
     id: 6,
     slug: "coinbycedar",
-    title: "Coinbycedar",
+    title: "Coinbycedar3",
     category: "Web3 · Product Design",
     year: "2021",
     description:
@@ -270,6 +283,8 @@ export const workProjects: Project[] = [
     tags: ["Web3", "Crypto", "Mobile"],
     color: "#E4DDD8",
     highlight: { value: "Web + mobile", label: "crypto wallet for first-timers" },
+    cover: "/images/work/coinbycedar/cover.jpg",
+    caseStudy: coinbycedar,
     details: {
       overview:
         "CoinbyCedar is a robust cryptocurrency wallet system for web and mobile, enabling users to buy, sell, send, and receive cryptocurrencies, access live pricing, and stay up to date with a crypto news feed. The system integrates with global payment gateways and provides dashboards and transaction reports.",
