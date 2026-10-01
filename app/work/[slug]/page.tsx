@@ -1,3 +1,7 @@
+import Arrow from "@/components/Arrow";
+import CountUp from "@/components/CountUp";
+import FadeUp from "@/components/FadeUp";
+import RevealWords from "@/components/RevealWords";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,6 +25,43 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item, i) => (
+        <li key={item}>
+          <FadeUp delay={i * 0.05} className="flex gap-4 text-muted">
+            <span
+              aria-hidden="true"
+              className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+            />
+            {item}
+          </FadeUp>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Block({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="border-t border-line">
+      <FadeUp className="grid gap-4 py-12 md:grid-cols-[200px_1fr] md:gap-10">
+        <h2 className="font-display text-xl font-semibold tracking-tight">
+          {title}
+        </h2>
+        <div className="text-lg">{children}</div>
+      </FadeUp>
+    </section>
+  );
+}
+
 export default function CaseStudyPage({ params }: Props) {
   const project = workProjects.find((p) => p.slug === params.slug);
   if (!project) notFound();
@@ -29,217 +70,194 @@ export default function CaseStudyPage({ params }: Props) {
   const currentIndex = workProjects.findIndex((p) => p.slug === params.slug);
   const next = workProjects[(currentIndex + 1) % workProjects.length];
 
-  return (
-    <main className="bg-paper min-h-screen">
+  const meta = [
+    { label: "Role", value: d?.role },
+    { label: "Team", value: d?.team },
+    { label: "Timeline", value: d?.timeline },
+    { label: "Focus", value: project.tags.join(" · ") },
+  ].filter((m): m is { label: string; value: string } => Boolean(m.value));
 
-      {/* Back nav */}
-      <div className="px-6 md:px-10 max-w-6xl mx-auto pt-8">
+  return (
+    <main id="main" tabIndex={-1} className="outline-none">
+      <header className="container-page pb-12 pt-28 md:pt-36">
         <Link
           href="/#work"
-          className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors duration-200"
+          className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <Arrow
+            direction="left"
+            className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-1"
+          />{" "}
           All work
         </Link>
-      </div>
 
-      {/* Hero header */}
-      <header className="px-6 md:px-10 max-w-6xl mx-auto pt-14 pb-12 border-b border-rim">
-        <p className="text-xs text-accent tracking-widest uppercase mb-4">{project.category}</p>
-        <h1 className="font-serif text-4xl md:text-6xl text-ink leading-tight mb-6 max-w-3xl">
-          {project.title}
+        <p className="eyebrow mt-10">{project.category}</p>
+        <h1 className="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] md:text-6xl lg:text-7xl">
+          <span className="sr-only">{project.title}</span>
+          <span aria-hidden="true">
+            <RevealWords text={project.title} trigger="mount" delay={0.05} />
+          </span>
         </h1>
-        <p className="text-base text-muted leading-relaxed max-w-2xl mb-8">
-          {project.description}
-        </p>
+        <FadeUp delay={0.3}>
+          <p className="mt-6 max-w-3xl text-lg text-muted md:text-xl md:leading-relaxed">
+            {project.description}
+          </p>
+        </FadeUp>
 
-        {/* Meta row */}
-        <div className="flex flex-wrap gap-x-10 gap-y-4">
-          {d?.role && (
-            <div>
-              <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Role</p>
-              <p className="text-sm text-ink">{d.role}</p>
-            </div>
-          )}
-          {d?.team && (
-            <div>
-              <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Team</p>
-              <p className="text-sm text-ink">{d.team}</p>
-            </div>
-          )}
-          {d?.timeline && (
-            <div>
-              <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Timeline</p>
-              <p className="text-sm text-ink">{d.timeline}</p>
-            </div>
-          )}
-          <div>
-            <p className="text-[11px] text-muted tracking-widest uppercase mb-1">Disciplines</p>
-            <p className="text-sm text-ink">{project.tags.join(" · ")}</p>
-          </div>
-        </div>
+        <FadeUp delay={0.4}>
+          <dl className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {meta.map((m) => (
+              <div key={m.label} className="bg-canvas p-5">
+                <dt className="eyebrow">{m.label}</dt>
+                <dd className="mt-2 text-sm">{m.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </FadeUp>
       </header>
 
-      {/* Hero image — real image if provided, colour placeholder otherwise */}
-      {d?.hero ? (
-        <div className="w-full h-[340px] md:h-[560px] relative overflow-hidden">
-          <Image
-            src={d.hero}
-            alt={`${project.title} — cover image`}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
+      {/* Cover — real image when provided, headline metric otherwise */}
+      <FadeUp delay={0.5} className="container-page">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-line bg-surface md:aspect-[21/9]">
+          {d?.hero ? (
+            <Image
+              src={d.hero}
+              alt={`${project.title} cover`}
+              fill
+              priority
+              sizes="(min-width: 1152px) 1152px, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex h-full flex-col justify-end p-6 md:p-12">
+              <p className="font-display text-5xl font-semibold tracking-[-0.04em] text-accent md:text-8xl">
+                <CountUp value={project.highlight.value} />
+              </p>
+              <p className="mt-2 text-lg text-muted">
+                {project.highlight.label}
+              </p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div
-          className="w-full h-[340px] md:h-[500px] flex items-center justify-center relative overflow-hidden"
-          style={{ backgroundColor: project.color }}
-        >
-          <div className="absolute inset-0 flex items-center justify-center opacity-10">
-            <div className="w-72 h-72 rounded-full border-2 border-ink" />
-            <div className="w-48 h-48 rounded-full border border-ink absolute translate-x-24 translate-y-12" />
-            <div className="w-32 h-32 rounded-full border border-ink absolute -translate-x-20 -translate-y-8" />
-          </div>
-          <p className="relative z-10 text-xs text-ink/30 tracking-widest uppercase">
-            Add hero image → public/images/work/{project.slug}/hero.jpg
-          </p>
-        </div>
-      )}
+      </FadeUp>
 
-      {/* Case study body */}
       {d && (
-        <div className="px-6 md:px-10 max-w-3xl mx-auto py-20 space-y-16">
+        <article className="container-page py-16 md:py-24">
+          <div className="mx-auto max-w-5xl">
+            <Block title="Overview">
+              <p className="text-muted">{d.overview}</p>
+            </Block>
 
-          {/* Overview */}
-          <section>
-            <h2 className="font-serif text-2xl text-ink mb-4">Overview</h2>
-            <p className="text-base text-muted leading-relaxed">{d.overview}</p>
-          </section>
+            {d.problems && d.problems.length > 0 && (
+              <Block title="The problem">
+                <BulletList items={d.problems} />
+              </Block>
+            )}
 
-          {/* Problems */}
-          {d.problems && d.problems.length > 0 && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-6">The Problem</h2>
-              <ul className="space-y-3">
-                {d.problems.map((p, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+            {d.goals && d.goals.length > 0 && (
+              <Block title="Goals">
+                <BulletList items={d.goals} />
+              </Block>
+            )}
 
-          {/* Goals */}
-          {d.goals && d.goals.length > 0 && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-6">Goals</h2>
-              <ul className="space-y-3">
-                {d.goals.map((g, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ink/30 shrink-0" />
-                    {g}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+            {d.process && (
+              <Block title="Process">
+                <p className="text-muted">{d.process}</p>
+              </Block>
+            )}
 
-          {/* Process */}
-          {d.process && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-4">Process</h2>
-              <p className="text-base text-muted leading-relaxed">{d.process}</p>
-            </section>
-          )}
+            {d.researchFindings && d.researchFindings.length > 0 && (
+              <Block title="Research findings">
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {d.researchFindings.map((f, i) => (
+                    <li
+                      key={f}
+                      className="rounded-2xl border border-line bg-surface p-5 text-base"
+                    >
+                      <span className="font-mono text-xs text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="mt-2 text-muted">{f}</p>
+                    </li>
+                  ))}
+                </ul>
+              </Block>
+            )}
 
-          {/* Research findings */}
-          {d.researchFindings && d.researchFindings.length > 0 && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-6">Research Findings</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {d.researchFindings.map((f, i) => (
-                  <div key={i} className="rounded-xl border border-rim bg-white p-5">
-                    <p className="text-sm text-muted leading-relaxed">{f}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
+            {d.images && d.images.length > 0 && (
+              <Block title="Design">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {d.images.map((img) => (
+                    <figure
+                      key={img.src}
+                      className={`overflow-hidden rounded-2xl border border-line bg-surface${img.wide ? " sm:col-span-2" : ""}`}
+                    >
+                      <div
+                        className={`relative w-full ${img.wide ? "aspect-[16/7]" : "aspect-[4/3]"}`}
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          className="object-cover"
+                          sizes={
+                            img.wide
+                              ? "100vw"
+                              : "(min-width: 640px) 50vw, 100vw"
+                          }
+                        />
+                      </div>
+                      {img.caption && (
+                        <figcaption className="border-t border-line px-5 py-3 text-sm text-muted">
+                          {img.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              </Block>
+            )}
 
-          {/* Image gallery — shown between research and outcomes */}
-          {d.images && d.images.length > 0 && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-6">Design</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {d.images.map((img, i) => (
-                  <figure
-                    key={i}
-                    className={`rounded-2xl overflow-hidden border border-rim bg-white${img.wide ? " sm:col-span-2" : ""}`}
-                  >
-                    <div className={`relative w-full ${img.wide ? "aspect-[16/7]" : "aspect-[4/3]"}`}>
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover"
-                        sizes={img.wide ? "100vw" : "(min-width: 640px) 50vw, 100vw"}
-                      />
-                    </div>
-                    {img.caption && (
-                      <figcaption className="text-xs text-muted px-5 py-3 border-t border-rim">
-                        {img.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Outcomes */}
-          {d.outcomes && d.outcomes.length > 0 && (
-            <section>
-              <div className="h-px bg-rim mb-10" />
-              <h2 className="font-serif text-2xl text-ink mb-6">Outcomes</h2>
-              <ul className="space-y-3">
-                {d.outcomes.map((o, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-        </div>
+            {d.outcomes && d.outcomes.length > 0 && (
+              <Block title="Outcomes">
+                <ul className="space-y-3">
+                  {d.outcomes.map((o) => (
+                    <li key={o} className="flex gap-4">
+                      <span
+                        aria-hidden="true"
+                        className="font-mono text-accent"
+                      >
+                        ✓
+                      </span>
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+              </Block>
+            )}
+          </div>
+        </article>
       )}
 
-      {/* Next project */}
-      <div className="border-t border-rim px-6 md:px-10 max-w-6xl mx-auto py-14">
-        <p className="text-xs text-muted tracking-widest uppercase mb-4">Next project</p>
+      <nav aria-label="Next case study" className="container-page pb-24">
         <Link
           href={`/work/${next.slug}`}
-          className="group inline-flex items-center gap-3 hover:gap-5 transition-all duration-300"
+          className="group flex flex-col gap-3 rounded-3xl border border-line bg-surface p-8 transition-[border-color,transform] duration-300 ease-out hover:border-control motion-safe:hover:-translate-y-1 md:flex-row md:items-center md:justify-between md:p-12"
         >
-          <span className="font-serif text-2xl md:text-3xl text-ink group-hover:text-accent transition-colors duration-200">
-            {next.title}
+          <span>
+            <span className="eyebrow block">Next case study</span>
+            <span className="mt-3 block font-display text-3xl font-semibold tracking-tight md:text-4xl">
+              {next.title}
+            </span>
           </span>
-          <span className="text-muted group-hover:text-accent transition-colors duration-200">→</span>
+          <span
+            aria-hidden="true"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-xl transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45 group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-onaccent"
+          >
+            <Arrow size={20} />
+          </span>
         </Link>
-      </div>
-
+      </nav>
     </main>
   );
 }

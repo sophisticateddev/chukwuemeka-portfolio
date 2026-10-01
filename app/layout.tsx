@@ -1,34 +1,45 @@
-import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
-import BackgroundFloats from "@/components/BackgroundFloats";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import MotionProvider from "@/components/MotionProvider";
+import BackToTop from "@/components/BackToTop";
 
-const instrumentSerif = Instrument_Serif({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const sans = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-dm-sans",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Chukwuemeka Iheonye — Senior Product Designer",
+  title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
   description:
-    "Senior Product Designer with 6+ years of experience. Based in Nottingham, UK. Open to remote and hybrid opportunities.",
+    "Senior Product Designer with 6+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in Nottingham, UK.",
   openGraph: {
-    title: "Chukwuemeka Iheonye — Senior Product Designer",
+    title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
     description:
-      "Senior Product Designer with 6+ years of experience across fintech, SaaS, and enterprise — currently at albert (BAFTA).",
+      "Senior Product Designer with 6+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0C0E",
 };
 
 export default function RootLayout({
@@ -37,12 +48,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
-      <body className="bg-paper text-ink font-sans">
-          <CustomCursor />
-          <BackgroundFloats />
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-onaccent"
+        >
+          Skip to content
+        </a>
+        <MotionProvider>
+          <Nav />
           {children}
-        </body>
+          <Footer />
+          <BackToTop />
+        </MotionProvider>
+      </body>
     </html>
   );
 }

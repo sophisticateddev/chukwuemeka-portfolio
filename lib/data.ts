@@ -14,6 +14,8 @@ export type Project = {
   description: string;
   tags: string[];
   color: string;
+  /** Headline fact shown on the card and case study hero */
+  highlight: { value: string; label: string };
   details?: {
     overview: string;
     role: string;
@@ -50,6 +52,7 @@ export const workProjects: Project[] = [
       "Redesigned the UK's national media sustainability platform for BAFTA's albert initiative, achieving a 25% improvement in accessibility and engagement across the media industry.",
     tags: ["Sustainability", "Enterprise", "Accessibility"],
     color: "#DDE4DC",
+    highlight: { value: "+25%", label: "accessibility & engagement" },
     details: {
       overview:
         "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
@@ -79,6 +82,7 @@ export const workProjects: Project[] = [
       "End-to-end redesign of Carbon MFB's loan product — improving the application journey, error handling, and UX writing to increase loan applications by 15% and reduce drop-offs by 10%.",
     tags: ["Fintech", "Mobile", "Redesign"],
     color: "#E8E4DC",
+    highlight: { value: "+15%", label: "target lift in loan applications" },
     details: {
       overview:
         "The redesign aimed to reward loyal customers, enhance the user experience across the loan journey, and increase profit margins. Carbon MFB is one of Africa's fastest-growing digital banks, serving over 3 million users across Nigeria.",
@@ -122,6 +126,7 @@ export const workProjects: Project[] = [
       "Designed Carbon's Buy Now Pay Later product from concept to launch — a zero-interest credit facility enabling customers to purchase today and spread payments over time in under one minute.",
     tags: ["BNPL", "Fintech", "B2C"],
     color: "#E4E1D8",
+    highlight: { value: "< 1 min", label: "from purchase to payment" },
     details: {
       overview:
         "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product's long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
@@ -155,6 +160,7 @@ export const workProjects: Project[] = [
       "Redesigned the global money transfer experience for Africhange — reducing transaction time from 2 hours to 1 minute through a wallet system, seamless onboarding, and multiple send options for diaspora users.",
     tags: ["Fintech", "Redesign", "Research"],
     color: "#E4DDE4",
+    highlight: { value: "1 min", label: "transfer time, down from 2 hours" },
     details: {
       overview:
         "The goal was to redesign and improve the user experience of a money transfer product enabling individuals to send money from North America to Africa with ease. Despite many competing apps in the space, few had solved truly seamless and fast cross-border transfers to Africa.",
@@ -194,6 +200,7 @@ export const workProjects: Project[] = [
       "Designed a decentralised logistics booking platform — an 'Uber for delivery' enabling individuals and businesses to compare prices across providers, track parcels, and book local, interstate, and international deliveries.",
     tags: ["Logistics", "Mobile", "B2C"],
     color: "#DCE0E4",
+    highlight: { value: "80%", label: "of users couldn’t compare prices" },
     details: {
       overview:
         "NippyBoxes is a decentralised logistics booking and management system acting as both a delivery agent and an aggregator of third-party delivery agents — essentially an 'Uber for delivery services' with its own fleet of vehicles. The platform serves individuals, corporate clients, and fleet owners.",
@@ -241,6 +248,7 @@ export const workProjects: Project[] = [
       "Designed a cryptocurrency wallet system for web and mobile — making digital asset management approachable for first-time users through reduced cognitive load, clear education, and a simple portfolio dashboard.",
     tags: ["Web3", "Crypto", "Mobile"],
     color: "#E4DDD8",
+    highlight: { value: "Web + mobile", label: "crypto wallet for first-timers" },
     details: {
       overview:
         "CoinbyCedar is a robust cryptocurrency wallet system for web and mobile, enabling users to buy, sell, send, and receive cryptocurrencies, access live pricing, and stay up to date with a crypto news feed. The system integrates with global payment gateways and provides dashboards and transaction reports.",

@@ -1,7 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
+import Magnetic from "./Magnetic";
+import RevealWords from "./RevealWords";
+
+const email = "kingsleyiheonye@gmail.com";
 
 const socials = [
   { label: "LinkedIn", href: "https://linkedin.com/in/chukwuemeka-iheonye/" },
@@ -12,69 +14,65 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="py-24 md:py-32 px-6 md:px-10 max-w-6xl mx-auto"
-    >
-      <div className="rounded-3xl bg-ink text-paper p-10 md:p-16 relative overflow-hidden">
-        {/* Background texture */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute top-8 right-12 w-64 h-64 rounded-full border border-paper" />
-          <div className="absolute bottom-4 right-32 w-40 h-40 rounded-full border border-paper" />
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full border border-paper" />
-        </div>
+    <section aria-labelledby="contact-title" id="contact" className="py-24 md:py-32">
+      <div className="container-page">
+        <FadeUp className="relative overflow-hidden rounded-3xl bg-accent p-8 text-onaccent sm:p-12 md:p-16">
+          {/* Slow-drifting rings, decorative only */}
+          <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px]">
+            <span className="absolute inset-0 rounded-full border border-onaccent/15 motion-safe:animate-[spin_40s_linear_infinite]" />
+            <span className="absolute inset-12 rounded-full border border-dashed border-onaccent/20 motion-safe:animate-[spin_60s_linear_infinite_reverse]" />
+            <span className="absolute inset-28 rounded-full border border-onaccent/10" />
+          </div>
 
-        <div className="relative z-10 max-w-lg">
-          <FadeUp>
-            <p className="text-xs text-accent tracking-widest uppercase mb-4">
-              Get in touch
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-paper mb-6 leading-[1.1]">
-              Let's build something
-              <br />
-              <span className="italic text-paper/60">worth using.</span>
-            </h2>
-            <p className="text-sm text-paper/60 leading-relaxed mb-10">
-              Have a project in mind? Whether you need a new product designed,
-              a design system built, or a senior designer to embed in your team
-              — I'd love to hear from you.
-            </p>
+          <p className="relative font-mono text-xs uppercase tracking-[0.14em]">06 / Contact</p>
+          <h2
+            id="contact-title"
+            className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl md:text-6xl"
+          >
+            <span className="sr-only">Need a designer who can also build it?</span>
+            <span aria-hidden="true">
+              <RevealWords text="Need a designer who can also build it?" />
+            </span>
+          </h2>
+          <p className="relative mt-6 max-w-xl text-lg">
+            New product, a design system, or a senior designer to embed in your team: I’d
+            love to hear about it.
+          </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href="mailto:kingsleyiheonye@gmail.com"
-                className="inline-flex items-center justify-center gap-2 bg-accent text-paper text-sm font-medium px-6 py-3.5 rounded-full hover:bg-accent/90 transition-colors duration-200"
+          <div className="relative mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Magnetic className="[&>a]:w-full">
+              <a
+                href={`mailto:${email}`}
+                className="btn group bg-onaccent text-ink hover:shadow-[0_12px_30px_-10px_rgba(11,12,14,0.6)] focus-visible:outline-onaccent"
               >
-                kingsleyiheonye@gmail.com
-              </motion.a>
-            </div>
+                Let’s build something
+                <span className="sr-only">(opens your email app)</span>
+                <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
+              </a>
+            </Magnetic>
+          </div>
 
-            {/* Social links */}
-            <div className="flex flex-wrap gap-3">
-              {socials.map((s) => (
-                <motion.a
-                  key={s.label}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+          <ul className="relative mt-10 flex flex-wrap gap-x-6 gap-y-2" aria-label="Social profiles">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-paper/50 border border-paper/15 rounded-full px-4 py-2 hover:border-paper/30 hover:text-paper/80 transition-colors duration-200"
+                  className="group inline-flex min-h-[44px] items-center gap-1 font-medium underline decoration-onaccent/40 underline-offset-4 transition-[text-decoration-color] hover:decoration-onaccent focus-visible:outline-onaccent"
                 >
                   {s.label}
-                </motion.a>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="mt-10 flex items-center justify-between text-xs text-muted">
-        <span>© {new Date().getFullYear()} Chukwuemeka Iheonye</span>
-        <span>Nottingham, UK · Open to remote</span>
+                  <Arrow
+                    direction="up-right"
+                    size={14}
+                    className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
+                  />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </FadeUp>
       </div>
     </section>
   );

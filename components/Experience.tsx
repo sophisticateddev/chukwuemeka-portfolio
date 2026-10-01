@@ -1,54 +1,51 @@
-"use client";
-
+import DrawLine from "./DrawLine";
 import FadeUp from "./FadeUp";
+import SectionHeading from "./SectionHeading";
 import { experience } from "@/lib/data";
 
 export default function Experience() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-10 max-w-6xl mx-auto">
-      <FadeUp className="mb-14">
-        <p className="text-xs text-accent tracking-widest uppercase mb-2">Background</p>
-        <h2 className="font-serif text-4xl md:text-5xl text-ink">Experience</h2>
-        <div className="mt-6 h-px bg-rim" />
-      </FadeUp>
+    <section aria-labelledby="experience-title" id="experience" className="border-t border-line py-24 md:py-32">
+      <div className="container-page">
+        <SectionHeading
+          id="experience-title"
+          index="03"
+          label="Experience"
+          title="Six years, from research"
+          titleMuted="to shipped product."
+        />
 
-      <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute left-0 md:left-[180px] top-0 bottom-0 w-px bg-rim hidden md:block" />
-
-        <div className="space-y-10 md:space-y-0">
+        <ol className="relative">
+          <DrawLine className="top-0" />
           {experience.map((item, i) => (
-            <FadeUp key={item.id} delay={i * 0.1}>
-              <div className="md:flex gap-0">
-                {/* Date column */}
-                <div className="md:w-[180px] shrink-0 md:pr-10 mb-2 md:mb-0 md:pt-1">
-                  <div className="md:text-right">
-                    <p className="text-xs text-muted tracking-wide">{item.period}</p>
-                    <p className="text-xs text-muted/60 mt-0.5">{item.location}</p>
-                  </div>
-                </div>
-
-                {/* Dot */}
-                <div className="hidden md:flex items-start pt-1.5 px-0">
-                  <div className="relative">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rim border-2 border-paper ring-1 ring-rim -translate-x-[5px]" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="md:pl-8 pb-10 md:pb-12 flex-1 border-b border-rim last:border-0">
-                  <h3 className="font-serif text-xl text-ink leading-snug mb-0.5">
-                    {item.role}
-                  </h3>
-                  <p className="text-sm text-accent mb-3">{item.company}</p>
-                  <p className="text-sm text-muted leading-relaxed">
-                    {item.description}
+            <li key={item.id} className="group relative">
+              <DrawLine />
+              <FadeUp className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
+                <div className="font-mono text-sm text-muted">
+                  <p className="flex items-center gap-2">
+                    <span
+                      aria-hidden="true"
+                      className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
+                        i === 0 ? "bg-accent motion-safe:animate-pulse" : "bg-line group-hover:bg-accent"
+                      }`}
+                    />
+                    {item.period}
                   </p>
+                  <p className="pl-3.5">{item.location}</p>
                 </div>
-              </div>
-            </FadeUp>
+                <div className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1">
+                  <h3 className="font-display text-xl font-semibold tracking-tight">
+                    {item.role}{" "}
+                    <span className="text-muted transition-colors duration-300 group-hover:text-ink">
+                      · {item.company}
+                    </span>
+                  </h3>
+                  <p className="mt-3 max-w-3xl text-muted">{item.description}</p>
+                </div>
+              </FadeUp>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

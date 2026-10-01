@@ -1,109 +1,165 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import Magnetic from "./Magnetic";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Writing", href: "#writing" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work", id: "work" },
+  { label: "AI practice", href: "/#ai", id: "ai" },
+  { label: "Experience", href: "/#experience", id: "experience" },
+  { label: "About", href: "/#about", id: "about" },
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
-  const handleNavClick = (href: string) => {
-    setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  // Highlight the section currently in the middle of the viewport.
+  useEffect(() => {
+    if (pathname !== "/") return setActive(null);
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ["work", "ai", "experience", "about", "writing", "contact"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-paper/90 backdrop-blur-md border-b border-rim"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-9 h-9 rounded-full bg-ink text-paper flex items-center justify-center font-serif text-base font-normal hover:bg-accent transition-colors duration-200"
-          aria-label="Back to top"
-        >
-          C
-        </button>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-md">
+      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between">
+        <Link href="/" className="group flex items-center gap-3 rounded-full">
+          <span
+            aria-hidden="true"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-xs font-medium text-onaccent transition-transform duration-500 ease-out motion-safe:group-hover:rotate-[360deg]"
+          >
+            CI
+          </span>
+          <span className="font-display text-sm font-semibold tracking-tight">
+            Chukwuemeka Iheonye
+          </span>
+        </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <button
-                onClick={() => handleNavClick(link.href)}
-                className="text-sm text-muted hover:text-ink transition-colors duration-200 tracking-wide"
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => {
+            const isActive = active === link.id;
+            return (
+              <li key={link.href} className="relative">
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full bg-surface ring-1 ring-line"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`relative block rounded-full px-4 py-2 text-sm transition-colors hover:text-ink ${
+                    isActive ? "text-ink" : "text-muted"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+          <li className="ml-3">
+            <Magnetic>
+              <Link href="/#contact" className="btn-primary min-h-[40px] px-5">
+                Get in touch
+              </Link>
+            </Magnetic>
+          </li>
         </ul>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          type="button"
+          className="relative flex h-11 w-11 items-center justify-center rounded-full md:hidden"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((o) => !o)}
         >
-          <span
-            className={`block w-5 h-px bg-ink transition-transform duration-200 ${
-              menuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-px bg-ink transition-opacity duration-200 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-px bg-ink transition-transform duration-200 ${
-              menuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
+          {/* Three bars that morph into a cross */}
+          <span aria-hidden="true" className="relative block h-3.5 w-5">
+            <span
+              className={`absolute left-0 top-0 h-[1.75px] w-5 rounded-full bg-current transition-transform duration-300 ease-out ${
+                menuOpen ? "translate-y-[6px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[6px] h-[1.75px] w-5 rounded-full bg-current transition-opacity duration-200 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-3 h-[1.75px] w-5 rounded-full bg-current transition-transform duration-300 ease-out ${
+                menuOpen ? "-translate-y-[6px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Reading progress */}
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progress }}
+        className="absolute inset-x-0 -bottom-px h-[2px] origin-left bg-accent"
+      />
+
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-paper border-b border-rim px-6 pb-6 pt-2"
+            id="mobile-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-line bg-canvas md:hidden"
           >
-            <ul className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-base text-ink"
+            <motion.ul
+              initial="hidden"
+              animate="shown"
+              transition={{ staggerChildren: 0.05, delayChildren: 0.05 }}
+              className="container-page flex flex-col py-4"
+            >
+              {[...navLinks, { label: "Get in touch", href: "/#contact", id: "contact" }].map((link) => (
+                <motion.li
+                  key={link.href}
+                  variants={{ hidden: { opacity: 0, x: -12 }, shown: { opacity: 1, x: 0 } }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between py-3 font-display text-lg font-medium"
                   >
                     {link.label}
-                  </button>
-                </li>
+                    {active === link.id && (
+                      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    )}
+                  </Link>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>

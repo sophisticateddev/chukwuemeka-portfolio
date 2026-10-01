@@ -1,75 +1,97 @@
-"use client";
+import Link from "next/link";
+import Arrow from "./Arrow";
+import CountUp from "./CountUp";
+import FadeUp from "./FadeUp";
+import HeroGlow from "./HeroGlow";
+import Magnetic from "./Magnetic";
+import RevealWords from "./RevealWords";
 
-import { motion } from "framer-motion";
+const stats = [
+  { value: "6+", label: "years designing digital products" },
+  { value: "3M+", label: "users served at Carbon MFB" },
+  { value: "1 min", label: "Africhange transfers, down from 2 hours" },
+  { value: "+25%", label: "accessibility & engagement at albert" },
+];
 
 export default function Hero() {
   return (
-    <section className="pt-28 pb-16 px-6 md:px-10 max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-
-        {/* Left — role + tagline */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex items-center gap-2 mb-5"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs text-muted tracking-widest uppercase">
-              Open to remote &amp; hybrid
+    <section aria-labelledby="hero-title" className="relative isolate">
+      <HeroGlow />
+      <div className="container-page pb-20 pt-32 md:pb-28 md:pt-44">
+        <FadeUp>
+          <p className="eyebrow mb-8 flex items-center gap-3">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-          </motion.div>
+            Senior Product Designer · Open to remote &amp; hybrid
+          </p>
+        </FadeUp>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-4xl md:text-6xl text-ink leading-[1.08] tracking-tight max-w-xl"
-          >
-            Senior Product Designer
-            <br />
-            <span className="italic text-muted">making complex things clear.</span>
-          </motion.h1>
-        </div>
-
-        {/* Right — details + CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="flex flex-col gap-5 md:items-end shrink-0"
+        <h1
+          id="hero-title"
+          className="max-w-5xl font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
         >
-          <div className="text-sm text-muted md:text-right space-y-1">
-            <p>Nottingham, UK</p>
-            <p>Fintech · SaaS · Enterprise</p>
-            <p>6+ years experience</p>
-          </div>
+          <span className="sr-only">I design products. Then I build them with AI.</span>
+          <span aria-hidden="true" className="block">
+            <RevealWords text="I design products." trigger="mount" delay={0.1} />
+          </span>
+          <span aria-hidden="true" className="block text-accent">
+            <RevealWords text="Then I build them with AI." trigger="mount" delay={0.35} />
+          </span>
+        </h1>
 
-          <div className="flex items-center gap-3">
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
+        <FadeUp delay={0.7}>
+          <p className="mt-8 max-w-2xl text-lg text-muted md:text-xl md:leading-relaxed">
+            6+ years across fintech, SaaS and enterprise. I take ideas from research to Figma
+            to working code, using AI to prototype faster, test sooner and ship products that
+            hold up for real people.
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.8}>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Magnetic className="[&>a]:w-full">
+              <Link href="/#work" className="btn-primary group">
+                View selected work
+                <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
+              </Link>
+            </Magnetic>
+            <a
               href="/Chukwuemeka_Iheonye_Resume.pdf"
               download="Chukwuemeka_Iheonye_Resume.pdf"
-              className="inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-5 py-2.5 rounded-full hover:bg-accent transition-colors duration-200"
+              className="btn-secondary group"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M8 2v8M5 7l3 3 3-3M3 13h10"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-y-0.5"
+                />
               </svg>
-              Download CV
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              href="mailto:kingsleyiheonye@gmail.com"
-              className="inline-flex items-center gap-2 text-sm text-muted border border-rim px-5 py-2.5 rounded-full hover:border-ink hover:text-ink transition-colors duration-200"
-            >
-              Get in touch
-            </motion.a>
+              Download CV <span className="sr-only">(PDF)</span>
+            </a>
           </div>
-        </motion.div>
+        </FadeUp>
 
+        <FadeUp delay={0.9}>
+          <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="group flex flex-col-reverse gap-2 bg-canvas p-5 transition-colors duration-300 hover:bg-surface md:p-6"
+              >
+                <dt className="text-sm text-muted">{s.label}</dt>
+                <dd className="font-display text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent md:text-3xl">
+                  <CountUp value={s.value} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </FadeUp>
       </div>
     </section>
   );
