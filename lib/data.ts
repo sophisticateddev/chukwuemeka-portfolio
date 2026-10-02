@@ -84,7 +84,7 @@ export const workProjects: Project[] = [
         "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
       role: "Senior Product Designer",
       team: "Product Designer, Product Manager, Engineering team",
-      timeline: "Jul 2024 – Jun 2025",
+      timeline: "Jul 2024 – Aug 2025",
       goals: [
         "Improve platform accessibility to WCAG standards",
         "Increase engagement across media industry users",
@@ -428,16 +428,16 @@ export const experience = [
     location: "Remote",
     period: "Oct 2024 — Present",
     description:
-      "Leading UX and product design for an AI-powered writing and publishing platform. Designing end-to-end flows from onboarding to content creation, running usability testing, and contributing to the design system — shipping AI-enabled features iteratively in agile sprints.",
+      "Designing end-to-end flows for an AI-powered writing and publishing platform, from onboarding to content creation. Launched a template builder that shortened time to market and cut support workload by 0.5 FTE, and designed admin modules for universities and resellers. Running usability tests and contributing to the design system.",
   },
   {
     id: 2,
-    role: "Senior Product Designer",
+    role: "Senior Product Designer (Contract)",
     company: "BAFTA",
     location: "London, UK",
-    period: "Jul 2024 — Jun 2025",
+    period: "Jul 2024 — Aug 2025",
     description:
-      "Led UX design across digital platforms from research through delivery. Developed journey maps, user flows, and UI designs aligned with WCAG accessibility standards. Advocated for user-centred design principles across stakeholders and digital teams.",
+      "Led UX for albert, BAFTA’s sustainability platform for the UK media industry, from discovery through delivery. Redesigned journeys and UI to WCAG standards, improving accessibility and engagement by 25%, and grounded designs in research and usability testing that increased user satisfaction by 30%.",
   },
   {
     id: 3,
