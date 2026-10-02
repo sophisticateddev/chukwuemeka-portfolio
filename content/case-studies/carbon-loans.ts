@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/carbon-loans/${name}.jpg`;
 
 export const carbonLoans: CaseStudy = {
-  headline: "Rebuilt the loan journey for a digital bank serving 3M+ people.",
+  headline: "Grew loan applications 20% and cut bad loans 10% at a bank serving 3M+ people.",
   roles: ["Lead Product Designer", "Led a team of 2 designers", "Research to handoff"],
   summary: {
     problem:
@@ -11,13 +11,13 @@ export const carbonLoans: CaseStudy = {
     did:
       "I led the redesign end to end: stakeholder interviews, research with 15 customers and 2,700+ survey responses, then a new loan dashboard, application, offer, bank statement and repayment flows.",
     result:
-      "A clearer, faster loan journey built around what customers told us: flexible tenors, decline reasons, early-repayment incentives and a home for every loan.",
+      "Every target met or beaten: loan applications up 20% against a 15% goal, drop-offs down 10%, and non-performing loans down 10%, so more people borrowed and more of them repaid.",
   },
   metrics: [
-    { value: "3M+", label: "customers on the Carbon platform" },
-    { value: "2,700+", label: "survey responses analysed" },
-    { value: "15", label: "customer interviews" },
-    { value: "12", label: "people on the product team" },
+    { value: "+20%", label: "loan applications (target: +15%)" },
+    { value: "−10%", label: "loan drop-offs (target met)" },
+    { value: "−10%", label: "non-performing loans" },
+    { value: "3M+", label: "customers on the platform" },
   ],
   hero: {
     mobile: { src: img("dashboard"), alt: "Redesigned Carbon loans dashboard showing total left to pay, active loans and loan history" },
@@ -146,13 +146,15 @@ export const carbonLoans: CaseStudy = {
   },
 
   outcomes: {
-    takeaway: "A loan experience built on evidence, not assumptions.",
+    takeaway: "Every target met or beaten, and better loans on the books.",
     items: [
       "New loan dashboard giving instant access to applications and history",
       "Simpler application and offer flow with decline reasons and alternative offers",
       "Bank statement linking from other banks to improve offer quality",
       "Clear repayment with multiple funding options",
-      "Targets set with the business: 15% more loan applications and 10% fewer drop-offs",
+      "Loan applications up 20%, beating the 15% target",
+      "Loan drop-offs down 10%, meeting the target",
+      "Non-performing loans down 10%",
     ],
   },
 

@@ -45,7 +45,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
     cs.web && { id: "web", label: "Web" },
     cs.designSystem && { id: "design-system", label: "Design system" },
     cs.accessibility && { id: "accessibility", label: "Accessibility" },
-    cs.build && { id: "build", label: "Built with AI" },
+    cs.build && { id: "build", label: "How I built it" },
     cs.outcomes && { id: "outcomes", label: "Outcomes" },
     cs.reflection && { id: "reflection", label: "Reflection & next" },
   ].filter(Boolean) as { id: string; label: string }[];
@@ -505,6 +505,17 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
           {cs.build && (
             <Block id="build" label={label("build")} takeaway={cs.build.takeaway}>
+              {cs.build.intro && <p className="mb-8 max-w-3xl text-lg text-muted">{cs.build.intro}</p>}
+              {cs.build.stats && (
+                <dl className="mb-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+                  {cs.build.stats.map((s) => (
+                    <div key={s.label} className="flex flex-col bg-surface p-5">
+                      <dt className="text-sm text-muted">{s.label}</dt>
+                      <dd className="order-first font-display text-2xl font-semibold tracking-tight text-ink">{s.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
               <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {cs.build.steps.map((s, i) => (
                   <li key={s.title} className="rounded-2xl border border-line bg-surface p-6">
@@ -516,6 +527,80 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                   </li>
                 ))}
               </ol>
+
+              {cs.build.setup && (
+                <div className="mt-14">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">How the repo keeps AI honest</h3>
+                  <div className="mt-6 grid gap-4 lg:grid-cols-3">
+                    {cs.build.setup.map((g) => (
+                      <div key={g.title} className="rounded-2xl border border-line bg-surface p-6">
+                        <h4 className="eyebrow text-accent">{g.title}</h4>
+                        <ul className="mt-4 space-y-3">
+                          {g.items.map((item) => (
+                            <li key={item} className="flex gap-3 text-muted">
+                              <Check />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {cs.build.mistakes && (
+                <div className="mt-14">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">What AI got wrong, and how I caught it</h3>
+                  <ol className="mt-6 grid gap-4 md:grid-cols-2">
+                    {cs.build.mistakes.map((m, i) => (
+                      <li key={m.title} className="flex flex-col rounded-2xl border border-line bg-surface p-6">
+                        <p className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</p>
+                        <h4 className="mt-2 font-display text-lg font-semibold tracking-tight">{m.title}</h4>
+                        <dl className="mt-4 space-y-3 text-sm">
+                          <div>
+                            <dt className="eyebrow text-[0.7rem]">What went wrong</dt>
+                            <dd className="mt-1 text-muted">{m.wrong}</dd>
+                          </div>
+                          <div>
+                            <dt className="eyebrow text-[0.7rem] text-accent">How I caught it</dt>
+                            <dd className="mt-1 text-ink">{m.caught}</dd>
+                          </div>
+                          {m.guardrail && (
+                            <div>
+                              <dt className="eyebrow text-[0.7rem]">So it can’t happen again</dt>
+                              <dd className="mt-1 text-muted">{m.guardrail}</dd>
+                            </div>
+                          )}
+                        </dl>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+
+              {cs.build.snippet && (
+                <figure className="mt-14">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">One guardrail, in code</h3>
+                  <div className="mt-6 overflow-hidden rounded-2xl border border-line bg-surface">
+                    <p className="border-b border-line px-5 py-3 font-mono text-xs text-muted">{cs.build.snippet.file}</p>
+                    <pre
+                      tabIndex={0}
+                      aria-label={`Code from ${cs.build.snippet.file}`}
+                      className="overflow-x-auto p-5 font-mono text-[0.8rem] [font-variant-ligatures:none] leading-relaxed text-ink outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    >
+                      <code>
+                        {cs.build.snippet.code.split("\n").map((line, i) => (
+                          <span key={i} className={`block ${/^\s*(\/\/|\/\*|\*)/.test(line) ? "text-muted" : ""}`}>
+                            {line || " "}
+                          </span>
+                        ))}
+                      </code>
+                    </pre>
+                  </div>
+                  <figcaption className="mt-4 max-w-3xl text-muted">{cs.build.snippet.caption}</figcaption>
+                </figure>
+              )}
             </Block>
           )}
 

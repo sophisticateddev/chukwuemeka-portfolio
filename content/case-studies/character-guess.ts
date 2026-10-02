@@ -18,7 +18,7 @@ export const characterGuess: CaseStudy = {
   },
   metrics: [
     { value: "100+", label: "beta players, all word of mouth" },
-    { value: "750+", label: "questions across 6 live categories" },
+    { value: "3,000+", label: "questions across 6 live categories" },
     { value: "3", label: "languages: English, Spanish, French" },
     { value: "320px–4K", label: "one responsive design system" },
   ],
@@ -243,21 +243,99 @@ export const characterGuess: CaseStudy = {
   },
 
   build: {
-    takeaway: "AI let a designer ship production code. A written memory of every decision kept it coherent.",
+    takeaway: "AI writes the code fast. My job is deciding what’s right, and proving it.",
+    intro:
+      "Character Guess started as an AI-generated prototype in Lovable, then moved to Claude Code once we knew the game was worth building properly. I design in the browser, brief Claude in plain language, and treat everything it writes as a pull request from a fast, confident junior: useful, and wrong often enough that nothing ships unverified.",
+    stats: [
+      { value: "1,006", label: "commits in the repo" },
+      { value: "735", label: "of them mine" },
+      { value: "512", label: "co-authored with Claude" },
+      { value: "40", label: "unit test files, plus Playwright E2E" },
+    ],
     steps: [
       { title: "Prototype to learn", body: "An AI-generated prototype let us test the core loop at real game nights within days, before designing anything polished." },
-      { title: "Design the system, in writing", body: "I captured the design language, breakpoints, accessibility rules and patterns in a living design spec that both people and AI agents follow." },
-      { title: "Build with Claude Code", body: "I built the front end with Claude Code, around 700 of the project’s ~1,000 commits. A ‘memory bank’ of context, decisions and patterns meant every session started from the same source of truth." },
-      { title: "Review, test, ship", body: "Patrick reviewed the backend and infrastructure work, ran end-to-end tests, and promoted releases from dev to beta to production." },
-      { title: "Listen and loop", body: "Gideon ran the beta and gathered player feedback, which fed straight back into priorities, including the decision to freeze V1." },
+      { title: "Brief like a designer", body: "Each prompt carries the user problem, the screen and state it lives in, the constraint that matters (mobile nav, dark mode, server-owned numbers) and how we’ll know it works. Bug briefs start from the player’s report, not my guess at the cause." },
+      { title: "Components from the system", body: "New UI is built from the design tokens and existing components, never one-off colours. A project skill tells Claude the traps before it writes a line: the bottom-nav z-index, sheet heights on short phones, and never computing coins or lives on the client." },
+      { title: "Reproduce, then fix", body: "Claude has to reproduce a bug before fixing it, find where it came from in git history, and explain the root cause in the commit. Most fix commits read like a short incident report." },
+      { title: "Verify in the browser", body: "Passing type checks isn’t done. Changes are checked live in the browser, on the real flows, before they’re called finished." },
+      { title: "Review and release", body: "Patrick reviews backend and infrastructure changes. CI blocks merges on type checks, lint, translation lint, unit tests and Playwright E2E, then releases move from dev to beta to production." },
     ],
+    setup: [
+      {
+        title: "Shared memory",
+        items: [
+          "A memory bank of context, decisions, patterns and session logs that every AI session reads first",
+          "A rule that the memory bank is updated before any task counts as done",
+          "A decision log recording why, not just what, so AI doesn’t undo deliberate choices",
+        ],
+      },
+      {
+        title: "Guardrails in code",
+        items: [
+          "Strict TypeScript on frontend and backend, checked in CI",
+          "Unit tests for game logic and content claims, Playwright for real user journeys",
+          "Translation linting so English, Spanish and French never drift apart",
+        ],
+      },
+      {
+        title: "Safe releases",
+        items: [
+          "Separate dev, beta and production environments with their own databases",
+          "Idempotent, checksummed migrations that fail fast before a deploy",
+          "Sentry error tracking and a GitHub release only after production is verified",
+        ],
+      },
+    ],
+    mistakes: [
+      {
+        title: "It advertised categories that don’t exist",
+        wrong: "AI-written landing copy and search metadata promised History, Geography and Science. None were playable, and Science didn’t exist at all.",
+        caught: "I audited every number and category claim on the page against live API data, line by line.",
+        guardrail: "A test now fails CI if the copy names a category that isn’t live. It’s the snippet below.",
+      },
+      {
+        title: "A ‘type safety’ fix broke host handover",
+        wrong: "Claude added a uuid cast to a database call whose parameter is text. Every attempt to take over hosting a multiplayer room failed.",
+        caught: "Testing a new sign-in gate locally returned an unexpected 422. Git history showed the earlier version had been right, so the fix restored it.",
+      },
+      {
+        title: "Lives showed a full refill that never happened",
+        wrong: "The new hearts system never updated its regeneration timestamp, so after one wrong answer players could see 5 lives when they had 1.",
+        caught: "Reproduced it against a local Postgres database: dropping from 5 lives to 1 still displayed 5.",
+        guardrail: "Lives are now server-authoritative, and the project skill tells AI never to compute them on the client.",
+      },
+      {
+        title: "Code that type-checked but crashed",
+        wrong: "A prop missing from a destructure crashed the landing page demo, and a share link scoped inside a callback crashed multiplayer rooms. Both passed the compiler.",
+        caught: "Clicking through the real flows in the browser, which is why browser verification is a step, not a nice-to-have.",
+      },
+      {
+        title: "Prototype leftovers in production",
+        wrong: "The original Lovable heart favicon was still shipping, and its dev plugin bundled an old Tailwind that broke the build after an upgrade.",
+        caught: "A WhatsApp link preview showed someone else’s logo, and the dev server failed with PostCSS errors.",
+        guardrail: "Replaced the icons with real brand assets and removed the plugin.",
+      },
+      {
+        title: "The AI’s memory went stale",
+        wrong: "The memory bank fell 33 days and 60+ commits behind the code, so new sessions were working from an outdated picture of the product.",
+        caught: "Checking the docs against git history turned up 60+ commits the memory bank knew nothing about.",
+        guardrail: "Updating the memory bank is now part of the definition of done.",
+      },
+    ],
+    snippet: {
+      file: "src/lib/landingClaims.test.ts",
+      language: "ts",
+      code: "// Names that must never be advertised as available: the roadmap categories,\n// plus \"Science\", which the app doesn't have at all.\nconst NOT_PLAYABLE = [...categories.comingSoon.map((c) => c.label), 'Science'];\n\ndescribe('search-result metadata', () => {\n  const description = indexHtml.match(/name=\"description\"\\s+content=\"([^\"]*)\"/)?.[1] ?? '';\n  const structured = [...indexHtml.matchAll(/\"description\":\\s*\"([^\"]*)\"/g)].map((m) => m[1]);\n\n  it.each(NOT_PLAYABLE)('does not advertise %s, which is not playable', (name) => {\n    const re = new RegExp(`\\\\b${name}\\\\b`, 'i');\n    expect(description).not.toMatch(re);\n    for (const text of structured) expect(text).not.toMatch(re);\n  });\n});",
+      caption:
+        "Written after catching AI-generated marketing copy promising categories we hadn’t built. If anyone, human or AI, puts an unreleased category in the search description again, CI fails before it ships.",
+    },
   },
 
   outcomes: {
     takeaway: "A real product, used by real people, built by a team of three.",
     items: [
       "Live at characterguess.com with 100+ beta players, grown entirely by word of mouth",
-      "6 live categories, 750+ questions and 3 languages",
+      "6 live categories, 450 characters, 3,000+ questions and 3 languages",
       "Installable on any phone with offline support and self-updating releases",
       "Reliable release pipeline with separate dev, beta and production environments",
       "Consistently positive feedback from families, church groups and football fans",

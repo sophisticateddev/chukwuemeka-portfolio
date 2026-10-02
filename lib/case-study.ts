@@ -57,7 +57,18 @@ export type CaseStudy = {
     done: { title: string; body: string }[];
     gaps?: { title: string; body: string }[];
   }>;
-  build?: Section<{ steps: { title: string; body: string }[] }>;
+  build?: Section<{
+    intro?: string;
+    /** Headline numbers for the build, e.g. commits or tests */
+    stats?: { value: string; label: string }[];
+    steps: { title: string; body: string }[];
+    /** How the repo is set up so AI output stays reviewable */
+    setup?: { title: string; items: string[] }[];
+    /** One real snippet from the codebase, with why it exists */
+    snippet?: { file: string; language: string; code: string; caption: string };
+    /** Real mistakes AI made and how they were caught. Each should trace to a commit. */
+    mistakes?: { title: string; wrong: string; caught: string; guardrail?: string }[];
+  }>;
   outcomes?: Section<{ items: string[] }>;
   /** Real quotes only. The section is hidden while this is empty. */
   testimonials?: { quote: string; name: string; context?: string }[];

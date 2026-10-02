@@ -105,10 +105,10 @@ export const workProjects: Project[] = [
     category: "Fintech · Product Design",
     year: "2023",
     description:
-      "End-to-end redesign of Carbon MFB's loan product — improving the application journey, error handling, and UX writing to increase loan applications by 15% and reduce drop-offs by 10%.",
+      "End-to-end redesign of Carbon MFB's loan product. Loan applications rose 20%, beating the 15% target, while drop-offs and non-performing loans each fell 10%.",
     tags: ["Fintech", "Mobile", "Redesign"],
     color: "#E8E4DC",
-    highlight: { value: "+15%", label: "target lift in loan applications" },
+    highlight: { value: "+20%", label: "loan applications, beating a 15% target" },
     cover: "/images/work/carbon-loans/cover.jpg",
     caseStudy: carbonLoans,
     details: {
@@ -140,7 +140,9 @@ export const workProjects: Project[] = [
         "New loan dashboard giving quick access to loan history and status",
         "Redesigned application flow with clearer loan offer presentation",
         "Improved repayment interface with multiple funding options",
-        "Targeted 15% increase in loan applications and 10% reduction in drop-offs",
+        "Loan applications up 20% against a 15% target",
+        "Loan drop-offs down 10%, meeting the target",
+        "Non-performing loans down 10%",
       ],
     },
   },
