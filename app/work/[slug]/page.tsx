@@ -20,9 +20,14 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const project = workProjects.find((p) => p.slug === params.slug);
   if (!project) return {};
+  const title = `${project.title} — Chukwuemeka Iheonye`;
+  const description = project.caseStudy?.headline ?? project.description;
   return {
-    title: `${project.title} — Chukwuemeka Iheonye`,
+    title,
     description: project.description,
+    // Setting openGraph here replaces the root one, so re-attach the shared preview image.
+    openGraph: { title, description, type: "article", images: ["/opengraph-image"] },
+    twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
   };
 }
 

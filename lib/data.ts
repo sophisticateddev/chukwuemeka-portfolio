@@ -115,7 +115,7 @@ export const workProjects: Project[] = [
       overview:
         "The redesign aimed to reward loyal customers, enhance the user experience across the loan journey, and increase profit margins. Carbon MFB is one of Africa's fastest-growing digital banks, serving over 3 million users across Nigeria.",
       role: "Lead Product Designer (UX & UI)",
-      team: "1 Senior UX Designer, 2 Designers, 1 Product Manager, 6 Developers, 1 QA, 1 Scrum Master",
+      team: "3 Designers (incl. me as lead), 1 Product Manager, 6 Developers, 1 QA, 1 Scrum Master",
       timeline: "2023",
       problems: [
         "Poor UX across the loan application journey led to high drop-off rates",
@@ -462,7 +462,7 @@ export const experience = [
     role: "Senior Product Designer",
     company: "Softcom",
     location: "Lagos, Nigeria",
-    period: "Jul 2021 — Aug 2022",
+    period: "Jul 2021 — Mar 2022",
     description:
       "Designed B2C and B2B2C SaaS applications with a strong focus on usability and accessibility. Created mobile-first, platform-specific experiences and worked closely with developers to ensure implementation aligned with design intent.",
   },

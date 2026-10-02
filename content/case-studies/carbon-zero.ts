@@ -4,7 +4,7 @@ const img = (name: string) => `/images/work/carbon-zero/${name}.jpg`;
 
 export const carbonZero: CaseStudy = {
   headline: "Buy now, pay later at 0% interest, from purchase to payment in under a minute.",
-  roles: ["Senior UX Designer", "Design sprint lead", "Research to handoff"],
+  roles: ["Lead Product Designer", "Design sprint lead", "Research to handoff"],
   summary: {
     problem:
       "Carbon Zero lets people buy today and pay in instalments at 0% interest, but the flow was slow, asked for too much, and didn’t make the ‘zero’ obvious.",
@@ -23,7 +23,7 @@ export const carbonZero: CaseStudy = {
     mobile: { src: img("new-purchase"), alt: "Carbon Zero new purchase screen with a payment plan split into instalments" },
   },
   meta: [
-    { label: "Role", value: "Senior UX Designer (design lead)" },
+    { label: "Role", value: "Lead Product Designer" },
     { label: "Team", value: "3 designers, 1 PM, 5 engineers, 1 scrum master" },
     { label: "Platform", value: "iOS and Android" },
     { label: "Tools", value: "Figma, Miro, Confluence, Jira" },
@@ -47,7 +47,7 @@ export const carbonZero: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Senior UX Designer",
+        role: "Lead Product Designer",
         owned: "Discovery, sprint facilitation, interaction design, UI and prototypes; led two designers.",
         me: true,
       },

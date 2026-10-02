@@ -9,7 +9,7 @@ const socials = [
   { label: "LinkedIn", href: "https://linkedin.com/in/chukwuemeka-iheonye/" },
   { label: "Figma", href: "https://figma.com/@kingsleyiheonye" },
   { label: "ADPList", href: "https://adplist.org/mentors/chukwuemeka-iheonye" },
-  { label: "Twitter", href: "https://twitter.com" },
+  { label: "X", href: "https://x.com/kingsleyiheonye" },
 ];
 
 export default function Contact() {

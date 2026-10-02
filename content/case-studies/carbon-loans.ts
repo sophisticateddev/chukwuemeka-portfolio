@@ -4,7 +4,7 @@ const img = (name: string) => `/images/work/carbon-loans/${name}.jpg`;
 
 export const carbonLoans: CaseStudy = {
   headline: "Rebuilt the loan journey for a digital bank serving 3M+ people.",
-  roles: ["Senior UX Designer", "Led a team of 2 designers", "Research to handoff"],
+  roles: ["Lead Product Designer", "Led a team of 2 designers", "Research to handoff"],
   summary: {
     problem:
       "Loans are the heart of Carbon’s business, but customers were confused by wordy screens, unclear offers and declines with no explanation, so many never took up the loans they qualified for.",
@@ -23,7 +23,7 @@ export const carbonLoans: CaseStudy = {
     mobile: { src: img("dashboard"), alt: "Redesigned Carbon loans dashboard showing total left to pay, active loans and loan history" },
   },
   meta: [
-    { label: "Role", value: "Senior UX Designer (design lead)" },
+    { label: "Role", value: "Lead Product Designer" },
     { label: "Team", value: "3 designers, 1 PM, 6 engineers, 1 QA, 1 scrum master" },
     { label: "Platform", value: "iOS and Android" },
     { label: "Tools", value: "Figma, FigJam, Confluence, Jira" },
@@ -47,7 +47,7 @@ export const carbonLoans: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Senior UX Designer",
+        role: "Lead Product Designer",
         owned: "Research, problem framing, interaction design, UI and prototypes; led two designers and partnered with product and engineering.",
         me: true,
       },

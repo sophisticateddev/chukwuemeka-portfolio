@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
 import BackToTop from "@/components/BackToTop";
+import { siteUrl } from "@/lib/site";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
   description:
     "Senior Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in Nottingham, UK.",
@@ -35,6 +37,9 @@ export const metadata: Metadata = {
     description:
       "Senior Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
