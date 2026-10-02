@@ -494,3 +494,60 @@ export const experience = [
       "Where it started: designing and building a platform to take vocational education digital. Worked across design and front-end code for 40+ teachers and 10,000+ learners.",
   },
 ];
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  /** Their headline on LinkedIn when this was added */
+  title: string;
+  /** How we worked together, as LinkedIn records it */
+  relationship: string;
+  date: string;
+}
+
+// Verbatim from LinkedIn recommendations (public on the profile). Keep the wording as written.
+export const recommendationsUrl = "https://www.linkedin.com/in/chukwuemeka-iheonye/details/recommendations/";
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Emeka was a great Design Leader to work with:\n- He led the successful introduction of a design system into Carbon\n- He championed UI & UX improvements that energised our users while mentoring & developing a great design org\n\nFor these & his strong design research skills - I'd work with him in the future!",
+    name: "Afiola Etomi",
+    title: "Product at Mondly",
+    relationship: "Managed me at Carbon",
+    date: "Mar 2024",
+  },
+  {
+    // First paragraph of a longer recommendation
+    quote:
+      "Chukwuemeka is thorough and has his critical thinking cap on at all times. While working with him, he sees through the immediate scope of work. He identifies dependencies, edge cases, potential failure points which makes him an exceptional UX designer.",
+    name: "Olumide Olusesi",
+    title: "Senior Product Designer in Fintech",
+    relationship: "Reported to me",
+    date: "Mar 2024",
+  },
+  {
+    quote:
+      "Chukwuemeka is an exceptional designer, his UX skills and the ability to approach user problems from a different perspective was invaluable to our team. He's not afraid to push people to reach their full potential. He has an impressive ability to motivate and inspire the team while consistently setting high standards for us all. Working with him was an absolute delight.",
+    name: "Mojolaade Adegbite",
+    title: "Product (UI/UX) Designer",
+    relationship: "Reported to me",
+    date: "Mar 2024",
+  },
+  {
+    quote:
+      "Thrilled to celebrate the exceptional talent of Chukwuemeka, whom I had the pleasure of working with at Softcom. His innovative design approach, keen eye for detail, and unwavering commitment significantly contributed to the success of our products. Emeka consistently demonstrated a rare blend of creativity and strategic thinking, making a lasting impact on our team.",
+    name: "Habeeb Sanni",
+    title: "Senior Product Designer",
+    relationship: "Managed me at Softcom",
+    date: "Mar 2024",
+  },
+  {
+    quote:
+      "Emeka’s UI skill is remarkable. He’s fully committed to getting the job done and he collaborates quite well with other designers.",
+    name: "Samuel Olumoyeke",
+    title: "Senior B2B SaaS Designer",
+    relationship: "Managed me",
+    date: "May 2021",
+  },
+];

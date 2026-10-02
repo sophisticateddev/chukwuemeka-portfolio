@@ -155,4 +155,13 @@ export const carbonLoans: CaseStudy = {
       "Targets set with the business: 15% more loan applications and 10% fewer drop-offs",
     ],
   },
+
+  testimonials: [
+    {
+      quote:
+        "He led the successful introduction of a design system into Carbon. He championed UI & UX improvements that energised our users while mentoring & developing a great design org.",
+      name: "Afiola Etomi",
+      context: "managed me at Carbon (LinkedIn recommendation)",
+    },
+  ],
 };

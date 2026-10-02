@@ -16,7 +16,7 @@ export default function Writing() {
       <div className="container-page">
         <SectionHeading
           id="writing-title"
-          index="05"
+          index="06"
           label="Writing"
           title="Notes on AI,"
           titleMuted="accessibility and craft."

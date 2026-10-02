@@ -36,7 +36,7 @@ export default function About() {
       <div className="container-page">
         <SectionHeading
           id="about-title"
-          index="04"
+          index="05"
           label="About"
           title="Craft matters."
           titleMuted="Whether it works matters more."
