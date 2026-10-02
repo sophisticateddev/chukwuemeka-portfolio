@@ -78,7 +78,7 @@ export default function ArticlePage({ params }: Props) {
                 </span>
                 <p className="text-sm">
                   <span className="block font-medium text-ink">Chukwuemeka Iheonye</span>
-                  <span className="text-muted">Senior Product Designer</span>
+                  <span className="text-muted">Product Designer</span>
                 </p>
               </div>
             </FadeUp>
@@ -109,7 +109,7 @@ export default function ArticlePage({ params }: Props) {
           <div className="flex-1">
             <p className="font-display text-lg font-semibold">Written by Chukwuemeka Iheonye</p>
             <p className="mt-1 text-muted">
-              Senior Product Designer in Nottingham. I design products, then build them with AI.
+              Product Designer in Nottingham. I design products, then build them with AI.
             </p>
           </div>
           <Link href="/#contact" className="btn-primary group shrink-0">

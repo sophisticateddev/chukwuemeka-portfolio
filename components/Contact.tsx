@@ -35,7 +35,7 @@ export default function Contact() {
             </span>
           </h2>
           <p className="relative mt-6 max-w-xl text-lg">
-            New product, a design system, or a senior designer to embed in your team: I’d
+            New product, a design system, or a product designer to embed in your team: I’d
             love to hear about it.
           </p>
 

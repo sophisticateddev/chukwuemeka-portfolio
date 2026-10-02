@@ -43,7 +43,7 @@ export default function OpengraphImage() {
           <span style={{ color: "#C6F135" }}>Then I build them with AI.</span>
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#A6A8AE" }}>
-          Senior Product Designer · 7+ years · Fintech, SaaS and enterprise
+          Product Designer · 7+ years · Fintech, SaaS and enterprise
         </div>
       </div>
     ),
