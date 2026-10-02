@@ -1,5 +1,5 @@
 // Inline icon: the subsetted web fonts don't include arrow glyphs.
-const rotation = { right: 0, left: 180, "up-right": -45 } as const;
+const rotation = { right: 0, left: 180, "up-right": -45, up: -90, down: 90 } as const;
 
 export default function Arrow({
   direction = "right",

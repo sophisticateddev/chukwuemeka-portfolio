@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/nippyboxes/${name}.jpg`;
 
 export const nippyboxes: CaseStudy = {
-  headline: "An ‘Uber for deliveries’: compare couriers, book fast, track every parcel.",
+  headline: "Designed an ‘Uber for deliveries’ that passed 10,000 users in its first month.",
   roles: ["Product Designer", "Customer app and partner platform", "Research to usability testing"],
   summary: {
     problem:
@@ -11,12 +11,12 @@ export const nippyboxes: CaseStudy = {
     did:
       "I interviewed 15 senders, mapped flows for three user types, and designed a customer mobile app plus a web platform for fleet owners to manage vehicles, drivers and deliveries.",
     result:
-      "A booking experience with price comparison across couriers, weight-based pricing, escrow-backed payments and tracking, validated with stakeholders and potential users.",
+      "Both sides of the marketplace showed up at launch: 50+ vendors and 200+ riders and drivers on the supply side, and 10,000+ users booking deliveries in the first month.",
   },
   metrics: [
-    { value: "80%", label: "of interviewees couldn’t compare courier prices" },
-    { value: "15", label: "senders interviewed" },
-    { value: "3", label: "user types: customers, businesses, fleets" },
+    { value: "10,000+", label: "users in the first month" },
+    { value: "200+", label: "riders and drivers at launch" },
+    { value: "50+", label: "vendors at launch" },
     { value: "2", label: "products: customer app and partner web app" },
   ],
   hero: {
@@ -24,6 +24,7 @@ export const nippyboxes: CaseStudy = {
     desktop: { src: img("web-dashboard"), alt: "NippyBoxes partner dashboard with delivery analytics" },
   },
   meta: [
+    { label: "Company", value: "At SBSC, a software consulting agency" },
     { label: "Role", value: "Product Designer (UX & UI)" },
     { label: "Team", value: "2 designers, PM, 2 business analysts, 4 engineers" },
     { label: "Platform", value: "Mobile app and web app" },
@@ -129,8 +130,10 @@ export const nippyboxes: CaseStudy = {
   },
 
   outcomes: {
-    takeaway: "Every goal met, and honest findings from testing.",
+    takeaway: "A two-sided marketplace that filled up fast.",
     items: [
+      "10,000+ users in the first month after launch",
+      "50+ vendors and 200+ riders and drivers on the platform at launch",
       "Price comparison across logistics providers",
       "Weight-based estimates for fairer pricing",
       "Seamless onboarding for customers and partners",

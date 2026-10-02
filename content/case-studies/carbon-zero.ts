@@ -23,6 +23,7 @@ export const carbonZero: CaseStudy = {
     mobile: { src: img("new-purchase"), alt: "Carbon Zero new purchase screen with a payment plan split into instalments" },
   },
   meta: [
+    { label: "Company", value: "Carbon MFB" },
     { label: "Role", value: "Lead Product Designer" },
     { label: "Team", value: "3 designers, 1 PM, 5 engineers, 1 scrum master" },
     { label: "Platform", value: "iOS and Android" },

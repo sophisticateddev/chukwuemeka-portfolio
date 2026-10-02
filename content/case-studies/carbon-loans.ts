@@ -23,6 +23,7 @@ export const carbonLoans: CaseStudy = {
     mobile: { src: img("dashboard"), alt: "Redesigned Carbon loans dashboard showing total left to pay, active loans and loan history" },
   },
   meta: [
+    { label: "Company", value: "Carbon MFB" },
     { label: "Role", value: "Lead Product Designer" },
     { label: "Team", value: "3 designers, 1 PM, 6 engineers, 1 QA, 1 scrum master" },
     { label: "Platform", value: "iOS and Android" },

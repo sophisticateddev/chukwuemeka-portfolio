@@ -24,6 +24,7 @@ export const coinbycedar: CaseStudy = {
     desktop: { src: img("web-dashboard"), alt: "Coinbycedar3 web dashboard with portfolio value and holdings" },
   },
   meta: [
+    { label: "Company", value: "At SBSC, a software consulting agency" },
     { label: "Role", value: "Senior UI/UX Designer (design lead)" },
     { label: "Team", value: "3 designers, PM, 2 engineers, business analyst" },
     { label: "Platform", value: "iOS, Android and web" },

@@ -24,6 +24,7 @@ export const africhange: CaseStudy = {
     desktop: { src: img("web-dashboard"), alt: "Africhange web dashboard with balances and recent transfers" },
   },
   meta: [
+    { label: "Company", value: "Freelance, for Africhange Ltd" },
     { label: "Role", value: "Lead Designer (UX & UI)" },
     { label: "Team", value: "2 designers, PM, growth manager, 2 engineers" },
     { label: "Platform", value: "iOS, Android, web app, marketing site" },

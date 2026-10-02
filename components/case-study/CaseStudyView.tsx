@@ -157,7 +157,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
           </FadeUp>
 
           <FadeUp delay={0.55}>
-            <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col">
               {cs.meta.map((m) => (
                 <div key={m.label}>
                   <dt className="eyebrow">{m.label}</dt>

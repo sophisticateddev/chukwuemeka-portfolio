@@ -87,6 +87,7 @@ export default function WorkCard({
             {project.title}
           </Link>
         </h3>
+        {project.client && <p className="mt-2 font-mono text-xs text-muted">{project.client} · {project.year}</p>}
         <p className="mt-3 flex-1 text-muted">{project.description}</p>
 
         <div className="mt-6 flex items-center justify-between gap-4">

@@ -22,6 +22,10 @@ export type Project = {
   description: string;
   tags: string[];
   color: string;
+  /** Shown as a full card on the homepage; the rest go in the compact "More work" row */
+  featured?: boolean;
+  /** Who the work was for, e.g. an employer, agency client or freelance client */
+  client?: string;
   /** Headline fact shown on the card and case study hero */
   highlight: { value: string; label: string };
   /** Card cover image; falls back to details.hero, then the highlight metric */
@@ -57,6 +61,8 @@ export const workProjects: Project[] = [
   {
     id: 7,
     slug: "character-guess",
+    featured: true,
+    client: "Own product, team of 3",
     title: "Character Guess",
     category: "Consumer · Game · Designed & built with AI",
     year: "2025–now",
@@ -69,38 +75,10 @@ export const workProjects: Project[] = [
     caseStudy: characterGuess,
   },
   {
-    id: 1,
-    slug: "albert-sustainability-platform",
-    title: "albert — Sustainability Platform",
-    category: "Product Design",
-    year: "2024–2025",
-    description:
-      "Redesigned the UK's national media sustainability platform for BAFTA's albert initiative, achieving a 25% improvement in accessibility and engagement across the media industry.",
-    tags: ["Sustainability", "Enterprise", "Accessibility"],
-    color: "#DDE4DC",
-    highlight: { value: "+25%", label: "accessibility & engagement" },
-    details: {
-      overview:
-        "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
-      role: "Senior Product Designer",
-      team: "Product Designer, Product Manager, Engineering team",
-      timeline: "Jul 2024 – Aug 2025",
-      goals: [
-        "Improve platform accessibility to WCAG standards",
-        "Increase engagement across media industry users",
-        "Develop journey maps and user flows aligned with stakeholder needs",
-        "Advocate for user-centred design principles across the organisation",
-      ],
-      outcomes: [
-        "25% improvement in accessibility and engagement",
-        "Journey maps, user flows, and UI designs aligned with WCAG standards",
-        "Strengthened design advocacy across digital teams and stakeholders",
-      ],
-    },
-  },
-  {
     id: 2,
     slug: "carbon-loans",
+    featured: true,
+    client: "Carbon MFB",
     title: "Carbon Loans",
     category: "Fintech · Product Design",
     year: "2023",
@@ -147,44 +125,42 @@ export const workProjects: Project[] = [
     },
   },
   {
-    id: 3,
-    slug: "carbon-zero",
-    title: "Carbon Zero",
-    category: "Fintech · Product Design",
-    year: "2023",
+    id: 1,
+    slug: "albert-sustainability-platform",
+    featured: true,
+    client: "BAFTA (contract)",
+    title: "albert — Sustainability Platform",
+    category: "Product Design",
+    year: "2024–2025",
     description:
-      "Designed Carbon's Buy Now Pay Later product from concept to launch — a zero-interest credit facility enabling customers to purchase today and spread payments over time in under one minute.",
-    tags: ["BNPL", "Fintech", "B2C"],
-    color: "#E4E1D8",
-    highlight: { value: "< 1 min", label: "from purchase to payment" },
-    cover: "/images/work/carbon-zero/cover.jpg",
-    caseStudy: carbonZero,
+      "Redesigned the UK's national media sustainability platform for BAFTA's albert initiative, achieving a 25% improvement in accessibility and engagement across the media industry.",
+    tags: ["Sustainability", "Enterprise", "Accessibility"],
+    color: "#DDE4DC",
+    highlight: { value: "+25%", label: "accessibility & engagement" },
     details: {
       overview:
-        "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product's long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
-      role: "Lead Product Designer (UX & UI)",
-      team: "1 Product Manager, 1 Product Designer, 4 Engineers, 2 Marketers",
-      timeline: "2023",
-      problems: [
-        "The purchase-to-payment flow needed to complete in under one minute",
-        "Zero-interest terms had to be communicated clearly to build trust",
-        "Required customer information needed to be reduced to minimise friction",
-        "Early repayment had to be surfaced prominently as a key business protection mechanism",
+        "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
+      role: "Senior Product Designer",
+      team: "Product Designer, Product Manager, Engineering team",
+      timeline: "Jul 2024 – Aug 2025",
+      goals: [
+        "Improve platform accessibility to WCAG standards",
+        "Increase engagement across media industry users",
+        "Develop journey maps and user flows aligned with stakeholder needs",
+        "Advocate for user-centred design principles across the organisation",
       ],
-      process:
-        "After talking to users, merchants, and stakeholders, the team ran sprint sessions to map ideas. Crazy 8 sketching exercises encouraged uninhibited ideation without judgment, quickly generating concepts before moving into wireframes and high-fidelity prototypes.",
       outcomes: [
-        "New dashboard design providing clear overview of active credits",
-        "Simplified purchase flow completing in under one minute",
-        "Account transfer payment option added for broader accessibility",
-        "Prominent early repayment button surfaced as a priority UI element",
-        "Repayment screen redesigned as a critical business protection touchpoint",
+        "25% improvement in accessibility and engagement",
+        "Journey maps, user flows, and UI designs aligned with WCAG standards",
+        "Strengthened design advocacy across digital teams and stakeholders",
       ],
     },
   },
   {
     id: 4,
     slug: "africhange",
+    featured: true,
+    client: "Freelance for Africhange Ltd",
     title: "Africhange",
     category: "Fintech · UX Design",
     year: "2022",
@@ -225,16 +201,54 @@ export const workProjects: Project[] = [
     },
   },
   {
+    id: 3,
+    slug: "carbon-zero",
+    client: "Carbon MFB",
+    title: "Carbon Zero",
+    category: "Fintech · Product Design",
+    year: "2023",
+    description:
+      "Designed Carbon's Buy Now Pay Later product from concept to launch — a zero-interest credit facility enabling customers to purchase today and spread payments over time in under one minute.",
+    tags: ["BNPL", "Fintech", "B2C"],
+    color: "#E4E1D8",
+    highlight: { value: "< 1 min", label: "from purchase to payment" },
+    cover: "/images/work/carbon-zero/cover.jpg",
+    caseStudy: carbonZero,
+    details: {
+      overview:
+        "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product's long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
+      role: "Lead Product Designer (UX & UI)",
+      team: "1 Product Manager, 1 Product Designer, 4 Engineers, 2 Marketers",
+      timeline: "2023",
+      problems: [
+        "The purchase-to-payment flow needed to complete in under one minute",
+        "Zero-interest terms had to be communicated clearly to build trust",
+        "Required customer information needed to be reduced to minimise friction",
+        "Early repayment had to be surfaced prominently as a key business protection mechanism",
+      ],
+      process:
+        "After talking to users, merchants, and stakeholders, the team ran sprint sessions to map ideas. Crazy 8 sketching exercises encouraged uninhibited ideation without judgment, quickly generating concepts before moving into wireframes and high-fidelity prototypes.",
+      outcomes: [
+        "New dashboard design providing clear overview of active credits",
+        "Simplified purchase flow completing in under one minute",
+        "Account transfer payment option added for broader accessibility",
+        "Prominent early repayment button surfaced as a priority UI element",
+        "Repayment screen redesigned as a critical business protection touchpoint",
+      ],
+    },
+  },
+  {
     id: 5,
     slug: "nippyboxes",
+    client: "SBSC (consulting agency)",
     title: "NippyBoxes",
     category: "Logistics · Product Design",
     year: "2021",
     description:
-      "Designed a decentralised logistics booking platform — an 'Uber for delivery' enabling individuals and businesses to compare prices across providers, track parcels, and book local, interstate, and international deliveries.",
+      "Designed a logistics marketplace, an 'Uber for delivery', where people compare couriers, book and track parcels. It launched with 50+ vendors and 200+ riders and drivers, and passed 10,000 users in its first month.",
     tags: ["Logistics", "Mobile", "B2C"],
     color: "#DCE0E4",
-    highlight: { value: "80%", label: "of users couldn’t compare prices" },
+    highlight: { value: "10,000+", label: "users in the first month" },
     cover: "/images/work/nippyboxes/cover.jpg",
     caseStudy: nippyboxes,
     details: {
@@ -277,6 +291,7 @@ export const workProjects: Project[] = [
   {
     id: 6,
     slug: "coinbycedar",
+    client: "SBSC (consulting agency)",
     title: "Coinbycedar3",
     category: "Web3 · Product Design",
     year: "2021",
@@ -384,42 +399,6 @@ export const articles: Article[] = [
     excerpt:
       "Most designers don't have a prioritisation problem. They have a clarity problem. Here's the framework that fixed mine.",
   },
-  {
-    id: 6,
-    slug: "understanding-figma-constraints",
-    title: "Understanding Figma Constraints: From Zero to Hero",
-    date: "January 23, 2021",
-    readTime: "4 min read",
-    tag: "Figma",
-    excerpt:
-      "Constraints were a nightmare until they clicked. A walkthrough of how they decide what stretches, what stays put, and why your icons keep resizing.",
-    url: "https://medium.com/figma-africa/understanding-figma-constraints-from-zero-to-hero-137725c4136",
-    source: "Medium",
-  },
-  {
-    id: 7,
-    slug: "twitter-dm-redesign",
-    title: "Twitter DM Redesign",
-    date: "February 3, 2020",
-    readTime: "2 min read",
-    tag: "Case study",
-    excerpt:
-      "I lost a design gig because a DM notification vanished before I read it. So I redesigned how Twitter handles unread messages.",
-    url: "https://kingsleyiheonye.medium.com/twitter-dm-redesign-c65d0297badd",
-    source: "Medium",
-  },
-  {
-    id: 8,
-    slug: "users-should-have-a-say",
-    title: "The Users Should Have a Say in Your Design Process (Bicycle Design)",
-    date: "December 10, 2019",
-    readTime: "3 min read",
-    tag: "UX",
-    excerpt:
-      "A bike-builder concept that hands people control over every choice, and why feeling in charge makes a purchase feel like yours.",
-    url: "https://medium.com/figma-africa/the-users-should-have-a-say-in-your-design-process-bicycle-design-edbf73920534",
-    source: "Medium",
-  },
 ];
 
 export const experience = [
@@ -475,7 +454,7 @@ export const experience = [
     location: "Lagos, Nigeria",
     period: "Oct 2020 — Jun 2021",
     description:
-      "Designed responsive web and mobile fintech applications. Conducted usability testing and delivered iterative design improvements across client engagements.",
+      "Designed products for NIBSS (Nigeria Inter-Bank Settlement System) used internally by every bank in Nigeria, under NDA. Also designed client products including NippyBoxes, a logistics marketplace, and Coinbycedar, a crypto wallet, running usability tests and iterating on the results.",
   },
   {
     id: 7,

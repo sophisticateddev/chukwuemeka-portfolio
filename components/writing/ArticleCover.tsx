@@ -16,9 +16,6 @@ const labels: Record<string, string> = {
   "how-ai-is-shaping-better-ux": "An app interface floating above a network of connected nodes",
   "from-flexbox-to-figma": "CSS flexbox code mapped onto a Figma auto layout frame with three items",
   "how-to-prioritize-like-a-pro": "An impact versus effort matrix with tasks plotted in each quadrant",
-  "understanding-figma-constraints": "A frame with a child element pinned to its edges by constraint lines",
-  "twitter-dm-redesign": "Chat bubbles with an unread message indicator",
-  "users-should-have-a-say": "A line drawing of a bicycle with colour options",
 };
 
 export function coverLabel(slug: string) {
@@ -176,51 +173,6 @@ const art: Record<string, JSX.Element> = {
         [270, 170, C.muted, 6], [310, 160, C.muted, 5], [110, 175, C.control, 6],
       ].map(([x, y, c, r], i) => (
         <circle key={i} cx={x as number} cy={y as number} r={r as number} fill={c as string} />
-      ))}
-    </g>
-  ),
-  "understanding-figma-constraints": (
-    <g>
-      <rect x="80" y="40" width="240" height="170" rx="6" fill="none" stroke={C.control} strokeWidth="1.5" />
-      <rect x="150" y="90" width="100" height="70" rx="8" fill={C.raised} stroke={C.accent} strokeWidth="1.5" />
-      <g stroke={C.accent} strokeWidth="1.5" strokeDasharray="4 3">
-        <line x1="200" y1="40" x2="200" y2="90" />
-        <line x1="80" y1="125" x2="150" y2="125" />
-        <line x1="250" y1="125" x2="320" y2="125" />
-      </g>
-      <g fill={C.accent}>
-        <rect x="196" y="36" width="8" height="8" />
-        <rect x="76" y="121" width="8" height="8" />
-        <rect x="316" y="121" width="8" height="8" />
-      </g>
-      <text x="84" y="32" fontFamily="sans-serif" fontSize="10" fill={C.muted}>
-        Frame
-      </text>
-      <path d="M330 214l14 14M344 214v14h-14" stroke={C.muted} strokeWidth="1.5" fill="none" />
-    </g>
-  ),
-  "twitter-dm-redesign": (
-    <g>
-      <rect x="70" y="50" width="170" height="44" rx="22" fill={C.raised} />
-      <rect x="90" y="66" width="110" height="8" rx="4" fill={C.muted} />
-      <rect x="160" y="108" width="170" height="44" rx="22" fill={C.accent} />
-      <rect x="180" y="124" width="120" height="8" rx="4" fill={C.onaccent} opacity="0.7" />
-      <rect x="70" y="166" width="130" height="44" rx="22" fill={C.raised} />
-      <rect x="90" y="182" width="80" height="8" rx="4" fill={C.muted} />
-      <circle cx="214" cy="170" r="9" fill={C.accent} />
-      <text x="214" y="174" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fontWeight="700" fill={C.onaccent}>
-        1
-      </text>
-    </g>
-  ),
-  "users-should-have-a-say": (
-    <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="130" cy="160" r="48" stroke={C.ink} strokeWidth="3" />
-      <circle cx="280" cy="160" r="48" stroke={C.ink} strokeWidth="3" />
-      <path d="M130 160l50-70h70l30 70M180 90l30 70h70M210 160l40-70" stroke={C.accent} strokeWidth="4" />
-      <path d="M170 78h24M240 78l10 12" stroke={C.ink} strokeWidth="4" />
-      {[C.accent, C.ink, C.control].map((c, i) => (
-        <circle key={i} cx={300 + i * 22} cy="40" r="8" fill={c} stroke={i === 0 ? C.ink : "none"} strokeWidth="2" />
       ))}
     </g>
   ),
