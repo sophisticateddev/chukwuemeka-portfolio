@@ -38,7 +38,7 @@ export default function Hero() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
                 </span>
                 <span>
-                  Open to senior roles <span className="text-muted">· UK (GMT/BST) · Full right to work in the UK</span>
+                  Open to work <span className="text-muted">· UK (GMT/BST) · Full right to work in the UK</span>
                 </span>
               </p>
             </FadeUp>
@@ -58,7 +58,7 @@ export default function Hero() {
 
             <FadeUp delay={0.7}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
-                Senior Product Designer with 7 years shipping at{" "}
+                Product Designer with 7 years shipping at{" "}
                 <span className="text-ink">BAFTA, Carbon and Writesea</span>. I design the product, then build it
                 with Claude Code. <span className="text-ink">Character Guess</span> is live, and I built it that way.
               </p>
@@ -90,6 +90,18 @@ export default function Hero() {
                   Download CV <span className="sr-only">(PDF)</span>
                 </a>
               </div>
+              {/* Quiet contact path for visitors ready to act now; the nav's button is hidden on mobile */}
+              <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                <a
+                  href="mailto:kingsleyiheonye@gmail.com?subject=Let%E2%80%99s%20talk"
+                  className="group inline-flex min-h-[44px] items-center gap-1.5 font-semibold text-ink transition-colors hover:text-accent focus-visible:text-accent"
+                >
+                  <span className="link-grow">Hiring? Let’s talk</span>
+                  <span className="sr-only">(opens your email app)</span>
+                  <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
+                </a>
+                <span className="text-muted">I reply within 24 hours.</span>
+              </p>
             </FadeUp>
 
             <FadeUp delay={0.9}>
