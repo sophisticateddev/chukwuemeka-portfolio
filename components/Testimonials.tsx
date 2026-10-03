@@ -40,7 +40,7 @@ export default function Testimonials() {
           index="04"
           label="Kind words"
           title="From the people I’ve led"
-          titleMuted="and the people who led me."
+          titleMuted="and the people who’ve led me."
         />
 
         <FadeUp>

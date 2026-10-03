@@ -33,7 +33,7 @@ export const characterGuess: CaseStudy = {
     },
   },
   meta: [
-    { label: "Role", value: "Lead Product Designer & front-end (with AI)" },
+    { label: "Role", value: "Co-founder · product design & front-end (with AI)" },
     { label: "Team", value: "3 people: design, engineering, product" },
     { label: "Timeline", value: "Aug 2025 – present" },
     { label: "Platform", value: "Installable web app (PWA): mobile, tablet, desktop" },
@@ -66,7 +66,7 @@ export const characterGuess: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Product Designer & AI-assisted developer",
+        role: "Co-founder · Product Designer & AI-assisted developer",
         owned:
           "Product and UX direction, design system, every screen and flow, front-end build with Claude Code, accessibility.",
         me: true,

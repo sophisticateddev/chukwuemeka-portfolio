@@ -17,8 +17,12 @@ export default function Experience() {
   const shortName = (company: string) => company.replace(/ \(.*\)$/, "");
   const shownCompanies = new Set(experience.slice(0, VISIBLE).map((e) => shortName(e.company)));
   // Name the role when the company already appears above, e.g. a second role at Carbon
-  const earlierCompanies = earlier.map((e) =>
-    shownCompanies.has(shortName(e.company)) ? `${shortName(e.company)} (${e.role})` : shortName(e.company),
+  const earlierCompanies = Array.from(
+    new Set(
+      earlier.map((e) =>
+        shownCompanies.has(shortName(e.company)) ? `${shortName(e.company)} (${e.role})` : shortName(e.company),
+      ),
+    ),
   );
 
   const toggle = () => {

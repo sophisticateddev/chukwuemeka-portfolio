@@ -25,8 +25,8 @@ const offDuty = [
   },
   {
     label: "Mentoring",
-    title: "I mentor on ADPList",
-    body: "I help junior designers, especially those from non-traditional backgrounds, break into the industry.",
+    title: "10,000+ designers in 10+ countries",
+    body: "For years I mentored designers through the HNG Internship, and today I mentor on ADPList, helping junior designers, especially those from non-traditional backgrounds, break into the industry.",
   },
 ];
 

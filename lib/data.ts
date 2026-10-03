@@ -63,12 +63,12 @@ export const workProjects: Project[] = [
     id: 7,
     slug: "character-guess",
     featured: true,
-    client: "Own product, team of 3",
+    client: "Co-founder",
     title: "Character Guess",
     category: "Consumer · Game · Designed & built with AI",
     year: "2025–now",
     description:
-      "A family game night turned into a live multiplayer quiz game. I designed it end to end and built the front end with Claude Code, in a team of three.",
+      "A family game night turned into a live multiplayer quiz game. I designed it end to end and built the front end with Claude Code.",
     tags: ["Product design", "AI-built", "Design system"],
     color: "#1A1033",
     highlight: { value: "100+", label: "beta players, all word of mouth" },
@@ -406,13 +406,22 @@ export const articles: Article[] = [
 
 export const experience = [
   {
+    id: 9,
+    role: "Co-founder, Product Design & Front-end",
+    company: "Character Guess",
+    location: "Remote, UK",
+    period: "Aug 2025 — Present",
+    description:
+      "Co-founded a live multiplayer quiz game and lead product design end to end, from research and the design system to every screen. I build the front end with Claude Code, working with a backend engineer and a product manager. 100+ beta players by word of mouth, 3,000+ questions across 6 categories and 3 languages.",
+  },
+  {
     id: 1,
     role: "Product Designer",
     company: "Writesea",
     location: "Remote",
-    period: "Oct 2024 — Present",
+    period: "Oct 2024 — Sep 2026",
     description:
-      "Designing end-to-end flows for an AI-powered writing and publishing platform, from onboarding to content creation. Launched a template builder that shortened time to market and cut support workload by 0.5 FTE, and designed admin modules for universities and resellers. Running usability tests and contributing to the design system.",
+      "Designed end-to-end flows for an AI-powered writing and publishing platform, from onboarding to content creation. Launched a template builder that shortened time to market and cut support workload by 0.5 FTE, and designed admin modules for universities and resellers. Ran usability tests and contributed to the design system.",
   },
   {
     id: 2,
