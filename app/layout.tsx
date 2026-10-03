@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
   description:
-    "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in Nottingham, UK.",
+    "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in the UK.",
   openGraph: {
     title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
     description:

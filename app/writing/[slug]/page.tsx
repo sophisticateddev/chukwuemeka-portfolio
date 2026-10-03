@@ -109,7 +109,7 @@ export default function ArticlePage({ params }: Props) {
           <div className="flex-1">
             <p className="font-display text-lg font-semibold">Written by Chukwuemeka Iheonye</p>
             <p className="mt-1 text-muted">
-              Product Designer in Nottingham. I design products, then build them with AI.
+              Product Designer based in the UK. I design products, then build them with AI.
             </p>
           </div>
           <Link href="/#contact" className="btn-primary group shrink-0">
