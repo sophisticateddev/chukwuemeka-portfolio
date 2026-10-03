@@ -91,6 +91,8 @@ export default function Experience() {
               ref={toggleRef}
               type="button"
               onClick={toggle}
+              data-track="show-all"
+              data-track-list="roles"
               aria-expanded={expanded}
               aria-controls="experience-list"
               className="btn-secondary group self-start sm:self-auto"

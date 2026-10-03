@@ -380,6 +380,7 @@ export default function PageReader() {
           ref={toggleRef}
           type="button"
           onClick={() => setOpen(true)}
+          data-track="reader-open"
           aria-expanded={false}
           aria-controls="page-reader"
           className="flex h-12 items-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-semibold text-ink transition-colors duration-150 hover:bg-accent hover:text-onaccent"
@@ -426,6 +427,7 @@ export default function PageReader() {
               ref={playRef}
               type="button"
               onClick={play}
+              data-track="reader-play"
               aria-label={status === "paused" ? "Resume reading" : "Read this page aloud"}
               className={primaryButton}
             >
@@ -457,6 +459,7 @@ export default function PageReader() {
                   <select
                     value={accent}
                     onChange={(e) => changeAccent(e.target.value)}
+                    data-track="reader-accent"
                     className="h-11 w-full min-w-0 appearance-none rounded-full border border-control bg-surface pl-4 pr-10 text-sm text-ink sm:w-auto"
                   >
                     {accents.map((a) => (

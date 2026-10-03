@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
 import BackToTop from "@/components/BackToTop";
 import PageReader from "@/components/PageReader";
-import { siteUrl } from "@/lib/site";
+import Analytics from "@/components/Analytics";
+import { siteUrl, umamiWebsiteId } from "@/lib/site";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <BackToTop />
+          <Analytics websiteId={umamiWebsiteId} domain={new URL(siteUrl).hostname} />
         </MotionProvider>
       </body>
     </html>

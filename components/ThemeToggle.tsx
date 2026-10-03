@@ -52,6 +52,8 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
     <button
       type="button"
       onClick={toggle}
+      data-track="theme-toggle"
+      data-track-to={next}
       aria-label={theme ? `Switch to ${next} theme` : "Switch theme"}
       title={theme ? `Switch to ${next} theme` : undefined}
       className={`flex h-11 w-11 items-center justify-center rounded-full text-muted transition-[background-color,color,transform] duration-150 ease-out hover:bg-surface motion-safe:active:scale-95 hover:text-ink ${className}`}

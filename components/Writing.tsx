@@ -102,6 +102,8 @@ export default function Writing() {
               ref={toggleRef}
               type="button"
               onClick={toggle}
+              data-track="show-all"
+              data-track-list="articles"
               aria-expanded={expanded}
               aria-controls="writing-list"
               className="btn-secondary group self-start sm:self-auto"
