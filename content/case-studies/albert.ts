@@ -12,13 +12,13 @@ export const albert: CaseStudy = {
     did:
       "I ran research with albert, production teams and broadcasters, then designed the next generation of the toolkit in two releases: first the journeys around the calculator, then the calculator, action plan and certification themselves, for every role that touches the data.",
     result:
-      "A toolkit built around the people who hold the data: clear progress everywhere, bulk import, actions assigned to the crew who do them, and a lighter route to certification. It scored 25% higher on our WCAG audit, and satisfaction among production companies rose 30%.",
+      "A toolkit built around the people who hold the data: clear progress everywhere, bulk import, actions assigned to the crew who do them, and a lighter route to certification. Productions starting their footprint in pre-production rose from 30% to 55%, WCAG 2.2 AA criteria passed went from 60% to 85%, and satisfaction rose from 3.3 to 4.3 out of 5.",
   },
   metrics: [
-    { value: "+25%", label: "on our WCAG accessibility audit" },
-    { value: "+30%", label: "satisfaction from production companies" },
+    { value: "55%", label: "of productions now start their footprint in pre-production, up from 30%" },
+    { value: "85%", label: "of WCAG 2.2 AA criteria passed, up from 60%" },
+    { value: "4.3/5", label: "satisfaction from production companies, up from 3.3 (+30%)" },
     { value: "~10", label: "research sessions, one with ~30 people" },
-    { value: "4", label: "user types, each with its own view" },
   ],
   hero: {
     mobile: { src: img("m-request-account"), alt: "albert on a phone: request account form with visible labels and an add company option" },
@@ -240,10 +240,11 @@ export const albert: CaseStudy = {
   },
 
   outcomes: {
-    takeaway: "A toolkit productions were eager to use.",
+    takeaway: "Productions now start earlier, and were eager to use it.",
     items: [
-      "25% higher score on our WCAG accessibility audit",
-      "30% higher satisfaction among production companies, who were keen to move to the redesign",
+      "Productions starting their footprint in pre-production rose from 30% to 55%, the problem our research set out to solve",
+      "WCAG 2.2 AA criteria passed rose from 60% to 85% on our accessibility audit",
+      "Average satisfaction among production companies rose from 3.3 to 4.3 out of 5 (+30%), and they were keen to move to the redesign",
       "V1: accounts with two-factor sign-in, company admin, production list and set-up, and a progress-led action plan",
       "V2: calculator flows with bulk import, assignable carbon actions, two certification routes, reports and mobile onboarding",
       "Role-specific views for production teams, assessors, territory partners and broadcasters",
@@ -260,7 +261,7 @@ export const albert: CaseStudy = {
     ],
     next: {
       title: "What comes next",
-      body: "Measure adoption, data completeness and certification rates as V2 rolls out, and darken the primary colour so every button and badge passes AA.",
+      body: "Keep measuring how early productions start, plus data completeness and certification rates as V2 rolls out, and darken the primary colour so every button and badge passes AA.",
     },
   },
 };

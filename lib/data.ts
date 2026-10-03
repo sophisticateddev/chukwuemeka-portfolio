@@ -134,10 +134,10 @@ export const workProjects: Project[] = [
     category: "Sustainability · Product Design",
     year: "2024–2025",
     description:
-      "Rebuilt BAFTA albert's carbon toolkit for UK film and TV around the people who hold the data. 25% higher on our WCAG audit, and 30% higher satisfaction among production companies.",
+      "Rebuilt BAFTA albert's carbon toolkit for UK film and TV around the people who hold the data. Productions starting their footprint in pre-production rose from 30% to 55%, and WCAG 2.2 AA criteria passed from 60% to 85%.",
     tags: ["Sustainability", "Enterprise", "Accessibility"],
     color: "#DDE4DC",
-    highlight: { value: "+25%", label: "on our WCAG accessibility audit" },
+    highlight: { value: "30% → 55%", label: "productions starting in pre-production" },
     cover: "/images/work/albert/cover.webp",
     caseStudy: albert,
     details: {
@@ -421,7 +421,7 @@ export const experience = [
     location: "London, UK",
     period: "Jul 2024 — Aug 2025",
     description:
-      "Led UX for albert, BAFTA’s sustainability platform for the UK media industry, from discovery through delivery. Ran research with productions and broadcasters and redesigned the carbon toolkit for every role, scoring 25% higher on our WCAG accessibility audit and raising satisfaction among production companies by 30%.",
+      "Led UX for albert, BAFTA’s sustainability platform for the UK media industry, from discovery through delivery. Ran research with productions and broadcasters and redesigned the carbon toolkit for every role, raising the WCAG 2.2 AA pass rate from 60% to 85%, satisfaction from 3.3 to 4.3 out of 5, and productions starting in pre-production from 30% to 55%.",
   },
   {
     id: 3,
