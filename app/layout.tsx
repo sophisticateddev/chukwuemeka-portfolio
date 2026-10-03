@@ -29,6 +29,10 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+// Count visits on the main domain with or without "www", whichever one Vercel treats as primary
+const bareHost = new URL(siteUrl).hostname.replace(/^www\./, "");
+const analyticsDomains = `${bareHost},www.${bareHost}`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
@@ -79,7 +83,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <BackToTop />
-          <Analytics websiteId={umamiWebsiteId} domain={new URL(siteUrl).hostname} />
+          <Analytics websiteId={umamiWebsiteId} domain={analyticsDomains} />
         </MotionProvider>
       </body>
     </html>
