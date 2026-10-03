@@ -24,7 +24,7 @@ export default function Contact() {
             <span className="absolute inset-28 rounded-full border border-onaccent/10" />
           </div>
 
-          <p className="relative font-mono text-xs uppercase tracking-[0.14em]">06 / Contact</p>
+          <p className="relative font-mono text-xs uppercase tracking-[0.14em]">07 / Contact</p>
           <h2
             id="contact-title"
             className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl md:text-6xl"
@@ -35,8 +35,9 @@ export default function Contact() {
             </span>
           </h2>
           <p className="relative mt-6 max-w-xl text-lg">
-            New product, a design system, or a product designer to embed in your team: I’d
-            love to hear about it.
+            Hiring for a product design role, or need a freelance designer for a new product,
+            a design system or an AI-built prototype? I’d love to hear about it, and I reply
+            within 24 hours.
           </p>
 
           <div className="relative mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

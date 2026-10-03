@@ -10,7 +10,7 @@ import RevealWords from "./RevealWords";
 // Outcomes, each tied to where it happened, so every number is checkable in a case study.
 const stats = [
   { value: "+20%", label: "loan applications", source: "Carbon" },
-  { value: "10,000+", label: "users in month one", source: "NippyBoxes" },
+  { value: "200+", label: "riders and drivers at launch", source: "NippyBoxes" },
   { value: "85%", label: "WCAG 2.2 AA pass rate, up from 60%", source: "BAFTA albert" },
   { value: "100+", label: "players on a game I built with AI", source: "Character Guess" },
 ];
@@ -38,7 +38,7 @@ export default function Hero() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
                 </span>
                 <span>
-                  Open to work <span className="text-muted">· UK (GMT/BST) · Full right to work in the UK</span>
+                  Open to full-time roles &amp; freelance projects <span className="text-muted">· UK (GMT/BST) · Full right to work in the UK</span>
                 </span>
               </p>
             </FadeUp>
@@ -58,7 +58,7 @@ export default function Hero() {
 
             <FadeUp delay={0.7}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
-                Product Designer with 7 years shipping at{" "}
+                Product Designer with 7+ years shipping at{" "}
                 <span className="text-ink">BAFTA, Carbon and Writesea</span>. I design the product, then build it
                 with Claude Code. <span className="text-ink">Character Guess</span> is live, and I built it that way.
               </p>

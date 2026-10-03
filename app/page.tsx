@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main id="main" tabIndex={-1} className="outline-none">
       <Hero />
-      <BuildWithAI />
       <Work />
+      <BuildWithAI />
       <Experience />
       <Testimonials />
       <About />

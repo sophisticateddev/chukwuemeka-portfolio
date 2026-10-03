@@ -168,7 +168,7 @@ export const workProjects: Project[] = [
     category: "Fintech · UX Design",
     year: "2022",
     description:
-      "Redesigned the global money transfer experience for Africhange — reducing transaction time from 2 hours to 1 minute through a wallet system, seamless onboarding, and multiple send options for diaspora users.",
+      "Redesigned how the diaspora sends money from North America to Africa. A wallet system cut transfers from about 2 hours to about a minute, with faster onboarding and four ways to send.",
     tags: ["Fintech", "Redesign", "Research"],
     color: "#E4DDE4",
     highlight: { value: "1 min", label: "transfer time, down from 2 hours" },
@@ -352,6 +352,16 @@ export type Article = {
 
 // Newest first. On-site article bodies live in content/articles/<slug>.tsx.
 export const articles: Article[] = [
+  {
+    id: 9,
+    slug: "design-for-the-person-holding-the-receipt",
+    title: "Design for the Person Holding the Receipt",
+    date: "October 3, 2026",
+    readTime: "6 min read",
+    tag: "Research",
+    excerpt:
+      "What albert and Writesea taught me: the person with the login is rarely the person with the details. Design for both.",
+  },
   {
     id: 1,
     slug: "mastering-the-8pt-grid",

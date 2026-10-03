@@ -11,6 +11,7 @@ const C = {
 };
 
 const labels: Record<string, string> = {
+  "design-for-the-person-holding-the-receipt": "A receipt passing from one card to another, with a tick on the second",
   "mastering-the-8pt-grid": "A card snapped to an 8-point grid, with 8, 16 and 24 point spacing marked",
   "designing-for-everyone": "Readable text on a high-contrast swatch beside a keyboard focus ring and a Tab key",
   "how-ai-is-shaping-better-ux": "An app interface floating above a network of connected nodes",
@@ -56,6 +57,29 @@ const grid8 = (
 );
 
 const art: Record<string, JSX.Element> = {
+  "design-for-the-person-holding-the-receipt": (
+    <g>
+      {/* receipt */}
+      <path d="M70 50 h110 v140 l-11 -8 -11 8 -11 -8 -11 8 -11 -8 -11 8 -11 -8 -11 8 -11 -8 -11 8 z" fill={C.raised} stroke={C.line} />
+      <rect x="86" y="70" width="60" height="8" rx="4" fill={C.ink} />
+      {[92, 108, 124, 140].map((y, i) => (
+        <g key={y}>
+          <rect x="86" y={y} width={48 - i * 6} height="6" rx="3" fill={C.muted} />
+          <rect x="146" y={y} width="20" height="6" rx="3" fill={C.muted} />
+        </g>
+      ))}
+      <rect x="86" y="160" width="80" height="8" rx="4" fill={C.accent} />
+      {/* hand-off */}
+      <path d="M190 120 C 230 120, 240 120, 270 120" stroke={C.accent} strokeWidth="2" strokeDasharray="5 5" fill="none" />
+      <path d="M262 112 L272 120 L262 128" stroke={C.accent} strokeWidth="2" fill="none" />
+      {/* task card */}
+      <rect x="282" y="80" width="88" height="80" rx="12" fill={C.raised} stroke={C.accent} strokeWidth="1.5" />
+      <circle cx="304" cy="104" r="10" fill={C.accent} />
+      <path d="M299 104 l4 4 l7 -8" stroke={C.onaccent} strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="296" y="124" width="60" height="6" rx="3" fill={C.ink} />
+      <rect x="296" y="138" width="40" height="6" rx="3" fill={C.muted} />
+    </g>
+  ),
   "mastering-the-8pt-grid": (
     <g>
       {grid8}

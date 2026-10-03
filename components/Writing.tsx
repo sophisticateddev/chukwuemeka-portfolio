@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Arrow from "./Arrow";
 import DrawLine from "./DrawLine";
@@ -10,7 +13,22 @@ import { articles } from "@/lib/data";
 const linkClass =
   "bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-0.5 outline-none transition-[background-size] duration-500 ease-out after:absolute after:-inset-x-3 after:inset-y-2 after:rounded-xl group-hover:bg-[length:100%_2px] focus-visible:bg-[length:100%_2px] focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-accent";
 
+/** Newest articles shown up front; the rest open on demand so the page stays short. */
+const VISIBLE = 2;
+
 export default function Writing() {
+  const [expanded, setExpanded] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const hiddenCount = articles.length - VISIBLE;
+
+  const toggle = () => {
+    setExpanded((open) => {
+      // Collapsing removes content above the button, so bring it back into view
+      if (open) requestAnimationFrame(() => toggleRef.current?.scrollIntoView({ block: "center" }));
+      return !open;
+    });
+  };
+
   return (
     <section aria-labelledby="writing-title" id="writing" className="border-t border-line py-24 md:py-32">
       <div className="container-page">
@@ -23,10 +41,10 @@ export default function Writing() {
           intro="Practical pieces from the work: what I’ve learned, what I got wrong, and what I’d do differently."
         />
 
-        <ul className="relative">
+        <ul id="writing-list" className="relative">
           <DrawLine className="top-0" />
           {articles.map((article, i) => (
-            <li key={article.id} className="relative">
+            <li key={article.id} className="relative" hidden={!expanded && i >= VISIBLE}>
               <DrawLine />
               <FadeUp delay={(i % 4) * 0.04}>
                 <article className="group relative grid items-center gap-5 py-6 sm:grid-cols-[180px_1fr_auto] md:gap-8">
@@ -74,6 +92,28 @@ export default function Writing() {
             </li>
           ))}
         </ul>
+
+        {hiddenCount > 0 && (
+          <FadeUp className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-muted">
+              {expanded ? `Showing all ${articles.length} articles.` : `${hiddenCount} more on accessibility, AI, Figma and process.`}
+            </p>
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={toggle}
+              aria-expanded={expanded}
+              aria-controls="writing-list"
+              className="btn-secondary group self-start sm:self-auto"
+            >
+              {expanded ? "Show fewer" : `Show all ${articles.length} articles`}
+              <Arrow
+                direction={expanded ? "up" : "down"}
+                className={`transition-transform duration-300 ease-out ${expanded ? "motion-safe:group-hover:-translate-y-0.5" : "motion-safe:group-hover:translate-y-0.5"}`}
+              />
+            </button>
+          </FadeUp>
+        )}
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export const characterGuess: CaseStudy = {
     "Family game night, turned into a live multiplayer game for 100+ players.",
   status: "Live beta",
   liveUrl: "https://characterguess.com",
-  roles: ["Designed end to end", "Built with AI (Claude Code)", "Shipped to production", "Team of 3"],
+  roles: ["Designed end to end", "Built with AI (Claude Code)", "Shipped to production", "Team of three"],
   summary: {
     problem:
       "Our family’s favourite game night, guessing characters from quotes, only worked when we were in the same room with someone willing to write the clues.",
@@ -34,7 +34,7 @@ export const characterGuess: CaseStudy = {
   },
   meta: [
     { label: "Role", value: "Co-founder · product design & front-end (with AI)" },
-    { label: "Team", value: "3 people: design, engineering, product" },
+    { label: "Team", value: "Three of us: design, engineering and product" },
     { label: "Timeline", value: "Aug 2025 – present" },
     { label: "Platform", value: "Installable web app (PWA): mobile, tablet, desktop" },
   ],
@@ -54,7 +54,7 @@ export const characterGuess: CaseStudy = {
       "Our audience is unusually wide: families, church youth groups, football fans, classrooms. Most play on phones over mobile data, so it had to be fast, light and work without an app store.",
     ],
     constraints: [
-      "Small team of 3 with no dedicated QA or marketing budget",
+      "Just three of us, with no dedicated QA and no marketing budget",
       "Young players, so parental consent and safety from day one",
       "Must work offline-tolerant on low-end phones and look great on desktop",
       "Content must scale to new categories without a redesign",

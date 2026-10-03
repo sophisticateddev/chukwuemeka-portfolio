@@ -4,7 +4,7 @@ const img = (name: string) => `/images/work/coinbycedar/${name}.jpg`;
 
 export const coinbycedar: CaseStudy = {
   headline: "Made buying and selling crypto feel simple for first-timers.",
-  roles: ["Senior UI/UX Designer", "Led a team of 2 designers", "Mobile and web"],
+  roles: ["Senior UX/UI Designer", "Led a team of 2 designers", "Mobile and web"],
   summary: {
     problem:
       "Crypto platforms assumed users understood finance and spoke in jargon, so first-timers were overwhelmed before they made a single trade.",
@@ -25,7 +25,7 @@ export const coinbycedar: CaseStudy = {
   },
   meta: [
     { label: "Company", value: "At SBSC, a software consulting agency" },
-    { label: "Role", value: "Senior UI/UX Designer (design lead)" },
+    { label: "Role", value: "Senior UX/UI Designer (design lead)" },
     { label: "Team", value: "3 designers, PM, 2 engineers, business analyst" },
     { label: "Platform", value: "iOS, Android and web" },
     { label: "Tools", value: "Figma, Miro, Google Docs, Jira" },
@@ -45,7 +45,7 @@ export const coinbycedar: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Senior UI/UX Designer",
+        role: "Senior UX/UI Designer",
         owned: "Research, competitive analysis, interaction design, mobile and web UI; led two designers.",
         me: true,
       },

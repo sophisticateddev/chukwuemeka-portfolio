@@ -47,7 +47,7 @@ export default function About() {
             <p>
               I’m Chukwuemeka, a product designer who grew up in Nigeria and now lives in
               the UK. I’ve spent 7+ years designing digital products at places like BAFTA,
-              Carbon MFB and Writesea, where I design AI-powered writing and publishing tools.
+              Carbon MFB and Writesea, and today I’m co-founder of Character Guess, a game I designed and built with AI.
             </p>
             <p>
               I work across the whole lifecycle: sitting with users to find what’s actually
