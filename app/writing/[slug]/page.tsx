@@ -129,7 +129,7 @@ export default function ArticlePage({ params }: Props) {
             <span className="mt-3 block font-display text-2xl font-semibold tracking-tight md:text-3xl">
               {next.title}
             </span>
-            <span className="mt-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45">
+            <span className="mt-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45">
               <Arrow />
             </span>
           </span>

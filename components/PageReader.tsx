@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 /** Content blocks the reader steps through, in document order. */
 const BLOCKS = "h1, h2, h3, h4, p, li, blockquote, figcaption, dl > div, img[alt]";
@@ -344,7 +345,7 @@ export default function PageReader() {
 
   if (!supported) return null;
 
-  const control = "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors";
+  const control = "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-150 ease-out motion-safe:active:scale-95";
   const iconButton = `${control} text-ink hover:bg-raised disabled:opacity-40`;
   const primaryButton = `${control} bg-accent text-onaccent hover:bg-ink`;
 
@@ -359,14 +360,29 @@ export default function PageReader() {
         {announcement}
       </p>
 
+      {/* One surface that morphs between the pill and the panel; the contents fade in once it has room.
+          Radius and shadow are set in style so framer can keep them undistorted while it resizes. */}
+      <motion.div
+        layout
+        transition={{ layout: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
+        style={{ borderRadius: open ? 16 : 24, boxShadow: "0 12px 32px -12px var(--elev)" }}
+        className={`overflow-hidden border border-control backdrop-blur-md transition-colors duration-150 ${
+          open ? "bg-surface/95" : "bg-surface/90 hover:border-accent"
+        }`}
+      >
       {!open ? (
-        <button
+        <motion.button
+          key="listen"
+          layout="position"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.1 }}
           ref={toggleRef}
           type="button"
           onClick={() => setOpen(true)}
           aria-expanded={false}
           aria-controls="page-reader"
-          className="flex h-12 items-center gap-2 rounded-full border border-control bg-surface/90 px-4 text-sm font-semibold text-ink shadow-lg backdrop-blur-md transition-colors hover:border-accent hover:bg-accent hover:text-onaccent"
+          className="flex h-12 items-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-semibold text-ink transition-colors duration-150 hover:bg-accent hover:text-onaccent"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path
@@ -380,13 +396,18 @@ export default function PageReader() {
           <span>
             Listen<span className="sr-only"> to this page</span>
           </span>
-        </button>
+        </motion.button>
       ) : (
-        <div
+        <motion.div
+          key="panel"
+          layout="position"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.12 }}
           id="page-reader"
           role="group"
           aria-label="Page reader"
-          className="flex max-w-[calc(100vw-1.5rem)] flex-wrap items-center gap-0.5 rounded-2xl border border-control bg-surface/95 p-1.5 shadow-lg backdrop-blur-md sm:flex-nowrap sm:gap-1 sm:p-2"
+          className="flex max-w-[calc(100vw-1.5rem-2px)] flex-wrap items-center gap-0.5 p-1.5 sm:flex-nowrap sm:gap-1 sm:p-2"
         >
           <button type="button" onClick={() => skip(-1)} disabled={status === "idle"} aria-label="Previous section" className={iconButton}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -495,8 +516,9 @@ export default function PageReader() {
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
             </svg>
           </button>
-        </div>
+        </motion.div>
       )}
+      </motion.div>
     </div>
   );
 }

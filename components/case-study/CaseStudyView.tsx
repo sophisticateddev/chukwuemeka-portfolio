@@ -680,7 +680,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
           </span>
           <span
             aria-hidden="true"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-line transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45"
           >
             <Arrow size={20} />
           </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Theme = "light" | "dark";
 
@@ -20,6 +20,7 @@ function currentTheme(): Theme {
 export default function ThemeToggle({ className = "" }: { className?: string }) {
   // null until mounted, so server and client render the same markup
   const [theme, setTheme] = useState<Theme | null>(null);
+  const switching = useRef<number>();
 
   useEffect(() => {
     setTheme(currentTheme());
@@ -31,7 +32,12 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
 
   const toggle = () => {
     const next: Theme = currentTheme() === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
+    const root = document.documentElement;
+    // Colours ease across the page for this switch only (see .theme-switching in globals.css)
+    root.classList.add("theme-switching");
+    window.clearTimeout(switching.current);
+    switching.current = window.setTimeout(() => root.classList.remove("theme-switching"), 250);
+    root.dataset.theme = next;
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
@@ -48,23 +54,31 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       onClick={toggle}
       aria-label={theme ? `Switch to ${next} theme` : "Switch theme"}
       title={theme ? `Switch to ${next} theme` : undefined}
-      className={`flex h-11 w-11 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-ink ${className}`}
+      className={`flex h-11 w-11 items-center justify-center rounded-full text-muted transition-[background-color,color,transform] duration-150 ease-out hover:bg-surface motion-safe:active:scale-95 hover:text-ink ${className}`}
     >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        {theme === "dark" ? (
-          // Sun: shown in dark theme, as the way back to light
-          <g stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" />
-          </g>
-        ) : (
-          <path
-            d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinejoin="round"
-          />
-        )}
+      {/* Both icons are stacked; the one leaving turns away as the other turns in */}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="overflow-visible">
+        {/* Sun: shown in dark theme, as the way back to light */}
+        <g
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          className={`origin-center transition-[opacity,transform] duration-200 ease-out ${
+            theme === "dark" ? "opacity-100" : "opacity-0 motion-safe:-rotate-45"
+          }`}
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" />
+        </g>
+        <path
+          d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinejoin="round"
+          className={`origin-center transition-[opacity,transform] duration-200 ease-out ${
+            theme === "dark" ? "opacity-0 motion-safe:rotate-45" : "opacity-100"
+          }`}
+        />
       </svg>
     </button>
   );

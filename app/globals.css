@@ -186,6 +186,23 @@
   }
 }
 
+/* Theme toggle: ease colours across the page for the moment of the switch only */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-switching,
+  .theme-switching *,
+  .theme-switching *::before,
+  .theme-switching *::after {
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease,
+      opacity 200ms ease,
+      transform 200ms ease !important;
+  }
+}
+
 /* Belt and braces: kill any CSS motion that slipped past motion-safe: */
 @media (prefers-reduced-motion: reduce) {
   *,

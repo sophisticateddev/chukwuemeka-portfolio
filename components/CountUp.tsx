@@ -20,7 +20,7 @@ export default function CountUp({ value }: { value: string }) {
     const decimals = match[1] ? match[1].length - 1 : 0;
     const [before, after] = [value.slice(0, match.index), value.slice(match.index! + match[0].length)];
     const controls = animate(0, target, {
-      duration: 1.4,
+      duration: 1,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (n) => setDisplay(before + n.toFixed(decimals) + after),
     });

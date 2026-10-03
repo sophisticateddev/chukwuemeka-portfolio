@@ -103,7 +103,7 @@ export default function WorkCard({
           </ul>
           <span
             aria-hidden="true"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent motion-safe:group-hover:-rotate-45 motion-safe:group-focus-within:-rotate-45"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent motion-safe:group-hover:-rotate-45 motion-safe:group-focus-within:-rotate-45"
           >
             <Arrow />
           </span>

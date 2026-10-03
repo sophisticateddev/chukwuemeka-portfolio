@@ -49,14 +49,14 @@ export default function Hero() {
             >
               <span className="sr-only">I design products. Then I build them with AI.</span>
               <span aria-hidden="true" className="block">
-                <RevealWords text="I design products." trigger="mount" delay={0.1} />
+                <RevealWords text="I design products." trigger="mount" delay={0.05} />
               </span>
               <span aria-hidden="true" className="block text-accent">
-                <RevealWords text="Then I build them with AI." trigger="mount" delay={0.35} />
+                <RevealWords text="Then I build them with AI." trigger="mount" delay={0.2} />
               </span>
             </h1>
 
-            <FadeUp delay={0.7}>
+            <FadeUp delay={0.25}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
                 Product Designer with 7+ years shipping at{" "}
                 <span className="text-ink">BAFTA, Carbon and Writesea</span>. I design the product, then build it
@@ -64,7 +64,7 @@ export default function Hero() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.8}>
+            <FadeUp delay={0.32}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Magnetic className="[&>a]:w-full">
                   <Link href="/#work" className="btn-primary group">
@@ -104,7 +104,7 @@ export default function Hero() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.9}>
+            <FadeUp delay={0.4}>
               <div className="mt-8">
                 <p className="eyebrow">Shipped at</p>
                 <ul className="mt-4 grid grid-cols-2 items-center gap-x-8 gap-y-5 sm:flex sm:flex-wrap">
@@ -126,7 +126,7 @@ export default function Hero() {
           </div>
 
           {/* Portrait, with the live product it proves the headline with */}
-          <FadeUp delay={0.5} className="mx-auto w-full max-w-md lg:-my-10 lg:max-w-none">
+          <FadeUp delay={0.2} className="mx-auto w-full max-w-md lg:-my-10 lg:max-w-none">
             <figure className="relative">
               {/* Transparent, feathered cut-outs: no frame, so they melt into the page and the glow behind.
                   The colour version is pixel-aligned with the B&W one and fades in on hover. */}
@@ -179,7 +179,7 @@ export default function Hero() {
           </FadeUp>
         </div>
 
-        <FadeUp delay={0.9}>
+        <FadeUp delay={0.45}>
           <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
             {stats.map((s) => (
               <div

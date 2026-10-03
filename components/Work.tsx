@@ -66,7 +66,7 @@ export default function Work() {
                         </p>
                         <span
                           aria-hidden="true"
-                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent motion-safe:group-hover:translate-x-0.5"
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent motion-safe:group-hover:translate-x-0.5"
                         >
                           <Arrow />
                         </span>

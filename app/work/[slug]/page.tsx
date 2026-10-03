@@ -260,7 +260,7 @@ export default function CaseStudyPage({ params }: Props) {
           </span>
           <span
             aria-hidden="true"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-xl transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45 group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-onaccent"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-xl transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent motion-safe:group-hover:-rotate-45 group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-onaccent"
           >
             <Arrow size={20} />
           </span>

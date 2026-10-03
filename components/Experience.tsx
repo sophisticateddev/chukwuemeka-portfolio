@@ -49,7 +49,8 @@ export default function Experience() {
           {experience.map((item, i) => (
             <li key={item.id} className="group relative" hidden={!expanded && i >= VISIBLE}>
               <DrawLine />
-              <FadeUp className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
+              {/* Rows revealed by "Show all" come in one after another */}
+              <FadeUp delay={i >= VISIBLE ? (i - VISIBLE) * 0.05 : 0} className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
                 <div className="font-mono text-sm text-muted">
                   <p className="flex items-center gap-2">
                     <span

@@ -46,7 +46,8 @@ export default function Writing() {
           {articles.map((article, i) => (
             <li key={article.id} className="relative" hidden={!expanded && i >= VISIBLE}>
               <DrawLine />
-              <FadeUp delay={(i % 4) * 0.04}>
+              {/* Rows revealed by "Show all" come in one after another */}
+              <FadeUp delay={i >= VISIBLE ? (i - VISIBLE) * 0.05 : i * 0.04}>
                 <article className="group relative grid items-center gap-5 py-6 sm:grid-cols-[180px_1fr_auto] md:gap-8">
                   <div className="hidden overflow-hidden rounded-xl border border-line sm:block">
                     <ArticleCover
@@ -83,7 +84,7 @@ export default function Writing() {
 
                   <span
                     aria-hidden="true"
-                    className="hidden h-10 w-10 items-center justify-center rounded-full border border-line transition-all duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent sm:flex"
+                    className="hidden h-10 w-10 items-center justify-center rounded-full border border-line transition-[background-color,border-color,color,transform] duration-300 ease-out group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent group-focus-within:border-accent group-focus-within:bg-accent group-focus-within:text-onaccent sm:flex"
                   >
                     <Arrow direction={article.url ? "up-right" : "right"} />
                   </span>
