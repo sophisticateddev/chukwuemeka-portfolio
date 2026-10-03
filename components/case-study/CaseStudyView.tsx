@@ -339,16 +339,29 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
           {cs.before && (
             <Block id="before" label={label("before")} takeaway={cs.before.takeaway}>
               {cs.before.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.before.intro}</p>}
-              <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3">
-                {cs.before.shots.map((s) => (
-                  <li key={s.src}>
-                    <figure>
-                      <PhoneFrame shot={s} sizes="(min-width: 640px) 220px, 45vw" className="opacity-90 grayscale-[35%]" />
-                      {s.caption && <figcaption className="mt-4 text-sm text-muted">{s.caption}</figcaption>}
-                    </figure>
-                  </li>
-                ))}
-              </ul>
+              {cs.before.frame === "browser" ? (
+                <ul className="grid gap-8 md:grid-cols-2">
+                  {cs.before.shots.map((s) => (
+                    <li key={s.src} className="min-w-0">
+                      <figure>
+                        <BrowserFrame shot={s} sizes="(min-width: 768px) 450px, 100vw" className="opacity-90 grayscale-[35%]" />
+                        {s.caption && <figcaption className="mt-3 text-sm text-muted">{s.caption}</figcaption>}
+                      </figure>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                  {cs.before.shots.map((s) => (
+                    <li key={s.src}>
+                      <figure>
+                        <PhoneFrame shot={s} sizes="(min-width: 640px) 220px, 45vw" className="opacity-90 grayscale-[35%]" />
+                        {s.caption && <figcaption className="mt-4 text-sm text-muted">{s.caption}</figcaption>}
+                      </figure>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </Block>
           )}
 
@@ -379,7 +392,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               {cs.web.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.web.intro}</p>}
               <div className="grid gap-8 md:grid-cols-2">
                 {cs.web.shots.map((s, i) => (
-                  <figure key={s.src} className={i === 0 ? "md:col-span-2" : ""}>
+                  <figure key={s.src} className={`min-w-0 ${i === 0 ? "md:col-span-2" : ""}`}>
                     <BrowserFrame shot={s} url={host} sizes={i === 0 ? "(min-width: 1024px) 900px, 100vw" : "(min-width: 768px) 450px, 100vw"} />
                     {s.caption && <figcaption className="mt-3 text-sm text-muted">{s.caption}</figcaption>}
                   </figure>

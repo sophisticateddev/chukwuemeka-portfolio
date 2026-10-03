@@ -11,7 +11,7 @@ import RevealWords from "./RevealWords";
 const stats = [
   { value: "+20%", label: "loan applications", source: "Carbon" },
   { value: "10,000+", label: "users in month one", source: "NippyBoxes" },
-  { value: "+25%", label: "accessibility & engagement", source: "BAFTA" },
+  { value: "+25%", label: "on a WCAG accessibility audit", source: "BAFTA albert" },
   { value: "100+", label: "players on a game I built with AI", source: "Character Guess" },
 ];
 

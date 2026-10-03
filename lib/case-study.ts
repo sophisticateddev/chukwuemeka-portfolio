@@ -41,7 +41,8 @@ export type CaseStudy = {
   /** How the work was done, with research and design artefacts */
   process?: Section<{ steps: { title: string; body: string }[]; artifacts?: Shot[] }>;
   /** The starting point of a redesign */
-  before?: Section<{ intro?: string; shots: Shot[] }>;
+  /** "browser" for desktop products; phone frames by default */
+  before?: Section<{ intro?: string; shots: Shot[]; frame?: "phone" | "browser" }>;
   decisions?: Section<{ items: Decision[] }>;
   evolution?: Section<{ items: { date: string; title: string; body: string }[] }>;
   mobile?: Section<{ intro?: string; shots: Shot[] }>;

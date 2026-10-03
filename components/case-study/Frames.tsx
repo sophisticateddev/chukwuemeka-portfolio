@@ -44,14 +44,14 @@ export function BrowserFrame({
   sizes?: string;
 }) {
   return (
-    <div className={`overflow-hidden rounded-2xl border border-line bg-raised shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] ${className}`}>
-      <div className="flex items-center gap-3 border-b border-line px-4 py-2.5" aria-hidden="true">
+    <div className={`min-w-0 overflow-hidden rounded-2xl border border-line bg-raised shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] ${className}`}>
+      <div className="flex min-w-0 items-center gap-3 border-b border-line px-4 py-2.5" aria-hidden="true">
         <span className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
         </span>
-        <span className="mx-auto min-w-[40%] truncate rounded-md bg-canvas px-3 py-1 text-center font-mono text-[11px] text-muted">
+        <span className="mx-auto w-[55%] min-w-0 truncate rounded-md bg-canvas px-3 py-1 text-center font-mono text-[11px] text-muted">
           {url ?? "\u00A0"}
         </span>
         <span className="w-[46px]" />

@@ -1,6 +1,7 @@
 import type { CaseStudy } from "./case-study";
 import { characterGuess } from "@/content/case-studies/character-guess";
 import { carbonLoans } from "@/content/case-studies/carbon-loans";
+import { albert } from "@/content/case-studies/albert";
 import { carbonZero } from "@/content/case-studies/carbon-zero";
 import { africhange } from "@/content/case-studies/africhange";
 import { nippyboxes } from "@/content/case-studies/nippyboxes";
@@ -130,13 +131,15 @@ export const workProjects: Project[] = [
     featured: true,
     client: "BAFTA (contract)",
     title: "albert — Sustainability Platform",
-    category: "Product Design",
+    category: "Sustainability · Product Design",
     year: "2024–2025",
     description:
-      "Redesigned the UK's national media sustainability platform for BAFTA's albert initiative, achieving a 25% improvement in accessibility and engagement across the media industry.",
+      "Rebuilt BAFTA albert's carbon toolkit for UK film and TV around the people who hold the data. 25% higher on our WCAG audit, and 30% higher satisfaction among production companies.",
     tags: ["Sustainability", "Enterprise", "Accessibility"],
     color: "#DDE4DC",
-    highlight: { value: "+25%", label: "accessibility & engagement" },
+    highlight: { value: "+25%", label: "on our WCAG accessibility audit" },
+    cover: "/images/work/albert/cover.webp",
+    caseStudy: albert,
     details: {
       overview:
         "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
@@ -418,7 +421,7 @@ export const experience = [
     location: "London, UK",
     period: "Jul 2024 — Aug 2025",
     description:
-      "Led UX for albert, BAFTA’s sustainability platform for the UK media industry, from discovery through delivery. Redesigned journeys and UI to WCAG standards, improving accessibility and engagement by 25%, and grounded designs in research and usability testing that increased user satisfaction by 30%.",
+      "Led UX for albert, BAFTA’s sustainability platform for the UK media industry, from discovery through delivery. Ran research with productions and broadcasters and redesigned the carbon toolkit for every role, scoring 25% higher on our WCAG accessibility audit and raising satisfaction among production companies by 30%.",
   },
   {
     id: 3,
