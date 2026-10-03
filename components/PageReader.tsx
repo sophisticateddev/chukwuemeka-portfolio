@@ -431,33 +431,58 @@ export default function PageReader() {
             {accents.length > 1 && (
               <label className="flex min-w-0 flex-1 items-center gap-2 text-sm text-muted sm:ml-1 sm:flex-none">
                 <span className="sr-only sm:not-sr-only">Accent</span>
-                <select
-                  value={accent}
-                  onChange={(e) => changeAccent(e.target.value)}
-                  className="h-11 w-full min-w-0 rounded-full border border-control bg-surface px-3 text-sm text-ink sm:w-auto"
-                >
-                  {accents.map((a) => (
-                    <option key={a.lang} value={a.lang}>
-                      {a.label}
-                    </option>
-                  ))}
-                </select>
+                {/* Own chevron: the native one sits too close to the rounded border */}
+                <span className="relative block min-w-0 flex-1 sm:flex-none">
+                  <select
+                    value={accent}
+                    onChange={(e) => changeAccent(e.target.value)}
+                    className="h-11 w-full min-w-0 appearance-none rounded-full border border-control bg-surface pl-4 pr-10 text-sm text-ink sm:w-auto"
+                  >
+                    {accents.map((a) => (
+                      <option key={a.lang} value={a.lang}>
+                        {a.label}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted"
+                  >
+                    <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </label>
             )}
 
             <label className="flex items-center gap-2 text-sm text-muted">
               <span className="sr-only sm:not-sr-only">Speed</span>
-              <select
-                value={rate}
-                onChange={(e) => changeRate(Number(e.target.value))}
-                className="h-11 rounded-full border border-control bg-surface px-3 text-sm text-ink"
-              >
-                {RATES.map((r) => (
-                  <option key={r} value={r}>
-                    {r}×
-                  </option>
-                ))}
-              </select>
+              <span className="relative block">
+                <select
+                  value={rate}
+                  onChange={(e) => changeRate(Number(e.target.value))}
+                  className="h-11 appearance-none rounded-full border border-control bg-surface pl-4 pr-10 text-sm text-ink"
+                >
+                  {RATES.map((r) => (
+                    <option key={r} value={r}>
+                      {r}×
+                    </option>
+                  ))}
+                </select>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted"
+                >
+                  <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </label>
           </div>
 
