@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const BLOCKS = "h1, h2, h3, h4, p, li, blockquote, figcaption, dl > div, img[alt]";
 const RATES = [0.75, 1, 1.25, 1.5, 2];
 const RATE_KEY = "reader-rate";
+const ACCENT_KEY = "reader-accent";
 
 /** The text a screen reader would announce: drops decorative nodes, keeps image descriptions. */
 function spokenText(el: Element): string {
@@ -63,13 +64,67 @@ function chunk(text: string, max = 220): string[] {
   return out;
 }
 
-function pickVoice(): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices();
-  return (
-    voices.find((v) => v.lang === "en-GB" && v.localService) ??
-    voices.find((v) => v.lang === "en-GB") ??
-    voices.find((v) => v.lang.startsWith("en")) ??
-    null
+type Accent = { lang: string; label: string; voice: SpeechSynthesisVoice };
+
+/** Friendly names for the English voices browsers ship. Anything else falls back to its region name. */
+const ACCENT_NAMES: Record<string, string> = {
+  "en-gb": "British",
+  "en-us": "American",
+  "en-au": "Australian",
+  "en-in": "Indian",
+  "en-ie": "Irish",
+  "en-za": "South African",
+  "en-ng": "Nigerian",
+  "en-ke": "Kenyan",
+  "en-gh": "Ghanaian",
+  "en-tz": "Tanzanian",
+  "en-ca": "Canadian",
+  "en-nz": "New Zealand",
+  "en-sg": "Singaporean",
+  "en-ph": "Filipino",
+  "en-hk": "Hong Kong",
+  "en-scotland": "Scottish",
+  "en-gb-scotland": "Scottish",
+  "en-gb-wls": "Welsh",
+};
+
+// macOS ships joke voices (bells, whispers, robots) tagged as English. Fun, but not accents.
+const NOVELTY =
+  /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Good News|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Eddy|Flo|Grandma|Grandpa|Reed|Rocko|Sandy|Shelley)\b/i;
+
+/** Higher is better: prefer natural-sounding voices, then Google's, then ones stored on the device. */
+const voiceScore = (v: SpeechSynthesisVoice) =>
+  (/natural|enhanced|premium|siri/i.test(v.name) ? 4 : 0) + (/google/i.test(v.name) ? 2 : 0) + (v.localService ? 1 : 0);
+
+function accentLabel(lang: string): string {
+  const known = ACCENT_NAMES[lang.toLowerCase()];
+  if (known) return known;
+  try {
+    const region = lang.split("-")[1];
+    return (region && new Intl.DisplayNames(["en"], { type: "region" }).of(region.toUpperCase())) || lang;
+  } catch {
+    return lang;
+  }
+}
+
+// Shown first, and used by default, when the device has them
+const PREFERRED = ["en-NG", "en-GB"];
+
+/** One voice per English accent the visitor's browser offers: Nigerian first, then British. */
+function listAccents(): Accent[] {
+  const best = new Map<string, SpeechSynthesisVoice>();
+  for (const v of window.speechSynthesis.getVoices()) {
+    const lang = v.lang.replace("_", "-");
+    if (!/^en(-|$)/i.test(lang) || NOVELTY.test(v.name)) continue;
+    const current = best.get(lang);
+    if (!current || voiceScore(v) > voiceScore(current)) best.set(lang, v);
+  }
+  const rank = (lang: string) => {
+    const i = PREFERRED.indexOf(lang);
+    return i === -1 ? PREFERRED.length : i;
+  };
+  return Array.from(best, ([lang, voice]) => ({ lang, label: accentLabel(lang), voice })).sort(
+    (a, b) => rank(a.lang) - rank(b.lang) || a.label.localeCompare(b.label),
   );
 }
 
@@ -86,6 +141,8 @@ export default function PageReader() {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [rate, setRate] = useState(1);
+  const [accents, setAccents] = useState<Accent[]>([]);
+  const [accent, setAccent] = useState("");
   const [position, setPosition] = useState({ index: 0, total: 0 });
   const [announcement, setAnnouncement] = useState("");
 
@@ -93,6 +150,7 @@ export default function PageReader() {
   const index = useRef(0);
   const run = useRef(0); // bumps on every stop/skip so stale speech callbacks are ignored
   const rateRef = useRef(1);
+  const voiceRef = useRef<SpeechSynthesisVoice | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const playRef = useRef<HTMLButtonElement>(null);
 
@@ -107,6 +165,28 @@ export default function PageReader() {
     } catch {
       // storage unavailable: use the default speed
     }
+  }, []);
+
+  // Voices load asynchronously in most browsers, so listen for them arriving
+  useEffect(() => {
+    if (!("speechSynthesis" in window)) return;
+    const synth = window.speechSynthesis;
+    const load = () => {
+      const found = listAccents();
+      setAccents(found);
+      let saved: string | null = null;
+      try {
+        saved = localStorage.getItem(ACCENT_KEY);
+      } catch {
+        // no saved accent
+      }
+      const chosen = found.find((a) => a.lang === saved) ?? found[0];
+      voiceRef.current = chosen?.voice ?? null;
+      setAccent(chosen?.lang ?? "");
+    };
+    load();
+    synth.addEventListener?.("voiceschanged", load);
+    return () => synth.removeEventListener?.("voiceschanged", load);
   }, []);
 
   const clearHighlight = () =>
@@ -144,7 +224,7 @@ export default function PageReader() {
         const parts = chunk(block.text);
         parts.forEach((part, n) => {
           const u = new SpeechSynthesisUtterance(part);
-          const voice = pickVoice();
+          const voice = voiceRef.current;
           if (voice) u.voice = voice;
           u.lang = voice?.lang ?? "en-GB";
           u.rate = rateRef.current;
@@ -205,6 +285,31 @@ export default function PageReader() {
       // not saved, still applies now
     }
     if (status === "playing") speakFrom(index.current); // restart the current block at the new speed
+  };
+
+  const changeAccent = (lang: string) => {
+    const chosen = accents.find((a) => a.lang === lang);
+    if (!chosen) return;
+    setAccent(lang);
+    voiceRef.current = chosen.voice;
+    try {
+      localStorage.setItem(ACCENT_KEY, lang);
+    } catch {
+      // not saved, still applies now
+    }
+    setAnnouncement(`${chosen.label} accent selected.`);
+    if (status === "playing") {
+      speakFrom(index.current); // carry on from the same place in the new voice
+    } else if (status === "idle") {
+      // A quick hello so you can hear the accent before pressing play
+      const synth = window.speechSynthesis;
+      synth.cancel();
+      const sample = new SpeechSynthesisUtterance(`Hello. This is the ${chosen.label} voice.`);
+      sample.voice = chosen.voice;
+      sample.lang = chosen.voice.lang;
+      sample.rate = rateRef.current;
+      synth.speak(sample);
+    }
   };
 
   const close = () => {
@@ -281,7 +386,7 @@ export default function PageReader() {
           id="page-reader"
           role="group"
           aria-label="Page reader"
-          className="flex max-w-[calc(100vw-1.5rem)] items-center gap-0.5 rounded-2xl border border-control bg-surface/95 p-1.5 shadow-lg backdrop-blur-md sm:gap-1 sm:p-2"
+          className="flex max-w-[calc(100vw-1.5rem)] flex-wrap items-center gap-0.5 rounded-2xl border border-control bg-surface/95 p-1.5 shadow-lg backdrop-blur-md sm:flex-nowrap sm:gap-1 sm:p-2"
         >
           <button type="button" onClick={() => skip(-1)} disabled={status === "idle"} aria-label="Previous section" className={iconButton}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -321,26 +426,46 @@ export default function PageReader() {
             </svg>
           </button>
 
-          <label className="ml-1 flex items-center gap-2 text-sm text-muted">
-            <span className="sr-only sm:not-sr-only">Speed</span>
-            <select
-              value={rate}
-              onChange={(e) => changeRate(Number(e.target.value))}
-              className="h-11 rounded-full border border-control bg-surface px-2 text-sm text-ink sm:px-3"
-            >
-              {RATES.map((r) => (
-                <option key={r} value={r}>
-                  {r}×
-                </option>
-              ))}
-            </select>
-          </label>
+          {/* On phones the two pickers drop to a second row under the transport buttons */}
+          <div className="order-last flex w-full items-center gap-2 px-1 pt-1 sm:order-none sm:w-auto sm:px-0 sm:pt-0">
+            {accents.length > 1 && (
+              <label className="flex min-w-0 flex-1 items-center gap-2 text-sm text-muted sm:ml-1 sm:flex-none">
+                <span className="sr-only sm:not-sr-only">Accent</span>
+                <select
+                  value={accent}
+                  onChange={(e) => changeAccent(e.target.value)}
+                  className="h-11 w-full min-w-0 rounded-full border border-control bg-surface px-3 text-sm text-ink sm:w-auto"
+                >
+                  {accents.map((a) => (
+                    <option key={a.lang} value={a.lang}>
+                      {a.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+
+            <label className="flex items-center gap-2 text-sm text-muted">
+              <span className="sr-only sm:not-sr-only">Speed</span>
+              <select
+                value={rate}
+                onChange={(e) => changeRate(Number(e.target.value))}
+                className="h-11 rounded-full border border-control bg-surface px-3 text-sm text-ink"
+              >
+                {RATES.map((r) => (
+                  <option key={r} value={r}>
+                    {r}×
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
 
           <p className="hidden px-2 font-mono text-xs text-muted sm:block">
             {status === "idle" ? "Ready" : `Section ${position.index + 1} of ${position.total}`}
           </p>
 
-          <button type="button" onClick={close} aria-label="Close page reader" className={iconButton}>
+          <button type="button" onClick={close} aria-label="Close page reader" className={`${iconButton} ml-auto sm:ml-0`}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
             </svg>
