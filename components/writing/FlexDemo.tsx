@@ -68,13 +68,13 @@ export default function FlexDemo() {
       <div
         aria-label={`Preview: three items laid out ${dir === "row" ? "horizontally" : "vertically"}, ${gap} pixel gap, aligned ${alignNames[align]}`}
         role="img"
-        className="flex min-h-[260px] rounded-xl border border-dashed border-accent/60 bg-raised p-6 transition-all"
+        className="flex min-h-[260px] rounded-xl border border-dashed border-accent/60 bg-raised p-6 transition-[gap] duration-300"
         style={{ flexDirection: dir, gap, alignItems: align }}
       >
         {[56, 88, 40].map((size, i) => (
           <div
             key={i}
-            className={`shrink-0 rounded-lg transition-all duration-300 ${i === 1 ? "bg-accent" : "bg-line"}`}
+            className={`shrink-0 rounded-lg transition-[width,height] duration-300 ${i === 1 ? "bg-accent" : "bg-line"}`}
             style={dir === "row" ? { width: 56, height: size } : { width: size + 40, height: 40 }}
           />
         ))}

@@ -37,7 +37,6 @@ export default function Testimonials() {
       <div className="container-page">
         <SectionHeading
           id="testimonials-title"
-          index="04"
           label="Kind words"
           title="From the people I’ve led"
           titleMuted="and the people who’ve led me."

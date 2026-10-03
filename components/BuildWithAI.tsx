@@ -30,7 +30,6 @@ export default function BuildWithAI() {
       <div className="container-page">
         <SectionHeading
           id="ai-title"
-          index="02"
           label="AI practice"
           title="Design and build in one loop,"
           titleMuted="with AI in the middle."

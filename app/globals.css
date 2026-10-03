@@ -50,7 +50,7 @@
     --control: 92 96 104;
     --ink: 244 244 241;
     --muted: 166 168 174;
-    --accent: 198 241 53;
+    --accent: 198 241 53; /* #C6F135, 14.6:1 */
     --onaccent: 11 12 14;
     --elev: rgb(0 0 0 / 0.9);
     --logo-filter: brightness(0) invert(1);
@@ -66,6 +66,29 @@
     @apply bg-canvas text-ink font-sans antialiased;
     font-size: 1rem;
     line-height: 1.65;
+  }
+
+  /* Headings break into even lines; paragraphs avoid a lone last word */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  figcaption {
+    text-wrap: pretty;
+  }
+
+  /* No double-tap zoom delay on controls; tap flash in the accent colour */
+  a,
+  button,
+  select,
+  summary {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgb(var(--accent) / 0.15);
   }
 
   /* Anchored sections clear the fixed header */
@@ -117,7 +140,7 @@
   }
 
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.14em] text-muted;
+    @apply text-sm font-medium text-muted;
   }
 
   .btn {

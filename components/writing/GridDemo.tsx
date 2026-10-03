@@ -54,7 +54,7 @@ export default function GridDemo() {
           />
         )}
         <div
-          className="relative w-full max-w-[280px] rounded-2xl border border-line bg-canvas transition-all duration-500 ease-out"
+          className="relative w-full max-w-[280px] rounded-2xl border border-line bg-canvas transition-[padding] duration-500 ease-out"
           style={{ padding: s.pad }}
         >
           <div className="aspect-[16/9] rounded-lg bg-line" />

@@ -14,14 +14,14 @@ interface RevealWordsProps {
  * for assistive tech separately and mark this aria-hidden.
  */
 export default function RevealWords({ text, delay = 0, trigger = "view" }: RevealWordsProps) {
+  // Only page-load headlines animate; headings further down are plain text
+  if (trigger !== "mount") return <>{text}</>;
   const words = text.split(" ");
-  const play = trigger === "mount" ? { animate: "shown" } : { whileInView: "shown" };
 
   return (
     <motion.span
       initial="hidden"
-      {...play}
-      viewport={{ once: true, margin: "-40px" }}
+      animate="shown"
       transition={{ staggerChildren: 0.06, delayChildren: delay }}
     >
       {words.map((word, i) => (

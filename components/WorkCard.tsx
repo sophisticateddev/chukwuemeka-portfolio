@@ -61,7 +61,7 @@ export default function WorkCard({
               <span>{project.year}</span>
             </div>
             <div className="transition-transform duration-500 ease-out motion-safe:group-hover:-translate-y-1">
-              <p className="font-display text-4xl font-semibold tracking-[-0.03em] text-accent md:text-5xl">
+              <p className="font-display text-4xl font-semibold tracking-[-0.02em] text-accent md:text-5xl">
                 <CountUp value={project.highlight.value} />
               </p>
               <p className="mt-1 text-sm text-muted">{project.highlight.label}</p>

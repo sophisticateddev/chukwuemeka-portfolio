@@ -38,7 +38,6 @@ export default function Experience() {
       <div className="container-page">
         <SectionHeading
           id="experience-title"
-          index="03"
           label="Experience"
           title="Seven years, from research"
           titleMuted="to shipped product."
@@ -50,7 +49,7 @@ export default function Experience() {
             <li key={item.id} className="group relative" hidden={!expanded && i >= VISIBLE}>
               <DrawLine />
               {/* Rows revealed by "Show all" come in one after another */}
-              <FadeUp delay={i >= VISIBLE ? (i - VISIBLE) * 0.05 : 0} className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
+              <FadeUp animate={i >= VISIBLE} delay={(i - VISIBLE) * 0.05} className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
                 <div className="font-mono text-sm text-muted">
                   <p className="flex items-center gap-2">
                     <span

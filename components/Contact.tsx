@@ -27,7 +27,7 @@ export default function Contact() {
           <p className="relative font-mono text-xs uppercase tracking-[0.14em]">07 / Contact</p>
           <h2
             id="contact-title"
-            className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl md:text-6xl"
+            className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.025em] sm:text-5xl md:text-6xl"
           >
             <span className="sr-only">Need a designer who can also build it?</span>
             <span aria-hidden="true">

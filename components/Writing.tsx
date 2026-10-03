@@ -34,7 +34,6 @@ export default function Writing() {
       <div className="container-page">
         <SectionHeading
           id="writing-title"
-          index="06"
           label="Writing"
           title="Notes on AI,"
           titleMuted="accessibility and craft."
@@ -47,7 +46,7 @@ export default function Writing() {
             <li key={article.id} className="relative" hidden={!expanded && i >= VISIBLE}>
               <DrawLine />
               {/* Rows revealed by "Show all" come in one after another */}
-              <FadeUp delay={i >= VISIBLE ? (i - VISIBLE) * 0.05 : i * 0.04}>
+              <FadeUp animate={i >= VISIBLE} delay={(i - VISIBLE) * 0.05}>
                 <article className="group relative grid items-center gap-5 py-6 sm:grid-cols-[180px_1fr_auto] md:gap-8">
                   <div className="hidden overflow-hidden rounded-xl border border-line sm:block">
                     <ArticleCover

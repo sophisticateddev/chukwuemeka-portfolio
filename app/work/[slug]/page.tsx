@@ -100,7 +100,7 @@ export default function CaseStudyPage({ params }: Props) {
         </Link>
 
         <p className="eyebrow mt-10">{project.category}</p>
-        <h1 className="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] md:text-6xl lg:text-7xl">
+        <h1 className="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.025em] md:text-6xl lg:text-7xl">
           <span className="sr-only">{project.title}</span>
           <span aria-hidden="true">
             <RevealWords text={project.title} trigger="mount" delay={0.05} />
@@ -138,7 +138,7 @@ export default function CaseStudyPage({ params }: Props) {
             />
           ) : (
             <div className="flex h-full flex-col justify-end p-6 md:p-12">
-              <p className="font-display text-5xl font-semibold tracking-[-0.04em] text-accent md:text-8xl">
+              <p className="font-display text-5xl font-semibold tracking-[-0.025em] text-accent md:text-8xl">
                 <CountUp value={project.highlight.value} />
               </p>
               <p className="mt-2 text-lg text-muted">

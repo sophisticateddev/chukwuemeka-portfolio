@@ -84,7 +84,7 @@ export const workProjects: Project[] = [
     category: "Fintech · Product Design",
     year: "2023",
     description:
-      "End-to-end redesign of Carbon MFB's loan product. Loan applications rose 20%, beating the 15% target, while drop-offs and non-performing loans each fell 10%.",
+      "End-to-end redesign of Carbon MFB’s loan product. Loan applications rose 20%, beating the 15% target, while drop-offs and non-performing loans each fell 10%.",
     tags: ["Fintech", "Mobile", "Redesign"],
     color: "#E8E4DC",
     highlight: { value: "+20%", label: "loan applications, beating a 15% target" },
@@ -92,7 +92,7 @@ export const workProjects: Project[] = [
     caseStudy: carbonLoans,
     details: {
       overview:
-        "The redesign aimed to reward loyal customers, enhance the user experience across the loan journey, and increase profit margins. Carbon MFB is one of Africa's fastest-growing digital banks, serving over 3 million users across Nigeria.",
+        "The redesign aimed to reward loyal customers, enhance the user experience across the loan journey, and increase profit margins. Carbon MFB is one of Africa’s fastest-growing digital banks, serving over 3 million users across Nigeria.",
       role: "Lead Product Designer (UX & UI)",
       team: "3 Designers (incl. me as lead), 1 Product Manager, 6 Developers, 1 QA, 1 Scrum Master",
       timeline: "2023",
@@ -113,7 +113,7 @@ export const workProjects: Project[] = [
         "Users needed flexible loan tenures to fit different repayment capacities",
         "Loan top-up capability was a highly requested feature to reduce re-application friction",
         "Incentives for early repayment would drive better financial behaviour",
-        "Credit tracking visibility was low — users didn't know where they stood",
+        "Credit tracking visibility was low — users didn’t know where they stood",
       ],
       outcomes: [
         "New loan dashboard giving quick access to loan history and status",
@@ -134,7 +134,7 @@ export const workProjects: Project[] = [
     category: "Sustainability · Product Design",
     year: "2024–2025",
     description:
-      "Rebuilt BAFTA albert's carbon toolkit for UK film and TV around the people who hold the data. Productions starting their footprint in pre-production rose from 30% to 55%, and WCAG 2.2 AA criteria passed from 60% to 85%.",
+      "Rebuilt BAFTA albert’s carbon toolkit for UK film and TV around the people who hold the data. Productions starting their footprint in pre-production rose from 30% to 55%, and WCAG 2.2 AA criteria passed from 60% to 85%.",
     tags: ["Sustainability", "Enterprise", "Accessibility"],
     color: "#DDE4DC",
     highlight: { value: "30% → 55%", label: "productions starting in pre-production" },
@@ -142,7 +142,7 @@ export const workProjects: Project[] = [
     caseStudy: albert,
     details: {
       overview:
-        "Led UX design across albert's digital platforms — the UK's leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
+        "Led UX design across albert’s digital platforms — the UK’s leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
       role: "Senior Product Designer",
       team: "Product Designer, Product Manager, Engineering team",
       timeline: "Jul 2024 – Aug 2025",
@@ -211,7 +211,7 @@ export const workProjects: Project[] = [
     category: "Fintech · Product Design",
     year: "2023",
     description:
-      "Designed Carbon's Buy Now Pay Later product from concept to launch — a zero-interest credit facility enabling customers to purchase today and spread payments over time in under one minute.",
+      "Designed Carbon’s Buy Now Pay Later product from concept to launch — a zero-interest credit facility enabling customers to purchase today and spread payments over time in under one minute.",
     tags: ["BNPL", "Fintech", "B2C"],
     color: "#E4E1D8",
     highlight: { value: "< 1 min", label: "from purchase to payment" },
@@ -219,7 +219,7 @@ export const workProjects: Project[] = [
     caseStudy: carbonZero,
     details: {
       overview:
-        "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product's long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
+        "Carbon Zero gives customers the power to make purchases on credit with zero percent interest, distributed over time. The product’s long-term goal was to become a top-three purchase choice for consumers — requiring a flow that was fast, clear, and trustworthy.",
       role: "Lead Product Designer (UX & UI)",
       team: "1 Product Manager, 1 Product Designer, 4 Engineers, 2 Marketers",
       timeline: "2023",
@@ -264,7 +264,7 @@ export const workProjects: Project[] = [
         "Users had no way to compare prices across different logistics providers",
         "GPS navigation was rarely used by logistics platforms, causing pickup and tracking failures",
         "Package costs were overpriced due to inaccurate measurement methods",
-        "80% of those interviewed couldn't check multiple logistics platforms for best pricing",
+        "80% of those interviewed couldn’t check multiple logistics platforms for best pricing",
         "Existing logistics apps were difficult to navigate and lacked user trust",
       ],
       goals: [
@@ -370,7 +370,7 @@ export const articles: Article[] = [
     readTime: "6 min read",
     tag: "Design",
     excerpt:
-      "The 8pt grid isn't a constraint, it's a cheat code. Here's how I use it to build interfaces that feel effortlessly precise.",
+      "The 8pt grid isn’t a constraint, it’s a cheat code. Here’s how I use it to build interfaces that feel effortlessly precise.",
   },
   {
     id: 2,
@@ -380,7 +380,7 @@ export const articles: Article[] = [
     readTime: "7 min read",
     tag: "Accessibility",
     excerpt:
-      "Accessibility is not a feature. It's a baseline. Five practical things you can bring to your next design review.",
+      "Accessibility is not a feature. It’s a baseline. Five practical things you can bring to your next design review.",
   },
   {
     id: 3,
@@ -400,7 +400,7 @@ export const articles: Article[] = [
     readTime: "6 min read",
     tag: "Figma",
     excerpt:
-      "Auto Layout didn't come from nowhere. Understanding its CSS roots makes you dramatically better at using it, and at talking to engineers.",
+      "Auto Layout didn’t come from nowhere. Understanding its CSS roots makes you dramatically better at using it, and at talking to engineers.",
   },
   {
     id: 5,
@@ -410,7 +410,7 @@ export const articles: Article[] = [
     readTime: "6 min read",
     tag: "Process",
     excerpt:
-      "Most designers don't have a prioritisation problem. They have a clarity problem. Here's the framework that fixed mine.",
+      "Most designers don’t have a prioritisation problem. They have a clarity problem. Here’s the framework that fixed mine.",
   },
 ];
 

@@ -14,7 +14,6 @@ export default function Work() {
       <div className="container-page">
         <SectionHeading
           id="work-title"
-          index="01"
           label="Selected work"
           title="Products used by millions,"
           titleMuted="designed to be understood."

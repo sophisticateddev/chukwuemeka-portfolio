@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { animate, useInView, useReducedMotion } from "framer-motion";
 
 /**
@@ -12,7 +12,8 @@ export default function CountUp({ value }: { value: string }) {
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const reduceMotion = useReducedMotion();
   const match = value.match(/\d+(\.\d+)?/);
-  const [display, setDisplay] = useState(value);
+  // Frames are written straight to this node so the count doesn't re-render React 60 times a second
+  const visual = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (!match || reduceMotion || !inView) return;
@@ -22,7 +23,9 @@ export default function CountUp({ value }: { value: string }) {
     const controls = animate(0, target, {
       duration: 1,
       ease: [0.22, 1, 0.36, 1],
-      onUpdate: (n) => setDisplay(before + n.toFixed(decimals) + after),
+      onUpdate: (n) => {
+        if (visual.current) visual.current.textContent = before + n.toFixed(decimals) + after;
+      },
     });
     return () => controls.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,8 +34,8 @@ export default function CountUp({ value }: { value: string }) {
   return (
     <span ref={ref}>
       <span className="sr-only">{value}</span>
-      <span aria-hidden="true" className="tabular-nums">
-        {display}
+      <span ref={visual} aria-hidden="true" className="tabular-nums">
+        {value}
       </span>
     </span>
   );

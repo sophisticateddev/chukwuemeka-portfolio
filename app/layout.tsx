@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -8,9 +8,9 @@ import BackToTop from "@/components/BackToTop";
 import PageReader from "@/components/PageReader";
 import { siteUrl } from "@/lib/site";
 
-const display = Space_Grotesk({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  axes: ["opsz"],
   variable: "--font-display",
   display: "swap",
 });

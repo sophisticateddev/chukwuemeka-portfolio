@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="container-page pb-20 pt-28 md:pb-28 md:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,31rem)]">
           <div>
-            <FadeUp>
+            <FadeUp animate>
               <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-sm text-ink backdrop-blur">
                 <span className="relative flex h-2 w-2" aria-hidden="true">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
@@ -45,7 +45,7 @@ export default function Hero() {
 
             <h1
               id="hero-title"
-              className="font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl xl:text-[4.5rem]"
+              className="font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.025em] sm:text-6xl md:text-7xl xl:text-[4.5rem]"
             >
               <span className="sr-only">I design products. Then I build them with AI.</span>
               <span aria-hidden="true" className="block">
@@ -56,7 +56,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <FadeUp delay={0.25}>
+            <FadeUp animate delay={0.25}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
                 Product Designer with 7+ years shipping at{" "}
                 <span className="text-ink">BAFTA, Carbon and Writesea</span>. I design the product, then build it
@@ -64,7 +64,7 @@ export default function Hero() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.32}>
+            <FadeUp animate delay={0.32}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Magnetic className="[&>a]:w-full">
                   <Link href="/#work" className="btn-primary group">
@@ -104,7 +104,7 @@ export default function Hero() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.4}>
+            <FadeUp animate delay={0.4}>
               <div className="mt-8">
                 <p className="eyebrow">Shipped at</p>
                 <ul className="mt-4 grid grid-cols-2 items-center gap-x-8 gap-y-5 sm:flex sm:flex-wrap">
@@ -126,7 +126,7 @@ export default function Hero() {
           </div>
 
           {/* Portrait, with the live product it proves the headline with */}
-          <FadeUp delay={0.2} className="mx-auto w-full max-w-md lg:-my-10 lg:max-w-none">
+          <FadeUp animate delay={0.2} className="mx-auto w-full max-w-md lg:-my-10 lg:max-w-none">
             <figure className="relative">
               {/* Transparent, feathered cut-outs: no frame, so they melt into the page and the glow behind.
                   The colour version is pixel-aligned with the B&W one and fades in on hover. */}
@@ -179,7 +179,7 @@ export default function Hero() {
           </FadeUp>
         </div>
 
-        <FadeUp delay={0.45}>
+        <FadeUp animate delay={0.45}>
           <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
             {stats.map((s) => (
               <div
