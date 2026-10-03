@@ -9,17 +9,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // All text pairings meet WCAG AA (most AAA) against canvas and surface.
+      // Colours are CSS variables (RGB channels) defined per theme in app/globals.css,
+      // so one class works in light and dark. Every text pairing meets WCAG AA in both.
       colors: {
-        canvas: "#0B0C0E", // page background
-        surface: "#131417", // cards
-        raised: "#1A1C20", // inset panels inside cards
-        line: "#26282D", // decorative dividers / card borders
-        control: "#5C6068", // interactive borders (≥3:1 on canvas)
-        ink: "#F4F4F1", // primary text — 17.9:1 on canvas
-        muted: "#A6A8AE", // secondary text — 8.1:1 on canvas
-        accent: "#C6F135", // electric lime — 14.6:1 on canvas
-        onaccent: "#0B0C0E", // text on accent fills
+        canvas: "rgb(var(--canvas) / <alpha-value>)", // page background
+        surface: "rgb(var(--surface) / <alpha-value>)", // cards
+        raised: "rgb(var(--raised) / <alpha-value>)", // inset panels inside cards
+        line: "rgb(var(--line) / <alpha-value>)", // decorative dividers / card borders
+        control: "rgb(var(--control) / <alpha-value>)", // interactive borders (≥3:1 on canvas)
+        ink: "rgb(var(--ink) / <alpha-value>)", // primary text
+        muted: "rgb(var(--muted) / <alpha-value>)", // secondary text
+        accent: "rgb(var(--accent) / <alpha-value>)", // lime in dark, deep green in light
+        onaccent: "rgb(var(--onaccent) / <alpha-value>)", // text on accent fills
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],

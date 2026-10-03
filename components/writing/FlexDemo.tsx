@@ -43,7 +43,7 @@ export default function FlexDemo() {
             step={8}
             value={gap}
             onChange={(e) => setGap(Number(e.target.value))}
-            className="w-full accent-[#C6F135]"
+            className="w-full accent-[rgb(var(--accent))]"
           />
         </div>
 

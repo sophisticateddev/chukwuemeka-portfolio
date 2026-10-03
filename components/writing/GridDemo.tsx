@@ -48,7 +48,7 @@ export default function GridDemo() {
             className="pointer-events-none absolute inset-0 rounded-xl"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(198,241,53,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(198,241,53,0.18) 1px, transparent 1px)",
+                "linear-gradient(rgb(var(--accent) / 0.18) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--accent) / 0.18) 1px, transparent 1px)",
               backgroundSize: "8px 8px",
             }}
           />

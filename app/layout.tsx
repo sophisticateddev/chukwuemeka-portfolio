@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
 import BackToTop from "@/components/BackToTop";
+import PageReader from "@/components/PageReader";
 import { siteUrl } from "@/lib/site";
 
 const display = Space_Grotesk({
@@ -44,8 +45,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0C0E",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F6F6F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B0C0E" },
+  ],
 };
+
+// Runs before first paint so a saved theme choice never flashes the other theme.
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -53,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en-GB" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <a
           href="#main"
@@ -62,6 +72,8 @@ export default function RootLayout({
           Skip to content
         </a>
         <MotionProvider>
+          {/* Early in the tab order, right after the skip link; shown bottom-left */}
+          <PageReader />
           <Nav />
           {children}
           <Footer />

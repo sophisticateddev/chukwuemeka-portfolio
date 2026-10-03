@@ -59,7 +59,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-10"
-          style={{ background: "radial-gradient(900px circle at 80% 10%, rgba(198,241,53,0.08), transparent 60%)" }}
+          style={{ background: "radial-gradient(900px circle at 80% 10%, rgb(var(--accent) / 0.08), transparent 60%)" }}
         />
         <div className="container-page pb-16 pt-28 md:pt-32">
           <Link

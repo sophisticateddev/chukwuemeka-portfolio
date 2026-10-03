@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface FadeUpProps {
@@ -9,11 +9,13 @@ interface FadeUpProps {
   className?: string;
 }
 
+/**
+ * Fades content up as it scrolls into view.
+ * Always renders the same element on server and client: branching on reduced motion here
+ * left server-rendered content stuck at opacity 0 for people who ask for less motion.
+ * MotionProvider's reducedMotion="user" drops the movement for them and keeps a plain fade.
+ */
 export default function FadeUp({ children, delay = 0, className = "" }: FadeUpProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) return <div className={className}>{children}</div>;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}

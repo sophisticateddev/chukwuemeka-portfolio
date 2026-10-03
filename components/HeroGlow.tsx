@@ -34,7 +34,7 @@ export default function HeroGlow() {
       <div
         className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: "radial-gradient(rgba(244,244,241,0.14) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgb(var(--ink) / 0.14) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           maskImage: "radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent)",
@@ -44,7 +44,7 @@ export default function HeroGlow() {
         className="absolute inset-0 transition-[background] duration-300"
         style={{
           background:
-            "radial-gradient(520px circle at var(--gx, 70%) var(--gy, 30%), rgba(198,241,53,0.10), transparent 60%)",
+            "radial-gradient(520px circle at var(--gx, 70%) var(--gy, 30%), rgb(var(--accent) / 0.10), transparent 60%)",
         }}
       />
     </div>

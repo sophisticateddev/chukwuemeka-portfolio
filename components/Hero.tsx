@@ -116,7 +116,7 @@ export default function Hero() {
                         alt={logo.name}
                         width={logo.width}
                         height={logo.height}
-                        className={`${logo.className} w-auto opacity-60 transition-opacity duration-300 [filter:brightness(0)_invert(1)] hover:opacity-100`}
+                        className={`${logo.className} w-auto opacity-60 transition-opacity duration-300 [filter:var(--logo-filter)] hover:opacity-100`}
                       />
                     </li>
                   ))}
@@ -133,7 +133,7 @@ export default function Hero() {
               <div className="group/portrait relative aspect-[8/9]">
                 <Image
                   src="/images/portrait.webp"
-                  alt="Chukwuemeka Iheonye"
+                  alt="Portrait of Chukwuemeka Iheonye, smiling, in a polo shirt"
                   fill
                   priority
                   sizes="(min-width: 1280px) 496px, (min-width: 1024px) 416px, 448px"
@@ -151,7 +151,7 @@ export default function Hero() {
 
               <Link
                 href="/work/character-guess"
-                className="group absolute bottom-6 left-4 right-4 flex items-center gap-3 rounded-2xl border border-line bg-raised/90 p-3 pr-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] backdrop-blur transition-colors duration-300 hover:border-control focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:left-0 sm:right-auto lg:-left-6"
+                className="group absolute bottom-6 left-4 right-4 flex items-center gap-3 rounded-2xl border border-line bg-raised/90 p-3 pr-4 shadow-[0_20px_50px_-20px_var(--elev)] backdrop-blur transition-colors duration-300 hover:border-control focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:left-0 sm:right-auto lg:-left-6"
               >
                 <span className="relative h-14 w-10 shrink-0 overflow-hidden rounded-lg border border-line">
                   <Image

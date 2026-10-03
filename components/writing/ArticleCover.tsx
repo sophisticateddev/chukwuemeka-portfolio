@@ -1,13 +1,13 @@
 // Hand-drawn SVG covers, one per article. Colours mirror the Tailwind tokens.
 const C = {
-  bg: "#131417",
-  raised: "#1A1C20",
-  line: "#26282D",
-  control: "#5C6068",
-  muted: "#A6A8AE",
-  ink: "#F4F4F1",
-  accent: "#C6F135",
-  onaccent: "#0B0C0E",
+  bg: "rgb(var(--surface))",
+  raised: "rgb(var(--raised))",
+  line: "rgb(var(--line))",
+  control: "rgb(var(--control))",
+  muted: "rgb(var(--muted))",
+  ink: "rgb(var(--ink))",
+  accent: "rgb(var(--accent))",
+  onaccent: "rgb(var(--onaccent))",
 };
 
 const labels: Record<string, string> = {

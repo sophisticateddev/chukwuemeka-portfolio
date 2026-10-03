@@ -15,7 +15,7 @@ export function PhoneFrame({
 }) {
   return (
     <div
-      className={`relative rounded-[2.4rem] border border-control/60 bg-[#050506] p-2 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] ${className}`}
+      className={`relative rounded-[2.4rem] border border-control/60 bg-[#050506] p-2 shadow-[0_30px_80px_-30px_var(--elev)] ${className}`}
     >
       <div className="relative aspect-[390/844] overflow-hidden rounded-[1.9rem]">
         <Image src={shot.src} alt={shot.alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
@@ -44,7 +44,7 @@ export function BrowserFrame({
   sizes?: string;
 }) {
   return (
-    <div className={`min-w-0 overflow-hidden rounded-2xl border border-line bg-raised shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] ${className}`}>
+    <div className={`min-w-0 overflow-hidden rounded-2xl border border-line bg-raised shadow-[0_30px_80px_-40px_var(--elev)] ${className}`}>
       <div className="flex min-w-0 items-center gap-3 border-b border-line px-4 py-2.5" aria-hidden="true">
         <span className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-line" />

@@ -49,13 +49,13 @@ export default function Article() {
             Fill-ins, low impact and low effort: icon tidy-up. Money pit, low impact and high
             effort: rebuild settings from scratch.
           </desc>
-          <rect width="640" height="380" fill="#131417" />
-          <rect x="330" y="30" width="280" height="160" rx="12" fill="#C6F135" opacity="0.1" />
-          <line x1="320" y1="24" x2="320" y2="356" stroke="#5C6068" />
-          <line x1="40" y1="190" x2="610" y2="190" stroke="#5C6068" />
-          <g fontFamily="monospace" fontSize="12" fill="#A6A8AE">
+          <rect width="640" height="380" fill="rgb(var(--surface))" />
+          <rect x="330" y="30" width="280" height="160" rx="12" fill="rgb(var(--accent))" opacity="0.1" />
+          <line x1="320" y1="24" x2="320" y2="356" stroke="rgb(var(--control))" />
+          <line x1="40" y1="190" x2="610" y2="190" stroke="rgb(var(--control))" />
+          <g fontFamily="monospace" fontSize="12" fill="rgb(var(--muted))">
             <text x="50" y="48">BIG BETS · schedule</text>
-            <text x="340" y="48" fill="#C6F135">QUICK WINS · do first</text>
+            <text x="340" y="48" fill="rgb(var(--accent))">QUICK WINS · do first</text>
             <text x="50" y="348">MONEY PIT · challenge</text>
             <text x="340" y="348">FILL-INS · batch</text>
             <text x="20" y="110" transform="rotate(-90 20 110)">MORE IMPACT</text>
@@ -64,8 +64,8 @@ export default function Article() {
           </g>
           {tasks.map((t) => (
             <g key={t.label}>
-              <circle cx={t.x - 14} cy={t.y - 4} r="6" fill={t.q === "win" ? "#C6F135" : t.q === "bet" ? "#F4F4F1" : "#5C6068"} />
-              <text x={t.x} y={t.y} fontFamily="sans-serif" fontSize="13" fill="#F4F4F1">
+              <circle cx={t.x - 14} cy={t.y - 4} r="6" fill={t.q === "win" ? "rgb(var(--accent))" : t.q === "bet" ? "rgb(var(--ink))" : "rgb(var(--control))"} />
+              <text x={t.x} y={t.y} fontFamily="sans-serif" fontSize="13" fill="rgb(var(--ink))">
                 {t.label}
               </text>
             </g>

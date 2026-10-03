@@ -3,8 +3,57 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  /*
+   * Theme tokens, as RGB channels so Tailwind opacity modifiers work.
+   * Light is the default; dark applies when the system asks for it, unless the
+   * visitor has chosen a theme with the toggle (data-theme on <html>).
+   * Contrast against canvas / surface is noted for each text colour.
+   */
+  :root {
+    color-scheme: light;
+    --canvas: 246 246 242; /* #F6F6F2 */
+    --surface: 255 255 255;
+    --raised: 238 238 232; /* #EEEEE8 */
+    --line: 220 220 212; /* #DCDCD4 */
+    --control: 107 111 119; /* #6B6F77, 4.6:1 */
+    --ink: 17 18 20; /* #111214, 17.3:1 */
+    --muted: 79 82 89; /* #4F5259, 7.2:1 */
+    --accent: 61 107 0; /* #3D6B00, 5.9:1; white on it 6.4:1 */
+    --onaccent: 255 255 255;
+    --elev: rgb(17 18 20 / 0.18); /* card and frame shadows */
+    --logo-filter: brightness(0); /* partner logos as a single ink colour */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --canvas: 11 12 14; /* #0B0C0E */
+      --surface: 19 20 23; /* #131417 */
+      --raised: 26 28 32; /* #1A1C20 */
+      --line: 38 40 45; /* #26282D */
+      --control: 92 96 104; /* #5C6068 */
+      --ink: 244 244 241; /* #F4F4F1, 17.9:1 */
+      --muted: 166 168 174; /* #A6A8AE, 8.1:1 */
+      --accent: 198 241 53; /* #C6F135, 14.6:1 */
+      --onaccent: 11 12 14;
+      --elev: rgb(0 0 0 / 0.9);
+      --logo-filter: brightness(0) invert(1);
+    }
+  }
+
+  :root[data-theme="dark"] {
     color-scheme: dark;
+    --canvas: 11 12 14;
+    --surface: 19 20 23;
+    --raised: 26 28 32;
+    --line: 38 40 45;
+    --control: 92 96 104;
+    --ink: 244 244 241;
+    --muted: 166 168 174;
+    --accent: 198 241 53;
+    --onaccent: 11 12 14;
+    --elev: rgb(0 0 0 / 0.9);
+    --logo-filter: brightness(0) invert(1);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -25,13 +74,40 @@
   }
 
   :focus-visible {
-    outline: 2px solid theme("colors.accent");
+    outline: 2px solid rgb(var(--accent));
     outline-offset: 3px;
     border-radius: 4px;
   }
 
   ::selection {
     @apply bg-accent text-onaccent;
+  }
+
+  /* The block the page reader is currently speaking */
+  [data-reading] {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 6px;
+    border-radius: 6px;
+    background: rgb(var(--accent) / 0.08);
+  }
+}
+
+/* People who ask for more contrast get stronger secondary text and borders */
+@media (prefers-contrast: more) {
+  :root {
+    --muted: var(--ink);
+    --line: var(--control);
+  }
+}
+
+/* Windows High Contrast and similar: fills are removed, so give controls a real edge */
+@media (forced-colors: active) {
+  .btn,
+  [data-reading] {
+    border: 1px solid ButtonText;
+  }
+  [data-reading] {
+    outline: 2px solid Highlight;
   }
 }
 
@@ -49,7 +125,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-accent text-onaccent hover:bg-ink hover:shadow-[0_0_0_6px_rgba(198,241,53,0.15)];
+    @apply btn bg-accent text-onaccent hover:bg-ink hover:shadow-[0_0_0_6px_rgb(var(--accent)/0.15)];
   }
 
   .btn-secondary {

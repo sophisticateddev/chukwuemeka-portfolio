@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import Magnetic from "./Magnetic";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Work", href: "/#work", id: "work" },
@@ -81,7 +82,10 @@ export default function Nav() {
               </li>
             );
           })}
-          <li className="ml-3">
+          <li className="ml-1">
+            <ThemeToggle />
+          </li>
+          <li className="ml-2">
             <Magnetic>
               <Link href="/#contact" className="btn-primary min-h-[40px] px-5">
                 Get in touch
@@ -90,9 +94,11 @@ export default function Nav() {
           </li>
         </ul>
 
+        <div className="flex items-center md:hidden">
+          <ThemeToggle />
         <button
           type="button"
-          className="relative flex h-11 w-11 items-center justify-center rounded-full md:hidden"
+          className="relative flex h-11 w-11 items-center justify-center rounded-full"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -117,6 +123,7 @@ export default function Nav() {
             />
           </span>
         </button>
+        </div>
       </nav>
 
       {/* Reading progress */}

@@ -27,14 +27,14 @@ export default function Article() {
       </p>
       <Figure caption="The interface people see sits on top of decisions a model is making about what they’ll see.">
         <svg viewBox="0 0 640 300" role="img" aria-label="Three stacked layers: interface on top, decisions in the middle, model and data at the bottom" className="h-auto w-full">
-          <rect width="640" height="300" fill="#131417" />
+          <rect width="640" height="300" fill="rgb(var(--surface))" />
           {[
-            { y: 40, label: "Interface", sub: "What people see and touch", fill: "#C6F135", text: "#0B0C0E" },
-            { y: 120, label: "Decisions", sub: "Ranking, defaults, suggestions, filters", fill: "#1A1C20", text: "#F4F4F1" },
-            { y: 200, label: "Model + data", sub: "Patterns learned from behaviour", fill: "#1A1C20", text: "#F4F4F1" },
+            { y: 40, label: "Interface", sub: "What people see and touch", fill: "rgb(var(--accent))", text: "rgb(var(--onaccent))" },
+            { y: 120, label: "Decisions", sub: "Ranking, defaults, suggestions, filters", fill: "rgb(var(--raised))", text: "rgb(var(--ink))" },
+            { y: 200, label: "Model + data", sub: "Patterns learned from behaviour", fill: "rgb(var(--raised))", text: "rgb(var(--ink))" },
           ].map((l, i) => (
             <g key={l.label}>
-              <rect x={60 + i * 20} y={l.y} width={520 - i * 40} height="64" rx="14" fill={l.fill} stroke="#26282D" />
+              <rect x={60 + i * 20} y={l.y} width={520 - i * 40} height="64" rx="14" fill={l.fill} stroke="rgb(var(--line))" />
               <text x={88 + i * 20} y={l.y + 30} fontFamily="sans-serif" fontSize="18" fontWeight="700" fill={l.text}>
                 {l.label}
               </text>
@@ -43,8 +43,8 @@ export default function Article() {
               </text>
             </g>
           ))}
-          <path d="M560 232 C 610 200, 610 110, 560 80" stroke="#C6F135" strokeWidth="2" fill="none" strokeDasharray="5 5" />
-          <text x="596" y="160" fontFamily="monospace" fontSize="11" fill="#A6A8AE" transform="rotate(90 596 160)">
+          <path d="M560 232 C 610 200, 610 110, 560 80" stroke="rgb(var(--accent))" strokeWidth="2" fill="none" strokeDasharray="5 5" />
+          <text x="596" y="160" fontFamily="monospace" fontSize="11" fill="rgb(var(--muted))" transform="rotate(90 596 160)">
             feedback loop
           </text>
         </svg>
@@ -87,7 +87,7 @@ export default function Article() {
       <h3>2. Make undo effortless</h3>
       <p>
         If the system will sometimes guess wrong, recovering has to cost almost nothing. Undo,
-        “not interested”, easy edits. At Writesea, where I design AI-assisted writing tools, my rule
+        “not interested”, easy edits. At Writesea, where I designed AI-assisted writing tools, my rule
         is simple: the writer should never feel the AI took something from them.
       </p>
 

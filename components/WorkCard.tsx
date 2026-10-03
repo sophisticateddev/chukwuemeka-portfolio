@@ -33,14 +33,14 @@ export default function WorkCard({
     <article
       ref={ref}
       onPointerMove={onPointerMove}
-      className={`group relative isolate flex h-full flex-col ${featured ? "md:flex-row md:gap-2" : ""} rounded-2xl border border-line bg-surface p-3 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:border-control focus-within:border-control motion-safe:hover:-translate-y-1 motion-safe:focus-within:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(198,241,53,0.25)]`}
+      className={`group relative isolate flex h-full flex-col ${featured ? "md:flex-row md:gap-2" : ""} rounded-2xl border border-line bg-surface p-3 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:border-control focus-within:border-control motion-safe:hover:-translate-y-1 motion-safe:focus-within:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgb(var(--accent)/0.25)]`}
     >
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(420px circle at var(--x, 50%) var(--y, 0%), rgba(198,241,53,0.09), transparent 45%)",
+            "radial-gradient(420px circle at var(--x, 50%) var(--y, 0%), rgb(var(--accent) / 0.09), transparent 45%)",
         }}
       />
 

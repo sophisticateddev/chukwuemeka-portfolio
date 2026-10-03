@@ -32,19 +32,19 @@ export default function Article() {
 
       <Figure caption="The person with access and the people with the details are rarely the same. Good design connects them.">
         <svg viewBox="0 0 640 300" role="img" aria-label="On the left, a coordinator with the login. On the right, crew, finance and receipts that hold the details. Arrows labelled assign, import and estimate connect them." className="h-auto w-full">
-          <rect width="640" height="300" fill="#131417" />
-          <rect x="40" y="100" width="170" height="100" rx="16" fill="#1A1C20" stroke="#C6F135" strokeWidth="1.5" />
-          <text x="62" y="140" fontFamily="sans-serif" fontSize="17" fontWeight="700" fill="#F4F4F1">Has the login</text>
-          <text x="62" y="166" fontFamily="sans-serif" fontSize="13" fill="#A6A8AE">Coordinator, admin</text>
+          <rect width="640" height="300" fill="rgb(var(--surface))" />
+          <rect x="40" y="100" width="170" height="100" rx="16" fill="rgb(var(--raised))" stroke="rgb(var(--accent))" strokeWidth="1.5" />
+          <text x="62" y="140" fontFamily="sans-serif" fontSize="17" fontWeight="700" fill="rgb(var(--ink))">Has the login</text>
+          <text x="62" y="166" fontFamily="sans-serif" fontSize="13" fill="rgb(var(--muted))">Coordinator, admin</text>
           {[
             { y: 40, t: "Crew & departments", s: "What was actually done" },
             { y: 120, t: "Finance", s: "Spend, invoices" },
             { y: 200, t: "Receipts & files", s: "The evidence" },
           ].map((b) => (
             <g key={b.t}>
-              <rect x="430" y={b.y} width="170" height="62" rx="14" fill="#1A1C20" stroke="#26282D" />
-              <text x="450" y={b.y + 27} fontFamily="sans-serif" fontSize="15" fontWeight="700" fill="#F4F4F1">{b.t}</text>
-              <text x="450" y={b.y + 47} fontFamily="sans-serif" fontSize="12" fill="#A6A8AE">{b.s}</text>
+              <rect x="430" y={b.y} width="170" height="62" rx="14" fill="rgb(var(--raised))" stroke="rgb(var(--line))" />
+              <text x="450" y={b.y + 27} fontFamily="sans-serif" fontSize="15" fontWeight="700" fill="rgb(var(--ink))">{b.t}</text>
+              <text x="450" y={b.y + 47} fontFamily="sans-serif" fontSize="12" fill="rgb(var(--muted))">{b.s}</text>
             </g>
           ))}
           {[
@@ -53,8 +53,8 @@ export default function Article() {
             { y: 231, label: "estimate" },
           ].map((a) => (
             <g key={a.label}>
-              <path d={`M214 150 C 300 150, 330 ${a.y}, 426 ${a.y}`} stroke="#C6F135" strokeWidth="1.5" fill="none" strokeDasharray="5 5" />
-              <text x="318" y={(150 + a.y) / 2 - 6} fontFamily="monospace" fontSize="12" fill="#C6F135">{a.label}</text>
+              <path d={`M214 150 C 300 150, 330 ${a.y}, 426 ${a.y}`} stroke="rgb(var(--accent))" strokeWidth="1.5" fill="none" strokeDasharray="5 5" />
+              <text x="318" y={(150 + a.y) / 2 - 6} fontFamily="monospace" fontSize="12" fill="rgb(var(--accent))">{a.label}</text>
             </g>
           ))}
         </svg>
