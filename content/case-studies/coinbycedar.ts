@@ -20,8 +20,8 @@ export const coinbycedar: CaseStudy = {
     { value: "KYC", label: "built into onboarding" },
   ],
   hero: {
-    mobile: { src: img("wallet"), alt: "Coinbycedar3 wallet showing total balance and individual coin balances" },
-    desktop: { src: img("web-dashboard"), alt: "Coinbycedar3 web dashboard with portfolio value and holdings" },
+    mobile: { src: img("wallet"), alt: "Coinbycedar wallet showing total balance and individual coin balances" },
+    desktop: { src: img("web-dashboard"), alt: "Coinbycedar web dashboard with portfolio value and holdings" },
   },
   meta: [
     { label: "Company", value: "At SBSC, a software consulting agency" },
@@ -34,7 +34,7 @@ export const coinbycedar: CaseStudy = {
   context: {
     takeaway: "Crypto was built for insiders. We designed for everyone else.",
     body: [
-      "Coinbycedar3 is a crypto wallet for web and mobile: buy, sell, send and receive coins, follow prices, and keep up with crypto news, connected to a global payment gateway.",
+      "Coinbycedar is a crypto wallet for web and mobile: buy, sell, send and receive coins, follow prices, and keep up with crypto news, connected to a global payment gateway.",
       "Most people don’t understand crypto trading, and most platforms are too complicated to navigate. Our job was to make the first trade feel safe and obvious.",
     ],
     constraints: ["Research during COVID-19, so all interviews were remote", "Strict identity checks (KYC) to prevent fraud"],
