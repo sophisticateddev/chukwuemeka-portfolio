@@ -33,12 +33,9 @@ export default function Hero() {
           <div>
             <FadeUp animate>
               <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-sm text-ink backdrop-blur">
-                <span className="relative flex h-2 w-2" aria-hidden="true">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
+                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
                 <span>
-                  Open to full-time roles &amp; freelance projects <span className="text-muted">· UK (GMT/BST) · Full right to work in the UK</span>
+                  Open to work <span className="text-muted">· UK · Full right to work</span>
                 </span>
               </p>
             </FadeUp>
@@ -58,9 +55,8 @@ export default function Hero() {
 
             <FadeUp animate delay={0.25}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
-                Product Designer with 7+ years shipping at{" "}
-                <span className="text-ink">BAFTA, Carbon and Writesea</span>. I design the product, then build it
-                with Claude Code. <span className="text-ink">Character Guess</span> is live, and I built it that way.
+                Product Designer with 7+ years in fintech, SaaS and enterprise. I design the product, then build
+                it with Claude Code.
               </p>
             </FadeUp>
 
@@ -90,18 +86,6 @@ export default function Hero() {
                   Download CV <span className="sr-only">(PDF)</span>
                 </a>
               </div>
-              {/* Quiet contact path for visitors ready to act now; the nav's button is hidden on mobile */}
-              <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                <a
-                  href="mailto:kingsleyiheonye@gmail.com?subject=Let%E2%80%99s%20talk"
-                  className="group inline-flex min-h-[44px] items-center gap-1.5 font-semibold text-ink transition-colors hover:text-accent focus-visible:text-accent"
-                >
-                  <span className="link-grow">Hiring? Let’s talk</span>
-                  <span className="sr-only">(opens your email app)</span>
-                  <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
-                </a>
-                <span className="text-muted">I reply within 24 hours.</span>
-              </p>
             </FadeUp>
 
             <FadeUp animate delay={0.4}>
@@ -125,7 +109,7 @@ export default function Hero() {
             </FadeUp>
           </div>
 
-          {/* Portrait, with the live product it proves the headline with */}
+          {/* Portrait */}
           <FadeUp animate delay={0.2} className="mx-auto w-full max-w-md lg:-my-10 lg:max-w-none">
             <figure className="relative">
               {/* Transparent, feathered cut-outs: no frame, so they melt into the page and the glow behind.
@@ -148,33 +132,6 @@ export default function Hero() {
                   className="object-contain object-bottom opacity-0 transition-opacity duration-700 ease-out group-hover/portrait:opacity-100 motion-reduce:transition-none"
                 />
               </div>
-
-              <Link
-                href="/work/character-guess"
-                className="group absolute bottom-6 left-4 right-4 flex items-center gap-3 rounded-2xl border border-line bg-raised/90 p-3 pr-4 shadow-[0_20px_50px_-20px_var(--elev)] backdrop-blur transition-colors duration-300 hover:border-control focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:left-0 sm:right-auto lg:-left-6"
-              >
-                <span className="relative h-14 w-10 shrink-0 overflow-hidden rounded-lg border border-line">
-                  <Image
-                    src="/images/work/character-guess/game-correct-mobile-dark.jpg"
-                    alt=""
-                    fill
-                    sizes="40px"
-                    className="object-cover object-top"
-                  />
-                </span>
-                <span className="min-w-0 text-sm">
-                  <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-wider text-accent">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent motion-safe:animate-pulse" />
-                    Live
-                  </span>
-                  <span className="block font-semibold text-ink">Character Guess</span>
-                  <span className="block text-muted">Designed &amp; built with AI</span>
-                </span>
-                <Arrow
-                  direction="up-right"
-                  className="ml-auto shrink-0 text-muted transition-[transform,color] duration-300 ease-out group-hover:text-accent motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5 sm:ml-3"
-                />
-              </Link>
             </figure>
           </FadeUp>
         </div>

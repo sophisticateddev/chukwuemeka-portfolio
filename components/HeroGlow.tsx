@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
 
-/** Decorative backdrop: dot grid plus a soft glow that trails the pointer. */
+/** Decorative backdrop: a soft glow that trails the pointer. */
 export default function HeroGlow() {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -31,15 +31,6 @@ export default function HeroGlow() {
 
   return (
     <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage: "radial-gradient(rgb(var(--ink) / 0.14) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-          maskImage: "radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent)",
-        }}
-      />
       <div
         className="absolute inset-0 transition-[background] duration-300"
         style={{
