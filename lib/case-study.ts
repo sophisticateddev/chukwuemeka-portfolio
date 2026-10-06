@@ -26,6 +26,8 @@ export type CaseStudy = {
   headline: string;
   status?: string;
   liveUrl?: string;
+  /** Button text for liveUrl. Defaults to "View live product"; use "Visit …" when the link is the company's site rather than the exact product shown */
+  liveLabel?: string;
   roles: string[];
   summary: { problem: string; did: string; result: string };
   metrics: { value: string; label: string }[];

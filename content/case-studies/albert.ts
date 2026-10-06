@@ -4,6 +4,8 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/albert/${name}.webp`;
 
 export const albert: CaseStudy = {
+  liveUrl: "https://wearealbert.org",
+  liveLabel: "Visit albert",
   headline: "Rebuilt BAFTA albert’s carbon toolkit so productions record sustainability as they work, not after.",
   roles: ["Senior Product Designer (contract)", "Research to handoff", "Web, mobile and admin tools"],
   summary: {

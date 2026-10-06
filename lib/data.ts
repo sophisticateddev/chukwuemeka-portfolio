@@ -514,6 +514,14 @@ export const recommendationsUrl = "https://www.linkedin.com/in/chukwuemeka-iheon
 export const testimonials: Testimonial[] = [
   {
     quote:
+      "I worked with Chukwuemeka as our product designer at Writesea for two years. He designed our template builder with product and engineering, which shortened our time to market and cut support workload by about half a person's time, and he designed the admin tools our university and reseller customers rely on. He's thoughtful, always willing to make changes and listen to feedback on his work, tests his work with real users, and can build what he designs. I'd work with him again.",
+    name: "Nabeel Ishaq",
+    title: "Digital Innovation & Transformation",
+    relationship: "Managed me at Writesea",
+    date: "Oct 2026",
+  },
+  {
+    quote:
       "Emeka was a great Design Leader to work with:\n- He led the successful introduction of a design system into Carbon\n- He championed UI & UX improvements that energised our users while mentoring & developing a great design org\n\nFor these & his strong design research skills - I'd work with him in the future!",
     name: "Afiola Etomi",
     title: "Product at Mondly",

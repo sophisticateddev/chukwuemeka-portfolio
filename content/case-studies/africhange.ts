@@ -3,6 +3,8 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/africhange/${name}.jpg`;
 
 export const africhange: CaseStudy = {
+  liveUrl: "https://africhange.com",
+  liveLabel: "Visit Africhange",
   headline: "Cut transfers from North America to Africa from 2 hours to about a minute.",
   roles: ["Lead Designer", "Research to design system", "Mobile, web and marketing site"],
   summary: {

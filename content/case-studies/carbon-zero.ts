@@ -3,6 +3,8 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/carbon-zero/${name}.jpg`;
 
 export const carbonZero: CaseStudy = {
+  liveUrl: "https://getcarbon.co",
+  liveLabel: "Visit Carbon",
   headline: "Buy now, pay later at 0% interest, from purchase to payment in under a minute.",
   roles: ["Lead Product Designer", "Design sprint lead", "Research to handoff"],
   summary: {

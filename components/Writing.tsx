@@ -8,6 +8,7 @@ import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
 import ArticleCover from "./writing/ArticleCover";
 import { articles } from "@/lib/data";
+import Tag from "./Tag";
 
 // One stretched link per row: the whole row is a single click target and tab stop.
 const linkClass =
@@ -63,7 +64,7 @@ export default function Writing() {
                       <span aria-hidden="true">·</span>
                       <span>{article.readTime}</span>
                       {article.source && (
-                        <span className="ml-1 rounded-full border border-line px-2 py-0.5">{article.source}</span>
+                        <Tag className="ml-1">{article.source}</Tag>
                       )}
                     </p>
                     <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">

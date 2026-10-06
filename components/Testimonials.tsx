@@ -50,7 +50,7 @@ export default function Testimonials() {
             >
               “
             </span>
-            <blockquote className="relative max-w-3xl space-y-3 font-display text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
+            <blockquote className="relative space-y-3 font-display text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
               {/* Lines starting with "- " were bullets in the original recommendation */}
               {featured.quote
                 .split("\n")
@@ -74,10 +74,12 @@ export default function Testimonials() {
 
         <ul className="mt-4 grid gap-4 md:grid-cols-2">
           {rest.map((t, i) => (
-            <li key={t.name}>
+            // An odd one out at the end spans both columns instead of leaving a gap
+            <li key={t.name} className={rest.length % 2 === 1 && i === rest.length - 1 ? "md:col-span-2" : undefined}>
               <FadeUp delay={(i % 2) * 0.06} className="h-full">
                 <figure className="flex h-full flex-col justify-between rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-control md:p-8">
-                  <blockquote className="text-ink/90">“{t.quote}”</blockquote>
+                  {/* pre-line keeps the line breaks and bullets of the original */}
+                  <blockquote className="whitespace-pre-line text-ink/90">“{t.quote}”</blockquote>
                   <Attribution t={t} />
                 </figure>
               </FadeUp>

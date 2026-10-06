@@ -9,6 +9,7 @@ import type { CaseStudy } from "@/lib/case-study";
 import type { Project } from "@/lib/data";
 import { BrowserFrame, PhoneFrame } from "./Frames";
 import Toc from "./Toc";
+import Tag from "@/components/Tag";
 
 const Check = () => (
   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-accent">
@@ -50,7 +51,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
     cs.reflection && { id: "reflection", label: "Reflection & next" },
   ].filter(Boolean) as { id: string; label: string }[];
   const label = (id: string) => sections.find((s) => s.id === id)!.label;
-  const host = cs.liveUrl ? new URL(cs.liveUrl).host : project.title;
+  const host = cs.liveUrl ? new URL(cs.liveUrl).host.replace(/^www\./, "") : project.title;
 
   return (
     <main id="main" tabIndex={-1} className="outline-none">
@@ -76,10 +77,10 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 <p className="eyebrow flex flex-wrap items-center gap-3">
                   <span className="text-ink">{project.title}</span>
                   {cs.status && (
-                    <span className="inline-flex items-center gap-2 rounded-full border border-line px-2.5 py-1 normal-case tracking-normal">
+                    <Tag>
                       <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent motion-safe:animate-pulse" />
                       {cs.status}
-                    </span>
+                    </Tag>
                   )}
                 </p>
               </FadeUp>
@@ -93,15 +94,15 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               <FadeUp delay={0.35}>
                 <ul className="mt-6 flex flex-wrap gap-2" aria-label="My role">
                   {cs.roles.map((r) => (
-                    <li key={r} className="rounded-full border border-control px-3.5 py-1.5 text-sm text-ink">
+                    <Tag as="li" size="md" key={r}>
                       {r}
-                    </li>
+                    </Tag>
                   ))}
                 </ul>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   {cs.liveUrl && (
                     <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary group">
-                      View live product
+                      {cs.liveLabel ?? "View live product"}
                       <Arrow direction="up-right" className="transition-transform duration-300 motion-safe:group-hover:-translate-y-0.5" />
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>
@@ -460,9 +461,9 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                       <p className="font-semibold text-ink">{c.name}</p>
                       <ul className="mt-2 flex flex-wrap gap-1.5" aria-label={`${c.name} states`}>
                         {c.states.map((s) => (
-                          <li key={s} className="rounded-full border border-line px-2.5 py-0.5 font-mono text-xs text-muted">
+                          <Tag as="li" key={s}>
                             {s}
-                          </li>
+                          </Tag>
                         ))}
                       </ul>
                     </li>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Arrow from "./Arrow";
 import CountUp from "./CountUp";
 import type { Project } from "@/lib/data";
+import Tag from "./Tag";
 
 export default function WorkCard({
   project,
@@ -93,12 +94,9 @@ export default function WorkCard({
         <div className="mt-6 flex items-center justify-between gap-4">
           <ul className="flex flex-wrap gap-2" aria-label="Tags">
             {project.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full border border-line px-3 py-1 font-mono text-xs text-muted"
-              >
+              <Tag as="li" key={tag}>
                 {tag}
-              </li>
+              </Tag>
             ))}
           </ul>
           <span

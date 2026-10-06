@@ -1,5 +1,6 @@
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
+import Tag from "./Tag";
 
 const skills = [
   "End-to-end product design",
@@ -59,9 +60,9 @@ export default function About() {
               <h3 className="eyebrow mb-4">Disciplines</h3>
               <ul className="flex flex-wrap gap-2">
                 {skills.map((s) => (
-                  <li key={s} className="rounded-full border border-line px-4 py-2 text-sm text-ink">
+                  <Tag as="li" size="md" key={s}>
                     {s}
-                  </li>
+                  </Tag>
                 ))}
               </ul>
             </div>

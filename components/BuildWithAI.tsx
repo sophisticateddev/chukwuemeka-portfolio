@@ -2,6 +2,7 @@ import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
 import Terminal from "./Terminal";
 import SectionHeading from "./SectionHeading";
+import Tag from "./Tag";
 
 const steps = [
   {
@@ -57,12 +58,9 @@ export default function BuildWithAI() {
                 <p className="mt-3 flex-1 text-muted">{s.body}</p>
                 <ul className="mt-6 flex flex-wrap gap-2" aria-label="Tools">
                   {s.tools.map((t) => (
-                    <li
-                      key={t}
-                      className="rounded-full border border-line px-3 py-1 font-mono text-xs text-muted transition-colors duration-300 group-hover:border-control"
-                    >
+                    <Tag as="li" key={t}>
                       {t}
-                    </li>
+                    </Tag>
                   ))}
                 </ul>
               </FadeUp>
