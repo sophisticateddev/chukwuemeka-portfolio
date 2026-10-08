@@ -6,6 +6,7 @@ import { carbonZero } from "@/content/case-studies/carbon-zero";
 import { africhange } from "@/content/case-studies/africhange";
 import { nippyboxes } from "@/content/case-studies/nippyboxes";
 import { coinbycedar } from "@/content/case-studies/coinbycedar";
+import { eBills } from "@/content/case-studies/e-bills";
 
 export type ProjectImage = {
   src: string;        // e.g. /images/work/carbon-loans/hero.jpg
@@ -239,6 +240,21 @@ export const workProjects: Project[] = [
         "Repayment screen redesigned as a critical business protection touchpoint",
       ],
     },
+  },
+  {
+    id: 8,
+    slug: "e-bills-nibss",
+    client: "SBSC, for NIBSS",
+    title: "E-Bills for NIBSS",
+    category: "Fintech · Enterprise",
+    year: "2020–2021",
+    description:
+      "Designed role-based portals for the shared platform Nigeria’s banks use to set up billers and take bill payments, with approvals at every level. NIBSS reported ₦2.2 trillion paid through e-BillsPay in 2021.",
+    tags: ["Fintech", "Enterprise", "B2B"],
+    color: "#DCE4DE",
+    highlight: { value: "₦2.2tn", label: "in bill payments in 2021 (NIBSS)" },
+    cover: "/images/work/e-bills/cover.webp",
+    caseStudy: eBills,
   },
   {
     id: 5,
@@ -476,7 +492,7 @@ export const experience = [
     location: "Lagos, Nigeria",
     period: "Oct 2020 — Jun 2021",
     description:
-      "Designed products for NIBSS (Nigeria Inter-Bank Settlement System) used internally by every bank in Nigeria, under NDA. Also designed client products including NippyBoxes, a logistics marketplace, and Coinbycedar, a crypto wallet, running usability tests and iterating on the results.",
+      "Designed E-Bills for NIBSS (Nigeria Inter-Bank Settlement System), the shared platform Nigeria’s banks use to onboard billers and take bill payments: 19 user roles across NIBSS, banks and billers, with approvals at every level. Also designed client products including NippyBoxes, a logistics marketplace, and Coinbycedar, a crypto wallet, running usability tests and iterating on the results.",
   },
   {
     id: 7,

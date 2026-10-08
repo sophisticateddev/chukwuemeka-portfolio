@@ -118,13 +118,15 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
             <FadeUp delay={0.25} className="relative pb-10 pr-6 sm:pr-16">
               {cs.hero.desktop && <BrowserFrame shot={cs.hero.desktop} url={host} priority />}
-              <div
-                className={
-                  cs.hero.desktop ? "absolute -bottom-2 right-0 w-[34%] max-w-[200px]" : "mx-auto w-[60%] max-w-[280px]"
-                }
-              >
-                <PhoneFrame shot={cs.hero.mobile} priority sizes="200px" />
-              </div>
+              {cs.hero.mobile && (
+                <div
+                  className={
+                    cs.hero.desktop ? "absolute -bottom-2 right-0 w-[34%] max-w-[200px]" : "mx-auto w-[60%] max-w-[280px]"
+                  }
+                >
+                  <PhoneFrame shot={cs.hero.mobile} priority sizes="200px" />
+                </div>
+              )}
             </FadeUp>
           </div>
 

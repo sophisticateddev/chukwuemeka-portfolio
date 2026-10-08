@@ -31,7 +31,8 @@ export type CaseStudy = {
   roles: string[];
   summary: { problem: string; did: string; result: string };
   metrics: { value: string; label: string }[];
-  hero: { mobile: Shot; desktop?: Shot };
+  /** At least one of the two. Desktop-only products can leave out the phone. */
+  hero: { mobile?: Shot; desktop?: Shot };
   meta: { label: string; value: string }[];
 
   origin?: Section<{ body: string[] }>;
