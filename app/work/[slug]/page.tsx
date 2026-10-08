@@ -22,12 +22,15 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!project) return {};
   const title = `${project.title} — Chukwuemeka Iheonye`;
   const description = project.caseStudy?.headline ?? project.description;
+  const shareImage = project.cover
+    ? { url: `/og/work/${project.slug}.jpg`, width: 1200, height: 630, alt: `${project.title} case study` }
+    : "/opengraph-image";
   return {
     title,
     description: project.description,
-    // Setting openGraph here replaces the root one, so re-attach the shared preview image.
-    openGraph: { title, description, type: "article", images: ["/opengraph-image"] },
-    twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
+    // Each case study shares with its own cover (made by scripts/og-images.py); the site-wide image is the fallback.
+    openGraph: { title, description, type: "article", images: [shareImage] },
+    twitter: { card: "summary_large_image", title, description, images: [shareImage] },
   };
 }
 

@@ -295,7 +295,7 @@ export const workProjects: Project[] = [
     id: 6,
     slug: "coinbycedar",
     client: "SBSC (consulting agency)",
-    title: "Coinbycedar",
+    title: "Coinbycedar3",
     category: "Web3 · Product Design",
     year: "2021",
     description:
