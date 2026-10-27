@@ -492,7 +492,7 @@ export const experience = [
     location: "Lagos, Nigeria",
     period: "Oct 2020 — Jun 2021",
     description:
-      "Designed E-Bills for NIBSS (Nigeria Inter-Bank Settlement System), the shared platform Nigeria’s banks use to onboard billers and take bill payments: 19 user roles across NIBSS, banks and billers, with approvals at every level. Also designed client products including NippyBoxes, a logistics marketplace, and Coinbycedar, a crypto wallet, running usability tests and iterating on the results.",
+      "Designed E-Bills for NIBSS (Nigeria Inter-Bank Settlement System), the shared platform Nigeria’s banks use to onboard billers and take bill payments: 19 user roles across NIBSS, banks and billers, with approvals at every level. Also designed client products including NippyBoxes, a logistics marketplace, and Coinbycedar3, a crypto wallet, running usability tests and iterating on the results.",
   },
   {
     id: 7,

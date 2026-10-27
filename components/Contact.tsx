@@ -2,6 +2,7 @@ import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
 import Magnetic from "./Magnetic";
 import RevealWords from "./RevealWords";
+import { regionCopy, type Region } from "@/lib/region";
 
 const email = "kingsleyiheonye@gmail.com";
 
@@ -12,7 +13,8 @@ const socials = [
   { label: "X", href: "https://x.com/kingsleyiheonye" },
 ];
 
-export default function Contact() {
+export default function Contact({ region }: { region: Region }) {
+  const { contactNote } = regionCopy[region];
   return (
     <section aria-labelledby="contact-title" id="contact" className="py-24 md:py-32">
       <div className="container-page">
@@ -39,6 +41,7 @@ export default function Contact() {
             a design system or an AI-built prototype? I’d love to hear about it, and I reply
             within 24 hours.
           </p>
+          {contactNote && <p className="relative mt-3 max-w-xl text-lg">{contactNote}</p>}
 
           <div className="relative mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Magnetic className="[&>a]:w-full">

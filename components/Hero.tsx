@@ -6,6 +6,7 @@ import FadeUp from "./FadeUp";
 import HeroGlow from "./HeroGlow";
 import Magnetic from "./Magnetic";
 import RevealWords from "./RevealWords";
+import { regionCopy, type Region } from "@/lib/region";
 
 // Outcomes, each tied to where it happened, so every number is checkable in a case study.
 const stats = [
@@ -24,7 +25,8 @@ const shippedAt = [
   { name: "Softcom", src: "/images/logos/softcom.svg", width: 97, height: 20, className: "h-5" },
 ];
 
-export default function Hero() {
+export default function Hero({ region }: { region: Region }) {
+  const { status, cv } = regionCopy[region];
   return (
     <section aria-labelledby="hero-title" className="relative isolate">
       <HeroGlow />
@@ -35,7 +37,7 @@ export default function Hero() {
               <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-sm text-ink backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
                 <span>
-                  Open to work <span className="text-muted">· UK · Full right to work</span>
+                  Open to work <span className="text-muted">· {status}</span>
                 </span>
               </p>
             </FadeUp>
@@ -69,9 +71,12 @@ export default function Hero() {
                   </Link>
                 </Magnetic>
                 <a
-                  href="/Chukwuemeka_Iheonye_Resume.pdf"
-                  download="Chukwuemeka_Iheonye_Resume.pdf"
+                  href={cv.href}
+                  download={cv.href.slice(1)}
                   className="btn-secondary group"
+                  data-track="cv-download"
+                  data-track-where="hero"
+                  data-track-version={region}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path
@@ -83,7 +88,7 @@ export default function Hero() {
                       className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-y-0.5"
                     />
                   </svg>
-                  Download CV <span className="sr-only">(PDF)</span>
+                  {cv.label} <span className="sr-only">(PDF)</span>
                 </a>
               </div>
             </FadeUp>
