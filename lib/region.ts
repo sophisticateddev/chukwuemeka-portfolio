@@ -1,5 +1,5 @@
 /**
- * The home page comes in three versions. Visitors in Canada and the US see the Toronto
+ * The home page comes in three versions. Visitors in Canada and the US see the Calgary
  * version (chosen by middleware.ts from their location); everyone else sees the UK one.
  * /ca and /us always show their version, wherever the visitor is.
  */
@@ -22,15 +22,15 @@ export const regionCopy: Record<Region, RegionCopy> = {
     cv: ukCv,
   },
   ca: {
-    status: "Relocating to Toronto · Mid 2027",
+    status: "Relocating to Calgary · Mid 2027",
     cv: canadaCv,
     contactNote:
-      "I’m relocating to Toronto in mid 2027 and will be working on Eastern time. I also speak intermediate French (Duolingo Score 106).",
+      "I’m relocating to Calgary in mid 2027 and will be working on Mountain time. I also speak intermediate French (Duolingo Score 106).",
   },
   us: {
-    status: "US remote · Toronto, mid 2027",
+    status: "US remote · Calgary, mid 2027",
     cv: canadaCv,
     contactNote:
-      "I’m relocating to Toronto in mid 2027, on Eastern time, and open to remote roles with US teams.",
+      "I’m relocating to Calgary in mid 2027, on Mountain time, and open to remote roles with US teams.",
   },
 };
