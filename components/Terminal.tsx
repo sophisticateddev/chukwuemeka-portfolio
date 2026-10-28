@@ -2,18 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
-
-const prompt = "redesign: bolder, cleaner, accessible";
-const steps = [
-  { mark: "●", text: "read components, data and tokens" },
-  { mark: "●", text: "new type scale and colour tokens" },
-  { mark: "●", text: "AA contrast, focus states, reduced motion" },
-  { mark: "●", text: "micro-interactions, motion-safe" },
-  { mark: "✓", text: "built, verified in browser, shipped", done: true },
-];
+import { useLocale } from "@/lib/useLocale";
 
 /** Decorative: types the prompt, then streams steps. Hidden from assistive tech. */
 export default function Terminal() {
+  const { dict } = useLocale();
+  const { prompt } = dict.ai.terminal;
+  const steps = dict.ai.terminal.steps.map((text, i, all) =>
+    i === all.length - 1 ? { mark: "✓", text, done: true } : { mark: "●", text, done: false },
+  );
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const reduceMotion = useReducedMotion();
@@ -42,6 +39,7 @@ export default function Terminal() {
     };
     t = setTimeout(typeChar, 300);
     return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView, reduceMotion]);
 
   const finished = shown === steps.length;

@@ -1,13 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
 import BackToTop from "@/components/BackToTop";
 import PageReader from "@/components/PageReader";
 import Analytics from "@/components/Analytics";
+import { t, type Locale } from "@/lib/i18n";
 import { siteUrl, umamiWebsiteId } from "@/lib/site";
+
+// The <html> and <body> for both languages. Each language has its own root layout
+// (app/(en)/layout.tsx and app/(fr)/fr/layout.tsx) so the lang attribute is right from the server.
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -33,21 +37,23 @@ const mono = JetBrains_Mono({
 const bareHost = new URL(siteUrl).hostname.replace(/^www\./, "");
 const analyticsDomains = `${bareHost},www.${bareHost}`;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
-  description:
-    "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in the UK.",
-  openGraph: {
-    title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
-    description:
-      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
-};
+export function siteMetadata(locale: Locale): Metadata {
+  const m = t(locale).meta;
+  return {
+    metadataBase: new URL(siteUrl),
+    title: m.title,
+    description: m.description,
+    openGraph: {
+      title: m.title,
+      description: m.ogDescription,
+      type: "website",
+      locale: t(locale).ogLocale,
+    },
+    twitter: {
+      card: "summary_large_image",
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -59,13 +65,10 @@ export const viewport: Viewport = {
 // Runs before first paint so a saved theme choice never flashes the other theme.
 const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SiteShell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
+  const d = t(locale);
   return (
-    <html lang="en-GB" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang={d.htmlLang} className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
@@ -74,14 +77,14 @@ export default function RootLayout({
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-onaccent"
         >
-          Skip to content
+          {d.skip}
         </a>
         <MotionProvider>
           {/* Early in the tab order, right after the skip link; shown bottom-left */}
           <PageReader />
           <Nav />
           {children}
-          <Footer />
+          <Footer locale={locale} />
           <BackToTop />
           <Analytics websiteId={umamiWebsiteId} domain={analyticsDomains} />
         </MotionProvider>

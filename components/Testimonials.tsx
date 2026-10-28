@@ -1,7 +1,9 @@
 import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
-import { recommendationsUrl, testimonials, type Testimonial } from "@/lib/data";
+import { recommendationsUrl, type Testimonial } from "@/lib/data";
+import { getTestimonials } from "@/lib/content";
+import { t, type Locale } from "@/lib/i18n";
 
 const initials = (name: string) =>
   name
@@ -22,24 +24,27 @@ function Attribution({ t }: { t: Testimonial }) {
       <span className="text-sm">
         <span className="block font-semibold text-ink">{t.name}</span>
         <span className="block text-muted">
-          {t.title} · {t.relationship}, {t.date}
+          {/* Their LinkedIn headline, quoted as written */}
+          <span lang="en">{t.title}</span> · {t.relationship}, {t.date}
         </span>
       </span>
     </figcaption>
   );
 }
 
-export default function Testimonials() {
-  const [featured, ...rest] = testimonials;
+export default function Testimonials({ locale }: { locale: Locale }) {
+  const d = t(locale).testimonials;
+  const [featured, ...rest] = getTestimonials(locale);
 
   return (
     <section aria-labelledby="testimonials-title" id="testimonials" className="border-t border-line py-24 md:py-32">
       <div className="container-page">
         <SectionHeading
           id="testimonials-title"
-          label="Kind words"
-          title="From the people I’ve led"
-          titleMuted="and the people who’ve led me."
+          label={d.label}
+          title={d.title}
+          titleMuted={d.titleMuted}
+          intro={d.note}
         />
 
         <FadeUp>
@@ -50,7 +55,7 @@ export default function Testimonials() {
             >
               “
             </span>
-            <blockquote className="relative space-y-3 font-display text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
+            <blockquote lang="en" className="relative space-y-3 font-display text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
               {/* Lines starting with "- " were bullets in the original recommendation */}
               {featured.quote
                 .split("\n")
@@ -79,7 +84,7 @@ export default function Testimonials() {
               <FadeUp delay={(i % 2) * 0.06} className="h-full">
                 <figure className="flex h-full flex-col justify-between rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-control md:p-8">
                   {/* pre-line keeps the line breaks and bullets of the original */}
-                  <blockquote className="whitespace-pre-line text-ink/90">“{t.quote}”</blockquote>
+                  <blockquote lang="en" className="whitespace-pre-line text-ink/90">“{t.quote}”</blockquote>
                   <Attribution t={t} />
                 </figure>
               </FadeUp>
@@ -94,8 +99,8 @@ export default function Testimonials() {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-muted transition-colors hover:text-ink focus-visible:text-ink"
           >
-            <span className="link-grow">All recommendations on LinkedIn</span>
-            <span className="sr-only">(opens in a new tab)</span>
+            <span className="link-grow">{d.all}</span>
+            <span className="sr-only">{t(locale).newTab}</span>
             <Arrow
               direction="up-right"
               className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"

@@ -5,12 +5,15 @@ import Arrow from "./Arrow";
 import DrawLine from "./DrawLine";
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
-import { experience } from "@/lib/data";
+import type { ExperienceItem } from "@/lib/content";
+import { useLocale } from "@/lib/useLocale";
 
 /** Most recent roles shown up front; the rest sit behind "Show all" so the page stays short. */
 const VISIBLE = 3;
 
-export default function Experience() {
+export default function Experience({ items: experience }: { items: ExperienceItem[] }) {
+  const { dict } = useLocale();
+  const d = dict.experience;
   const [expanded, setExpanded] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const earlier = experience.slice(VISIBLE);
@@ -38,9 +41,9 @@ export default function Experience() {
       <div className="container-page">
         <SectionHeading
           id="experience-title"
-          label="Experience"
-          title="Seven years, from research"
-          titleMuted="to shipped product."
+          label={d.label}
+          title={d.title}
+          titleMuted={d.titleMuted}
         />
 
         <ol id="experience-list" className="relative">
@@ -80,10 +83,10 @@ export default function Experience() {
           <FadeUp className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted">
               {expanded ? (
-                <>Showing all {experience.length} roles.</>
+                <>{d.showingAll(experience.length)}</>
               ) : (
                 <>
-                  Earlier: <span className="text-ink">{earlierCompanies.join(", ")}</span>
+                  {d.earlier} <span className="text-ink">{earlierCompanies.join(", ")}</span>
                 </>
               )}
             </p>
@@ -97,7 +100,7 @@ export default function Experience() {
               aria-controls="experience-list"
               className="btn-secondary group self-start sm:self-auto"
             >
-              {expanded ? "Show fewer" : `Show all ${experience.length} roles`}
+              {expanded ? d.showFewer : d.showAll(experience.length)}
               <Arrow
                 direction={expanded ? "up" : "down"}
                 className={`transition-transform duration-300 ease-out ${expanded ? "motion-safe:group-hover:-translate-y-0.5" : "motion-safe:group-hover:translate-y-0.5"}`}

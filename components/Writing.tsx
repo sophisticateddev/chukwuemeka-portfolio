@@ -7,7 +7,9 @@ import DrawLine from "./DrawLine";
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
 import ArticleCover from "./writing/ArticleCover";
-import { articles } from "@/lib/data";
+import type { Article } from "@/lib/data";
+import { localeHref } from "@/lib/i18n";
+import { useLocale } from "@/lib/useLocale";
 import Tag from "./Tag";
 
 // One stretched link per row: the whole row is a single click target and tab stop.
@@ -17,7 +19,9 @@ const linkClass =
 /** Newest articles shown up front; the rest open on demand so the page stays short. */
 const VISIBLE = 2;
 
-export default function Writing() {
+export default function Writing({ items: articles }: { items: Article[] }) {
+  const { locale, dict } = useLocale();
+  const d = dict.writing;
   const [expanded, setExpanded] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const hiddenCount = articles.length - VISIBLE;
@@ -35,10 +39,10 @@ export default function Writing() {
       <div className="container-page">
         <SectionHeading
           id="writing-title"
-          label="Writing"
-          title="Notes on AI,"
-          titleMuted="accessibility and craft."
-          intro="Practical pieces from the work: what I’ve learned, what I got wrong, and what I’d do differently."
+          label={d.label}
+          title={d.title}
+          titleMuted={d.titleMuted}
+          intro={d.intro}
         />
 
         <ul id="writing-list" className="relative">
@@ -71,10 +75,10 @@ export default function Writing() {
                       {article.url ? (
                         <a href={article.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
                           {article.title}
-                          <span className="sr-only">(on {article.source ?? "an external site"}, opens in a new tab)</span>
+                          <span className="sr-only">{d.external(article.source)}</span>
                         </a>
                       ) : (
-                        <Link href={`/writing/${article.slug}`} className={linkClass}>
+                        <Link href={localeHref(locale, `/writing/${article.slug}`)} className={linkClass}>
                           {article.title}
                         </Link>
                       )}
@@ -97,7 +101,7 @@ export default function Writing() {
         {hiddenCount > 0 && (
           <FadeUp className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted">
-              {expanded ? `Showing all ${articles.length} articles.` : `${hiddenCount} more on accessibility, AI, Figma and process.`}
+              {expanded ? d.showingAll(articles.length) : d.more(hiddenCount)}
             </p>
             <button
               ref={toggleRef}
@@ -109,7 +113,7 @@ export default function Writing() {
               aria-controls="writing-list"
               className="btn-secondary group self-start sm:self-auto"
             >
-              {expanded ? "Show fewer" : `Show all ${articles.length} articles`}
+              {expanded ? d.showFewer : d.showAll(articles.length)}
               <Arrow
                 direction={expanded ? "up" : "down"}
                 className={`transition-transform duration-300 ease-out ${expanded ? "motion-safe:group-hover:-translate-y-0.5" : "motion-safe:group-hover:translate-y-0.5"}`}

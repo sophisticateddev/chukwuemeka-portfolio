@@ -1,4 +1,6 @@
 // Hand-drawn SVG covers, one per article. Colours mirror the Tailwind tokens.
+import type { Locale } from "@/lib/i18n";
+
 const C = {
   bg: "rgb(var(--surface))",
   raised: "rgb(var(--raised))",
@@ -19,23 +21,34 @@ const labels: Record<string, string> = {
   "how-to-prioritize-like-a-pro": "An impact versus effort matrix with tasks plotted in each quadrant",
 };
 
-export function coverLabel(slug: string) {
-  return labels[slug] ?? "";
+const labelsFr: Record<string, string> = {
+  "design-for-the-person-holding-the-receipt": "Un reçu qui passe d’une fiche à une autre, avec une coche sur la seconde",
+  "mastering-the-8pt-grid": "Une carte calée sur une grille de 8 points, avec des espacements de 8, 16 et 24 points indiqués",
+  "designing-for-everyone": "Un texte lisible sur un aplat très contrasté, à côté d’un contour de focus clavier et d’une touche Tab",
+  "how-ai-is-shaping-better-ux": "Une interface d’application qui flotte au-dessus d’un réseau de nœuds connectés",
+  "from-flexbox-to-figma": "Du code CSS flexbox mis en correspondance avec un cadre Auto Layout Figma de trois éléments",
+  "how-to-prioritize-like-a-pro": "Une matrice impact-effort avec des tâches placées dans chaque quadrant",
+};
+
+export function coverLabel(slug: string, locale: Locale = "en") {
+  return (locale === "fr" ? labelsFr : labels)[slug] ?? "";
 }
 
 export default function ArticleCover({
   slug,
   className = "",
   decorative = true,
+  locale = "en",
 }: {
   slug: string;
   className?: string;
   /** false on the article page, where the cover is described for screen readers */
   decorative?: boolean;
+  locale?: Locale;
 }) {
   const a11y = decorative
     ? { "aria-hidden": true as const }
-    : { role: "img", "aria-label": labels[slug] };
+    : { role: "img", "aria-label": coverLabel(slug, locale) };
 
   return (
     <svg viewBox="0 0 400 250" className={className} {...a11y} preserveAspectRatio="xMidYMid slice">

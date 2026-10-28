@@ -6,18 +6,25 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import Magnetic from "./Magnetic";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitch from "./LanguageSwitch";
+import { localeHref } from "@/lib/i18n";
+import { useLocale } from "@/lib/useLocale";
 
-const navLinks = [
-  { label: "Work", href: "/#work", id: "work" },
-  { label: "AI practice", href: "/#ai", id: "ai" },
-  { label: "Experience", href: "/#experience", id: "experience" },
-  { label: "About", href: "/#about", id: "about" },
-];
+// Home in every language and regional version (middleware may rewrite "/" to "/ca" or "/us")
+const HOME = new Set(["/", "/ca", "/us", "/fr", "/fr/ca", "/fr/us"]);
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const pathname = usePathname();
+  const { locale, dict } = useLocale();
+  const navLinks = [
+    { label: dict.nav.work, href: localeHref(locale, "/#work"), id: "work" },
+    { label: dict.nav.ai, href: localeHref(locale, "/#ai"), id: "ai" },
+    { label: dict.nav.experience, href: localeHref(locale, "/#experience"), id: "experience" },
+    { label: dict.nav.about, href: localeHref(locale, "/#about"), id: "about" },
+  ];
+  const contactHref = localeHref(locale, "/#contact");
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
 
@@ -30,7 +37,7 @@ export default function Nav() {
 
   // Highlight the section currently in the middle of the viewport.
   useEffect(() => {
-    if (pathname !== "/") return setActive(null);
+    if (!HOME.has(pathname ?? "")) return setActive(null);
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-45% 0px -50% 0px" }
@@ -44,8 +51,8 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-md">
-      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3 rounded-full">
+      <nav aria-label={dict.nav.label} className="container-page flex h-16 items-center justify-between">
+        <Link href={localeHref(locale, "/")} className="group flex items-center gap-3 rounded-full">
           <span
             aria-hidden="true"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-xs font-medium text-onaccent transition-transform duration-500 ease-out motion-safe:group-hover:rotate-[360deg]"
@@ -83,25 +90,29 @@ export default function Nav() {
             );
           })}
           <li className="ml-1">
+            <LanguageSwitch />
+          </li>
+          <li>
             <ThemeToggle />
           </li>
           <li className="ml-2">
             <Magnetic>
-              <Link href="/#contact" className="btn-primary min-h-[40px] px-5">
-                Get in touch
+              <Link href={contactHref} className="btn-primary min-h-[40px] px-5">
+                {dict.nav.contact}
               </Link>
             </Magnetic>
           </li>
         </ul>
 
         <div className="flex items-center md:hidden">
+          <LanguageSwitch />
           <ThemeToggle />
         <button
           type="button"
           className="relative flex h-11 w-11 items-center justify-center rounded-full"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? dict.nav.closeMenu : dict.nav.openMenu}
           onClick={() => setMenuOpen((o) => !o)}
         >
           {/* Three bars that morph into a cross */}
@@ -149,7 +160,7 @@ export default function Nav() {
               transition={{ staggerChildren: 0.05, delayChildren: 0.05 }}
               className="container-page flex flex-col py-4"
             >
-              {[...navLinks, { label: "Get in touch", href: "/#contact", id: "contact" }].map((link) => (
+              {[...navLinks, { label: dict.nav.contact, href: contactHref, id: "contact" }].map((link) => (
                 <motion.li
                   key={link.href}
                   variants={{ hidden: { opacity: 0, x: -12 }, shown: { opacity: 1, x: 0 } }}

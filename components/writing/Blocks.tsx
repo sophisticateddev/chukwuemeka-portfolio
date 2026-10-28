@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import type { Locale } from "@/lib/i18n";
 
 /** Figure with a numbered, visible caption. */
 export function Figure({ children, caption, wide = false }: { children: ReactNode; caption: ReactNode; wide?: boolean }) {
@@ -37,11 +38,13 @@ export function DoDont({
   doThis,
   dontLabel,
   doLabel,
+  locale = "en",
 }: {
   dont: ReactNode;
   doThis: ReactNode;
   dontLabel: string;
   doLabel: string;
+  locale?: Locale;
 }) {
   return (
     <div className="not-prose my-10 grid gap-4 sm:grid-cols-2">
@@ -63,7 +66,7 @@ export function DoDont({
               </svg>
             </span>
             <span>
-              <strong className="text-ink">{c.ok ? "Do: " : "Don’t: "}</strong>
+              <strong className="text-ink">{c.ok ? (locale === "fr" ? "À faire : " : "Do: ") : locale === "fr" ? "À éviter : " : "Don’t: "}</strong>
               <span className="text-muted">{c.label}</span>
             </span>
           </figcaption>

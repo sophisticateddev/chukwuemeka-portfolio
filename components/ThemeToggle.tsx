@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "@/lib/useLocale";
 
 type Theme = "light" | "dark";
 
@@ -21,6 +22,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   // null until mounted, so server and client render the same markup
   const [theme, setTheme] = useState<Theme | null>(null);
   const switching = useRef<number>();
+  const { dict } = useLocale();
 
   useEffect(() => {
     setTheme(currentTheme());
@@ -54,8 +56,8 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       onClick={toggle}
       data-track="theme-toggle"
       data-track-to={next}
-      aria-label={theme ? `Switch to ${next} theme` : "Switch theme"}
-      title={theme ? `Switch to ${next} theme` : undefined}
+      aria-label={theme ? dict.theme.to(next) : dict.theme.generic}
+      title={theme ? dict.theme.to(next) : undefined}
       className={`flex h-11 w-11 items-center justify-center rounded-full text-muted transition-[background-color,color,transform] duration-150 ease-out hover:bg-surface motion-safe:active:scale-95 hover:text-ink ${className}`}
     >
       {/* Both icons are stacked; the one leaving turns away as the other turns in */}

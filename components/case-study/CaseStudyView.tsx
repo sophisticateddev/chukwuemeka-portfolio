@@ -10,6 +10,7 @@ import type { Project } from "@/lib/data";
 import { BrowserFrame, PhoneFrame } from "./Frames";
 import Toc from "./Toc";
 import Tag from "@/components/Tag";
+import { localeHref, t, type Locale } from "@/lib/i18n";
 
 const Check = () => (
   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-accent">
@@ -32,24 +33,38 @@ function Block({ id, label, takeaway, children }: { id: string; label: string; t
   );
 }
 
-export default function CaseStudyView({ project, cs, next }: { project: Project; cs: CaseStudy; next: Project }) {
-  const sections = [
-    cs.origin && { id: "origin", label: "Origin" },
-    cs.context && { id: "context", label: "Problem & context" },
-    cs.team && { id: "team", label: "Role & team" },
-    cs.insights && { id: "insights", label: "Research & insights" },
-    cs.process && { id: "process", label: "Process" },
-    cs.decisions && { id: "decisions", label: "Key decisions" },
-    cs.evolution && { id: "evolution", label: "How V1 evolved" },
-    cs.before && { id: "before", label: "Before" },
-    cs.mobile && { id: "mobile", label: "Mobile" },
-    cs.web && { id: "web", label: "Web" },
-    cs.designSystem && { id: "design-system", label: "Design system" },
-    cs.accessibility && { id: "accessibility", label: "Accessibility" },
-    cs.build && { id: "build", label: "How I built it" },
-    cs.outcomes && { id: "outcomes", label: "Outcomes" },
-    cs.reflection && { id: "reflection", label: "Reflection & next" },
-  ].filter(Boolean) as { id: string; label: string }[];
+export default function CaseStudyView({
+  project,
+  cs,
+  next,
+  locale,
+}: {
+  project: Project;
+  cs: CaseStudy;
+  next: Project;
+  locale: Locale;
+}) {
+  const L = t(locale).caseStudy;
+  const present: Record<keyof typeof L.sections, unknown> = {
+    origin: cs.origin,
+    context: cs.context,
+    team: cs.team,
+    insights: cs.insights,
+    process: cs.process,
+    decisions: cs.decisions,
+    evolution: cs.evolution,
+    before: cs.before,
+    mobile: cs.mobile,
+    web: cs.web,
+    "design-system": cs.designSystem,
+    accessibility: cs.accessibility,
+    build: cs.build,
+    outcomes: cs.outcomes,
+    reflection: cs.reflection,
+  };
+  const sections = (Object.keys(present) as (keyof typeof present)[])
+    .filter((id) => present[id])
+    .map((id) => ({ id, label: L.sections[id] }));
   const label = (id: string) => sections.find((s) => s.id === id)!.label;
   const host = cs.liveUrl ? new URL(cs.liveUrl).host.replace(/^www\./, "") : project.title;
 
@@ -64,11 +79,11 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
         />
         <div className="container-page pb-16 pt-28 md:pt-32">
           <Link
-            href="/#work"
+            href={localeHref(locale, "/#work")}
             className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
           >
             <Arrow direction="left" className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-1" />{" "}
-            All work
+            {L.allWork}
           </Link>
 
           <div className="mt-8 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
@@ -92,7 +107,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               </h1>
 
               <FadeUp delay={0.35}>
-                <ul className="mt-6 flex flex-wrap gap-2" aria-label="My role">
+                <ul className="mt-6 flex flex-wrap gap-2" aria-label={L.myRole}>
                   {cs.roles.map((r) => (
                     <Tag as="li" size="md" key={r}>
                       {r}
@@ -102,14 +117,14 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   {cs.liveUrl && (
                     <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary group">
-                      {cs.liveLabel ?? "View live product"}
+                      {cs.liveLabel ?? L.viewLive}
                       <Arrow direction="up-right" className="transition-transform duration-300 motion-safe:group-hover:-translate-y-0.5" />
-                      <span className="sr-only">(opens in a new tab)</span>
+                      <span className="sr-only">{t(locale).newTab}</span>
                     </a>
                   )}
                   {cs.decisions && (
                     <a href="#decisions" className="btn-secondary">
-                      Jump to key decisions
+                      {L.jumpToDecisions}
                     </a>
                   )}
                 </div>
@@ -134,9 +149,9 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
           <FadeUp delay={0.45}>
             <dl className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
               {[
-                { k: "The problem", v: cs.summary.problem },
-                { k: "What I did", v: cs.summary.did },
-                { k: "The result", v: cs.summary.result },
+                { k: L.problem, v: cs.summary.problem },
+                { k: L.did, v: cs.summary.did },
+                { k: L.result, v: cs.summary.result },
               ].map((x) => (
                 <div key={x.k} className="bg-canvas p-6">
                   <dt className="eyebrow text-accent">{x.k}</dt>
@@ -201,7 +216,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 </div>
                 {cs.context.constraints && (
                   <div className="h-fit rounded-2xl border border-line bg-surface p-6">
-                    <h3 className="eyebrow text-accent">Constraints</h3>
+                    <h3 className="eyebrow text-accent">{L.constraints}</h3>
                     <ul className="mt-4 space-y-3">
                       {cs.context.constraints.map((c) => (
                         <li key={c} className="flex gap-3 text-ink">
@@ -224,7 +239,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                     key={m.name}
                     className={`rounded-2xl border p-6 ${m.me ? "border-accent/60 bg-accent/[0.06]" : "border-line bg-surface"}`}
                   >
-                    {m.me && <p className="eyebrow mb-3 text-accent">That’s me</p>}
+                    {m.me && <p className="eyebrow mb-3 text-accent">{L.thatsMe}</p>}
                     <h3 className="font-display text-xl font-semibold tracking-tight">{m.name}</h3>
                     <p className="mt-1 text-sm text-ink">{m.role}</p>
                     <p className="mt-4 text-muted">{m.owned}</p>
@@ -283,12 +298,12 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                     <FadeUp>
                       <article className="grid gap-6 rounded-2xl border border-line bg-surface p-6 md:grid-cols-[1fr_1.2fr] md:p-8">
                         <div>
-                          <p className="font-mono text-xs text-accent">Decision {String(i + 1).padStart(2, "0")}</p>
+                          <p className="font-mono text-xs text-accent">{L.decision} {String(i + 1).padStart(2, "0")}</p>
                           <h3 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight">{d.title}</h3>
                           <p className="mt-4 text-muted">{d.context}</p>
                           {d.options && (
                             <div className="mt-5">
-                              <h4 className="eyebrow">Options considered</h4>
+                              <h4 className="eyebrow">{L.options}</h4>
                               <ul className="mt-3 space-y-2">
                                 {d.options.map((o) => (
                                   <li key={o} className="flex gap-3 text-sm text-muted">
@@ -302,16 +317,16 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                         </div>
                         <dl className="space-y-5 border-line md:border-l md:pl-8">
                           <div>
-                            <dt className="eyebrow text-accent">What we chose</dt>
+                            <dt className="eyebrow text-accent">{L.chose}</dt>
                             <dd className="mt-2 text-ink">{d.choice}</dd>
                           </div>
                           <div>
-                            <dt className="eyebrow">Why</dt>
+                            <dt className="eyebrow">{L.why}</dt>
                             <dd className="mt-2 text-muted">{d.why}</dd>
                           </div>
                           {d.tradeoff && (
                             <div>
-                              <dt className="eyebrow">The trade-off</dt>
+                              <dt className="eyebrow">{L.tradeoff}</dt>
                               <dd className="mt-2 text-muted">{d.tradeoff}</dd>
                             </div>
                           )}
@@ -373,7 +388,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               {cs.mobile.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.mobile.intro}</p>}
               <div
                 role="region"
-                aria-label="Mobile screens, scrollable"
+                aria-label={L.mobileRegion}
                 tabIndex={0}
                 className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:-mx-6 sm:px-6 md:mx-0 md:px-0"
               >
@@ -385,7 +400,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 ))}
               </div>
               <p className="mt-2 font-mono text-xs text-muted" aria-hidden="true">
-                Scroll for more
+                {L.scrollMore}
               </p>
             </Block>
           )}
@@ -408,7 +423,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
             <Block id="design-system" label={label("design-system")} takeaway={cs.designSystem.takeaway}>
               <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
                 <div className="rounded-2xl border border-line bg-surface p-6">
-                  <h3 className="eyebrow">Colour</h3>
+                  <h3 className="eyebrow">{L.colour}</h3>
                   <ul className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
                     {cs.designSystem.colors.map((c) => (
                       <li key={c.name}>
@@ -422,7 +437,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="h-full rounded-2xl border border-line bg-surface p-6">
-                    <h3 className="eyebrow">Type</h3>
+                    <h3 className="eyebrow">{L.type}</h3>
                     <p className="mt-4 font-display text-5xl font-bold tracking-tight" aria-hidden="true">
                       Aa
                     </p>
@@ -435,12 +450,12 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
               {cs.designSystem.tokens && (
                 <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-surface">
                   <table className="w-full min-w-[320px] text-left text-sm">
-                    <caption className="eyebrow px-6 pb-2 pt-6 text-left">Semantic tokens</caption>
+                    <caption className="eyebrow px-6 pb-2 pt-6 text-left">{L.semanticTokens}</caption>
                     <thead>
                       <tr className="text-muted">
-                        <th scope="col" className="px-6 py-2 font-medium">Token</th>
-                        <th scope="col" className="px-3 py-2 font-medium">Light</th>
-                        <th scope="col" className="px-3 py-2 pr-6 font-medium">Dark</th>
+                        <th scope="col" className="px-6 py-2 font-medium">{L.token}</th>
+                        <th scope="col" className="px-3 py-2 font-medium">{L.light}</th>
+                        <th scope="col" className="px-3 py-2 pr-6 font-medium">{L.dark}</th>
                       </tr>
                     </thead>
                     <tbody className="font-mono text-xs">
@@ -456,12 +471,12 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 </div>
               )}
               <div className="mt-4 rounded-2xl border border-line bg-surface p-6">
-                <h3 className="eyebrow">Components and their states</h3>
+                <h3 className="eyebrow">{L.components}</h3>
                 <ul className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                   {cs.designSystem.components.map((c) => (
                     <li key={c.name}>
                       <p className="font-semibold text-ink">{c.name}</p>
-                      <ul className="mt-2 flex flex-wrap gap-1.5" aria-label={`${c.name} states`}>
+                      <ul className="mt-2 flex flex-wrap gap-1.5" aria-label={L.states(c.name)}>
                         {c.states.map((s) => (
                           <Tag as="li" key={s}>
                             {s}
@@ -475,7 +490,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
               {cs.designSystem.motion && (
                 <p className="mt-4 rounded-2xl border border-line bg-surface p-6 text-muted">
-                  <span className="eyebrow mr-3 text-accent">Motion</span>
+                  <span className="eyebrow mr-3 text-accent">{L.motion}</span>
                   {cs.designSystem.motion}
                 </p>
               )}
@@ -486,7 +501,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
             <Block id="accessibility" label={label("accessibility")} takeaway={cs.accessibility.takeaway}>
               <div className="grid gap-4 lg:grid-cols-2">
                 <div className="rounded-2xl border border-line bg-surface p-6">
-                  <h3 className="eyebrow text-accent">What we built in</h3>
+                  <h3 className="eyebrow text-accent">{L.builtIn}</h3>
                   <ul className="mt-5 space-y-5">
                     {cs.accessibility.done.map((a) => (
                       <li key={a.title} className="flex gap-3">
@@ -501,7 +516,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 </div>
                 {cs.accessibility.gaps && (
                   <div className="rounded-2xl border border-dashed border-control p-6">
-                    <h3 className="eyebrow">What my audit found, and the fix</h3>
+                    <h3 className="eyebrow">{L.audit}</h3>
                     <ul className="mt-5 space-y-5">
                       {cs.accessibility.gaps.map((g) => (
                         <li key={g.title} className="flex gap-3">
@@ -546,7 +561,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
               {cs.build.setup && (
                 <div className="mt-14">
-                  <h3 className="font-display text-2xl font-semibold tracking-tight">How the repo keeps AI honest</h3>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">{L.repoHonest}</h3>
                   <div className="mt-6 grid gap-4 lg:grid-cols-3">
                     {cs.build.setup.map((g) => (
                       <div key={g.title} className="rounded-2xl border border-line bg-surface p-6">
@@ -567,7 +582,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
               {cs.build.mistakes && (
                 <div className="mt-14">
-                  <h3 className="font-display text-2xl font-semibold tracking-tight">What AI got wrong, and how I caught it</h3>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">{L.aiWrong}</h3>
                   <ol className="mt-6 grid gap-4 md:grid-cols-2">
                     {cs.build.mistakes.map((m, i) => (
                       <li key={m.title} className="flex flex-col rounded-2xl border border-line bg-surface p-6">
@@ -575,16 +590,16 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                         <h4 className="mt-2 font-display text-lg font-semibold tracking-tight">{m.title}</h4>
                         <dl className="mt-4 space-y-3 text-sm">
                           <div>
-                            <dt className="eyebrow text-[0.7rem]">What went wrong</dt>
+                            <dt className="eyebrow text-[0.7rem]">{L.wentWrong}</dt>
                             <dd className="mt-1 text-muted">{m.wrong}</dd>
                           </div>
                           <div>
-                            <dt className="eyebrow text-[0.7rem] text-accent">How I caught it</dt>
+                            <dt className="eyebrow text-[0.7rem] text-accent">{L.caught}</dt>
                             <dd className="mt-1 text-ink">{m.caught}</dd>
                           </div>
                           {m.guardrail && (
                             <div>
-                              <dt className="eyebrow text-[0.7rem]">So it can’t happen again</dt>
+                              <dt className="eyebrow text-[0.7rem]">{L.again}</dt>
                               <dd className="mt-1 text-muted">{m.guardrail}</dd>
                             </div>
                           )}
@@ -597,12 +612,12 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
 
               {cs.build.snippet && (
                 <figure className="mt-14">
-                  <h3 className="font-display text-2xl font-semibold tracking-tight">One guardrail, in code</h3>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">{L.guardrail}</h3>
                   <div className="mt-6 overflow-hidden rounded-2xl border border-line bg-surface">
                     <p className="border-b border-line px-5 py-3 font-mono text-xs text-muted">{cs.build.snippet.file}</p>
                     <pre
                       tabIndex={0}
-                      aria-label={`Code from ${cs.build.snippet.file}`}
+                      aria-label={L.codeFrom(cs.build.snippet.file)}
                       className="overflow-x-auto p-5 font-mono text-[0.8rem] [font-variant-ligatures:none] leading-relaxed text-ink outline-none focus-visible:ring-2 focus-visible:ring-accent"
                     >
                       <code>
@@ -635,7 +650,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                   {cs.testimonials.map((t) => (
                     <li key={t.quote}>
                       <figure className="h-full rounded-2xl border-l-2 border-accent bg-surface p-6">
-                        <blockquote className="font-display text-xl font-medium leading-snug">“{t.quote}”</blockquote>
+                        <blockquote lang="en" className="font-display text-xl font-medium leading-snug">“{t.quote}”</blockquote>
                         <figcaption className="mt-4 text-sm text-muted">
                           {t.name}
                           {t.context && `, ${t.context}`}
@@ -661,7 +676,7 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
                 </ol>
                 {cs.reflection.next && (
                   <div className="h-fit rounded-2xl bg-accent p-6 text-onaccent md:p-8">
-                    <p className="font-mono text-xs uppercase tracking-[0.14em]">Coming next</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.14em]">{L.comingNext}</p>
                     <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight">{cs.reflection.next.title}</h3>
                     <p className="mt-3">{cs.reflection.next.body}</p>
                   </div>
@@ -672,13 +687,13 @@ export default function CaseStudyView({ project, cs, next }: { project: Project;
         </div>
       </div>
 
-      <nav aria-label="Next case study" className="container-page py-16 md:py-24">
+      <nav aria-label={L.next} className="container-page py-16 md:py-24">
         <Link
-          href={`/work/${next.slug}`}
+          href={localeHref(locale, `/work/${next.slug}`)}
           className="group flex flex-col gap-3 rounded-3xl border border-line bg-surface p-8 transition-[border-color,transform] duration-300 ease-out hover:border-control motion-safe:hover:-translate-y-1 md:flex-row md:items-center md:justify-between md:p-12"
         >
           <span>
-            <span className="eyebrow block">Next case study</span>
+            <span className="eyebrow block">{L.next}</span>
             <span className="mt-3 block font-display text-3xl font-semibold tracking-tight md:text-4xl">{next.title}</span>
           </span>
           <span

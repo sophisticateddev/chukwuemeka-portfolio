@@ -1,63 +1,30 @@
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
 import Tag from "./Tag";
+import { t, type Locale } from "@/lib/i18n";
 
-const skills = [
-  "End-to-end product design",
-  "AI-assisted prototyping",
-  "Interaction design & UX strategy",
-  "Mobile (iOS & Android)",
-  "User research & usability testing",
-  "Information architecture",
-  "Design systems",
-  "Accessibility (WCAG)",
-];
-
-const offDuty = [
-  {
-    label: "Football",
-    title: "My other UX research",
-    body: "I watch matches with a notebook. Formations, pressing triggers, half-time adjustments: systems thinking with better aesthetics.",
-  },
-  {
-    label: "Food",
-    title: "I used to cater events",
-    body: "Nigerian cuisine is my baseline: egusi, jollof, ofe onugbu. I cook from memory, not recipes, and I still get requests.",
-  },
-  {
-    label: "Mentoring",
-    title: "10,000+ designers in 10+ countries",
-    body: "For years I mentored designers through the HNG Internship, and today I mentor on ADPList, helping junior designers, especially those from non-traditional backgrounds, break into the industry.",
-  },
-];
-
-export default function About() {
+export default function About({ locale }: { locale: Locale }) {
+  const d = t(locale).about;
+  const { skills, offDuty } = d;
   return (
     <section aria-labelledby="about-title" id="about" className="border-t border-line py-24 md:py-32">
       <div className="container-page">
         <SectionHeading
           id="about-title"
-          label="About"
-          title="Craft matters."
-          titleMuted="Whether it works matters more."
+          label={d.label}
+          title={d.title}
+          titleMuted={d.titleMuted}
         />
 
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
           <FadeUp className="space-y-6 text-lg text-muted">
-            <p>
-              I’m Chukwuemeka, a product designer who grew up in Nigeria and now lives in
-              the UK. I’ve spent 7+ years designing digital products at places like BAFTA,
-              Carbon MFB and Writesea, and today I’m co-founder of Character Guess, a game I designed and built with AI.
-            </p>
-            <p>
-              I work across the whole lifecycle: sitting with users to find what’s actually
-              broken, shaping the system, and now building it myself with AI so engineers get
-              something real, not three rounds of back-and-forth.
-            </p>
-            <p className="text-ink">If the design is beautiful but confusing, it’s not done yet.</p>
+            {d.paragraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+            <p className="text-ink">{d.closing}</p>
 
             <div className="pt-4">
-              <h3 className="eyebrow mb-4">Disciplines</h3>
+              <h3 className="eyebrow mb-4">{d.disciplines}</h3>
               <ul className="flex flex-wrap gap-2">
                 {skills.map((s) => (
                   <Tag as="li" size="md" key={s}>

@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "@/lib/useLocale";
 
 /** Sticky "On this page" list that highlights the section in view. */
 export default function Toc({ items }: { items: { id: string; label: string }[] }) {
   const [active, setActive] = useState(items[0]?.id);
+  const { dict } = useLocale();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,8 +21,8 @@ export default function Toc({ items }: { items: { id: string; label: string }[] 
   }, [items]);
 
   return (
-    <nav aria-label="On this page" className="sticky top-28">
-      <p className="eyebrow mb-4">On this page</p>
+    <nav aria-label={dict.caseStudy.onThisPage} className="sticky top-28">
+      <p className="eyebrow mb-4">{dict.caseStudy.onThisPage}</p>
       <ol className="space-y-1 border-l border-line">
         {items.map((item, i) => {
           const isActive = active === item.id;

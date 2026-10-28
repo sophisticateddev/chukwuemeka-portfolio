@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import type { Locale } from "@/lib/i18n";
+import { useLocale } from "@/lib/useLocale";
 
 /** Content blocks the reader steps through, in document order. */
 const BLOCKS = "h1, h2, h3, h4, p, li, blockquote, figcaption, dl > div, img[alt]";
@@ -11,8 +13,8 @@ const RATE_KEY = "reader-rate";
 const ACCENT_KEY = "reader-accent";
 
 /** The text a screen reader would announce: drops decorative nodes, keeps image descriptions. */
-function spokenText(el: Element): string {
-  if (el instanceof HTMLImageElement) return el.alt.trim() ? `Image: ${el.alt.trim()}` : "";
+function spokenText(el: Element, imagePrefix = "Image:"): string {
+  if (el instanceof HTMLImageElement) return el.alt.trim() ? `${imagePrefix} ${el.alt.trim()}` : "";
   const clone = el.cloneNode(true) as Element;
   clone.querySelectorAll("[aria-hidden='true'], script, style, svg:not([aria-label])").forEach((n) => n.remove());
   clone.querySelectorAll("img").forEach((img) => img.replaceWith(img.alt ? ` ${img.alt} ` : ""));
@@ -33,7 +35,7 @@ function spokenText(el: Element): string {
     .trim();
 }
 
-function collectBlocks(): { el: HTMLElement; text: string }[] {
+function collectBlocks(imagePrefix: string): { el: HTMLElement; text: string }[] {
   const main = document.getElementById("main");
   if (!main) return [];
   const out: { el: HTMLElement; text: string }[] = [];
@@ -42,7 +44,7 @@ function collectBlocks(): { el: HTMLElement; text: string }[] {
     if (el.getClientRects().length === 0) return; // display: none
     if (!(el instanceof HTMLImageElement) && el.querySelector(BLOCKS.replace(", img[alt]", ""))) return; // a container: read its children instead
     if (el instanceof HTMLImageElement && el.closest("p, li, h1, h2, h3, h4, figcaption")) return; // read with its parent
-    const text = spokenText(el);
+    const text = spokenText(el, imagePrefix);
     if (!/[A-Za-z0-9\u00C0-\uFFFF]/.test(text)) return; // nothing speakable
     out.push({ el, text });
   });
@@ -97,34 +99,39 @@ const NOVELTY =
 const voiceScore = (v: SpeechSynthesisVoice) =>
   (/natural|enhanced|premium|siri/i.test(v.name) ? 4 : 0) + (/google/i.test(v.name) ? 2 : 0) + (v.localService ? 1 : 0);
 
-function accentLabel(lang: string): string {
-  const known = ACCENT_NAMES[lang.toLowerCase()];
+function accentLabel(lang: string, locale: Locale): string {
+  const known = locale === "en" ? ACCENT_NAMES[lang.toLowerCase()] : undefined;
   if (known) return known;
   try {
     const region = lang.split("-")[1];
-    return (region && new Intl.DisplayNames(["en"], { type: "region" }).of(region.toUpperCase())) || lang;
+    return (region && new Intl.DisplayNames([locale], { type: "region" }).of(region.toUpperCase())) || lang;
   } catch {
     return lang;
   }
 }
 
 // Shown first, and used by default, when the device has them
-const PREFERRED = ["en-NG", "en-GB"];
+const PREFERRED: Record<Locale, string[]> = { en: ["en-NG", "en-GB"], fr: ["fr-CA", "fr-FR"] };
 
-/** One voice per English accent the visitor's browser offers: Nigerian first, then British. */
-function listAccents(): Accent[] {
+/**
+ * One voice per accent the visitor's browser offers in the page's language:
+ * for English, Nigerian first, then British; for French, Canadian first, then France.
+ */
+function listAccents(locale: Locale): Accent[] {
+  const preferred = PREFERRED[locale];
+  const sameLanguage = new RegExp(`^${locale}(-|$)`, "i");
   const best = new Map<string, SpeechSynthesisVoice>();
   for (const v of window.speechSynthesis.getVoices()) {
     const lang = v.lang.replace("_", "-");
-    if (!/^en(-|$)/i.test(lang) || NOVELTY.test(v.name)) continue;
+    if (!sameLanguage.test(lang) || NOVELTY.test(v.name)) continue;
     const current = best.get(lang);
     if (!current || voiceScore(v) > voiceScore(current)) best.set(lang, v);
   }
   const rank = (lang: string) => {
-    const i = PREFERRED.indexOf(lang);
-    return i === -1 ? PREFERRED.length : i;
+    const i = preferred.indexOf(lang);
+    return i === -1 ? preferred.length : i;
   };
-  return Array.from(best, ([lang, voice]) => ({ lang, label: accentLabel(lang), voice })).sort(
+  return Array.from(best, ([lang, voice]) => ({ lang, label: accentLabel(lang, locale), voice })).sort(
     (a, b) => rank(a.lang) - rank(b.lang) || a.label.localeCompare(b.label),
   );
 }
@@ -138,6 +145,10 @@ type Status = "idle" | "playing" | "paused";
  */
 export default function PageReader() {
   const pathname = usePathname();
+  const { locale, dict } = useLocale();
+  const r = dict.reader;
+  // Each language keeps its own saved voice
+  const accentKey = locale === "en" ? ACCENT_KEY : `${ACCENT_KEY}-${locale}`;
   const [supported, setSupported] = useState(false);
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
@@ -173,11 +184,11 @@ export default function PageReader() {
     if (!("speechSynthesis" in window)) return;
     const synth = window.speechSynthesis;
     const load = () => {
-      const found = listAccents();
+      const found = listAccents(locale);
       setAccents(found);
       let saved: string | null = null;
       try {
-        saved = localStorage.getItem(ACCENT_KEY);
+        saved = localStorage.getItem(accentKey);
       } catch {
         // no saved accent
       }
@@ -188,7 +199,8 @@ export default function PageReader() {
     load();
     synth.addEventListener?.("voiceschanged", load);
     return () => synth.removeEventListener?.("voiceschanged", load);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
   const clearHighlight = () =>
     document.querySelectorAll("[data-reading]").forEach((el) => el.removeAttribute("data-reading"));
@@ -212,7 +224,7 @@ export default function PageReader() {
         if (thisRun !== run.current) return;
         const block = blocks.current[i];
         if (!block) {
-          stop("Finished reading the page.");
+          stop(r.finished);
           return;
         }
         index.current = i;
@@ -227,7 +239,7 @@ export default function PageReader() {
           const u = new SpeechSynthesisUtterance(part);
           const voice = voiceRef.current;
           if (voice) u.voice = voice;
-          u.lang = voice?.lang ?? "en-GB";
+          u.lang = voice?.lang ?? dict.htmlLang;
           u.rate = rateRef.current;
           if (n === parts.length - 1) {
             u.onend = () => next(i + 1);
@@ -243,32 +255,33 @@ export default function PageReader() {
       setStatus("playing");
       next(start);
     },
-    [stop],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [stop, locale, dict],
   );
 
   const play = () => {
     if (status === "paused") {
       window.speechSynthesis.resume();
       setStatus("playing");
-      setAnnouncement("Reading resumed.");
+      setAnnouncement(r.resumed);
       return;
     }
-    blocks.current = collectBlocks();
+    blocks.current = collectBlocks(locale === "fr" ? "Image :" : "Image:");
     if (blocks.current.length === 0) {
-      setAnnouncement("There is nothing to read on this page.");
+      setAnnouncement(r.nothing);
       return;
     }
     // Start from the first block on screen, so "listen" continues from where you are
     const header = 80;
     const first = blocks.current.findIndex((b) => b.el.getBoundingClientRect().bottom > header);
-    setAnnouncement("Reading started.");
+    setAnnouncement(r.started);
     speakFrom(Math.max(first, 0));
   };
 
   const pause = () => {
     window.speechSynthesis.pause();
     setStatus("paused");
-    setAnnouncement("Reading paused.");
+    setAnnouncement(r.paused);
   };
 
   const skip = (by: number) => {
@@ -294,18 +307,20 @@ export default function PageReader() {
     setAccent(lang);
     voiceRef.current = chosen.voice;
     try {
-      localStorage.setItem(ACCENT_KEY, lang);
+      localStorage.setItem(accentKey, lang);
     } catch {
       // not saved, still applies now
     }
-    setAnnouncement(`${chosen.label} accent selected.`);
+    setAnnouncement(locale === "fr" ? `Voix ${chosen.label} sélectionnée.` : `${chosen.label} accent selected.`);
     if (status === "playing") {
       speakFrom(index.current); // carry on from the same place in the new voice
     } else if (status === "idle") {
       // A quick hello so you can hear the accent before pressing play
       const synth = window.speechSynthesis;
       synth.cancel();
-      const sample = new SpeechSynthesisUtterance(`Hello. This is the ${chosen.label} voice.`);
+      const sample = new SpeechSynthesisUtterance(
+        locale === "fr" ? `Bonjour. Voici la voix ${chosen.label}.` : `Hello. This is the ${chosen.label} voice.`,
+      );
       sample.voice = chosen.voice;
       sample.lang = chosen.voice.lang;
       sample.rate = rateRef.current;
@@ -314,7 +329,7 @@ export default function PageReader() {
   };
 
   const close = () => {
-    stop("Reader closed.");
+    stop(r.closed);
     setOpen(false);
     requestAnimationFrame(() => toggleRef.current?.focus());
   };
@@ -395,7 +410,7 @@ export default function PageReader() {
             />
           </svg>
           <span>
-            Listen<span className="sr-only"> to this page</span>
+            {r.listen}<span className="sr-only">{r.listenSr}</span>
           </span>
         </motion.button>
       ) : (
@@ -407,17 +422,17 @@ export default function PageReader() {
           transition={{ duration: 0.2, delay: 0.12 }}
           id="page-reader"
           role="group"
-          aria-label="Page reader"
+          aria-label={r.panel}
           className="flex max-w-[calc(100vw-1.5rem-2px)] flex-wrap items-center gap-0.5 p-1.5 sm:flex-nowrap sm:gap-1 sm:p-2"
         >
-          <button type="button" onClick={() => skip(-1)} disabled={status === "idle"} aria-label="Previous section" className={iconButton}>
+          <button type="button" onClick={() => skip(-1)} disabled={status === "idle"} aria-label={r.previous} className={iconButton}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M7 5h2v14H7zM20 5v14L10 12z" />
             </svg>
           </button>
 
           {status === "playing" ? (
-            <button ref={playRef} type="button" onClick={pause} aria-label="Pause reading" className={primaryButton}>
+            <button ref={playRef} type="button" onClick={pause} aria-label={r.pause} className={primaryButton}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M7 5h4v14H7zM13 5h4v14h-4z" />
               </svg>
@@ -428,7 +443,7 @@ export default function PageReader() {
               type="button"
               onClick={play}
               data-track="reader-play"
-              aria-label={status === "paused" ? "Resume reading" : "Read this page aloud"}
+              aria-label={status === "paused" ? r.resume : r.play}
               className={primaryButton}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -437,13 +452,13 @@ export default function PageReader() {
             </button>
           )}
 
-          <button type="button" onClick={() => skip(1)} disabled={status === "idle"} aria-label="Next section" className={iconButton}>
+          <button type="button" onClick={() => skip(1)} disabled={status === "idle"} aria-label={r.next} className={iconButton}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M15 5h2v14h-2zM4 5v14l10-7z" />
             </svg>
           </button>
 
-          <button type="button" onClick={() => stop("Reading stopped.")} disabled={status === "idle"} aria-label="Stop reading" className={iconButton}>
+          <button type="button" onClick={() => stop(r.stopped)} disabled={status === "idle"} aria-label={r.stop} className={iconButton}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <rect x="6" y="6" width="12" height="12" rx="1.5" />
             </svg>
@@ -453,7 +468,7 @@ export default function PageReader() {
           <div className="order-last flex w-full items-center gap-2 px-1 pt-1 sm:order-none sm:w-auto sm:px-0 sm:pt-0">
             {accents.length > 1 && (
               <label className="flex min-w-0 flex-1 items-center gap-2 text-sm text-muted sm:ml-1 sm:flex-none">
-                <span className="sr-only sm:not-sr-only">Accent</span>
+                <span className="sr-only sm:not-sr-only">{r.accent}</span>
                 {/* Own chevron: the native one sits too close to the rounded border */}
                 <span className="relative block min-w-0 flex-1 sm:flex-none">
                   <select
@@ -483,7 +498,7 @@ export default function PageReader() {
             )}
 
             <label className="flex items-center gap-2 text-sm text-muted">
-              <span className="sr-only sm:not-sr-only">Speed</span>
+              <span className="sr-only sm:not-sr-only">{r.speed}</span>
               <span className="relative block">
                 <select
                   value={rate}
@@ -511,10 +526,10 @@ export default function PageReader() {
           </div>
 
           <p className="hidden px-2 font-mono text-xs text-muted sm:block">
-            {status === "idle" ? "Ready" : `Section ${position.index + 1} of ${position.total}`}
+            {status === "idle" ? r.ready : r.position(position.index + 1, position.total)}
           </p>
 
-          <button type="button" onClick={close} aria-label="Close page reader" className={`${iconButton} ml-auto sm:ml-0`}>
+          <button type="button" onClick={close} aria-label={r.close} className={`${iconButton} ml-auto sm:ml-0`}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
             </svg>

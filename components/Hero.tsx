@@ -7,14 +7,7 @@ import HeroGlow from "./HeroGlow";
 import Magnetic from "./Magnetic";
 import RevealWords from "./RevealWords";
 import { regionCopy, type Region } from "@/lib/region";
-
-// Outcomes, each tied to where it happened, so every number is checkable in a case study.
-const stats = [
-  { value: "+20%", label: "loan applications", source: "Carbon" },
-  { value: "200+", label: "riders and drivers at launch", source: "NippyBoxes" },
-  { value: "85%", label: "WCAG 2.2 AA pass rate, up from 60%", source: "BAFTA albert" },
-  { value: "100+", label: "players on a game I built with AI", source: "Character Guess" },
-];
+import { localeHref, t, type Locale } from "@/lib/i18n";
 
 // Official marks, shown as uniform white silhouettes so four brands read as one quiet row.
 // Heights are tuned by eye so each logo carries similar visual weight.
@@ -25,8 +18,11 @@ const shippedAt = [
   { name: "Softcom", src: "/images/logos/softcom.svg", width: 97, height: 20, className: "h-5" },
 ];
 
-export default function Hero({ region }: { region: Region }) {
-  const { status, cv } = regionCopy[region];
+export default function Hero({ region, locale }: { region: Region; locale: Locale }) {
+  const { status, cv } = regionCopy(region, locale);
+  const d = t(locale).hero;
+  // Outcomes, each tied to where it happened, so every number is checkable in a case study.
+  const stats = d.stats;
   return (
     <section aria-labelledby="hero-title" className="relative isolate">
       <HeroGlow />
@@ -37,36 +33,38 @@ export default function Hero({ region }: { region: Region }) {
               <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-sm text-ink backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
                 <span>
-                  Open to work <span className="text-muted">· {status}</span>
+                  {d.openToWork} <span className="text-muted">· {status}</span>
                 </span>
               </p>
             </FadeUp>
 
             <h1
               id="hero-title"
-              className="font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.025em] sm:text-6xl md:text-7xl xl:text-[4.5rem]"
+              // French runs longer, so it steps down a size to keep the headline to three lines
+              className={`font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.025em] sm:text-6xl ${
+                locale === "fr" ? "md:text-6xl xl:text-[4rem]" : "md:text-7xl xl:text-[4.5rem]"
+              }`}
             >
-              <span className="sr-only">I design products. Then I build them with AI.</span>
+              <span className="sr-only">{d.line1} {d.line2}</span>
               <span aria-hidden="true" className="block">
-                <RevealWords text="I design products." trigger="mount" delay={0.05} />
+                <RevealWords text={d.line1} trigger="mount" delay={0.05} />
               </span>
               <span aria-hidden="true" className="block text-accent">
-                <RevealWords text="Then I build them with AI." trigger="mount" delay={0.2} />
+                <RevealWords text={d.line2} trigger="mount" delay={0.2} />
               </span>
             </h1>
 
             <FadeUp animate delay={0.25}>
               <p className="mt-6 max-w-xl text-lg text-muted md:text-xl md:leading-relaxed">
-                Product Designer with 7+ years in fintech, SaaS and enterprise. I design the product, then build
-                it with Claude Code.
+                {d.subhead}
               </p>
             </FadeUp>
 
             <FadeUp animate delay={0.32}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Magnetic className="[&>a]:w-full">
-                  <Link href="/#work" className="btn-primary group">
-                    View selected work
+                  <Link href={localeHref(locale, "/#work")} className="btn-primary group">
+                    {d.viewWork}
                     <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
                   </Link>
                 </Magnetic>
@@ -95,7 +93,7 @@ export default function Hero({ region }: { region: Region }) {
 
             <FadeUp animate delay={0.4}>
               <div className="mt-8">
-                <p className="eyebrow">Shipped at</p>
+                <p className="eyebrow">{d.shippedAt}</p>
                 <ul className="mt-4 grid grid-cols-2 items-center gap-x-8 gap-y-5 sm:flex sm:flex-wrap">
                   {shippedAt.map((logo) => (
                     <li key={logo.name}>
@@ -122,7 +120,7 @@ export default function Hero({ region }: { region: Region }) {
               <div className="group/portrait relative aspect-[8/9]">
                 <Image
                   src="/images/portrait.webp"
-                  alt="Portrait of Chukwuemeka Iheonye, smiling, in a polo shirt"
+                  alt={d.portraitAlt}
                   fill
                   priority
                   sizes="(min-width: 1280px) 496px, (min-width: 1024px) 416px, 448px"

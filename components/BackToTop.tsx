@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Arrow from "./Arrow";
+import { useLocale } from "@/lib/useLocale";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
   const reduceMotion = useReducedMotion();
+  const { dict } = useLocale();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 900);
@@ -27,7 +29,7 @@ export default function BackToTop() {
         <motion.button
           type="button"
           onClick={toTop}
-          aria-label="Back to top"
+          aria-label={dict.backToTop}
           initial={{ opacity: 0, y: 16, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 16, scale: 0.9 }}

@@ -3,6 +3,7 @@ import FadeUp from "./FadeUp";
 import Magnetic from "./Magnetic";
 import RevealWords from "./RevealWords";
 import { regionCopy, type Region } from "@/lib/region";
+import { t, type Locale } from "@/lib/i18n";
 
 const email = "kingsleyiheonye@gmail.com";
 
@@ -13,8 +14,9 @@ const socials = [
   { label: "X", href: "https://x.com/kingsleyiheonye" },
 ];
 
-export default function Contact({ region }: { region: Region }) {
-  const { contactNote } = regionCopy[region];
+export default function Contact({ region, locale }: { region: Region; locale: Locale }) {
+  const { contactNote } = regionCopy(region, locale);
+  const d = t(locale).contact;
   return (
     <section aria-labelledby="contact-title" id="contact" className="py-24 md:py-32">
       <div className="container-page">
@@ -31,15 +33,13 @@ export default function Contact({ region }: { region: Region }) {
             id="contact-title"
             className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.025em] sm:text-5xl md:text-6xl"
           >
-            <span className="sr-only">Need a designer who can also build it?</span>
+            <span className="sr-only">{d.title}</span>
             <span aria-hidden="true">
-              <RevealWords text="Need a designer who can also build it?" />
+              <RevealWords text={d.title} />
             </span>
           </h2>
           <p className="relative mt-6 max-w-xl text-lg">
-            Hiring for a product design role, or need a freelance designer for a new product,
-            a design system or an AI-built prototype? I’d love to hear about it, and I reply
-            within 24 hours.
+            {d.body}
           </p>
           {contactNote && <p className="relative mt-3 max-w-xl text-lg">{contactNote}</p>}
 
@@ -49,14 +49,14 @@ export default function Contact({ region }: { region: Region }) {
                 href={`mailto:${email}`}
                 className="btn group bg-onaccent text-ink hover:shadow-[0_12px_30px_-10px_rgba(11,12,14,0.6)] focus-visible:outline-onaccent"
               >
-                Let’s build something
-                <span className="sr-only">(opens your email app)</span>
+                {d.cta}
+                <span className="sr-only">{d.ctaHint}</span>
                 <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
               </a>
             </Magnetic>
           </div>
 
-          <ul className="relative mt-10 flex flex-wrap gap-x-6 gap-y-2" aria-label="Social profiles">
+          <ul className="relative mt-10 flex flex-wrap gap-x-6 gap-y-2" aria-label={d.socials}>
             {socials.map((s) => (
               <li key={s.label}>
                 <a
@@ -71,7 +71,7 @@ export default function Contact({ region }: { region: Region }) {
                     size={14}
                     className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
                   />
-                  <span className="sr-only">(opens in a new tab)</span>
+                  <span className="sr-only">{t(locale).newTab}</span>
                 </a>
               </li>
             ))}

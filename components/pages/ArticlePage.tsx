@@ -5,50 +5,53 @@ import Arrow from "@/components/Arrow";
 import FadeUp from "@/components/FadeUp";
 import RevealWords from "@/components/RevealWords";
 import ArticleCover from "@/components/writing/ArticleCover";
-import { articles } from "@/lib/data";
+import LangLink from "@/components/LangLink";
 import { articleBodies } from "@/content/articles";
+import { articleBodiesFr } from "@/content/articles/fr";
+import { alternates } from "@/lib/alternates";
+import { getArticles } from "@/lib/content";
+import { localeHref, t, type Locale } from "@/lib/i18n";
 
-interface Props {
-  params: { slug: string };
-}
+/** An article page, shared by /writing/<slug> and /fr/writing/<slug>. */
+const bodies = { en: articleBodies, fr: articleBodiesFr };
+const onSite = (locale: Locale) => getArticles(locale).filter((a) => !a.url && bodies[locale][a.slug]);
 
-const onSite = articles.filter((a) => !a.url && articleBodies[a.slug]);
+export const articleParams = () => onSite("en").map((a) => ({ slug: a.slug }));
 
-export function generateStaticParams() {
-  return onSite.map((a) => ({ slug: a.slug }));
-}
-
-export function generateMetadata({ params }: Props): Metadata {
-  const article = onSite.find((a) => a.slug === params.slug);
+export function articleMetadata(locale: Locale, slug: string): Metadata {
+  const article = onSite(locale).find((a) => a.slug === slug);
   if (!article) return {};
   return {
     title: `${article.title} — Chukwuemeka Iheonye`,
     description: article.excerpt,
-    openGraph: { title: article.title, description: article.excerpt, type: "article" },
+    alternates: alternates(locale, `/writing/${slug}`),
+    openGraph: { title: article.title, description: article.excerpt, type: "article", locale: t(locale).ogLocale },
   };
 }
 
-export default function ArticlePage({ params }: Props) {
-  const article = onSite.find((a) => a.slug === params.slug);
+export default function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) {
+  const articles = onSite(locale);
+  const article = articles.find((a) => a.slug === slug);
   if (!article) notFound();
+  const d = t(locale).article;
 
-  const Body = articleBodies[article.slug];
-  const index = onSite.indexOf(article);
-  const next = onSite[(index + 1) % onSite.length];
+  const Body = bodies[locale][article.slug];
+  const index = articles.indexOf(article);
+  const next = articles[(index + 1) % articles.length];
 
   return (
     <main id="main" tabIndex={-1} className="outline-none">
       <article>
         <header className="container-page pb-12 pt-28 md:pt-36">
           <Link
-            href="/#writing"
+            href={localeHref(locale, "/#writing")}
             className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
           >
             <Arrow
               direction="left"
               className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-1"
             />{" "}
-            All writing
+            {d.allWriting}
           </Link>
 
           <div className="mx-auto max-w-3xl">
@@ -69,6 +72,14 @@ export default function ArticlePage({ params }: Props) {
             </h1>
             <FadeUp delay={0.3}>
               <p className="mt-6 text-xl leading-relaxed text-muted">{article.excerpt}</p>
+              {d.translated && (
+                <p className="mt-4 text-sm text-muted">
+                  {d.translated}{" "}
+                  <LangLink to="en" href={`/writing/${article.slug}`} className="link-grow text-ink">
+                    {d.original}
+                  </LangLink>
+                </p>
+              )}
               <div className="mt-8 flex items-center gap-3">
                 <span
                   aria-hidden="true"
@@ -78,7 +89,7 @@ export default function ArticlePage({ params }: Props) {
                 </span>
                 <p className="text-sm">
                   <span className="block font-medium text-ink">Chukwuemeka Iheonye</span>
-                  <span className="text-muted">Product Designer</span>
+                  <span className="text-muted">{d.role}</span>
                 </p>
               </div>
             </FadeUp>
@@ -87,7 +98,7 @@ export default function ArticlePage({ params }: Props) {
 
         <FadeUp delay={0.4} className="container-page">
           <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-line">
-            <ArticleCover slug={article.slug} decorative={false} className="block aspect-[16/9] w-full" />
+            <ArticleCover slug={article.slug} decorative={false} locale={locale} className="block aspect-[16/9] w-full" />
           </div>
         </FadeUp>
 
@@ -98,7 +109,7 @@ export default function ArticlePage({ params }: Props) {
         </div>
       </article>
 
-      <aside aria-label="About the author" className="container-page">
+      <aside aria-label={d.aboutAuthor} className="container-page">
         <div className="mx-auto flex max-w-[68ch] flex-col gap-5 rounded-3xl border border-line bg-surface p-6 sm:flex-row sm:items-center md:p-8">
           <span
             aria-hidden="true"
@@ -107,25 +118,25 @@ export default function ArticlePage({ params }: Props) {
             CI
           </span>
           <div className="flex-1">
-            <p className="font-display text-lg font-semibold">Written by Chukwuemeka Iheonye</p>
+            <p className="font-display text-lg font-semibold">{d.writtenBy}</p>
             <p className="mt-1 text-muted">
-              Product Designer based in the UK. I design products, then build them with AI.
+              {d.bio}
             </p>
           </div>
-          <Link href="/#contact" className="btn-primary group shrink-0">
-            Work with me
+          <Link href={localeHref(locale, "/#contact")} className="btn-primary group shrink-0">
+            {d.workWithMe}
             <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
           </Link>
         </div>
       </aside>
 
-      <nav aria-label="Next article" className="container-page py-16 md:py-24">
+      <nav aria-label={d.nextLabel} className="container-page py-16 md:py-24">
         <Link
-          href={`/writing/${next.slug}`}
+          href={localeHref(locale, `/writing/${next.slug}`)}
           className="group mx-auto grid max-w-4xl overflow-hidden rounded-3xl border border-line bg-surface transition-[border-color,transform] duration-300 ease-out hover:border-control motion-safe:hover:-translate-y-1 md:grid-cols-[1fr_280px]"
         >
           <span className="flex flex-col justify-center p-8 md:p-10">
-            <span className="eyebrow block">Read next</span>
+            <span className="eyebrow block">{d.readNext}</span>
             <span className="mt-3 block font-display text-2xl font-semibold tracking-tight md:text-3xl">
               {next.title}
             </span>

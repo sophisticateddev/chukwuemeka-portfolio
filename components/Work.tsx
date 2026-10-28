@@ -4,9 +4,12 @@ import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
 import SectionHeading from "./SectionHeading";
 import WorkCard from "./WorkCard";
-import { workProjects } from "@/lib/data";
+import { getProjects } from "@/lib/content";
+import { localeHref, t, type Locale } from "@/lib/i18n";
 
-export default function Work() {
+export default function Work({ locale }: { locale: Locale }) {
+  const d = t(locale).work;
+  const workProjects = getProjects(locale);
   const [lead, ...featured] = workProjects.filter((p) => p.featured);
   const more = workProjects.filter((p) => !p.featured);
 
@@ -19,10 +22,10 @@ export default function Work() {
       <div className="container-page">
         <SectionHeading
           id="work-title"
-          label="Selected work"
-          title="Products used by millions,"
-          titleMuted="designed to be understood."
-          intro="Four case studies in depth, from a game I built with AI to a bank serving 3M+ people."
+          label={d.label}
+          title={d.title}
+          titleMuted={d.titleMuted}
+          intro={d.intro}
         />
 
         <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -49,7 +52,7 @@ export default function Work() {
         {more.length > 0 && (
           <div className="mt-16">
             <FadeUp>
-              <h3 className="eyebrow mb-4">More work</h3>
+              <h3 className="eyebrow mb-4">{d.more}</h3>
             </FadeUp>
             {/* Flex, not grid, so a short last row stretches to fill the width instead of leaving a gap */}
             <ul className="flex flex-wrap gap-px overflow-hidden rounded-2xl border border-line bg-line">
@@ -78,7 +81,7 @@ export default function Work() {
                         </p>
                         <h4 className="mt-3 font-display text-xl font-semibold tracking-tight">
                           <Link
-                            href={`/work/${project.slug}`}
+                            href={localeHref(locale, `/work/${project.slug}`)}
                             className="outline-none after:absolute after:inset-0 focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:-outline-offset-2 focus-visible:after:outline-accent"
                           >
                             {project.title}

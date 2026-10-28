@@ -7,6 +7,8 @@ import Arrow from "./Arrow";
 import CountUp from "./CountUp";
 import type { Project } from "@/lib/data";
 import Tag from "./Tag";
+import { localeHref } from "@/lib/i18n";
+import { useLocale } from "@/lib/useLocale";
 
 export default function WorkCard({
   project,
@@ -19,6 +21,7 @@ export default function WorkCard({
   featured?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const { locale, dict } = useLocale();
   const cover = project.cover ?? project.details?.hero;
 
   // Spotlight follows the pointer via CSS variables — no re-renders.
@@ -75,14 +78,14 @@ export default function WorkCard({
         {featured && (
           <p className="eyebrow mb-3 flex items-center gap-2 text-accent">
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent motion-safe:animate-pulse" />
-            Featured case study
+            {dict.work.featured}
           </p>
         )}
         <p className="eyebrow">{project.category}</p>
         <h3 className={`mt-2 font-display font-semibold tracking-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
           {/* Stretched link: the whole card is one click target, one tab stop */}
           <Link
-            href={`/work/${project.slug}`}
+            href={localeHref(locale, `/work/${project.slug}`)}
             className="bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-0.5 outline-none transition-[background-size] duration-500 ease-out after:absolute after:inset-0 after:rounded-2xl group-hover:bg-[length:100%_2px] focus-visible:bg-[length:100%_2px] focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-accent"
           >
             {project.title}
@@ -92,7 +95,7 @@ export default function WorkCard({
         <p className="mt-3 flex-1 text-muted">{project.description}</p>
 
         <div className="mt-6 flex items-center justify-between gap-4">
-          <ul className="flex flex-wrap gap-2" aria-label="Tags">
+          <ul className="flex flex-wrap gap-2" aria-label={dict.work.tags}>
             {project.tags.map((tag) => (
               <Tag as="li" key={tag}>
                 {tag}
