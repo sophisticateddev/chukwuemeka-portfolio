@@ -29,13 +29,19 @@ function wantsFrench(req: NextRequest) {
   const chosen = req.cookies.get(LANG_COOKIE)?.value;
   if (chosen === "fr") return true;
   if (chosen === "en") return false;
+  if (fromThisSite(req)) return false;
+  return prefersFrench(req.headers.get("accept-language"));
+}
+
+/** True when the visitor followed a link on this site, rather than typing the address or arriving from elsewhere. */
+function fromThisSite(req: NextRequest) {
   const referer = req.headers.get("referer");
   try {
-    if (referer && new URL(referer).host === req.nextUrl.host) return false;
+    return !!referer && new URL(referer).host === req.nextUrl.host;
   } catch {
     // malformed referer: treat as arriving from elsewhere
+    return false;
   }
-  return prefersFrench(req.headers.get("accept-language"));
 }
 
 export function middleware(req: NextRequest) {
@@ -62,7 +68,9 @@ export function middleware(req: NextRequest) {
   }
 
   if (bare === "/") {
-    const chosen = req.cookies.get(REGION_COOKIE)?.value;
+    // The cookie only counts while browsing the site. Typing the address or arriving from a link
+    // elsewhere goes by location again: browsers that restore sessions keep "session" cookies for weeks.
+    const chosen = fromThisSite(req) ? req.cookies.get(REGION_COOKIE)?.value : undefined;
     const region =
       chosen === "ca" || chosen === "us" ? chosen : byCountry[req.headers.get("x-vercel-ip-country") ?? ""];
     if (region) return NextResponse.rewrite(new URL(`${prefix}/${region}`, req.url));
