@@ -19,12 +19,15 @@ const linkClass =
 /** Newest articles shown up front; the rest open on demand so the page stays short. */
 const VISIBLE = 2;
 
-export default function Writing({ items: articles }: { items: Article[] }) {
+/** `page`: the /writing page, which lists everything as the page's own heading. */
+export default function Writing({ items: articles, page = false }: { items: Article[]; page?: boolean }) {
   const { locale, dict } = useLocale();
   const d = dict.writing;
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(page);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const hiddenCount = articles.length - VISIBLE;
+  // One level below the section heading, so the outline has no gaps
+  const Title = page ? "h2" : "h3";
 
   const toggle = () => {
     setExpanded((open) => {
@@ -35,10 +38,11 @@ export default function Writing({ items: articles }: { items: Article[] }) {
   };
 
   return (
-    <section aria-labelledby="writing-title" id="writing" className="border-t border-line py-24 md:py-32">
+    <section aria-labelledby="writing-title" id="writing" className={page ? "py-24 md:py-32" : "border-t border-line py-24 md:py-32"}>
       <div className="container-page">
         <SectionHeading
           id="writing-title"
+          as={page ? "h1" : "h2"}
           label={d.label}
           title={d.title}
           titleMuted={d.titleMuted}
@@ -71,7 +75,7 @@ export default function Writing({ items: articles }: { items: Article[] }) {
                         <Tag className="ml-1">{article.source}</Tag>
                       )}
                     </p>
-                    <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">
+                    <Title className="mt-2 font-display text-xl font-semibold tracking-tight">
                       {article.url ? (
                         <a href={article.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
                           {article.title}
@@ -82,7 +86,7 @@ export default function Writing({ items: articles }: { items: Article[] }) {
                           {article.title}
                         </Link>
                       )}
-                    </h3>
+                    </Title>
                     <p className="mt-2 max-w-2xl text-muted">{article.excerpt}</p>
                   </div>
 
@@ -98,7 +102,7 @@ export default function Writing({ items: articles }: { items: Article[] }) {
           ))}
         </ul>
 
-        {hiddenCount > 0 && (
+        {!page && hiddenCount > 0 && (
           <FadeUp className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted">
               {expanded ? d.showingAll(articles.length) : d.more(hiddenCount)}

@@ -44,7 +44,7 @@ export default function ArticlePage({ locale, slug }: { locale: Locale; slug: st
       <article>
         <header className="container-page pb-12 pt-28 md:pt-36">
           <Link
-            href={localeHref(locale, "/#writing")}
+            href={localeHref(locale, "/writing")}
             className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
           >
             <Arrow

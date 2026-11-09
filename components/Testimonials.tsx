@@ -5,6 +5,9 @@ import { recommendationsUrl, type Testimonial } from "@/lib/data";
 import { getTestimonials } from "@/lib/content";
 import { t, type Locale } from "@/lib/i18n";
 
+/** The home page quotes three: one who managed me, one who reported to me, plus the featured one. The rest are on LinkedIn. */
+const SHOWN = ["Nabeel Ishaq", "Afiola Etomi", "Olumide Olusesi"];
+
 const initials = (name: string) =>
   name
     .split(" ")
@@ -34,7 +37,7 @@ function Attribution({ t }: { t: Testimonial }) {
 
 export default function Testimonials({ locale }: { locale: Locale }) {
   const d = t(locale).testimonials;
-  const [featured, ...rest] = getTestimonials(locale);
+  const [featured, ...rest] = getTestimonials(locale).filter((x) => SHOWN.includes(x.name));
 
   return (
     <section aria-labelledby="testimonials-title" id="testimonials" className="border-t border-line py-24 md:py-32">

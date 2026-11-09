@@ -5,6 +5,8 @@ import { siteUrl } from "@/lib/site";
 // Every page in English, with its French version at /fr/… listed alongside.
 const paths = [
   { path: "", priority: 1 },
+  { path: "/work", priority: 0.7 },
+  { path: "/writing", priority: 0.6 },
   ...workProjects.map((p) => ({ path: `/work/${p.slug}`, priority: 0.8 })),
   ...articles.filter((a) => !a.url).map((a) => ({ path: `/writing/${a.slug}`, priority: 0.5 })),
 ];

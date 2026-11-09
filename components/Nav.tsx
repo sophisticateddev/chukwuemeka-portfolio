@@ -20,9 +20,9 @@ export default function Nav() {
   const { locale, dict } = useLocale();
   const navLinks = [
     { label: dict.nav.work, href: localeHref(locale, "/#work"), id: "work" },
-    { label: dict.nav.ai, href: localeHref(locale, "/#ai"), id: "ai" },
     { label: dict.nav.experience, href: localeHref(locale, "/#experience"), id: "experience" },
     { label: dict.nav.about, href: localeHref(locale, "/#about"), id: "about" },
+    { label: dict.nav.writing, href: localeHref(locale, "/writing"), id: "writing" },
   ];
   const contactHref = localeHref(locale, "/#contact");
   const { scrollYProgress } = useScroll();
@@ -35,14 +35,17 @@ export default function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  // Highlight the section currently in the middle of the viewport.
+  // Highlight the section currently in the middle of the viewport, or the page you're on.
   useEffect(() => {
-    if (!HOME.has(pathname ?? "")) return setActive(null);
+    if (!HOME.has(pathname ?? "")) {
+      const page = pathname?.replace(/^\/fr/, "").split("/")[1];
+      return setActive(page === "work" || page === "writing" ? page : null);
+    }
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-45% 0px -50% 0px" }
     );
-    ["work", "ai", "experience", "about", "writing", "contact"].forEach((id) => {
+    ["work", "testimonials", "experience", "about", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });

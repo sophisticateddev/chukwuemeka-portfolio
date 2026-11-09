@@ -79,7 +79,7 @@ export default function CaseStudyView({
         />
         <div className="container-page pb-16 pt-28 md:pt-32">
           <Link
-            href={localeHref(locale, "/#work")}
+            href={localeHref(locale, "/work")}
             className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
           >
             <Arrow direction="left" className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-1" />{" "}

@@ -358,7 +358,9 @@ export default function PageReader() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  if (!supported) return null;
+  // Only where there's a long read: a case study or an article, not the home page or the lists
+  const longRead = /^(\/fr)?\/(work|writing)\/[^/]+/.test(pathname ?? "");
+  if (!supported || !longRead) return null;
 
   const control = "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-150 ease-out motion-safe:active:scale-95";
   const iconButton = `${control} text-ink hover:bg-raised disabled:opacity-40`;

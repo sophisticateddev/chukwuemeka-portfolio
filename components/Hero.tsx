@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Arrow from "./Arrow";
-import CountUp from "./CountUp";
 import FadeUp from "./FadeUp";
 import HeroGlow from "./HeroGlow";
 import Magnetic from "./Magnetic";
@@ -21,8 +20,6 @@ const shippedAt = [
 export default function Hero({ region, locale }: { region: Region; locale: Locale }) {
   const { status, cv } = regionCopy(region, locale);
   const d = t(locale).hero;
-  // Outcomes, each tied to where it happened, so every number is checkable in a case study.
-  const stats = d.stats;
   return (
     <section aria-labelledby="hero-title" className="relative isolate">
       <HeroGlow />
@@ -139,24 +136,6 @@ export default function Hero({ region, locale }: { region: Region; locale: Local
           </FadeUp>
         </div>
 
-        <FadeUp animate delay={0.45}>
-          <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="group flex flex-col-reverse gap-2 bg-canvas p-5 transition-colors duration-300 hover:bg-surface md:p-6"
-              >
-                <dt className="text-sm text-muted">
-                  {s.label}
-                  <span className="mt-1 block font-mono text-xs text-muted/80">{s.source}</span>
-                </dt>
-                <dd className="font-display text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent md:text-3xl">
-                  <CountUp value={s.value} />
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </FadeUp>
       </div>
     </section>
   );

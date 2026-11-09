@@ -5,19 +5,21 @@ interface SectionHeadingProps {
   titleMuted?: string;
   intro?: string;
   id: string;
+  /** h1 when the section is the whole page, e.g. /work */
+  as?: "h1" | "h2";
 }
 
-export default function SectionHeading({ label, title, titleMuted, intro, id }: SectionHeadingProps) {
+export default function SectionHeading({ label, title, titleMuted, intro, id, as: Heading = "h2" }: SectionHeadingProps) {
   return (
     <div className="mb-12 md:mb-16">
       <p className="mb-3 text-sm font-medium text-accent">{label}</p>
-      <h2
+      <Heading
         id={id}
         className="max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] md:text-5xl"
       >
         {title}
         {titleMuted && <span className="text-muted"> {titleMuted}</span>}
-      </h2>
+      </Heading>
       {intro && <p className="mt-5 max-w-2xl text-lg text-muted">{intro}</p>}
     </div>
   );

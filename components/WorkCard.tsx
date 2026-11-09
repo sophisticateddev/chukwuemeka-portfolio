@@ -14,11 +14,14 @@ export default function WorkCard({
   project,
   index,
   featured = false,
+  heading: Heading = "h3",
 }: {
   project: Project;
   index: number;
   /** Lead case study: spans the grid, cover beside the text on desktop */
   featured?: boolean;
+  /** h2 on /work, where the section heading is the page's h1 */
+  heading?: "h2" | "h3";
 }) {
   const ref = useRef<HTMLElement>(null);
   const { locale, dict } = useLocale();
@@ -82,7 +85,7 @@ export default function WorkCard({
           </p>
         )}
         <p className="eyebrow">{project.category}</p>
-        <h3 className={`mt-2 font-display font-semibold tracking-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
+        <Heading className={`mt-2 font-display font-semibold tracking-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
           {/* Stretched link: the whole card is one click target, one tab stop */}
           <Link
             href={localeHref(locale, `/work/${project.slug}`)}
@@ -90,7 +93,7 @@ export default function WorkCard({
           >
             {project.title}
           </Link>
-        </h3>
+        </Heading>
         {project.client && <p className="mt-2 font-mono text-xs text-muted">{project.client} · {project.year}</p>}
         <p className="mt-3 flex-1 text-muted">{project.description}</p>
 

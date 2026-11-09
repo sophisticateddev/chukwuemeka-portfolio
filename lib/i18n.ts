@@ -41,9 +41,9 @@ const en = {
   nav: {
     label: "Main",
     work: "Work",
-    ai: "AI practice",
     experience: "Experience",
     about: "About",
+    writing: "Writing",
     contact: "Get in touch",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -64,12 +64,6 @@ const en = {
     viewWork: "View selected work",
     shippedAt: "Shipped at",
     portraitAlt: "Portrait of Chukwuemeka Iheonye, smiling, in a polo shirt",
-    stats: [
-      { value: "+20%", label: "loan applications", source: "Carbon" },
-      { value: "200+", label: "riders and drivers at launch", source: "NippyBoxes" },
-      { value: "85%", label: "WCAG 2.2 AA pass rate, up from 60%", source: "BAFTA albert" },
-      { value: "100+", label: "players on a game I built with AI", source: "Character Guess" },
-    ],
   },
   region: {
     intl: { status: "UK · Full right to work", contactNote: undefined as string | undefined },
@@ -90,37 +84,17 @@ const en = {
     title: "Products used by millions,",
     titleMuted: "designed to be understood.",
     intro: "Four case studies in depth, from a game I built with AI to a bank serving 3M+ people.",
-    more: "More work",
+    seeAll: (n: number) => `See all ${n} projects`,
     featured: "Featured case study",
     tags: "Tags",
   },
+  workIndex: {
+    label: "Work",
+    title: "Every project,",
+    titleMuted: "from banking to a game I built with AI.",
+    intro: "Case studies from seven years of product design: fintech, logistics, enterprise and consumer products.",
+  },
   ai: {
-    label: "AI practice",
-    title: "Design and build in one loop,",
-    titleMuted: "with AI in the middle.",
-    intro:
-      "The gap between a mock-up and a shipped feature is where products lose their shape. I close it by building what I design.",
-    tools: "Tools",
-    steps: [
-      {
-        step: "Design",
-        title: "Research, flows and systems",
-        body: "I start with users, not tools. AI speeds up synthesis and lets me explore more directions, but the judgement calls stay human.",
-        tools: ["Figma", "User research", "Design systems"],
-      },
-      {
-        step: "Build",
-        title: "Prototypes in real code",
-        body: "I turn designs into working React and Tailwind prototypes with Claude Code, so ideas get tested in the browser, not just on a canvas.",
-        tools: ["Claude Code", "Next.js", "TypeScript"],
-      },
-      {
-        step: "Ship",
-        title: "Accessible, production-ready UI",
-        body: "Tokenised components engineers can adopt, checked for contrast, keyboard access and reduced motion before anyone asks.",
-        tools: ["Tailwind", "WCAG 2.2", "Design tokens"],
-      },
-    ],
     proofLabel: "Proof of practice",
     proofTitle: "This portfolio was redesigned and coded with Claude Code.",
     proofBody:
@@ -140,10 +114,8 @@ const en = {
     label: "Experience",
     title: "Seven years, from research",
     titleMuted: "to shipped product.",
-    showingAll: (n: number) => `Showing all ${n} roles.`,
     earlier: "Earlier:",
-    showFewer: "Show fewer",
-    showAll: (n: number) => `Show all ${n} roles`,
+    fullHistory: "Full history in my CV",
   },
   testimonials: {
     label: "Kind words",
@@ -172,23 +144,11 @@ const en = {
       "Design systems",
       "Accessibility (WCAG)",
     ],
-    offDuty: [
-      {
-        label: "Football",
-        title: "My other UX research",
-        body: "I watch matches with a notebook. Formations, pressing triggers, half-time adjustments: systems thinking with better aesthetics.",
-      },
-      {
-        label: "Food",
-        title: "I used to cater events",
-        body: "Nigerian cuisine is my baseline: egusi, jollof, ofe onugbu. I cook from memory, not recipes, and I still get requests.",
-      },
-      {
-        label: "Mentoring",
-        title: "10,000+ designers in 10+ countries",
-        body: "For years I mentored designers through the HNG Internship, and today I mentor on ADPList, helping junior designers, especially those from non-traditional backgrounds, break into the industry.",
-      },
-    ],
+    mentoring: {
+      label: "Mentoring",
+      title: "10,000+ designers in 10+ countries",
+      body: "For years I mentored designers through the HNG Internship, and today I mentor on ADPList, helping junior designers, especially those from non-traditional backgrounds, break into the industry.",
+    },
   },
   writing: {
     label: "Writing",
@@ -324,9 +284,9 @@ const fr: Dictionary = {
   nav: {
     label: "Principale",
     work: "Projets",
-    ai: "Pratique de l’IA",
     experience: "Parcours",
     about: "À propos",
+    writing: "Articles",
     contact: "Me contacter",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
@@ -347,12 +307,6 @@ const fr: Dictionary = {
     viewWork: "Voir mes projets",
     shippedAt: "Produits livrés chez",
     portraitAlt: "Portrait de Chukwuemeka Iheonye, souriant, en polo",
-    stats: [
-      { value: "+20 %", label: "de demandes de prêt", source: "Carbon" },
-      { value: "200+", label: "coursiers et chauffeurs au lancement", source: "NippyBoxes" },
-      { value: "85 %", label: "de critères WCAG 2.2 AA respectés, contre 60 %", source: "BAFTA albert" },
-      { value: "100+", label: "joueurs sur un jeu que j’ai construit avec l’IA", source: "Character Guess" },
-    ],
   },
   region: {
     intl: { status: "R.-U. · Autorisé à travailler", contactNote: undefined },
@@ -374,37 +328,17 @@ const fr: Dictionary = {
     title: "Des produits utilisés par des millions de personnes,",
     titleMuted: "conçus pour être compris.",
     intro: "Quatre études de cas en profondeur, d’un jeu que j’ai construit avec l’IA à une banque qui sert plus de 3 millions de personnes.",
-    more: "Autres projets",
+    seeAll: (n) => `Voir les ${n} projets`,
     featured: "Étude de cas à la une",
     tags: "Étiquettes",
   },
+  workIndex: {
+    label: "Projets",
+    title: "Tous les projets,",
+    titleMuted: "de la banque à un jeu construit avec l’IA.",
+    intro: "Des études de cas tirées de sept ans de design produit : fintech, logistique, outils d’entreprise et produits grand public.",
+  },
   ai: {
-    label: "Pratique de l’IA",
-    title: "Concevoir et construire dans une même boucle,",
-    titleMuted: "avec l’IA au milieu.",
-    intro:
-      "C’est entre la maquette et la fonctionnalité livrée que les produits perdent leur forme. Je comble cet écart en construisant ce que je conçois.",
-    tools: "Outils",
-    steps: [
-      {
-        step: "Concevoir",
-        title: "Recherche, parcours et systèmes",
-        body: "Je pars des utilisateurs, pas des outils. L’IA accélère la synthèse et me permet d’explorer plus de pistes, mais les arbitrages restent humains.",
-        tools: ["Figma", "Recherche utilisateur", "Design systems"],
-      },
-      {
-        step: "Construire",
-        title: "Des prototypes en vrai code",
-        body: "Je transforme les maquettes en prototypes React et Tailwind fonctionnels avec Claude Code, pour tester les idées dans le navigateur et pas seulement sur un canevas.",
-        tools: ["Claude Code", "Next.js", "TypeScript"],
-      },
-      {
-        step: "Livrer",
-        title: "Une interface accessible, prête pour la production",
-        body: "Des composants à base de tokens que les développeurs peuvent adopter, vérifiés pour le contraste, la navigation au clavier et la réduction des animations, avant même qu’on le demande.",
-        tools: ["Tailwind", "WCAG 2.2", "Design tokens"],
-      },
-    ],
     proofLabel: "La preuve par l’exemple",
     proofTitle: "Ce portfolio a été repensé et codé avec Claude Code.",
     proofBody:
@@ -424,10 +358,8 @@ const fr: Dictionary = {
     label: "Parcours",
     title: "Sept ans, de la recherche",
     titleMuted: "au produit livré.",
-    showingAll: (n) => `Les ${n} postes sont affichés.`,
     earlier: "Avant :",
-    showFewer: "Afficher moins",
-    showAll: (n) => `Afficher les ${n} postes`,
+    fullHistory: "Parcours complet dans mon CV (en anglais)",
   },
   testimonials: {
     label: "Recommandations",
@@ -456,23 +388,11 @@ const fr: Dictionary = {
       "Design systems",
       "Accessibilité (WCAG)",
     ],
-    offDuty: [
-      {
-        label: "Football",
-        title: "Mon autre recherche UX",
-        body: "Je regarde les matchs avec un carnet. Schémas tactiques, déclencheurs de pressing, ajustements à la mi-temps : de la pensée systémique, en plus esthétique.",
-      },
-      {
-        label: "Cuisine",
-        title: "J’ai été traiteur pour des événements",
-        body: "La cuisine nigériane est ma base : egusi, jollof, ofe onugbu. Je cuisine de mémoire, sans recette, et on me passe encore des commandes.",
-      },
-      {
-        label: "Mentorat",
-        title: "Plus de 10 000 designers dans plus de 10 pays",
-        body: "Pendant des années, j’ai accompagné des designers dans le cadre du HNG Internship. Aujourd’hui, je suis mentor sur ADPList, où j’aide des designers juniors, en particulier ceux aux parcours atypiques, à entrer dans le métier.",
-      },
-    ],
+    mentoring: {
+      label: "Mentorat",
+      title: "Plus de 10 000 designers dans plus de 10 pays",
+      body: "Pendant des années, j’ai accompagné des designers dans le cadre du HNG Internship. Aujourd’hui, je suis mentor sur ADPList, où j’aide des designers juniors, en particulier ceux aux parcours atypiques, à entrer dans le métier.",
+    },
   },
   writing: {
     label: "Articles",
