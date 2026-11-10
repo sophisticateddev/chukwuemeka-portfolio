@@ -40,7 +40,7 @@ export default function Testimonials({ locale }: { locale: Locale }) {
   const [featured, ...rest] = getTestimonials(locale).filter((x) => SHOWN.includes(x.name));
 
   return (
-    <section aria-labelledby="testimonials-title" id="testimonials" className="border-t border-line py-24 md:py-32">
+    <section aria-labelledby="testimonials-title" id="testimonials" className="border-t border-line py-16 md:py-24">
       <div className="container-page">
         <SectionHeading
           id="testimonials-title"

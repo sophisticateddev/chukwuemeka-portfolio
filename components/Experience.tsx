@@ -30,7 +30,7 @@ export default function Experience({
   );
 
   return (
-    <section aria-labelledby="experience-title" id="experience" className="border-t border-line py-24 md:py-32">
+    <section aria-labelledby="experience-title" id="experience" className="border-t border-line py-16 md:py-24">
       <div className="container-page">
         <SectionHeading id="experience-title" label={d.label} title={d.title} titleMuted={d.titleMuted} />
 

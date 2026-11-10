@@ -18,7 +18,7 @@ export default function Contact({ region, locale }: { region: Region; locale: Lo
   const { contactNote } = regionCopy(region, locale);
   const d = t(locale).contact;
   return (
-    <section aria-labelledby="contact-title" id="contact" className="py-24 md:py-32">
+    <section aria-labelledby="contact-title" id="contact" className="py-16 md:py-24">
       <div className="container-page">
         <FadeUp className="relative overflow-hidden rounded-3xl bg-accent p-8 text-onaccent sm:p-12 md:p-16">
           {/* Slow-drifting rings, decorative only */}

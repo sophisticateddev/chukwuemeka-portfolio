@@ -38,7 +38,7 @@ export default function Writing({ items: articles, page = false }: { items: Arti
   };
 
   return (
-    <section aria-labelledby="writing-title" id="writing" className={page ? "py-24 md:py-32" : "border-t border-line py-24 md:py-32"}>
+    <section aria-labelledby="writing-title" id="writing" className={page ? "py-16 md:py-24" : "border-t border-line py-16 md:py-24"}>
       <div className="container-page">
         <SectionHeading
           id="writing-title"

@@ -68,13 +68,13 @@ const en = {
   region: {
     intl: { status: "UK · Full right to work", contactNote: undefined as string | undefined },
     ca: {
-      status: "Relocating to Calgary · Mid 2027",
+      status: "Moving to Canada · Mid 2027",
       contactNote:
-        "I’m relocating to Calgary in mid 2027 and will be working on Mountain time. I also speak intermediate French (Duolingo Score 106).",
+        "I’m relocating to Canada in mid 2027. I also speak intermediate French (Duolingo Score 106).",
     },
     us: {
-      status: "US remote · Calgary, mid 2027",
-      contactNote: "I’m relocating to Calgary in mid 2027, on Mountain time, and open to remote roles with US teams.",
+      status: "US remote · Canada, mid 2027",
+      contactNote: "I’m relocating to Canada in mid 2027 and open to remote roles with US teams.",
     },
     cvUk: "Download CV",
     cvCanada: "Download résumé",
@@ -311,14 +311,14 @@ const fr: Dictionary = {
   region: {
     intl: { status: "R.-U. · Autorisé à travailler", contactNote: undefined },
     ca: {
-      status: "Arrivée à Calgary · mi-2027",
+      status: "Arrivée au Canada · mi-2027",
       contactNote:
-        "Je m’installe à Calgary à la mi-2027 et je travaillerai à l’heure des Rocheuses. Je parle français à un niveau intermédiaire (Duolingo Score 106).",
+        "Je m’installe au Canada à la mi-2027. Je parle français à un niveau intermédiaire (Duolingo Score 106).",
     },
     us: {
-      status: "Télétravail É.-U. · Calgary 2027",
+      status: "Télétravail É.-U. · Canada 2027",
       contactNote:
-        "Je m’installe à Calgary à la mi-2027, à l’heure des Rocheuses, et je suis ouvert aux postes à distance avec des équipes américaines.",
+        "Je m’installe au Canada à la mi-2027 et je suis ouvert aux postes à distance avec des équipes américaines.",
     },
     cvUk: "Télécharger le CV (en anglais)",
     cvCanada: "Télécharger le CV (en anglais)",

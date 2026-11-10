@@ -17,7 +17,7 @@ export default function WorkIndexPage({ locale }: { locale: Locale }) {
   const projects = getProjects(locale);
   return (
     <main id="main" tabIndex={-1} className="outline-none">
-      <section aria-labelledby="work-title" className="py-24 pt-32 md:py-32 md:pt-40">
+      <section aria-labelledby="work-title" className="py-16 pt-32 md:py-24 md:pt-36">
         <div className="container-page">
           <SectionHeading as="h1" id="work-title" label={d.label} title={d.title} titleMuted={d.titleMuted} intro={d.intro} />
           <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

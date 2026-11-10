@@ -1,7 +1,7 @@
 import { t, type Locale } from "./i18n";
 
 /**
- * The home page comes in three versions. Visitors in Canada and the US see the Calgary
+ * The home page comes in three versions. Visitors in Canada and the US see the Canada
  * version (chosen by middleware.ts from their location); everyone else sees the UK one.
  * /ca and /us (and /fr/ca, /fr/us) always show their version, wherever the visitor is.
  */

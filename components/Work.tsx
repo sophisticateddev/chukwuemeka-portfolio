@@ -15,7 +15,7 @@ export default function Work({ locale }: { locale: Locale }) {
     <section
       aria-labelledby="work-title"
       id="work"
-      className="border-t border-line py-24 md:py-32"
+      className="border-t border-line py-16 md:py-24"
     >
       <div className="container-page">
         <SectionHeading

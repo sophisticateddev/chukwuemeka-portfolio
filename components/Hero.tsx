@@ -23,7 +23,7 @@ export default function Hero({ region, locale }: { region: Region; locale: Local
   return (
     <section aria-labelledby="hero-title" className="relative isolate">
       <HeroGlow />
-      <div className="container-page pb-20 pt-28 md:pb-28 md:pt-28">
+      <div className="container-page pb-16 pt-28 md:pb-20 md:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,31rem)]">
           <div>
             <FadeUp animate>

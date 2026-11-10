@@ -9,7 +9,7 @@ export default function About({ locale }: { locale: Locale }) {
   const ai = t(locale).ai;
   const { skills, mentoring } = d;
   return (
-    <section aria-labelledby="about-title" id="about" className="border-t border-line py-24 md:py-32">
+    <section aria-labelledby="about-title" id="about" className="border-t border-line py-16 md:py-24">
       <div className="container-page">
         <SectionHeading
           id="about-title"
@@ -47,7 +47,7 @@ export default function About({ locale }: { locale: Locale }) {
 
         {/* Proof of the "build it with AI" claim in the hero: this site */}
         <FadeUp delay={0.1}>
-          <figure className="mt-12 grid overflow-hidden rounded-2xl border border-line bg-surface md:grid-cols-[1fr_1.4fr]">
+          <figure className="mt-10 grid overflow-hidden rounded-2xl border border-line bg-surface md:grid-cols-[1fr_1.4fr]">
             <figcaption className="flex flex-col justify-center p-6 md:p-8">
               <p className="eyebrow text-accent">{ai.proofLabel}</p>
               <p className="mt-4 font-display text-2xl font-semibold tracking-tight">{ai.proofTitle}</p>

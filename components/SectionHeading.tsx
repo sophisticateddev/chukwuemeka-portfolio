@@ -11,7 +11,7 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ label, title, titleMuted, intro, id, as: Heading = "h2" }: SectionHeadingProps) {
   return (
-    <div className="mb-12 md:mb-16">
+    <div className="mb-10 md:mb-12">
       <p className="mb-3 text-sm font-medium text-accent">{label}</p>
       <Heading
         id={id}
