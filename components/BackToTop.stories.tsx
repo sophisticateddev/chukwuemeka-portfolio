@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { expect, waitFor } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 import BackToTop from "./BackToTop";
 
 const meta = {
@@ -30,8 +30,17 @@ type Story = StoryObj<typeof meta>;
 export const Hidden: Story = {};
 export const Visible: Story = {
   play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // Not there until the visitor has scrolled a long way
+    await expect(canvas.queryByRole("button", { name: "Back to top" })).not.toBeInTheDocument();
+
     window.scrollTo(0, 1200);
-    await waitFor(() => expect(canvasElement.ownerDocument.querySelector("button")).toBeTruthy());
+    const button = await canvas.findByRole("button", { name: "Back to top" });
+
+    await userEvent.click(button);
+    await waitFor(() => expect(window.scrollY).toBe(0), { timeout: 4000 });
+    // ...and the button goes away again once the page is at the top
+    await waitFor(() => expect(canvas.queryByRole("button", { name: "Back to top" })).not.toBeInTheDocument());
   },
 };
 export const VisibleReducedMotion: Story = { ...Visible, globals: { motion: "reduced" } };
