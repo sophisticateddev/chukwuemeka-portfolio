@@ -93,6 +93,10 @@ const en = {
     title: "Every project,",
     titleMuted: "from banking to a game I built with AI.",
     intro: "Case studies from seven years of product design: fintech, logistics, enterprise and consumer products.",
+    library: {
+      text: "I also built the components behind this site and documented them in Storybook, with accessibility tests on every one.",
+      link: "Browse the component library",
+    },
   },
   ai: {
     proofLabel: "Proof of practice",
@@ -169,6 +173,7 @@ const en = {
     socials: "Social profiles",
   },
   footer: {
+    library: "Component library",
     builtWith: "Designed in Figma. Built with Claude Code, Next.js and Tailwind.",
     translation: undefined as string | undefined,
   },
@@ -337,6 +342,10 @@ const fr: Dictionary = {
     title: "Tous les projets,",
     titleMuted: "de la banque à un jeu construit avec l’IA.",
     intro: "Des études de cas tirées de sept ans de design produit : fintech, logistique, outils d’entreprise et produits grand public.",
+    library: {
+      text: "J’ai aussi construit les composants de ce site et je les ai documentés dans Storybook, avec des tests d’accessibilité sur chacun.",
+      link: "Voir la bibliothèque de composants",
+    },
   },
   ai: {
     proofLabel: "La preuve par l’exemple",
@@ -413,6 +422,7 @@ const fr: Dictionary = {
     socials: "Profils sociaux",
   },
   footer: {
+    library: "Bibliothèque de composants",
     builtWith: "Conçu dans Figma. Construit avec Claude Code, Next.js et Tailwind.",
     translation: "Version française traduite de l’anglais.",
   },
