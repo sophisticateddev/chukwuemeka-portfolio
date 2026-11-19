@@ -58,7 +58,7 @@ const en = {
   hero: {
     openToWork: "Open to work",
     line1: "I design products.",
-    line2: "Then I build them with AI.",
+    line2: "Then I ship the code.",
     subhead:
       "Product Designer who ships production code. 7+ years in fintech, SaaS and enterprise: I design the product, then build it with Claude Code.",
     viewWork: "View selected work",
@@ -306,7 +306,7 @@ const fr: Dictionary = {
   hero: {
     openToWork: "Disponible",
     line1: "Je conçois.",
-    line2: "Puis je construis avec l’IA.",
+    line2: "Puis je livre le code.",
     subhead:
       "Designer produit qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
     viewWork: "Voir mes projets",
