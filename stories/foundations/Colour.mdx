@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Swatches } from "./Swatches";
+import { ContrastTable } from "./ContrastTable";
+
+<Meta title="Foundations/Colour" />
+
+# Colour
+
+Colours are tokens: named roles stored once as CSS variables (as RGB channels, so Tailwind can apply opacity) and switched per theme with `data-theme` on the root element. Components use classes like `bg-canvas` and `text-muted`, never raw values.
+
+## Tokens
+
+The values below are read from the live stylesheet, not typed in.
+
+<Swatches />
+
+## Contrast
+
+Every text pairing the site uses, in both themes, calculated with the WCAG 2.1 formula from the same live values. Body text needs 4.5:1 for AA; interactive borders need 3:1. The `line` token is decorative and has no requirement.
+
+<ContrastTable />
+
+People who ask their system for more contrast get a further step: `muted` becomes `ink` and `line` becomes `control`.

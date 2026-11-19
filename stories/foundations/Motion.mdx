@@ -1,0 +1,24 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Motion" />
+
+# Motion
+
+Motion explains or rewards; it never makes people wait.
+
+## Principles
+
+- **Only move what helps.** Content lower on the page is simply there when you reach it. Reveal animation is reserved for the hero's load sequence and for rows revealed with "Show all" ([FadeUp](?path=/docs/motion-fadeup--docs), [RevealWords](?path=/docs/motion-revealwords--docs)).
+- **Short and soft.** Hover and focus changes take 150–300ms with an ease-out curve. Entrances take 0.5–0.7s with `cubic-bezier(0.22, 1, 0.36, 1)`, which decelerates quickly so the end feels settled. Counting up ([CountUp](?path=/docs/motion-countup--docs)) takes one second.
+- **Transform and opacity.** Those two properties animate cheaply, so the interface stays smooth.
+- **Feedback on touch.** Buttons shrink slightly when pressed (`active:scale-[0.97]`).
+
+## Reduced motion
+
+Respecting the visitor's setting is built in at three levels:
+
+1. **Framer Motion components** are wrapped in `MotionConfig reducedMotion="user"`. When the system asks for less motion, movement is dropped and only opacity changes remain.
+2. **Components that follow the pointer** ([Magnetic](?path=/docs/interactive-magnetic--docs), [HeroGlow](?path=/docs/motion-heroglow--docs)) check the setting and do nothing.
+3. **CSS animation** uses Tailwind's `motion-safe:` prefix, and a global rule shrinks any animation or transition that slips through to nearly nothing.
+
+In Storybook, the **Motion** toolbar switches between normal and reduced. Most motion stories have a ReducedMotion variant showing the fallback, for example [Terminal](?path=/docs/motion-terminal--docs) shows its whole sequence at once instead of typing it.
