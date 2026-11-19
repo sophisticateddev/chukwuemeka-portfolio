@@ -7,3 +7,9 @@ import { Meta } from "@storybook/addon-docs/blocks";
 This is the component workshop for [chukwuemekaiheonye.com](https://chukwuemekaiheonye.com). Each component is shown on its own, in light and dark, with normal and reduced motion, in English and French (use the toolbar above).
 
 Use the toolbar to switch theme, motion and language. The **Accessibility** panel runs axe on each story.
+
+## What is here, and what isn't
+
+Stories cover the reusable pieces: primitives (Tag, Arrow, SectionHeading), interactive controls (ThemeToggle, BackToTop, Magnetic, LanguageSwitch), motion (FadeUp, RevealWords, CountUp, DrawLine, HeroGlow, Terminal) and composites (WorkCard, Testimonials). All sample data is made up.
+
+Page sections that are only layout (Hero, About, Work, Contact, Nav, PageReader, SiteShell) are skipped for now. They arrange the components above and depend on real site content, routing or the whole page shell, so a story would mostly show the same pieces again, or need real client content that doesn't belong in a public workshop.

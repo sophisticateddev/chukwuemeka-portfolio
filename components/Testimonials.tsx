@@ -35,9 +35,9 @@ function Attribution({ t }: { t: Testimonial }) {
   );
 }
 
-export default function Testimonials({ locale }: { locale: Locale }) {
+export default function Testimonials({ locale, items }: { locale: Locale; /** Quotes to show as given, instead of the site's own (used by Storybook) */ items?: Testimonial[] }) {
   const d = t(locale).testimonials;
-  const [featured, ...rest] = getTestimonials(locale).filter((x) => SHOWN.includes(x.name));
+  const [featured, ...rest] = items ?? getTestimonials(locale).filter((x) => SHOWN.includes(x.name));
 
   return (
     <section aria-labelledby="testimonials-title" id="testimonials" className="border-t border-line py-16 md:py-24">
