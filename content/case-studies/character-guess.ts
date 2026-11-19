@@ -36,6 +36,7 @@ export const characterGuess: CaseStudy = {
     { label: "Role", value: "Co-founder · product design & front-end (with AI)" },
     { label: "Team", value: "Three of us: design, engineering and product" },
     { label: "Timeline", value: "Aug 2025 – present" },
+    { label: "Shipped", value: "Playable prototype Aug 2025 · live June 2026" },
     { label: "Platform", value: "Installable web app (PWA): mobile, tablet, desktop" },
   ],
 

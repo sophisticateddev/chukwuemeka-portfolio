@@ -37,6 +37,7 @@ export const characterGuessFr: CaseStudy = {
     { label: "Rôle", value: "Cofondateur · design produit et front-end (avec l’IA)" },
     { label: "Équipe", value: "Nous trois : design, ingénierie et produit" },
     { label: "Période", value: "août 2025 – aujourd’hui" },
+    { label: "Livraison", value: "Prototype jouable en août 2025 · en ligne en juin 2026" },
     { label: "Plateforme", value: "Application Web installable (PWA) : mobile, tablette, ordinateur" },
   ],
 
