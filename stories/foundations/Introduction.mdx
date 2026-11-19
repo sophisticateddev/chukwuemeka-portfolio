@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Introduction" />
+
+# Chukwuemeka Iheonye's component library
+
+This is the set of components that builds [chukwuemekaiheonye.com](https://chukwuemekaiheonye.com), shown on their own. It is the same code the live site runs, not a copy: the site imports these files directly, and Storybook renders them here in every state.
+
+I'm a product designer who writes production code. This workshop is the evidence: typed React components, colour tokens with checked contrast, motion that respects reduced-motion settings, and tests that run on every change.
+
+## How it fits together
+
+- **Tokens first.** Colours, fonts and motion are named decisions, set once as CSS variables, so light and dark are two sets of values. See [Colour](?path=/docs/foundations-colour--docs), [Typography](?path=/docs/foundations-typography--docs) and [Motion](?path=/docs/foundations-motion--docs).
+- **Small typed components.** About 25 components, each a few dozen lines, with a one-line comment explaining *why* it's built that way.
+- **Every state on show.** Use the toolbar to flip theme, reduced motion and language (English or Français).
+- **Checked.** The Accessibility panel runs axe on each story, and interaction tests run in CI.
+
+## Links
+
+- Live site: [chukwuemekaiheonye.com](https://chukwuemekaiheonye.com)
+- Source: [github.com/sophisticateddev/chukwuemeka-portfolio](https://github.com/sophisticateddev/chukwuemeka-portfolio)

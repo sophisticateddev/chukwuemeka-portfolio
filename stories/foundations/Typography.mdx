@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Three families, each loaded once through `next/font` and exposed as a CSS variable.
+
+<div className="space-y-8">
+  <div>
+    <p className="font-mono text-xs text-muted">font-display · Bricolage Grotesque</p>
+    <p className="font-display text-5xl font-semibold tracking-tight">Headlines and numbers</p>
+    <p className="text-muted">Headings, large figures and the hero. Tight tracking at large sizes.</p>
+  </div>
+  <div>
+    <p className="font-mono text-xs text-muted">font-sans · Inter</p>
+    <p className="font-sans text-lg">Body copy, labels and buttons. Set at 1rem with a 1.65 line height.</p>
+  </div>
+  <div>
+    <p className="font-mono text-xs text-muted">font-mono · JetBrains Mono</p>
+    <p className="font-mono text-sm">Metadata, tags, dates and code: 2025 · Example Co</p>
+  </div>
+</div>
+
+## Sizes in use
+
+The site uses Tailwind's scale. These are the sizes that appear most often.
+
+<div className="space-y-4">
+  <p className="text-xs"><span className="font-mono text-muted">text-xs · 12px</span> — Tags, metadata, small mono labels</p>
+  <p className="text-sm"><span className="font-mono text-muted">text-sm · 14px</span> — Buttons, nav, captions, eyebrows</p>
+  <p className="text-lg"><span className="font-mono text-muted">text-lg · 18px</span> — Intros and long-form body</p>
+  <p className="font-display text-2xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-2xl · 24px </span>Card titles</p>
+  <p className="font-display text-4xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-4xl · 36px </span>Section headings</p>
+  <p className="font-display text-5xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-5xl · 48px </span>Section headings, large screens</p>
+</div>
+
+## Rules
+
+- Headings are balanced (`text-wrap: balance`) so lines come out even; paragraphs avoid a lone last word (`text-wrap: pretty`).
+- Numbers that animate use tabular figures so they don't jiggle.
+- Secondary text uses the `muted` token, which passes AA on every surface.
