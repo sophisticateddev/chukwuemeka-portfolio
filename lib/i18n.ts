@@ -32,9 +32,9 @@ const en = {
   meta: {
     title: "Chukwuemeka Iheonye — Product Designer who ships production code",
     description:
-      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in the UK.",
+      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then ship the code, built with AI. Based in the UK.",
     ogDescription:
-      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
+      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then ship the code, built with AI.",
   },
   skip: "Skip to content",
   newTab: "(opens in a new tab)",
@@ -280,9 +280,9 @@ const fr: Dictionary = {
   meta: {
     title: "Chukwuemeka Iheonye — Designer produit qui livre du code en production",
     description:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je les construis avec l’IA. Basé au Royaume-Uni.",
+      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA. Basé au Royaume-Uni.",
     ogDescription:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je les construis avec l’IA.",
+      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA.",
   },
   skip: "Aller au contenu",
   newTab: "(s’ouvre dans un nouvel onglet)",
