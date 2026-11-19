@@ -4,14 +4,31 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
     },
     {
       "name": "portfolio-prod",
       "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "npx next build --no-lint && npx next start -p 3100"],
+      "runtimeArgs": [
+        "-c",
+        "npx next build --no-lint && npx next start -p 3100"
+      ],
       "port": 3100
+    },
+    {
+      "name": "storybook",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "storybook",
+        "--",
+        "--ci"
+      ],
+      "port": 6006
     }
   ]
 }
