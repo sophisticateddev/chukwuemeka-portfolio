@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { userEvent } from "storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 import LanguageSwitch from "./LanguageSwitch";
 
 const meta = {
@@ -18,8 +18,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const English: Story = {};
-export const French: Story = { globals: { locale: "fr" } };
+export const English: Story = {
+  play: async ({ canvasElement }) => {
+    const link = within(canvasElement).getByRole("link", { name: "Lire en français" });
+    await expect(link).toHaveAttribute("href", "/fr");
+    await expect(link).toHaveAttribute("hreflang", "fr");
+    await userEvent.tab();
+    await expect(link).toHaveFocus();
+  },
+};
+export const French: Story = {
+  globals: { locale: "fr" },
+  play: async ({ canvasElement }) => {
+    const link = within(canvasElement).getByRole("link", { name: "Read in English" });
+    await expect(link).toHaveAttribute("href", "/");
+    await expect(link).toHaveAttribute("lang", "en");
+  },
+};
 export const FocusVisible: Story = {
   play: async () => {
     await userEvent.tab();

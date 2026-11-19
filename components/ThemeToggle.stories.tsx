@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { userEvent } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 import ThemeToggle from "./ThemeToggle";
 
 const meta = {
@@ -18,7 +18,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const root = document.documentElement;
+    const before = root.dataset.theme;
+    expect(before).toBe("light");
+
+    // Keyboard only: Tab to the button, then Enter
+    await userEvent.tab();
+    const button = await canvas.findByRole("button", { name: "Switch to dark theme" });
+    await expect(button).toHaveFocus();
+    await userEvent.keyboard("{Enter}");
+
+    await waitFor(() => expect(root.dataset.theme).toBe("dark"));
+    // The accessible name now says what the next press will do
+    await expect(canvas.getByRole("button", { name: "Switch to light theme" })).toBeInTheDocument();
+  },
+};
 export const FocusVisible: Story = {
   play: async () => {
     await userEvent.tab();

@@ -4,6 +4,7 @@ import { MotionConfig } from "framer-motion";
 import { PathnameContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import "../app/globals.css";
+import { setReducedMotion } from "./reduced-motion";
 
 // The same three font families as the site (components/SiteShell.tsx), under the same CSS variables.
 const display = Bricolage_Grotesque({ subsets: ["latin"], axes: ["opsz"], variable: "--font-display", display: "swap" });
@@ -55,10 +56,13 @@ const preview: Preview = {
   decorators: [
     (Story, { globals }) => {
       const { theme, motion, locale } = globals;
+      // During render, so components read the right value on their first render
+      setReducedMotion(motion === "reduced");
+      // During render (not an effect) so the theme is in place before a play function runs
+      document.documentElement.dataset.theme = theme;
       useEffect(() => {
-        document.documentElement.dataset.theme = theme;
         document.documentElement.classList.add(...fontClasses.split(" "));
-      }, [theme]);
+      }, []);
       return (
         // lib/useLocale.ts reads the page address, so give it one: /fr for French
         <PathnameContext.Provider value={locale === "fr" ? "/fr" : "/"}>

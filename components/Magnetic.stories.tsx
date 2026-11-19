@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 import Magnetic from "./Magnetic";
+
+/** The element Magnetic moves: the wrapper around the link. */
+const wrapper = (el: HTMLElement) => el.parentElement as HTMLElement;
+const moved = (el: HTMLElement) => {
+  const t = getComputedStyle(wrapper(el)).transform;
+  return t !== "none" && t !== "matrix(1, 0, 0, 1, 0, 0)";
+};
 
 const meta = {
   title: "Interactive/Magnetic",
@@ -19,6 +27,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const link = within(canvasElement).getByRole("link", { name: "Get in touch" });
+    await userEvent.hover(link);
+    const box = link.getBoundingClientRect();
+    await userEvent.pointer({ target: link, coords: { clientX: box.right - 2, clientY: box.bottom - 2 } });
+    // Control for the reduced-motion test below: with motion allowed, the pull is real
+    await waitFor(() => expect(moved(link)).toBe(true));
+  },
+};
 export const Strong: Story = { args: { strength: 0.5 } };
-export const ReducedMotion: Story = { globals: { motion: "reduced" } };
+export const ReducedMotion: Story = {
+  globals: { motion: "reduced" },
+  play: async ({ canvasElement }) => {
+    const link = within(canvasElement).getByRole("link", { name: "Get in touch" });
+    await userEvent.hover(link);
+    const box = link.getBoundingClientRect();
+    await userEvent.pointer({ target: link, coords: { clientX: box.right - 2, clientY: box.bottom - 2 } });
+    // Give the spring time to move if it were going to
+    await new Promise((r) => setTimeout(r, 500));
+    await expect(moved(link)).toBe(false);
+  },
+};
