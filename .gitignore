@@ -8,3 +8,4 @@ build/
 .next/
 tsconfig.tsbuildinfo
 storybook-static
+ui-host/storybook-static
