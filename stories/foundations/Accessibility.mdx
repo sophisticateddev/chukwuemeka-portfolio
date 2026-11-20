@@ -1,0 +1,43 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Accessibility" />
+
+# Accessibility
+
+What was checked, how, and what it found. Standard: WCAG 2.1 AA, plus target size from 2.2 (24px minimum).
+
+## Method
+
+1. **Automated, every story, both themes.** The test runner opens each of the 58 stories in a real browser and runs axe-core twice, once in light and once in dark. Any violation fails CI. This covers contrast of every rendered text pairing, accessible names, ARIA validity and duplicate IDs.
+2. **Contrast of the tokens themselves.** The [Colour](?path=/docs/foundations-colour--docs) page computes every pairing from the live stylesheet.
+3. **Measured checks in a browser, every story, both themes** (a script, not by eye):
+   - every link and button is at least 24 by 24px, the WCAG 2.2 minimum (2.5.8);
+   - every focusable element shows a focus indicator when reached with Tab (2.4.7);
+   - nothing scrolls sideways at 320px wide (1.4.10 Reflow).
+4. **Reduced motion.** Each motion story has a reduced-motion variant. Interaction tests assert that [Magnetic](?path=/docs/interactive-magnetic--docs) really does move with motion on and stays still with it off.
+5. **Keyboard.** Interaction tests drive [ThemeToggle](?path=/docs/interactive-themetoggle--docs) and [LanguageSwitch](?path=/docs/interactive-languageswitch--docs) with Tab and Enter only.
+6. **Reading the code** for semantics: roles, names, `aria-hidden` on decoration, `lang` on quoted text, heading levels.
+
+## Findings
+
+| Issue | WCAG | Component | Result |
+|---|---|---|---|
+| Text contrast, all pairings in both themes | 1.4.3 | All | No failures. Lowest text pairing is 5.9:1 against a 4.5:1 requirement |
+| Control border contrast | 1.4.11 | Buttons, cards | No failure: 4.7:1 light, 3.1:1 dark against 3:1 required |
+| Target size | 2.5.8 | ThemeToggle, LanguageSwitch, BackToTop, buttons | No failure: smallest target is 44px |
+| Focus visible | 2.4.7 | All interactive components | No failure: one global `:focus-visible` ring; WorkCard draws it around the whole card |
+| Accessible names | 4.1.2 | ThemeToggle, LanguageSwitch, BackToTop | No failure: icon-only controls carry a text name, and it follows the language |
+| Animation from interaction | 2.3.3 | Magnetic, HeroGlow, Terminal, CountUp, BackToTop | No failure. Pointer-following and counting effects are off under reduced motion |
+| Reflow at 320px | 1.4.10 | All | No failure |
+| Storybook's Motion toolbar did not reach components that read the OS setting | tooling | Magnetic, CountUp, Terminal, HeroGlow, BackToTop | **Fixed.** The reduced-motion stories were not actually testing reduced motion until the preview answered that media query |
+
+No component needed a fix. The only real defect was in the test tooling, fixed in the Phase 4 pull request. That is a good result, not proof of perfection: see the next section.
+
+## What automated testing can't catch
+
+- **Screen reader experience.** axe confirms a name exists, not that it is helpful, or that the reading order and announcements make sense. No VoiceOver, NVDA or TalkBack pass was done on these components.
+- **Focus order and focus management across a whole page.** Stories show one component at a time. The site-level skip link, the page reader and menu behaviour sit outside this library.
+- **Whether motion is too much.** Reduced motion is respected, but "is the normal motion comfortable" is a human judgement.
+- **Zoom and text-spacing at 200% to 400%** beyond the 320px reflow check, and **forced-colors mode** rendering, were not exercised automatically.
+- **CSS `motion-safe:` rules in Storybook.** The toolbar changes the JavaScript preference only; those rules follow the real OS setting. They are covered by the site itself.
+- **Content quality:** alt text, link wording and reading level belong to the page, not the component.

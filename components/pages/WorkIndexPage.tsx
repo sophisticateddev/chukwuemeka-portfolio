@@ -4,7 +4,9 @@ import SectionHeading from "@/components/SectionHeading";
 import WorkCard from "@/components/WorkCard";
 import { alternates } from "@/lib/alternates";
 import { getProjects } from "@/lib/content";
+import Arrow from "@/components/Arrow";
 import { t, type Locale } from "@/lib/i18n";
+import { componentLibraryUrl } from "@/lib/site";
 
 /** Every project, shared by /work and /fr/work. The home page shows only the featured four. */
 export function workIndexMetadata(locale: Locale): Metadata {
@@ -29,6 +31,22 @@ export default function WorkIndexPage({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ul>
+          <FadeUp className="mt-12 max-w-2xl">
+            <p className="text-lg text-muted">{d.library.text}</p>
+            <a
+              href={componentLibraryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-4 inline-flex items-center gap-2 text-ink"
+            >
+              <span className="link-grow">{d.library.link}</span>
+              <span className="sr-only">{t(locale).newTab}</span>
+              <Arrow
+                direction="up-right"
+                className="transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
+              />
+            </a>
+          </FadeUp>
         </div>
       </section>
     </main>

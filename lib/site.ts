@@ -14,3 +14,6 @@ export const siteUrl =
  * Leave empty to switch analytics off.
  */
 export const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? "47b8cc89-af4b-4bbd-b046-d7e1795c415d";
+
+/** The component library: the site's components documented and tested in Storybook. */
+export const componentLibraryUrl = "https://ui.chukwuemekaiheonye.com";

@@ -30,11 +30,11 @@ const en = {
   htmlLang: "en-GB",
   ogLocale: "en_GB",
   meta: {
-    title: "Chukwuemeka Iheonye — Product Designer who builds with AI",
+    title: "Chukwuemeka Iheonye — Product Designer who ships production code",
     description:
-      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI. Based in the UK.",
+      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then ship the code, built with AI. Based in the UK.",
     ogDescription:
-      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then build them with AI.",
+      "Product Designer with 7+ years across fintech, SaaS and enterprise. I design products, then ship the code, built with AI.",
   },
   skip: "Skip to content",
   newTab: "(opens in a new tab)",
@@ -58,9 +58,9 @@ const en = {
   hero: {
     openToWork: "Open to work",
     line1: "I design products.",
-    line2: "Then I build them with AI.",
+    line2: "Then I ship the code.",
     subhead:
-      "Product Designer with 7+ years in fintech, SaaS and enterprise. I design the product, then build it with Claude Code.",
+      "Product Designer who ships production code. 7+ years in fintech, SaaS and enterprise: I design the product, then build it with Claude Code.",
     viewWork: "View selected work",
     shippedAt: "Shipped at",
     portraitAlt: "Portrait of Chukwuemeka Iheonye, smiling, in a polo shirt",
@@ -93,6 +93,10 @@ const en = {
     title: "Every project,",
     titleMuted: "from banking to a game I built with AI.",
     intro: "Case studies from seven years of product design: fintech, logistics, enterprise and consumer products.",
+    library: {
+      text: "I also built the components behind this site and documented them in Storybook, with accessibility tests on every one.",
+      link: "Browse the component library",
+    },
   },
   ai: {
     proofLabel: "Proof of practice",
@@ -169,6 +173,7 @@ const en = {
     socials: "Social profiles",
   },
   footer: {
+    library: "Component library",
     builtWith: "Designed in Figma. Built with Claude Code, Next.js and Tailwind.",
     translation: undefined as string | undefined,
   },
@@ -234,7 +239,7 @@ const en = {
     role: "Product Designer",
     aboutAuthor: "About the author",
     writtenBy: "Written by Chukwuemeka Iheonye",
-    bio: "Product Designer based in the UK. I design products, then build them with AI.",
+    bio: "Product Designer based in the UK who ships production code.",
     workWithMe: "Work with me",
     nextLabel: "Next article",
     readNext: "Read next",
@@ -273,11 +278,11 @@ const fr: Dictionary = {
   htmlLang: "fr-CA",
   ogLocale: "fr_CA",
   meta: {
-    title: "Chukwuemeka Iheonye — Designer produit qui construit avec l’IA",
+    title: "Chukwuemeka Iheonye — Designer produit qui livre du code en production",
     description:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je les construis avec l’IA. Basé au Royaume-Uni.",
+      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA. Basé au Royaume-Uni.",
     ogDescription:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je les construis avec l’IA.",
+      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA.",
   },
   skip: "Aller au contenu",
   newTab: "(s’ouvre dans un nouvel onglet)",
@@ -301,9 +306,9 @@ const fr: Dictionary = {
   hero: {
     openToWork: "Disponible",
     line1: "Je conçois.",
-    line2: "Puis je construis avec l’IA.",
+    line2: "Puis je livre le code.",
     subhead:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois le produit, puis je le construis avec Claude Code.",
+      "Designer produit qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
     viewWork: "Voir mes projets",
     shippedAt: "Produits livrés chez",
     portraitAlt: "Portrait de Chukwuemeka Iheonye, souriant, en polo",
@@ -337,6 +342,10 @@ const fr: Dictionary = {
     title: "Tous les projets,",
     titleMuted: "de la banque à un jeu construit avec l’IA.",
     intro: "Des études de cas tirées de sept ans de design produit : fintech, logistique, outils d’entreprise et produits grand public.",
+    library: {
+      text: "J’ai aussi construit les composants de ce site et je les ai documentés dans Storybook, avec des tests d’accessibilité sur chacun.",
+      link: "Voir la bibliothèque de composants",
+    },
   },
   ai: {
     proofLabel: "La preuve par l’exemple",
@@ -413,6 +422,7 @@ const fr: Dictionary = {
     socials: "Profils sociaux",
   },
   footer: {
+    library: "Bibliothèque de composants",
     builtWith: "Conçu dans Figma. Construit avec Claude Code, Next.js et Tailwind.",
     translation: "Version française traduite de l’anglais.",
   },
@@ -478,7 +488,7 @@ const fr: Dictionary = {
     role: "Designer produit",
     aboutAuthor: "À propos de l’auteur",
     writtenBy: "Écrit par Chukwuemeka Iheonye",
-    bio: "Designer produit basé au Royaume-Uni. Je conçois des produits, puis je les construis avec l’IA.",
+    bio: "Designer produit basé au Royaume-Uni, qui livre du code en production.",
     workWithMe: "Travaillons ensemble",
     nextLabel: "Article suivant",
     readNext: "À lire ensuite",

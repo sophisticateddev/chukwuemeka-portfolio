@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { localeHref, t, type Locale } from "@/lib/i18n";
+import { componentLibraryUrl } from "@/lib/site";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const dict = t(locale);
@@ -19,6 +20,12 @@ export default function Footer({ locale }: { locale: Locale }) {
               <Link href={localeHref(locale, "/writing")} className="link-grow hover:text-ink">
                 {dict.nav.writing}
               </Link>
+            </li>
+            <li>
+              <a href={componentLibraryUrl} target="_blank" rel="noopener noreferrer" className="link-grow hover:text-ink">
+                {d.library}
+                <span className="sr-only">{dict.newTab}</span>
+              </a>
             </li>
           </ul>
         </div>
