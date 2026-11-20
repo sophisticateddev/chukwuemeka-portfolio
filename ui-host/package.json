@@ -1,0 +1,5 @@
+{
+  "name": "ui-host",
+  "private": true,
+  "description": "Root directory for the Storybook project on Vercel. It exists so Vercel doesn't pick up the site's middleware.ts for the Storybook deploy."
+}
