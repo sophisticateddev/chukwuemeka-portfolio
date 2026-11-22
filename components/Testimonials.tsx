@@ -48,44 +48,43 @@ export default function Testimonials({ locale, items }: { locale: Locale; /** Qu
           title={d.title}
           titleMuted={d.titleMuted}
           intro={d.note}
+          variant="quiet"
+          className="mb-8"
         />
 
-        <FadeUp>
-          <figure className="relative overflow-hidden rounded-3xl border border-line bg-surface p-8 md:p-12">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-6 right-6 select-none font-display text-[10rem] leading-none text-accent/10 md:right-12"
-            >
-              “
-            </span>
-            <blockquote lang="en" className="relative space-y-3 font-display text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
-              {/* Lines starting with "- " were bullets in the original recommendation */}
-              {featured.quote
-                .split("\n")
-                .filter(Boolean)
-                .map((line) =>
-                  line.startsWith("- ") ? (
-                    <p key={line} className="flex gap-3 pl-1">
-                      <span aria-hidden="true" className="text-accent">
-                        –
-                      </span>
-                      {line.slice(2)}
-                    </p>
-                  ) : (
-                    <p key={line}>{line}</p>
-                  ),
-                )}
-            </blockquote>
-            <Attribution t={featured} />
-          </figure>
-        </FadeUp>
+        {/* The lead quote is the section's headline: no box, set in the display face */}
+        <figure className="max-w-4xl">
+          <blockquote lang="en" className="space-y-4 font-display text-xl font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[1.625rem]">
+            {/* Lines starting with "- " were bullets in the original recommendation */}
+            {featured.quote
+              .split("\n")
+              .filter(Boolean)
+              .map((line, i, lines) =>
+                line.startsWith("- ") ? (
+                  <p key={line} className="flex gap-3 pl-1">
+                    <span aria-hidden="true" className="text-accent">
+                      –
+                    </span>
+                    {line.slice(2)}
+                  </p>
+                ) : (
+                  <p key={line}>
+                    {i === 0 && <span aria-hidden="true" className="text-accent">“</span>}
+                    {line}
+                    {i === lines.length - 1 && <span aria-hidden="true" className="text-accent">”</span>}
+                  </p>
+                ),
+              )}
+          </blockquote>
+          <Attribution t={featured} />
+        </figure>
 
-        <ul className="mt-4 grid gap-4 md:grid-cols-2">
+        <ul className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
           {rest.map((t, i) => (
             // An odd one out at the end spans both columns instead of leaving a gap
             <li key={t.name} className={rest.length % 2 === 1 && i === rest.length - 1 ? "md:col-span-2" : undefined}>
               <FadeUp delay={(i % 2) * 0.06} className="h-full">
-                <figure className="flex h-full flex-col justify-between rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-control md:p-8">
+                <figure className="flex h-full flex-col justify-between border-t border-line pt-6">
                   {/* pre-line keeps the line breaks and bullets of the original */}
                   <blockquote lang="en" className="whitespace-pre-line text-ink/90">“{t.quote}”</blockquote>
                   <Attribution t={t} />

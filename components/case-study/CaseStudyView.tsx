@@ -12,10 +12,19 @@ import Toc from "./Toc";
 import Tag from "@/components/Tag";
 import { localeHref, t, type Locale } from "@/lib/i18n";
 
+/** A one-line-tall box, so an icon centres on the first line of the text beside it at any size or line height. */
+const LineIcon = ({ children }: { children: ReactNode }) => (
+  <span aria-hidden="true" className="flex h-[1lh] shrink-0 items-center">
+    {children}
+  </span>
+);
+
 const Check = () => (
-  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-accent">
-    <path d="M3 8.5l3.2 3L13 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+  <LineIcon>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-accent">
+      <path d="M3 8.5l3.2 3L13 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </LineIcon>
 );
 
 /** A numbered story section. The takeaway is the heading, so skimming the headings tells the story. */
@@ -341,10 +350,17 @@ export default function CaseStudyView({
 
           {cs.evolution && (
             <Block id="evolution" label={label("evolution")} takeaway={cs.evolution.takeaway}>
-              <ol className="relative space-y-8 border-l border-line pl-8">
+              {/* Each item draws the segment from its dot down to the next dot, so the line starts at the
+                  first dot, ends at the last, and runs through every dot's centre.
+                  Geometry: 13px dot centred on the 16px date line (centre 8px from the top); 1px line at
+                  6px, the dot's centre; 32px between items, so a segment reaches 32 + 8px past the item. */}
+              <ol className="space-y-8">
                 {cs.evolution.items.map((e) => (
-                  <li key={e.date + e.title} className="relative">
-                    <span aria-hidden="true" className="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full border-2 border-canvas bg-accent" />
+                  <li
+                    key={e.date + e.title}
+                    className="relative pl-9 before:absolute before:-bottom-10 before:left-[6px] before:top-2 before:w-px before:bg-line before:content-[''] last:before:hidden"
+                  >
+                    <span aria-hidden="true" className="absolute left-0 top-[1.5px] h-[13px] w-[13px] rounded-full border-2 border-canvas bg-accent" />
                     <p className="font-mono text-xs text-muted">{e.date}</p>
                     <h3 className="mt-1 font-display text-lg font-semibold tracking-tight">{e.title}</h3>
                     <p className="mt-1 max-w-[62ch] text-muted">{e.body}</p>
@@ -520,7 +536,9 @@ export default function CaseStudyView({
                     <ul className="mt-5 space-y-5">
                       {cs.accessibility.gaps.map((g) => (
                         <li key={g.title} className="flex gap-3">
-                          <span aria-hidden="true" className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-accent" />
+                          <LineIcon>
+                            <span className="h-2.5 w-2.5 rounded-full border-2 border-accent" />
+                          </LineIcon>
                           <div>
                             <p className="font-semibold text-ink">{g.title}</p>
                             <p className="mt-1 text-muted">{g.body}</p>

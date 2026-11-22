@@ -32,7 +32,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "**Why it's built this way.** The whole card is one click target and one tab stop: the title link is stretched over the card with a pseudo-element, so there's no nested interactive content and the focus ring wraps the card. With no cover image the card shows the project's headline metric instead of an empty box. The spotlight that follows the pointer is driven by CSS variables, not state, and card lift and image zoom only apply when motion is allowed.",
+          "**Why it's built this way.** An editorial entry, not a boxed card: the screen, the words, then the one number that proves the work. The whole entry is one click target and one tab stop: the title link is stretched over it with a pseudo-element, so there's no nested interactive content and the focus ring wraps the entry. The featured variant runs full width with its result set large beside the text. The only motion is a slight image zoom and the title underline on hover, and the zoom is off when reduced motion is on.",
       },
     },
   },

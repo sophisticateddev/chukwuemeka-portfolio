@@ -1,6 +1,5 @@
 import Arrow from "./Arrow";
 import FadeUp from "./FadeUp";
-import SectionHeading from "./SectionHeading";
 import type { ExperienceItem } from "@/lib/content";
 import { t, type Locale } from "@/lib/i18n";
 
@@ -32,12 +31,20 @@ export default function Experience({
   return (
     <section aria-labelledby="experience-title" id="experience" className="border-t border-line py-16 md:py-24">
       <div className="container-page">
-        <SectionHeading id="experience-title" label={d.label} title={d.title} titleMuted={d.titleMuted} />
+        {/* Heading in a side column that stays put while the roles scroll past */}
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="mb-3 text-sm font-medium text-accent">{d.label}</p>
+          <h2 id="experience-title" className="font-display text-3xl font-semibold leading-[1.1] tracking-[-0.02em] md:text-4xl">
+            {d.title} {d.titleMuted}
+          </h2>
+        </div>
 
+        <div>
         <ol className="divide-y divide-line border-y border-line">
           {shown.map((item) => (
             <li key={item.id}>
-              <FadeUp className="grid gap-2 py-8 md:grid-cols-[220px_1fr] md:gap-10">
+              <FadeUp className="grid gap-2 py-8 md:grid-cols-[10rem_1fr] md:gap-8">
                 <div className="font-mono text-sm text-muted">
                   <p>{item.period}</p>
                   <p>{item.location}</p>
@@ -61,7 +68,7 @@ export default function Experience({
             <a
               href={cv.href}
               download={cv.href.slice(1)}
-              className="group inline-flex items-center gap-2 text-muted transition-colors hover:text-ink focus-visible:text-ink"
+              className="group inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-muted transition-colors hover:text-ink focus-visible:text-ink"
               data-track="cv-download"
               data-track-where="experience"
             >
@@ -70,6 +77,8 @@ export default function Experience({
             </a>
           </FadeUp>
         )}
+        </div>
+        </div>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ import { componentLibraryUrl } from "@/lib/site";
 /** Every project, shared by /work and /fr/work. The home page shows only the featured four. */
 export function workIndexMetadata(locale: Locale): Metadata {
   const d = t(locale).workIndex;
-  return { title: `${d.title} — Chukwuemeka Iheonye`, description: d.intro, alternates: alternates(locale, "/work") };
+  return { title: `${d.label} — Chukwuemeka Iheonye`, description: d.intro, alternates: alternates(locale, "/work") };
 }
 
 export default function WorkIndexPage({ locale }: { locale: Locale }) {
@@ -22,7 +22,7 @@ export default function WorkIndexPage({ locale }: { locale: Locale }) {
       <section aria-labelledby="work-title" className="py-16 pt-32 md:py-24 md:pt-36">
         <div className="container-page">
           <SectionHeading as="h1" id="work-title" label={d.label} title={d.title} titleMuted={d.titleMuted} intro={d.intro} />
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, i) => (
               <li key={project.id}>
                 <FadeUp delay={(i % 3) * 0.08} className="h-full">

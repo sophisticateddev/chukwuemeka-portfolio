@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import Magnetic from "./Magnetic";
+import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitch from "./LanguageSwitch";
 import { localeHref } from "@/lib/i18n";
@@ -25,8 +24,6 @@ export default function Nav() {
     { label: dict.nav.writing, href: localeHref(locale, "/writing"), id: "writing" },
   ];
   const contactHref = localeHref(locale, "/#contact");
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -62,7 +59,8 @@ export default function Nav() {
           >
             CI
           </span>
-          <span className="font-display text-sm font-semibold tracking-tight">
+          {/* Tablets keep just the monogram so the links fit on one line */}
+          <span className="font-display text-sm font-semibold tracking-tight md:max-lg:sr-only">
             Chukwuemeka Iheonye
           </span>
         </Link>
@@ -83,7 +81,7 @@ export default function Nav() {
                 <Link
                   href={link.href}
                   aria-current={isActive ? "true" : undefined}
-                  className={`relative block rounded-full px-4 py-2 text-sm transition-colors hover:text-ink ${
+                  className={`relative block whitespace-nowrap rounded-full px-3 py-2 text-sm transition-colors lg:px-4 hover:text-ink ${
                     isActive ? "text-ink" : "text-muted"
                   }`}
                 >
@@ -99,11 +97,9 @@ export default function Nav() {
             <ThemeToggle />
           </li>
           <li className="ml-2">
-            <Magnetic>
-              <Link href={contactHref} className="btn-primary min-h-[40px] px-5">
-                {dict.nav.contact}
-              </Link>
-            </Magnetic>
+            <Link href={contactHref} className="btn-primary min-h-[40px] whitespace-nowrap px-5">
+              {dict.nav.contact}
+            </Link>
           </li>
         </ul>
 
@@ -139,13 +135,6 @@ export default function Nav() {
         </button>
         </div>
       </nav>
-
-      {/* Reading progress */}
-      <motion.div
-        aria-hidden="true"
-        style={{ scaleX: progress }}
-        className="absolute inset-x-0 -bottom-px h-[2px] origin-left bg-accent"
-      />
 
       <AnimatePresence>
         {menuOpen && (

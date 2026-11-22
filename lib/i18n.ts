@@ -166,6 +166,7 @@ const en = {
     external: (source?: string) => `(on ${source ?? "an external site"}, opens in a new tab)`,
   },
   contact: {
+    label: "Contact",
     title: "Need a designer who can also build it?",
     body: "Hiring for a product design role, or need a freelance designer for a new product, a design system or an AI-built prototype? I’d love to hear about it, and I reply within 24 hours.",
     cta: "Let’s build something",
@@ -415,6 +416,7 @@ const fr: Dictionary = {
     external: (source) => `(sur ${source ?? "un site externe"}, s’ouvre dans un nouvel onglet)`,
   },
   contact: {
+    label: "Contact",
     title: "Besoin d’un designer qui sait aussi construire?",
     body: "Vous recrutez pour un poste en design produit, ou vous cherchez un designer freelance pour un nouveau produit, un design system ou un prototype construit avec l’IA? Parlons-en. Je réponds en moins de 24 heures.",
     cta: "Construisons quelque chose",

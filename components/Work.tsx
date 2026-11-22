@@ -23,23 +23,18 @@ export default function Work({ locale }: { locale: Locale }) {
           label={d.label}
           title={d.title}
           titleMuted={d.titleMuted}
+          mutedTail={false}
           intro={d.intro}
         />
 
-        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <li className="md:col-span-2 lg:col-span-3">
+        <ul className="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          <li className="mb-6 md:col-span-2 lg:col-span-3">
             <FadeUp className="h-full">
               <WorkCard project={lead} index={0} featured />
             </FadeUp>
           </li>
           {featured.map((project, i) => (
-            // On tablets the odd card out spans the row so the grid never leaves a hole
-            <li
-              key={project.id}
-              className={
-                i === featured.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-              }
-            >
+            <li key={project.id}>
               <FadeUp delay={i * 0.08} className="h-full">
                 <WorkCard project={project} index={i + 1} />
               </FadeUp>

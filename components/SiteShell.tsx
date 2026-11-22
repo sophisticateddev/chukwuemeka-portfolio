@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
 import "@/app/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -20,7 +20,8 @@ const display = Bricolage_Grotesque({
   display: "swap",
 });
 
-const sans = Inter({
+// Body text: an editorial grotesk with more character than the usual Inter
+const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
