@@ -38,8 +38,7 @@ export default function ArticlePage({ locale, slug }: { locale: Locale; slug: st
   const next = articles[(index + 1) % articles.length];
 
   return (
-    // data-paper switches the whole page (nav and footer included) to the warm paper palette, as on case studies
-    <main id="main" tabIndex={-1} data-paper className="outline-none">
+    <main id="main" tabIndex={-1} className="outline-none">
       <article>
         <header className="container-page pb-12 pt-28 md:pt-36">
           <Link

@@ -121,8 +121,7 @@ export default function CaseStudyView({
   const host = cs.liveUrl ? new URL(cs.liveUrl).host.replace(/^www\./, "") : project.title;
 
   return (
-    // data-paper switches the whole page (nav and footer included) to the warm paper palette
-    <main id="main" tabIndex={-1} data-paper className="outline-none">
+    <main id="main" tabIndex={-1} className="outline-none">
       {/* ── Above the fold, set like a magazine feature: kicker, headline, deck, then the work ── */}
       <header>
         <div className="container-page pb-16 pt-28 md:pt-32">

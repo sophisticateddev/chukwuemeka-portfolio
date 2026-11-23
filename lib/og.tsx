@@ -13,7 +13,7 @@ function Frame({ children, footer }: { children: React.ReactNode; footer: string
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 72,
-        background: "radial-gradient(circle at 80% 20%, #1f2610 0%, #0B0C0E 55%)",
+        background: "radial-gradient(circle at 80% 20%, #1f2610 0%, #14120F 55%)",
         color: "#F4F4F1",
       }}
     >
@@ -24,7 +24,7 @@ function Frame({ children, footer }: { children: React.ReactNode; footer: string
             height: 64,
             borderRadius: 32,
             background: "#C6F135",
-            color: "#0B0C0E",
+            color: "#14120F",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
