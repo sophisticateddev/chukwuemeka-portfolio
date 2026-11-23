@@ -22,7 +22,7 @@ export default function Contact({ region, locale }: { region: Region; locale: Lo
           <p className="relative font-mono text-xs uppercase tracking-[0.14em]">{d.label}</p>
           <h2
             id="contact-title"
-            className="relative mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.02] tracking-[-0.025em] sm:text-5xl md:text-6xl"
+            className="relative mt-6 max-w-3xl font-serif text-4xl font-medium leading-[1.04] tracking-[-0.02em] sm:text-5xl md:text-6xl"
           >
             {d.title}
           </h2>

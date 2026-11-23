@@ -37,13 +37,13 @@ export default function Article() {
         doLabel="Encre foncée sur blanc, bien au-delà de 4,5:1. Toujours sobre, enfin lisible."
         dont={
           <div role="img" aria-label="Exemple : texte gris pâle sur une carte blanche" className="w-full rounded-xl bg-white p-5">
-            <p className="font-display text-lg font-semibold text-[#B5B5B5]">Paiement programmé</p>
+            <p className="font-sans text-lg font-semibold text-[#B5B5B5]">Paiement programmé</p>
             <p className="mt-1 text-sm text-[#C4C4C4]">Votre prochain remboursement est le 12 mars.</p>
           </div>
         }
         doThis={
           <div role="img" aria-label="Exemple : texte foncé sur une carte blanche" className="w-full rounded-xl bg-white p-5">
-            <p className="font-display text-lg font-semibold text-[#111]">Paiement programmé</p>
+            <p className="font-sans text-lg font-semibold text-[#111]">Paiement programmé</p>
             <p className="mt-1 text-sm text-[#4A4A4A]">Votre prochain remboursement est le 12 mars.</p>
           </div>
         }

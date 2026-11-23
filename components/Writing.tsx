@@ -75,7 +75,7 @@ export default function Writing({ items: articles, page = false }: { items: Arti
                         <Tag className="ml-1">{article.source}</Tag>
                       )}
                     </p>
-                    <Title className="mt-2 font-display text-xl font-semibold tracking-tight">
+                    <Title className="mt-2 font-serif text-[1.375rem] font-medium tracking-[-0.01em]">
                       {article.url ? (
                         <a href={article.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
                           {article.title}

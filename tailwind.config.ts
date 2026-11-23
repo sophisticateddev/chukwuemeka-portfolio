@@ -23,9 +23,9 @@ const config: Config = {
         onaccent: "rgb(var(--onaccent) / <alpha-value>)", // text on accent fills
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
+        "serif-italic": ["var(--font-serif-italic)", "Georgia", "serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },

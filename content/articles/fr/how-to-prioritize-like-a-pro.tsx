@@ -104,7 +104,7 @@ export default function Article() {
       </p>
       <figure className="not-prose my-8 rounded-2xl border border-line bg-surface p-6">
         <figcaption className="eyebrow mb-3">Une formule que j’utilise</figcaption>
-        <p className="font-display text-xl font-medium leading-relaxed text-ink">
+        <p className="font-serif text-xl font-medium leading-relaxed text-ink">
           « Avec plaisir. Pour le faire cette semaine, il faudrait repousser le parcours
           d’inscription au prochain sprint. Qu’est-ce qui compte le plus pour vous en ce moment? »
         </p>

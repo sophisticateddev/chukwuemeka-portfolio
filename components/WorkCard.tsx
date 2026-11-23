@@ -66,7 +66,7 @@ export default function WorkCard({
             <p className="eyebrow">
               <span className="text-accent">{dict.work.featured}</span> · {project.category}
             </p>
-            <Heading className="mt-3 font-display text-4xl font-semibold tracking-[-0.02em] md:text-5xl">{title}</Heading>
+            <Heading className="mt-3 font-serif text-4xl font-medium tracking-[-0.02em] md:text-5xl">{title}</Heading>
             {project.client && (
               <p className="mt-3 font-mono text-xs text-muted">
                 {project.client} · {project.year}
@@ -75,7 +75,7 @@ export default function WorkCard({
             <p className="mt-4 max-w-xl text-lg text-muted">{project.description}</p>
           </div>
           <p className="md:border-l md:border-line md:pl-8">
-            <span className="block font-display text-6xl font-semibold leading-none tracking-[-0.03em] text-accent md:text-7xl">
+            <span className="block font-serif text-6xl font-medium leading-none tracking-[-0.02em] text-accent md:text-7xl">
               <Metric value={project.highlight.value} />
             </span>
             <span className="mt-3 block text-muted">{project.highlight.label}</span>
@@ -89,7 +89,7 @@ export default function WorkCard({
     <article className="group relative flex h-full flex-col">
       {screen}
       <p className="eyebrow mt-5">{project.category}</p>
-      <Heading className="mt-2 font-display text-2xl font-semibold tracking-tight">{title}</Heading>
+      <Heading className="mt-2 font-serif text-[1.625rem] font-medium leading-tight tracking-[-0.01em]">{title}</Heading>
       {project.client && (
         <p className="mt-2 font-mono text-xs text-muted">
           {project.client} · {project.year}
@@ -97,7 +97,7 @@ export default function WorkCard({
       )}
       <p className="mt-3 flex-1 text-muted">{project.description}</p>
       <p className="mt-5 border-t border-line pt-4">
-        <span className="block font-display text-3xl font-semibold tracking-tight text-accent">
+        <span className="block font-serif text-3xl font-medium tracking-tight text-accent">
           <Metric value={project.highlight.value} />
         </span>
         <span className="mt-1 block text-sm text-muted">{project.highlight.label}</span>

@@ -35,7 +35,7 @@ export default function Experience({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="mb-3 text-sm font-medium text-accent">{d.label}</p>
-          <h2 id="experience-title" className="font-display text-3xl font-semibold leading-[1.1] tracking-[-0.02em] md:text-4xl">
+          <h2 id="experience-title" className="font-serif text-3xl font-medium leading-[1.1] tracking-[-0.015em] md:text-4xl">
             {d.title} {d.titleMuted}
           </h2>
         </div>
@@ -50,7 +50,7 @@ export default function Experience({
                   <p>{item.location}</p>
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight">
+                  <h3 className="font-serif text-[1.375rem] font-medium tracking-[-0.01em]">
                     {item.role} <span className="text-muted">· {item.company}</span>
                   </h3>
                   <p className="mt-3 max-w-3xl text-muted">{item.description}</p>

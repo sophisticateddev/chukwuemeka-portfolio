@@ -65,10 +65,10 @@ export default function Hero({
             <h1
               id="hero-title"
               // French runs longer, so it steps down a size to keep the headline to three lines
-              className={`font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.025em] sm:text-6xl ${
+              className={`font-serif text-[2.75rem] font-medium leading-[1.02] tracking-[-0.02em] sm:text-6xl ${
                 locale === "fr"
-                  ? "md:text-6xl xl:text-[4rem]"
-                  : "md:text-7xl xl:text-[4.5rem]"
+                  ? "md:text-6xl lg:text-[3.5rem] xl:text-[3.875rem]"
+                  : "md:text-7xl lg:text-[3.75rem] xl:text-[4.125rem]"
               }`}
             >
               <span className="sr-only">

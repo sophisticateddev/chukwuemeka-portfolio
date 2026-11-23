@@ -54,7 +54,7 @@ export default function Testimonials({ locale, items }: { locale: Locale; /** Qu
 
         {/* The lead quote is the section's headline: no box, set in the display face */}
         <figure className="max-w-4xl">
-          <blockquote lang="en" className="space-y-4 font-display text-xl font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[1.625rem]">
+          <blockquote lang="en" className="space-y-4 font-serif text-xl font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[1.75rem]">
             {/* Lines starting with "- " were bullets in the original recommendation */}
             {featured.quote
               .split("\n")

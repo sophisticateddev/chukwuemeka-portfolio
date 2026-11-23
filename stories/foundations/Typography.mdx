@@ -4,17 +4,17 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Typography
 
-Three families, each loaded once through `next/font` and exposed as a CSS variable.
+Three families (plus the serif italic), each loaded once through `next/font` and exposed as a CSS variable.
 
 <div className="space-y-8">
   <div>
-    <p className="font-mono text-xs text-muted">font-display · Bricolage Grotesque</p>
-    <p className="font-display text-5xl font-semibold tracking-tight">Headlines and numbers</p>
-    <p className="text-muted">Headings, large figures and the hero. Tight tracking at large sizes.</p>
+    <p className="font-mono text-xs text-muted">font-serif · Newsreader</p>
+    <p className="font-serif text-5xl font-medium tracking-[-0.02em]">Headlines and numbers</p>
+    <p className="text-muted">Every heading, large figure and quote, medium weight, with slightly tight tracking at large sizes. Its italic loads separately (font-serif-italic) and is only used for pull-quotes and numerals.</p>
   </div>
   <div>
-    <p className="font-mono text-xs text-muted">font-sans · Inter</p>
-    <p className="font-sans text-lg">Body copy, labels and buttons. Set at 1rem with a 1.65 line height.</p>
+    <p className="font-mono text-xs text-muted">font-sans · Schibsted Grotesk</p>
+    <p className="font-sans text-lg">Body copy, labels, buttons and the nav. Set at 1rem with a 1.65 line height.</p>
   </div>
   <div>
     <p className="font-mono text-xs text-muted">font-mono · JetBrains Mono</p>
@@ -30,9 +30,9 @@ The site uses Tailwind's scale. These are the sizes that appear most often.
   <p className="text-xs"><span className="font-mono text-muted">text-xs · 12px</span> — Tags, metadata, small mono labels</p>
   <p className="text-sm"><span className="font-mono text-muted">text-sm · 14px</span> — Buttons, nav, captions, eyebrows</p>
   <p className="text-lg"><span className="font-mono text-muted">text-lg · 18px</span> — Intros and long-form body</p>
-  <p className="font-display text-2xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-2xl · 24px </span>Card titles</p>
-  <p className="font-display text-4xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-4xl · 36px </span>Section headings</p>
-  <p className="font-display text-5xl font-semibold"><span className="font-mono text-sm font-normal text-muted">text-5xl · 48px </span>Section headings, large screens</p>
+  <p className="font-serif text-2xl font-medium"><span className="font-mono text-sm font-normal text-muted">text-2xl · 24px </span>Card titles</p>
+  <p className="font-serif text-4xl font-medium"><span className="font-mono text-sm font-normal text-muted">text-4xl · 36px </span>Section headings</p>
+  <p className="font-serif text-5xl font-medium"><span className="font-mono text-sm font-normal text-muted">text-5xl · 48px </span>Section headings, large screens</p>
 </div>
 
 ## Rules

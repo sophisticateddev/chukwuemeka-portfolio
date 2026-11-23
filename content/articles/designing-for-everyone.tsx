@@ -34,13 +34,13 @@ export default function Article() {
         doLabel="Dark ink on white, well above 4.5:1. Still calm, actually readable."
         dont={
           <div role="img" aria-label="Example: pale grey text on a white card" className="w-full rounded-xl bg-white p-5">
-            <p className="font-display text-lg font-semibold text-[#B5B5B5]">Payment scheduled</p>
+            <p className="font-sans text-lg font-semibold text-[#B5B5B5]">Payment scheduled</p>
             <p className="mt-1 text-sm text-[#C4C4C4]">Your next repayment is on 12 March.</p>
           </div>
         }
         doThis={
           <div role="img" aria-label="Example: dark text on a white card" className="w-full rounded-xl bg-white p-5">
-            <p className="font-display text-lg font-semibold text-[#111]">Payment scheduled</p>
+            <p className="font-sans text-lg font-semibold text-[#111]">Payment scheduled</p>
             <p className="mt-1 text-sm text-[#4A4A4A]">Your next repayment is on 12 March.</p>
           </div>
         }

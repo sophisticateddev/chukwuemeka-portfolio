@@ -39,7 +39,7 @@ export default function About({ locale }: { locale: Locale }) {
             </div>
             <div className="rounded-2xl border border-line bg-surface p-6">
               <p className="eyebrow text-accent">{mentoring.label}</p>
-              <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">{mentoring.title}</h3>
+              <h3 className="mt-3 font-serif text-xl font-medium tracking-[-0.01em]">{mentoring.title}</h3>
               <p className="mt-2 text-muted">{mentoring.body}</p>
             </div>
           </FadeUp>
@@ -50,7 +50,7 @@ export default function About({ locale }: { locale: Locale }) {
           <figure className="mt-10 grid overflow-hidden rounded-2xl border border-line bg-surface md:grid-cols-[1fr_1.4fr]">
             <figcaption className="flex flex-col justify-center p-6 md:p-8">
               <p className="eyebrow text-accent">{ai.proofLabel}</p>
-              <p className="mt-4 font-display text-2xl font-semibold tracking-tight">{ai.proofTitle}</p>
+              <p className="mt-4 font-serif text-[1.75rem] font-medium tracking-[-0.01em]">{ai.proofTitle}</p>
               <p className="mt-3 text-muted">{ai.proofBody}</p>
             </figcaption>
             <Terminal />

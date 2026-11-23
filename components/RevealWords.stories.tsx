@@ -7,7 +7,7 @@ const meta = {
   tags: ["autodocs"],
   args: { text: "I design products. Then I build them.", trigger: "mount" },
   render: (args) => (
-    <h2 className="font-display text-5xl font-semibold tracking-tight">
+    <h2 className="font-serif text-5xl font-medium tracking-[-0.02em]">
       {/* The component is purely visual: the real text is exposed separately */}
       <span className="sr-only">{args.text}</span>
       <span aria-hidden="true">

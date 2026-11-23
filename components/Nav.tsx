@@ -60,7 +60,7 @@ export default function Nav() {
             CI
           </span>
           {/* Tablets keep just the monogram so the links fit on one line */}
-          <span className="font-display text-sm font-semibold tracking-tight md:max-lg:sr-only">
+          <span className="font-serif text-sm font-medium tracking-[-0.01em] min-[375px]:text-[0.9375rem] md:text-[1.0625rem] md:max-lg:sr-only">
             Chukwuemeka Iheonye
           </span>
         </Link>
@@ -160,7 +160,7 @@ export default function Nav() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-between py-3 font-display text-lg font-medium"
+                    className="flex items-center justify-between py-3 font-serif text-xl font-medium"
                   >
                     {link.label}
                     {active === link.id && (

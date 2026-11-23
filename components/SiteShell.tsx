@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, JetBrains_Mono, Newsreader, Schibsted_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import "@/app/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -13,13 +13,6 @@ import { siteUrl, umamiWebsiteId } from "@/lib/site";
 // The <html> and <body> for both languages. Each language has its own root layout
 // (app/(en)/layout.tsx and app/(fr)/fr/layout.tsx) so the lang attribute is right from the server.
 
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  axes: ["opsz"],
-  variable: "--font-display",
-  display: "swap",
-});
-
 // Body text: an editorial grotesk with more character than the usual Inter
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -27,12 +20,22 @@ const sans = Schibsted_Grotesk({
   display: "swap",
 });
 
-// Editorial serif for case-study headlines. Not preloaded: only the case-study pages use it.
+// Editorial serif for headlines. The roman style is on every page, so it's preloaded; the italic only
+// appears in pull-quotes and numerals on case studies and articles, so it loads on demand (its own family,
+// used through the font-serif-italic utility).
 const serif = Newsreader({
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  style: "normal",
   axes: ["opsz"],
   variable: "--font-serif",
+  display: "swap",
+});
+
+const serifItalic = Newsreader({
+  subsets: ["latin"],
+  style: "italic",
+  axes: ["opsz"],
+  variable: "--font-serif-italic",
   display: "swap",
   preload: false,
 });
@@ -79,7 +82,7 @@ const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==
 export default function SiteShell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
   const d = t(locale);
   return (
-    <html lang={d.htmlLang} className={`${display.variable} ${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang={d.htmlLang} className={`${sans.variable} ${serif.variable} ${serifItalic.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

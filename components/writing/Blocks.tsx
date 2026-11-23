@@ -15,7 +15,7 @@ export function Figure({ children, caption, wide = false }: { children: ReactNod
 export function Quote({ children, cite }: { children: ReactNode; cite?: string }) {
   return (
     <figure className="not-prose my-10 border-l-2 border-accent pl-6 md:pl-8">
-      <blockquote className="font-serif text-2xl font-medium italic leading-snug md:text-[2rem]">
+      <blockquote className="font-serif-italic text-2xl font-medium italic leading-snug md:text-[2rem]">
         {children}
       </blockquote>
       {cite && <figcaption className="mt-4 font-mono text-sm text-muted">— {cite}</figcaption>}

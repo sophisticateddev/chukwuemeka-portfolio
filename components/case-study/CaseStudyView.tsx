@@ -295,7 +295,7 @@ export default function CaseStudyView({
               <ol className="grid gap-x-10 gap-y-10 md:grid-cols-2">
                 {cs.insights.items.map((it, i) => (
                   <li key={it.title} className="border-t border-line pt-5">
-                    <span className="font-serif text-3xl italic leading-none text-accent">{i + 1}</span>
+                    <span className="font-serif-italic text-3xl italic leading-none text-accent">{i + 1}</span>
                     <h3 className="mt-4 font-serif text-xl font-medium tracking-tight">{it.title}</h3>
                     <p className="mt-2 text-muted">{it.body}</p>
                   </li>
@@ -309,7 +309,7 @@ export default function CaseStudyView({
               <ol className="grid gap-x-10 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
                 {cs.process.steps.map((s, i) => (
                   <li key={s.title} className="border-t border-line pt-5">
-                    <span className="font-serif text-3xl italic leading-none text-accent">{i + 1}</span>
+                    <span className="font-serif-italic text-3xl italic leading-none text-accent">{i + 1}</span>
                     <h3 className="mt-4 font-serif text-xl font-medium tracking-tight">{s.title}</h3>
                     <p className="mt-2 text-muted">{s.body}</p>
                   </li>
@@ -485,7 +485,7 @@ export default function CaseStudyView({
                 <div className="flex flex-col gap-4">
                   <div className="h-full rounded-2xl border border-line bg-surface p-6">
                     <h3 className="eyebrow">{L.type}</h3>
-                    <p className="mt-4 font-display text-5xl font-bold tracking-tight" aria-hidden="true">
+                    <p className="mt-4 font-sans text-5xl font-bold tracking-tight" aria-hidden="true">
                       Aa
                     </p>
                     <p className="mt-2 font-semibold text-ink">{cs.designSystem.type.family}</p>
@@ -599,7 +599,7 @@ export default function CaseStudyView({
               <ol className="grid gap-x-10 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
                 {cs.build.steps.map((s, i) => (
                   <li key={s.title} className="border-t border-line pt-5">
-                    <span className="font-serif text-3xl italic leading-none text-accent">{i + 1}</span>
+                    <span className="font-serif-italic text-3xl italic leading-none text-accent">{i + 1}</span>
                     <h3 className="mt-4 font-serif text-xl font-medium tracking-tight">{s.title}</h3>
                     <p className="mt-2 text-muted">{s.body}</p>
                   </li>
@@ -633,7 +633,7 @@ export default function CaseStudyView({
                   <ol className="mt-8 grid gap-x-10 gap-y-10 md:grid-cols-2">
                     {cs.build.mistakes.map((m, i) => (
                       <li key={m.title} className="flex flex-col border-t border-line pt-5">
-                        <p className="font-serif text-2xl italic leading-none text-accent">{i + 1}</p>
+                        <p className="font-serif-italic text-2xl italic leading-none text-accent">{i + 1}</p>
                         <h4 className="mt-3 font-serif text-xl font-medium tracking-tight">{m.title}</h4>
                         <dl className="mt-4 space-y-3 text-sm">
                           <div>
@@ -697,7 +697,7 @@ export default function CaseStudyView({
                   {cs.testimonials.map((t) => (
                     <li key={t.quote}>
                       <figure className="h-full border-l-2 border-accent pl-6">
-                        <blockquote lang="en" className="font-serif text-2xl italic leading-snug md:text-[1.75rem]">“{t.quote}”</blockquote>
+                        <blockquote lang="en" className="font-serif-italic text-2xl italic leading-snug md:text-[1.75rem]">“{t.quote}”</blockquote>
                         <figcaption className="mt-4 text-sm text-muted">
                           {t.name}
                           {t.context && `, ${t.context}`}
@@ -716,7 +716,7 @@ export default function CaseStudyView({
                 <ol className="space-y-6">
                   {cs.reflection.learned.map((l, i) => (
                     <li key={l} className="flex gap-5 font-serif text-xl leading-snug text-ink md:text-2xl">
-                      <span className="w-6 shrink-0 italic text-accent">{i + 1}</span>
+                      <span className="w-6 shrink-0 font-serif-italic italic text-accent">{i + 1}</span>
                       {l}
                     </li>
                   ))}

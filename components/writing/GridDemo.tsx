@@ -91,7 +91,7 @@ export default function GridDemo() {
           style={{ padding: s.pad }}
         >
           <div className="aspect-[16/9] rounded-lg bg-line" />
-          <p className="font-display text-lg font-semibold" style={{ marginTop: s.title }}>
+          <p className="font-sans text-lg font-semibold" style={{ marginTop: s.title }}>
             {c.title}
           </p>
           <p className="text-sm text-muted" style={{ marginTop: s.gap }}>

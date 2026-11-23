@@ -2,15 +2,16 @@ import { useEffect } from "react";
 import type { Preview } from "@storybook/nextjs";
 import { MotionConfig } from "framer-motion";
 import { PathnameContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
-import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import "../app/globals.css";
 import { setReducedMotion } from "./reduced-motion";
 
 // The same three font families as the site (components/SiteShell.tsx), under the same CSS variables.
-const display = Bricolage_Grotesque({ subsets: ["latin"], axes: ["opsz"], variable: "--font-display", display: "swap" });
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const serif = Newsreader({ subsets: ["latin"], style: "normal", axes: ["opsz"], variable: "--font-serif", display: "swap" });
+const serifItalic = Newsreader({ subsets: ["latin"], style: "italic", axes: ["opsz"], variable: "--font-serif-italic", display: "swap" });
+const sans = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
-const fontClasses = `${display.variable} ${sans.variable} ${mono.variable}`;
+const fontClasses = `${sans.variable} ${serif.variable} ${serifItalic.variable} ${mono.variable}`;
 
 const preview: Preview = {
   initialGlobals: { theme: "light", motion: "normal", locale: "en" },

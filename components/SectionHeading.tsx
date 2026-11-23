@@ -44,7 +44,7 @@ export default function SectionHeading({
       <p className="mb-3 text-sm font-medium text-accent">{label}</p>
       <Heading
         id={id}
-        className="max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] md:text-5xl"
+        className="max-w-3xl font-serif text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-5xl"
       >
         {title}
         {titleMuted && <span className={mutedTail ? "text-muted" : undefined}> {titleMuted}</span>}

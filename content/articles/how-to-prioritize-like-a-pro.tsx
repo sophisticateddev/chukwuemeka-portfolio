@@ -98,7 +98,7 @@ export default function Article() {
       </p>
       <figure className="not-prose my-8 rounded-2xl border border-line bg-surface p-6">
         <figcaption className="eyebrow mb-3">A script I use</figcaption>
-        <p className="font-display text-xl font-medium leading-relaxed text-ink">
+        <p className="font-serif text-xl font-medium leading-relaxed text-ink">
           “Happy to pick this up. To do it this week, I’d need to push the onboarding flow to next
           sprint. Which matters more to you right now?”
         </p>
