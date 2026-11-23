@@ -7,6 +7,8 @@ import { africhange } from "@/content/case-studies/africhange";
 import { nippyboxes } from "@/content/case-studies/nippyboxes";
 import { coinbycedar } from "@/content/case-studies/coinbycedar";
 import { eBills } from "@/content/case-studies/e-bills";
+import { sojournOrders } from "@/content/case-studies/sojourn-orders";
+import { uploadable } from "@/content/case-studies/uploadable";
 
 export type ProjectImage = {
   src: string;        // e.g. /images/work/carbon-loans/hero.jpg
@@ -77,9 +79,74 @@ export const workProjects: Project[] = [
     caseStudy: characterGuess,
   },
   {
+    id: 11,
+    slug: "uploadable",
+    featured: true,
+    client: "My own product",
+    title: "Uploadable",
+    category: "Consumer tool · Designed & built with AI",
+    year: "2026",
+    description:
+      "A free tool that gets bank statements and documents under an application portal’s upload limit: combine, remove pages, fix and compress, all on your own device. Built from my own bank statement binder, with 2,200+ visitors in its first month.",
+    tags: ["Own product", "Privacy", "Built with AI"],
+    color: "#E9F0FA",
+    highlight: { value: "2.2k+", label: "visitors in its first month" },
+    cover: "/images/work/uploadable/cover.jpg",
+    caseStudy: uploadable,
+  },
+  {
+    id: 10,
+    slug: "sojourn-orders",
+    featured: true,
+    client: "Client project for Sojourn Limited",
+    title: "Sojourn Orders",
+    category: "Construction · Designed & built with AI",
+    year: "2026",
+    description:
+      "A purchase-order app for a UK building firm, used by all of its staff. Raise an order in four questions, approve with a tap or a swipe, and keep working with no signal. Designed and built with Claude Code.",
+    tags: ["Client work", "Mobile", "Built with AI"],
+    color: "#021828",
+    highlight: { value: "11 staff", label: "using it, from site staff to approvers" },
+    cover: "/images/work/sojourn-orders/cover.jpg",
+    caseStudy: sojournOrders,
+  },
+  {
+    id: 1,
+    slug: "albert-sustainability-platform",
+    featured: true,
+    client: "BAFTA (contract)",
+    title: "albert — Sustainability Platform",
+    category: "Sustainability · Product Design",
+    year: "2024–2025",
+    description:
+      "Rebuilt BAFTA albert’s carbon toolkit for UK film and TV around the people who hold the data. Productions starting their footprint in pre-production rose from 30% to 55%, and WCAG 2.2 AA criteria passed from 60% to 85%.",
+    tags: ["Sustainability", "Enterprise", "Accessibility"],
+    color: "#DDE4DC",
+    highlight: { value: "30% → 55%", label: "productions starting in pre-production" },
+    cover: "/images/work/albert/cover.webp",
+    caseStudy: albert,
+    details: {
+      overview:
+        "Led UX design across albert’s digital platforms — the UK’s leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
+      role: "Senior Product Designer",
+      team: "Product Designer, Product Manager, Engineering team",
+      timeline: "Jul 2024 – Aug 2025",
+      goals: [
+        "Improve platform accessibility to WCAG standards",
+        "Increase engagement across media industry users",
+        "Develop journey maps and user flows aligned with stakeholder needs",
+        "Advocate for user-centred design principles across the organisation",
+      ],
+      outcomes: [
+        "25% improvement in accessibility and engagement",
+        "Journey maps, user flows, and UI designs aligned with WCAG standards",
+        "Strengthened design advocacy across digital teams and stakeholders",
+      ],
+    },
+  },
+  {
     id: 2,
     slug: "carbon-loans",
-    featured: true,
     client: "Carbon MFB",
     title: "Carbon Loans",
     category: "Fintech · Product Design",
@@ -127,43 +194,8 @@ export const workProjects: Project[] = [
     },
   },
   {
-    id: 1,
-    slug: "albert-sustainability-platform",
-    featured: true,
-    client: "BAFTA (contract)",
-    title: "albert — Sustainability Platform",
-    category: "Sustainability · Product Design",
-    year: "2024–2025",
-    description:
-      "Rebuilt BAFTA albert’s carbon toolkit for UK film and TV around the people who hold the data. Productions starting their footprint in pre-production rose from 30% to 55%, and WCAG 2.2 AA criteria passed from 60% to 85%.",
-    tags: ["Sustainability", "Enterprise", "Accessibility"],
-    color: "#DDE4DC",
-    highlight: { value: "30% → 55%", label: "productions starting in pre-production" },
-    cover: "/images/work/albert/cover.webp",
-    caseStudy: albert,
-    details: {
-      overview:
-        "Led UX design across albert’s digital platforms — the UK’s leading sustainability initiative for the media industry, operating under BAFTA. The work spanned from research and discovery through to delivery, with a strong emphasis on accessibility and cross-stakeholder alignment.",
-      role: "Senior Product Designer",
-      team: "Product Designer, Product Manager, Engineering team",
-      timeline: "Jul 2024 – Aug 2025",
-      goals: [
-        "Improve platform accessibility to WCAG standards",
-        "Increase engagement across media industry users",
-        "Develop journey maps and user flows aligned with stakeholder needs",
-        "Advocate for user-centred design principles across the organisation",
-      ],
-      outcomes: [
-        "25% improvement in accessibility and engagement",
-        "Journey maps, user flows, and UI designs aligned with WCAG standards",
-        "Strengthened design advocacy across digital teams and stakeholders",
-      ],
-    },
-  },
-  {
     id: 4,
     slug: "africhange",
-    featured: true,
     client: "Freelance for Africhange Ltd",
     title: "Africhange",
     category: "Fintech · UX Design",

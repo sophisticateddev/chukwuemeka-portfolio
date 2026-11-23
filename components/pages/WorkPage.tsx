@@ -15,7 +15,9 @@ export function workMetadata(locale: Locale, slug: string): Metadata {
   const project = getProjects(locale).find((p) => p.slug === slug);
   if (!project) return {};
   const title = `${project.title} — Chukwuemeka Iheonye`;
-  const description = project.caseStudy?.headline ?? project.description;
+  // A very short, punchy headline makes a poor share description, so those pages use the card description
+  const headline = project.caseStudy?.headline;
+  const description = headline && headline.length > 60 ? headline : project.description;
   const shareImage = project.cover
     ? { url: `/og/work/${project.slug}.jpg`, width: 1200, height: 630, alt: t(locale).caseStudy.shareAlt(project.title) }
     : "/opengraph-image";

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 import Arrow from "@/components/Arrow";
 import Metric from "@/components/Metric";
 import type { CaseStudy } from "@/lib/case-study";
@@ -147,7 +147,12 @@ export default function CaseStudyView({
             )}
           </p>
           <h1 className="mt-6 max-w-5xl font-serif text-[2.625rem] font-medium leading-[1.04] tracking-[-0.02em] md:text-6xl xl:text-[4.5rem]">
-            {cs.headline}
+            {/* A headline of short sentences breaks between them, never in the middle of one */}
+            {(cs.headline.match(/[^.!?]+[.!?]*\s*/g) ?? [cs.headline]).map((sentence, i) => (
+              <Fragment key={i}>
+                <span className="inline-block">{sentence.trim()}</span>{" "}
+              </Fragment>
+            ))}
           </h1>
           <p className="mt-6 max-w-3xl text-lg text-muted md:text-xl">
             <span className="sr-only">{L.myRole}: </span>

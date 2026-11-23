@@ -9,6 +9,8 @@ import { africhangeFr } from "@/content/case-studies/fr/africhange";
 import { nippyboxesFr } from "@/content/case-studies/fr/nippyboxes";
 import { coinbycedarFr } from "@/content/case-studies/fr/coinbycedar";
 import { eBillsFr } from "@/content/case-studies/fr/e-bills";
+import { sojournOrdersFr } from "@/content/case-studies/fr/sojourn-orders";
+import { uploadableFr } from "@/content/case-studies/fr/uploadable";
 
 type ProjectText = Partial<Pick<Project, "title" | "category" | "description" | "tags" | "client" | "year" | "highlight" | "caseStudy">>;
 
@@ -50,6 +52,24 @@ export const projectsFr: Record<string, ProjectText> = {
     tags: ["Fintech", "Refonte", "Recherche"],
     highlight: { value: "1 min", label: "par transfert, contre 2 heures" },
     caseStudy: africhangeFr,
+  },
+  "sojourn-orders": {
+    client: "Projet client pour Sojourn Limited",
+    category: "Construction · Conçu et construit avec l’IA",
+    description:
+      "Une application de bons de commande pour une entreprise de construction britannique, utilisée par tout son personnel. Créer une commande en quatre questions, approuver d’un toucher ou d’un glissement, et continuer sans réseau. Conçue et construite avec Claude Code.",
+    tags: ["Projet client", "Mobile", "Construit avec l’IA"],
+    highlight: { value: "11 employés", label: "l’utilisent, du chantier aux approbateurs" },
+    caseStudy: sojournOrdersFr,
+  },
+  uploadable: {
+    client: "Mon propre produit",
+    category: "Outil grand public · Conçu et construit avec l’IA",
+    description:
+      "Un outil gratuit qui fait passer relevés bancaires et documents sous la limite de téléversement d’un portail : combiner, retirer des pages, corriger et compresser, entièrement sur votre appareil. Construit à partir de mon propre classeur de relevés bancaires, avec plus de 2 200 visiteurs le premier mois.",
+    tags: ["Produit personnel", "Confidentialité", "Construit avec l’IA"],
+    highlight: { value: "2,2 k+", label: "visiteurs le premier mois" },
+    caseStudy: uploadableFr,
   },
   "carbon-zero": {
     category: "Fintech · Design produit",
