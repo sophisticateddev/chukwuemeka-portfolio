@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import "@/app/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -25,6 +25,16 @@ const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+});
+
+// Editorial serif for case-study headlines. Not preloaded: only the case-study pages use it.
+const serif = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-serif",
+  display: "swap",
+  preload: false,
 });
 
 const mono = JetBrains_Mono({
@@ -69,7 +79,7 @@ const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==
 export default function SiteShell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
   const d = t(locale);
   return (
-    <html lang={d.htmlLang} className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang={d.htmlLang} className={`${display.variable} ${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

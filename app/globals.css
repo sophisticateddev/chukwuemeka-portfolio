@@ -56,6 +56,47 @@
     --logo-filter: brightness(0) invert(1);
   }
 
+  /*
+   * Paper: case-study pages read like a magazine feature. A page opts in with <main data-paper>,
+   * and :has() swaps the tokens on the root so the nav, footer and page background follow.
+   * Contrast (canvas / surface): ink 15.2 / 16.5, muted 6.8 / 7.4, accent 5.5 / 5.9 (light);
+   * ink 15.9 / 14.9, muted 7.6 / 7.1, accent 14.3 / 13.4 (dark).
+   */
+  :root:has(main[data-paper]) {
+    --canvas: 242 237 227; /* #F2EDE3 */
+    --surface: 250 247 240; /* #FAF7F0 */
+    --raised: 232 225 211; /* #E8E1D3 */
+    --line: 217 207 189; /* #D9CFBD */
+    --control: 119 110 97; /* #776E61, 4.3:1 */
+    --ink: 27 24 20; /* #1B1814 */
+    --muted: 87 80 74; /* #57504A */
+    --elev: rgb(27 24 20 / 0.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):has(main[data-paper]) {
+      --canvas: 20 18 15; /* #14120F */
+      --surface: 28 25 21; /* #1C1915 */
+      --raised: 37 33 28; /* #25211C */
+      --line: 54 48 42; /* #36302A */
+      --control: 128 119 108; /* #80776C */
+      --ink: 242 236 225; /* #F2ECE1 */
+      --muted: 173 164 150; /* #ADA496 */
+      --elev: rgb(0 0 0 / 0.9);
+    }
+  }
+
+  :root[data-theme="dark"]:has(main[data-paper]) {
+    --canvas: 20 18 15;
+    --surface: 28 25 21;
+    --raised: 37 33 28;
+    --line: 54 48 42;
+    --control: 128 119 108;
+    --ink: 242 236 225;
+    --muted: 173 164 150;
+    --elev: rgb(0 0 0 / 0.9);
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;

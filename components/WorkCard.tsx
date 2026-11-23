@@ -2,30 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Arrow from "./Arrow";
+import Metric from "./Metric";
 import type { Project } from "@/lib/data";
 import { localeHref } from "@/lib/i18n";
 import { useLocale } from "@/lib/useLocale";
-
-/** The web fonts are subsetted without arrow glyphs, so "30% → 55%" draws its arrow as an icon. */
-function Metric({ value }: { value: string }) {
-  const parts = value.split("→");
-  return (
-    <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          {i > 0 && (
-            <>
-              <span className="sr-only">→</span>
-              <Arrow size={20} className="relative -top-[0.07em] mx-1 align-middle [&_svg]:h-[0.6em] [&_svg]:w-[0.6em]" />
-            </>
-          )}
-          {part.trim()}
-        </span>
-      ))}
-    </>
-  );
-}
 
 /**
  * A project as an editorial entry rather than a boxed card: the screen, then the words,
