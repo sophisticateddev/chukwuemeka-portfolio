@@ -11,14 +11,14 @@ export const eBillsFr: CaseStudy = {
     problem:
       "Payer une facture à la banque voulait dire que chaque banque configurait chaque facturier à sa façon. NIBSS avait besoin d’une plateforme commune où n’importe quelle banque pourrait intégrer des facturiers, pour que les guichetiers de tout le pays règlent rapidement la facture d’un client, et pour que d’autres applications puissent se brancher et vendre les mêmes factures.",
     did:
-      "Comme l’un des cinq designers, j’ai conçu des portails pour 19 rôles utilisateurs répartis entre NIBSS, les banques et les facturiers : intégration, produits et frais, approbations, transactions et litiges. J’ai travaillé directement avec notre interlocuteur chez NIBSS et le personnel de banques clés pour bien cerner les règles et la documentation, et je me suis rendu en agence pour voir comment les guichetiers géraient alors les factures.",
+      "Comme l’un des cinq designers, j’ai conçu des portails pour 19 rôles utilisateurs répartis entre NIBSS, les banques et les facturiers : intégration, produits et frais, approbations, transactions et litiges. J’ai travaillé directement avec notre interlocuteur chez NIBSS et le personnel de banques clés pour bien cerner les règles et la documentation, et je me suis rendu en agence pour voir comment les guichetiers géraient alors les factures.",
     result:
       "La plateforme est utilisée par les banques et d’autres institutions financières dans tout le Nigeria. NIBSS a déclaré 1,1 million de transactions e-BillsPay, pour 2 200 milliards de nairas, en 2021.",
   },
   metrics: [
     { value: "2 200 Md ₦", label: "payés via e-BillsPay en 2021 (fiche d’information NIBSS)" },
     { value: "1,1 M", label: "de transactions cette année-là" },
-    { value: "3", label: "niveaux sur une même plateforme : NIBSS, banques, facturiers" },
+    { value: "3", label: "niveaux sur une même plateforme : NIBSS, banques, facturiers" },
     { value: "19", label: "rôles utilisateurs, chacun avec sa propre vue" },
   ],
   hero: {
@@ -38,12 +38,12 @@ export const eBillsFr: CaseStudy = {
   context: {
     takeaway: "Chaque banque et chaque facturier devaient se retrouver au même endroit.",
     body: [
-      "NIBSS exploite l’infrastructure de paiement commune aux banques nigérianes. E-Bills est son service de paiement de factures : un client entre dans une agence, ou ouvre l’application de sa banque, et paie par exemple un abonnement télé, l’électricité ou un impôt.",
+      "NIBSS exploite l’infrastructure de paiement commune aux banques nigérianes. E-Bills est son service de paiement de factures : un client entre dans une agence, ou ouvre l’application de sa banque, et paie par exemple un abonnement télé, l’électricité ou un impôt.",
       "Pour que cela fonctionne partout, il fallait une plateforme d’agrégation unique. Une banque doit configurer un facturier une seule fois, avec ses produits et ses frais. Un guichetier, dans n’importe quelle agence, doit trouver ce facturier et régler la facture en quelques étapes. Le facturier doit voir l’argent arriver et ouvrir un litige quand ce n’est pas le cas. Et NIBSS doit superviser l’ensemble.",
-      "Un second besoin s’ajoutait aux portails : des API, pour que des applications de commerçants et de fintechs puissent se brancher et permettre à leurs propres clients de payer les mêmes factures.",
+      "Un second besoin s’ajoutait aux portails : des API, pour que des applications de commerçants et de fintechs puissent se brancher et permettre à leurs propres clients de payer les mêmes factures.",
     ],
     constraints: [
-      "Travail client sous accord de confidentialité : les noms, numéros de compte, frais et chiffres des écrans sont floutés",
+      "Travail client sous accord de confidentialité : les noms, numéros de compte, frais et chiffres des écrans sont floutés",
       "Un environnement réglementé où la plupart des changements exigent l’approbation d’une seconde personne",
       "De nombreuses organisations, chacune avec son personnel, ses agences et ses autorisations",
       "Cette étude de cas présente un échantillon des écrans, pas tout le système",
@@ -75,7 +75,7 @@ export const eBillsFr: CaseStudy = {
       { title: "Les contrôles passent en premier", body: "Dans une institution financière, rien n’est mis en service sur la seule décision d’une personne. Quelqu’un configure, quelqu’un d’autre approuve." },
       { title: "Un très grand nombre d’utilisateurs", body: "Le personnel de NIBSS, de chaque banque et agence, et de chaque facturier utilise le même système, pour des métiers très différents." },
       { title: "Les règles existaient déjà", body: "Les frais, le règlement et les plafonds suivent des règles fixées par NIBSS. Le design devait rendre ces règles visibles au lieu de laisser les gens s’en souvenir." },
-      { title: "Les guichetiers ont besoin de rapidité", body: "Au guichet, un client attend : la configuration se fait donc une fois, à l’avance, et le paiement reste court." },
+      { title: "Les guichetiers ont besoin de rapidité", body: "Au guichet, un client attend : la configuration se fait donc une fois, à l’avance, et le paiement reste court." },
     ],
   },
 
@@ -108,7 +108,7 @@ export const eBillsFr: CaseStudy = {
       {
         title: "Dix-neuf rôles, chacun avec son propre menu",
         context: "Le système compte un très grand nombre d’utilisateurs aux métiers très différents, et les institutions financières ont besoin de contrôles entre eux. Tout montrer à tout le monde noierait la tâche quotidienne d’un guichetier ou d’un facturier, et permettrait à une seule personne d’en faire trop.",
-        choice: "Dix-neuf rôles : trois chez le facturier, neuf à la banque et sept chez NIBSS, la plupart en paires créateur et approbateur. Un créateur d’agence a un approbateur d’agence, un guichetier de paiement a un approbateur de paiement, et ainsi de suite jusqu’à NIBSS. Le menu change selon le rôle, et les administrateurs définissent ce que chaque rôle peut faire dans une grille simple.",
+        choice: "Dix-neuf rôles : trois chez le facturier, neuf à la banque et sept chez NIBSS, la plupart en paires créateur et approbateur. Un créateur d’agence a un approbateur d’agence, un guichetier de paiement a un approbateur de paiement, et ainsi de suite jusqu’à NIBSS. Le menu change selon le rôle, et les administrateurs définissent ce que chaque rôle peut faire dans une grille simple.",
         why: "Personne ne peut à la fois faire et approuver la même modification, chacun apprend un menu court, et il y a moins de place pour l’erreur.",
       },
       {
@@ -124,16 +124,16 @@ export const eBillsFr: CaseStudy = {
     takeaway: "Un échantillon des écrans, du sommet du système vers le bas.",
     intro: "Les informations sensibles sont floutées. La mise en page, la structure et les textes sont tels qu’ils ont été conçus (en anglais).",
     shots: [
-      { src: img("institution-type"), alt: "Administrateur NIBSS choisissant le type d’institution à créer : types de banques, prestataires de services de paiement ou super-agent", caption: "NIBSS : choisir le type d’institution à intégrer." },
-      { src: img("institution-wizard"), alt: "Étape 1 sur 4 de la création d’une institution, avec les informations bancaires floutées", caption: "NIBSS : une longue configuration découpée en quatre étapes." },
-      { src: img("branch-limits"), alt: "Administrateur de banque configurant une agence avec des plafonds de transaction distincts pour l’agence et pour les guichetiers, valeurs floutées", caption: "Banque : configuration d’une agence, avec des plafonds pour l’agence et ses guichetiers." },
-      { src: img("add-product"), alt: "Utilisateur de banque ajoutant le produit d’un facturier avec le type de montant et les options de frais, détails floutés", caption: "Banque : ajouter le produit d’un facturier et ses frais." },
-      { src: img("narration"), alt: "Écran de libellé où les informations du paiement et du facturier sont ordonnées comme elles apparaîtront dans la description du paiement", caption: "Banque : organiser ce qui apparaît dans le libellé d’un paiement." },
-      { src: img("billing"), alt: "Écran de facturation avec la fréquence des frais et la personne qui les supporte; choisir « hebdomadaire » désactive l’option payeur", caption: "Banque : un choix désactive les options qui ne s’appliquent plus." },
-      { src: img("approvals"), alt: "Liste de l’approbateur avec les facturiers en attente d’approbation, noms et numéros floutés", caption: "Banque : la file de l’approbateur, avec les demandes resoumises signalées." },
-      { src: img("permissions"), alt: "Grille d’autorisations montrant ce qu’un rôle peut approuver, traiter, consulter, modifier et supprimer", caption: "Banque : ce que chaque rôle peut faire, dans une seule grille." },
-      { src: img("biller-create-user"), alt: "Administrateur facturier créant un utilisateur avec un rôle, un canal, un État et des produits attribués, détails floutés", caption: "Facturier : créer un utilisateur, qui doit ensuite être approuvé." },
-      { src: img("biller-approvals"), alt: "Liste de l’autorisateur facturier avec les utilisateurs en attente d’approbation, noms floutés", caption: "Facturier : l’autorisateur approuve ou refuse." },
+      { src: img("institution-type"), alt: "Administrateur NIBSS choisissant le type d’institution à créer : types de banques, prestataires de services de paiement ou super-agent", caption: "NIBSS : choisir le type d’institution à intégrer." },
+      { src: img("institution-wizard"), alt: "Étape 1 sur 4 de la création d’une institution, avec les informations bancaires floutées", caption: "NIBSS : une longue configuration découpée en quatre étapes." },
+      { src: img("branch-limits"), alt: "Administrateur de banque configurant une agence avec des plafonds de transaction distincts pour l’agence et pour les guichetiers, valeurs floutées", caption: "Banque : configuration d’une agence, avec des plafonds pour l’agence et ses guichetiers." },
+      { src: img("add-product"), alt: "Utilisateur de banque ajoutant le produit d’un facturier avec le type de montant et les options de frais, détails floutés", caption: "Banque : ajouter le produit d’un facturier et ses frais." },
+      { src: img("narration"), alt: "Écran de libellé où les informations du paiement et du facturier sont ordonnées comme elles apparaîtront dans la description du paiement", caption: "Banque : organiser ce qui apparaît dans le libellé d’un paiement." },
+      { src: img("billing"), alt: "Écran de facturation avec la fréquence des frais et la personne qui les supporte; choisir « hebdomadaire » désactive l’option payeur", caption: "Banque : un choix désactive les options qui ne s’appliquent plus." },
+      { src: img("approvals"), alt: "Liste de l’approbateur avec les facturiers en attente d’approbation, noms et numéros floutés", caption: "Banque : la file de l’approbateur, avec les demandes resoumises signalées." },
+      { src: img("permissions"), alt: "Grille d’autorisations montrant ce qu’un rôle peut approuver, traiter, consulter, modifier et supprimer", caption: "Banque : ce que chaque rôle peut faire, dans une seule grille." },
+      { src: img("biller-create-user"), alt: "Administrateur facturier créant un utilisateur avec un rôle, un canal, un État et des produits attribués, détails floutés", caption: "Facturier : créer un utilisateur, qui doit ensuite être approuvé." },
+      { src: img("biller-approvals"), alt: "Liste de l’autorisateur facturier avec les utilisateurs en attente d’approbation, noms floutés", caption: "Facturier : l’autorisateur approuve ou refuse." },
     ],
   },
 

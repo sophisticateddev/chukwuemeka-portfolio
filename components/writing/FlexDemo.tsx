@@ -27,8 +27,8 @@ const copy = {
     horizontal: "Horizontale",
     vertical: "Verticale",
     gap: "Espacement",
-    autoLayout: "Auto layout : activé",
-    figmaDirection: (row: boolean) => `Direction : ${row ? "horizontale" : "verticale"}`,
+    autoLayout: "Auto layout : activé",
+    figmaDirection: (row: boolean) => `Direction : ${row ? "horizontale" : "verticale"}`,
     spacing: "Espacement entre",
     preview: (row: boolean, gap: number, align: string) =>
       `Aperçu : trois éléments disposés ${row ? "à l’horizontale" : "à la verticale"}, espacement de ${gap} pixels, alignés au ${align}`,

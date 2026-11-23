@@ -6,7 +6,7 @@ export default function Article() {
       <p>
         Quand j’ai travaillé sur albert, la plateforme de durabilité de BAFTA pour l’industrie
         audiovisuelle, respecter les normes WCAG était un objectif explicite. J’en suis ressorti
-        avec une phrase que je répète depuis dans chaque équipe : le produit doit fonctionner pour
+        avec une phrase que je répète depuis dans chaque équipe : le produit doit fonctionner pour
         tous ceux qui font du cinéma et de la télévision. Y compris la productrice qui lit sur un
         téléphone fissuré en plein soleil, le monteur qui navigue uniquement au clavier, et
         l’assistant de plateau daltonien qui ne l’a jamais mentionné.
@@ -15,7 +15,7 @@ export default function Article() {
         L’accessibilité n’est pas une fonctionnalité qu’on ajoute à la fin. C’est un minimum, comme
         l’orthographe. Voici cinq points que je vérifie à chaque revue de design. Aucun ne demande
         de spécialiste, et tous améliorent le produit pour tout le monde, pas seulement pour les
-        personnes auxquelles on pense d’habitude quand on dit « accessibilité ».
+        personnes auxquelles on pense d’habitude quand on dit « accessibilité ».
       </p>
 
       <Quote cite="Tim Berners-Lee, W3C, 1997 (traduit de l’anglais)">
@@ -36,13 +36,13 @@ export default function Article() {
         dontLabel="Gris pâle sur blanc, environ 1,9:1. Élégant, et illisible dehors."
         doLabel="Encre foncée sur blanc, bien au-delà de 4,5:1. Toujours sobre, enfin lisible."
         dont={
-          <div role="img" aria-label="Exemple : texte gris pâle sur une carte blanche" className="w-full rounded-xl bg-white p-5">
+          <div role="img" aria-label="Exemple : texte gris pâle sur une carte blanche" className="w-full rounded-xl bg-white p-5">
             <p className="font-display text-lg font-semibold text-[#B5B5B5]">Paiement programmé</p>
             <p className="mt-1 text-sm text-[#C4C4C4]">Votre prochain remboursement est le 12 mars.</p>
           </div>
         }
         doThis={
-          <div role="img" aria-label="Exemple : texte foncé sur une carte blanche" className="w-full rounded-xl bg-white p-5">
+          <div role="img" aria-label="Exemple : texte foncé sur une carte blanche" className="w-full rounded-xl bg-white p-5">
             <p className="font-display text-lg font-semibold text-[#111]">Paiement programmé</p>
             <p className="mt-1 text-sm text-[#4A4A4A]">Votre prochain remboursement est le 12 mars.</p>
           </div>
@@ -77,7 +77,7 @@ export default function Article() {
               <span aria-hidden="true" className="flex h-4 w-4 items-center justify-center rounded-full bg-[#E5484D] text-[10px] font-bold text-white">
                 !
               </span>
-              Vérifiez l’orthographe : vouliez-vous dire gmail.com?
+              Vérifiez l’orthographe : vouliez-vous dire gmail.com?
             </p>
           </div>
         }
@@ -85,7 +85,7 @@ export default function Article() {
 
       <h2>3. Concevez l’état de focus, ne le supprimez pas</h2>
       <p>
-        Beaucoup de gens ne touchent jamais une souris : les utilisateurs du clavier, ceux qui
+        Beaucoup de gens ne touchent jamais une souris : les utilisateurs du clavier, ceux qui
         utilisent un contacteur, ceux dont le pavé tactile est en panne. Le contour de focus, c’est
         leur curseur. Les designers le cachent souvent parce que celui du navigateur est laid. La
         solution n’est pas de le retirer, c’est d’<strong>en concevoir un meilleur</strong> et de le
@@ -111,7 +111,7 @@ export default function Article() {
         }
       />
       <p>
-        Essayez sur cette page : appuyez plusieurs fois sur <code>Tab</code>. Chaque lien et chaque
+        Essayez sur cette page : appuyez plusieurs fois sur <code>Tab</code>. Chaque lien et chaque
         bouton atteint devrait être évident. Si ce n’est pas le cas, c’est un bogue, et j’aimerais
         sincèrement le savoir.
       </p>
@@ -126,7 +126,7 @@ export default function Article() {
       </p>
       <DoDont
         locale="fr"
-        dontLabel="Une icône minuscule, sans libellé. Le lecteur d’écran annonce « bouton »."
+        dontLabel="Une icône minuscule, sans libellé. Le lecteur d’écran annonce « bouton »."
         doLabel="Une cible de 44 pt avec un libellé visible, ou au minimum un aria-label dans la spécification."
         dont={
           <span className="flex h-6 w-6 items-center justify-center rounded border border-control text-xs text-ink">
@@ -155,7 +155,7 @@ export default function Article() {
       </ul>
 
       <Callout label="La revue de 5 minutes">
-        <p>Avant votre prochaine passation, parcourez ces points à voix haute avec l’équipe :</p>
+        <p>Avant votre prochaine passation, parcourez ces points à voix haute avec l’équipe :</p>
         <ol className="list-decimal space-y-2 pl-5 marker:text-accent">
           <li>Tout le texte atteint-il 4,5:1, et les éléments d’interface 3:1?</li>
           <li>Une information passe-t-elle uniquement par la couleur?</li>

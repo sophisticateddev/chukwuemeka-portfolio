@@ -204,10 +204,10 @@
     @apply mt-6;
   }
   .prose-article > :where(h2):not(.not-prose) {
-    @apply mt-16 font-display text-3xl font-semibold leading-tight tracking-tight text-ink;
+    @apply mt-16 font-serif text-[2rem] font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[2.25rem];
   }
   .prose-article > :where(h3):not(.not-prose) {
-    @apply mt-10 font-display text-xl font-semibold tracking-tight text-ink;
+    @apply mt-10 font-serif text-2xl font-medium tracking-[-0.01em] text-ink;
   }
   .prose-article :where(strong) {
     @apply font-semibold text-ink;
@@ -228,7 +228,7 @@
     @apply rounded bg-raised px-1.5 py-0.5 font-mono text-[0.85em] text-ink;
   }
   .prose-article > p:first-of-type::first-letter {
-    @apply float-left mr-3 mt-1 font-display text-6xl font-semibold leading-[0.85] text-accent;
+    @apply float-left mr-3 mt-1 font-serif text-7xl font-medium leading-[0.8] text-accent;
   }
 
   /* Underline that grows from the left on hover / keyboard focus */

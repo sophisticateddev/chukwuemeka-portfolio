@@ -15,7 +15,7 @@ export function Figure({ children, caption, wide = false }: { children: ReactNod
 export function Quote({ children, cite }: { children: ReactNode; cite?: string }) {
   return (
     <figure className="not-prose my-10 border-l-2 border-accent pl-6 md:pl-8">
-      <blockquote className="font-display text-2xl font-semibold leading-snug tracking-tight md:text-3xl">
+      <blockquote className="font-serif text-2xl font-medium italic leading-snug md:text-[2rem]">
         {children}
       </blockquote>
       {cite && <figcaption className="mt-4 font-mono text-sm text-muted">— {cite}</figcaption>}
@@ -25,8 +25,8 @@ export function Quote({ children, cite }: { children: ReactNode; cite?: string }
 
 export function Callout({ label = "Try this", children }: { label?: string; children: ReactNode }) {
   return (
-    <aside className="not-prose my-10 rounded-2xl border border-line bg-surface p-6 md:p-7">
-      <p className="eyebrow text-accent">{label}</p>
+    <aside className="not-prose my-10 border-t-2 border-accent bg-surface p-6 md:p-7">
+      <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{label}</p>
       <div className="mt-3 space-y-3 text-ink">{children}</div>
     </aside>
   );
@@ -66,7 +66,7 @@ export function DoDont({
               </svg>
             </span>
             <span>
-              <strong className="text-ink">{c.ok ? (locale === "fr" ? "À faire : " : "Do: ") : locale === "fr" ? "À éviter : " : "Don’t: "}</strong>
+              <strong className="text-ink">{c.ok ? (locale === "fr" ? "À faire : " : "Do: ") : locale === "fr" ? "À éviter : " : "Don’t: "}</strong>
               <span className="text-muted">{c.label}</span>
             </span>
           </figcaption>

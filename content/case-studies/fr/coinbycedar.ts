@@ -7,16 +7,16 @@ export const coinbycedarFr: CaseStudy = {
   roles: ["Designer UX/UI senior", "Direction d’une équipe de 2 designers", "Mobile et Web"],
   summary: {
     problem:
-      "Les plateformes crypto supposaient que les utilisateurs comprenaient la finance et parlaient un jargon technique : les débutants étaient dépassés avant même leur première transaction.",
+      "Les plateformes crypto supposaient que les utilisateurs comprenaient la finance et parlaient un jargon technique : les débutants étaient dépassés avant même leur première transaction.",
     did:
-      "J’ai mené la recherche et l’analyse concurrentielle pendant la pandémie, puis conçu un portefeuille pour le mobile et le Web : inscription avec vérification d’identité (KYC), achat, vente, envoi et réception, un marché en direct et une page d’accueil pensée pour convertir.",
+      "J’ai mené la recherche et l’analyse concurrentielle pendant la pandémie, puis conçu un portefeuille pour le mobile et le Web : inscription avec vérification d’identité (KYC), achat, vente, envoi et réception, un marché en direct et une page d’accueil pensée pour convertir.",
     result:
       "Un portefeuille crypto qui réduit la charge cognitive à chaque étape, avec les soldes visibles d’un coup d’œil et des parcours en langage clair.",
   },
   metrics: [
-    { value: "2", label: "plateformes : mobile et Web" },
-    { value: "4", label: "actions clés : acheter, vendre, envoyer, recevoir" },
-    { value: "2", label: "leaders du marché analysés : Binance, Luno" },
+    { value: "2", label: "plateformes : mobile et Web" },
+    { value: "4", label: "actions clés : acheter, vendre, envoyer, recevoir" },
+    { value: "2", label: "leaders du marché analysés : Binance, Luno" },
     { value: "KYC", label: "intégré à l’inscription" },
   ],
   hero: {
@@ -34,11 +34,11 @@ export const coinbycedarFr: CaseStudy = {
   context: {
     takeaway: "La crypto était faite pour les initiés. Nous l’avons conçue pour tous les autres.",
     body: [
-      "Coinbycedar3 est un portefeuille crypto pour le Web et le mobile : acheter, vendre, envoyer et recevoir des cryptomonnaies, suivre les cours et l’actualité crypto, le tout relié à une passerelle de paiement mondiale.",
-      "La plupart des gens ne comprennent pas le trading de cryptomonnaies, et la plupart des plateformes sont trop compliquées. Notre travail : rendre la première transaction rassurante et évidente.",
+      "Coinbycedar3 est un portefeuille crypto pour le Web et le mobile : acheter, vendre, envoyer et recevoir des cryptomonnaies, suivre les cours et l’actualité crypto, le tout relié à une passerelle de paiement mondiale.",
+      "La plupart des gens ne comprennent pas le trading de cryptomonnaies, et la plupart des plateformes sont trop compliquées. Notre travail : rendre la première transaction rassurante et évidente.",
     ],
     constraints: [
-      "Recherche pendant la COVID-19 : tous les entretiens se sont faits à distance",
+      "Recherche pendant la COVID-19 : tous les entretiens se sont faits à distance",
       "Vérifications d’identité (KYC) strictes pour prévenir la fraude",
     ],
   },
@@ -89,7 +89,7 @@ export const coinbycedarFr: CaseStudy = {
         title: "Un solde, puis le détail",
         context: "Un portefeuille réparti sur de nombreuses cryptomonnaies est difficile à lire.",
         choice: "Un portefeuille qui affiche d’abord le solde total, puis le solde de chaque cryptomonnaie en dessous.",
-        why: "Répond à « où en suis-je? » avant « qu’est-ce que je détiens? ».",
+        why: "Répond à « où en suis-je? » avant « qu’est-ce que je détiens? ».",
       },
       {
         title: "Recevoir avec un code QR ou une adresse",
@@ -131,7 +131,7 @@ export const coinbycedarFr: CaseStudy = {
     takeaway: "La même simplicité sur un plus grand écran.",
     shots: [
       { src: img("web-dashboard"), alt: "Tableau de bord Web avec le portefeuille et les avoirs", caption: "Tableau de bord du portefeuille." },
-      { src: img("web-landing"), alt: "Page d’accueil : acheter et vendre des cryptomonnaies n’a jamais été aussi simple", caption: "Une page d’accueil conçue pour convertir." },
+      { src: img("web-landing"), alt: "Page d’accueil : acheter et vendre des cryptomonnaies n’a jamais été aussi simple", caption: "Une page d’accueil conçue pour convertir." },
       { src: img("web-coin"), alt: "Page de détail d’une cryptomonnaie avec graphique et panneau d’ordre", caption: "Détail d’une cryptomonnaie avec panneau de trading." },
       { src: img("web-buy"), alt: "Formulaire d’achat de cryptomonnaies avec récapitulatif de l’ordre", caption: "Acheter sur le Web." },
     ],

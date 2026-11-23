@@ -9,11 +9,11 @@ export const carbonZeroFr: CaseStudy = {
   roles: ["Designer produit principal", "Animateur du sprint de design", "De la recherche à la livraison aux développeurs"],
   summary: {
     problem:
-      "Carbon Zero permet d’acheter aujourd’hui et de payer en plusieurs fois à 0 % d’intérêt, mais le parcours était lent, demandait trop d’informations et ne mettait pas le « zéro » en évidence.",
+      "Carbon Zero permet d’acheter aujourd’hui et de payer en plusieurs fois à 0 % d’intérêt, mais le parcours était lent, demandait trop d’informations et ne mettait pas le « zéro » en évidence.",
     did:
       "J’ai mené la découverte avec des clients, des commerçants et des parties prenantes, animé un sprint de design, et repensé le tableau de bord ainsi que les parcours d’achat, de paiement et de remboursement.",
     result:
-      "Un parcours d’achat plus rapide avec une option de paiement immédiat, une action « Payer en avance » bien visible qui a amélioré les remboursements anticipés, et des reçus partageables auxquels les commerçants font confiance.",
+      "Un parcours d’achat plus rapide avec une option de paiement immédiat, une action « Payer en avance » bien visible qui a amélioré les remboursements anticipés, et des reçus partageables auxquels les commerçants font confiance.",
   },
   metrics: [
     { value: "0 %", label: "d’intérêt, rappelé à chaque étape" },
@@ -35,13 +35,13 @@ export const carbonZeroFr: CaseStudy = {
   context: {
     takeaway: "Le crédit ne fonctionne que si les gens lui font confiance et le comprennent en quelques secondes.",
     body: [
-      "Carbon Zero est un produit de paiement différé : les clients achètent aujourd’hui et étalent leurs paiements sans intérêt. L’objectif à long terme : en faire l’un des trois moyens de paiement préférés des consommateurs.",
-      "Pour y arriver, tout le parcours devait sembler instantané et la promesse « 0 % d’intérêt » devait être impossible à manquer, tout en protégeant l’entreprise contre les remboursements manqués.",
+      "Carbon Zero est un produit de paiement différé : les clients achètent aujourd’hui et étalent leurs paiements sans intérêt. L’objectif à long terme : en faire l’un des trois moyens de paiement préférés des consommateurs.",
+      "Pour y arriver, tout le parcours devait sembler instantané et la promesse « 0 % d’intérêt » devait être impossible à manquer, tout en protégeant l’entreprise contre les remboursements manqués.",
     ],
     constraints: [
-      "Le remboursement protège l’entreprise : il devait rester visible sans paraître menaçant",
+      "Le remboursement protège l’entreprise : il devait rester visible sans paraître menaçant",
       "L’obtention d’une carte pouvait prendre jusqu’à une semaine, trop lent pour un achat en magasin",
-      "Sous accord de confidentialité : les informations personnelles des écrans ci-dessous sont floutées",
+      "Sous accord de confidentialité : les informations personnelles des écrans ci-dessous sont floutées",
     ],
   },
 
@@ -63,7 +63,7 @@ export const carbonZeroFr: CaseStudy = {
     takeaway: "Un sprint de design nous a menés des risques aux croquis, puis à un plan.",
     steps: [
       { title: "Écouter", body: "Des échanges avec des clients, des commerçants et des parties prenantes pour comprendre ce qui ralentissait les achats." },
-      { title: "Cartographier", body: "Une carte de sprint avec l’objectif à long terme, les indicateurs à suivre, les risques et des questions « Comment pourrions-nous… »." },
+      { title: "Cartographier", body: "Une carte de sprint avec l’objectif à long terme, les indicateurs à suivre, les risques et des questions « Comment pourrions-nous… »." },
       { title: "Esquisser et décider", body: "Des Crazy 8 où aucune idée n’était trop folle, puis un vote sur les concepts à prototyper." },
     ],
     artifacts: [
@@ -79,7 +79,7 @@ export const carbonZeroFr: CaseStudy = {
         title: "Payer par virement, sur place",
         context: "Obtenir une carte Carbon pouvait prendre jusqu’à une semaine, beaucoup trop pour quelqu’un qui attend à la caisse.",
         choice: "Ajout du virement vers le compte du commerçant comme option de paiement, en plus de la carte.",
-        why: "Les clients peuvent finaliser leur achat immédiatement, ce que « acheter maintenant » devrait vouloir dire.",
+        why: "Les clients peuvent finaliser leur achat immédiatement, ce que « acheter maintenant » devrait vouloir dire.",
       },
       {
         title: "Choisir le montant et l’étalement ensemble",
@@ -88,9 +88,9 @@ export const carbonZeroFr: CaseStudy = {
         why: "Moins d’étapes, et le 0 % d’intérêt est visible juste à côté des chiffres.",
       },
       {
-        title: "Rendre « Payer en avance » impossible à manquer",
+        title: "Rendre « Payer en avance » impossible à manquer",
         context: "Le crédit impayé nuit à l’entreprise, et le remboursement anticipé était caché.",
-        choice: "Un bouton « Payer en avance » bien visible dans le détail de l’achat, avec l’échéancier complet en dessous.",
+        choice: "Un bouton « Payer en avance » bien visible dans le détail de l’achat, avec l’échéancier complet en dessous.",
         why: "Les remboursements anticipés se sont améliorés sans que les clients se sentent relancés.",
       },
       {
@@ -103,7 +103,7 @@ export const carbonZeroFr: CaseStudy = {
   },
 
   before: {
-    takeaway: "Le point de départ : une bonne idée cachée derrière un parcours lent.",
+    takeaway: "Le point de départ : une bonne idée cachée derrière un parcours lent.",
     shots: [
       { src: img("before-dashboard"), alt: "Ancien tableau de bord Carbon Zero, vide", caption: "Un point de départ vide et peu clair." },
       { src: img("before-fund"), alt: "Ancien formulaire de financement d’un achat, avec de nombreux champs", caption: "Trop de questions dès le départ." },
@@ -114,13 +114,13 @@ export const carbonZeroFr: CaseStudy = {
   mobile: {
     takeaway: "Acheter, étaler et rembourser, en misant sur la vitesse et la clarté.",
     shots: [
-      { src: img("welcome"), alt: "Écran d’accueil Carbon Zero : achetez ce que vous voulez, payez en 4 fois à 0 % d’intérêt", caption: "La promesse, dès le départ." },
+      { src: img("welcome"), alt: "Écran d’accueil Carbon Zero : achetez ce que vous voulez, payez en 4 fois à 0 % d’intérêt", caption: "La promesse, dès le départ." },
       { src: img("dashboard"), alt: "Tableau de bord avec la limite de dépenses et l’historique des achats", caption: "La limite de dépenses et chaque achat d’un coup d’œil." },
       { src: img("new-purchase"), alt: "Nouvel achat avec plan de versements et curseur d’acompte", caption: "Le montant et le plan sur un seul écran." },
       { src: img("payment-options"), alt: "Choix entre la carte Carbon et le virement vers le compte du commerçant", caption: "Payer par carte ou par virement." },
       { src: img("purchase-summary"), alt: "Récapitulatif de l’achat avec les frais et le montant dû aujourd’hui", caption: "Aucune surprise au paiement." },
-      { src: img("purchase-details"), alt: "Détail de l’achat avec le bouton Payer en avance et l’échéancier", caption: "« Payer en avance », bien en vue." },
-      { src: img("repay"), alt: "Écran de remboursement : prochain versement ou remboursement total", caption: "Rembourser en deux touches." },
+      { src: img("purchase-details"), alt: "Détail de l’achat avec le bouton Payer en avance et l’échéancier", caption: "« Payer en avance », bien en vue." },
+      { src: img("repay"), alt: "Écran de remboursement : prochain versement ou remboursement total", caption: "Rembourser en deux touches." },
       { src: img("receipt"), alt: "Reçu de transaction partageable (informations personnelles floutées)", caption: "Une preuve de paiement à partager." },
     ],
   },

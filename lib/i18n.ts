@@ -309,7 +309,7 @@ const fr: Dictionary = {
     line1: "Je conçois.",
     line2: "Puis je livre le code.",
     subhead:
-      "Designer produit qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
+      "Designer produit qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
     viewWork: "Voir mes projets",
     shippedAt: "Produits livrés chez",
     portraitAlt: "Portrait de Chukwuemeka Iheonye, souriant, en polo",
@@ -342,7 +342,7 @@ const fr: Dictionary = {
     label: "Projets",
     title: "Tous les projets,",
     titleMuted: "de la banque à un jeu construit avec l’IA.",
-    intro: "Des études de cas tirées de sept ans de design produit : fintech, logistique, outils d’entreprise et produits grand public.",
+    intro: "Des études de cas tirées de sept ans de design produit : fintech, logistique, outils d’entreprise et produits grand public.",
     library: {
       text: "J’ai aussi construit les composants de ce site et je les ai documentés dans Storybook, avec des tests d’accessibilité sur chacun.",
       link: "Voir la bibliothèque de composants",
@@ -352,9 +352,9 @@ const fr: Dictionary = {
     proofLabel: "La preuve par l’exemple",
     proofTitle: "Ce portfolio a été repensé et codé avec Claude Code.",
     proofBody:
-      "C’est la méthode que j’apporte aux équipes produit : un brief clair, un design system et du code relu, accessible et livré.",
+      "C’est la méthode que j’apporte aux équipes produit : un brief clair, un design system et du code relu, accessible et livré.",
     terminal: {
-      prompt: "refonte : plus affirmée, plus épurée, accessible",
+      prompt: "refonte : plus affirmée, plus épurée, accessible",
       steps: [
         "lecture des composants, des données et des tokens",
         "nouvelle échelle typographique et tokens de couleur",
@@ -368,7 +368,7 @@ const fr: Dictionary = {
     label: "Parcours",
     title: "Sept ans, de la recherche",
     titleMuted: "au produit livré.",
-    earlier: "Avant :",
+    earlier: "Avant :",
     fullHistory: "Parcours complet dans mon CV (en anglais)",
   },
   testimonials: {
@@ -384,7 +384,7 @@ const fr: Dictionary = {
     titleMuted: "Que ça fonctionne compte encore plus.",
     paragraphs: [
       "Je m’appelle Chukwuemeka. Je suis designer produit, j’ai grandi au Nigeria et je vis aujourd’hui au Royaume-Uni. Depuis plus de 7 ans, je conçois des produits numériques pour des organisations comme BAFTA, Carbon MFB et Writesea, et je suis aujourd’hui cofondateur de Character Guess, un jeu que j’ai conçu et construit avec l’IA.",
-      "Je travaille sur tout le cycle de vie : m’asseoir avec les utilisateurs pour trouver ce qui ne fonctionne vraiment pas, façonner le système, et désormais le construire moi-même avec l’IA, pour que les développeurs reçoivent quelque chose de concret plutôt que trois allers-retours.",
+      "Je travaille sur tout le cycle de vie : m’asseoir avec les utilisateurs pour trouver ce qui ne fonctionne vraiment pas, façonner le système, et désormais le construire moi-même avec l’IA, pour que les développeurs reçoivent quelque chose de concret plutôt que trois allers-retours.",
     ],
     closing: "Si le design est beau mais déroutant, il n’est pas encore terminé.",
     disciplines: "Disciplines",
@@ -408,12 +408,12 @@ const fr: Dictionary = {
     label: "Articles",
     title: "Notes sur l’IA,",
     titleMuted: "l’accessibilité et le métier.",
-    intro: "Des textes pratiques, tirés du terrain : ce que j’ai appris, ce que j’ai raté et ce que je ferais autrement.",
+    intro: "Des textes pratiques, tirés du terrain : ce que j’ai appris, ce que j’ai raté et ce que je ferais autrement.",
     showingAll: (n) => `Les ${n} articles sont affichés.`,
     more: (n) => `${n} autres sur l’accessibilité, l’IA, Figma et la méthode.`,
     showFewer: "Afficher moins",
     showAll: (n) => `Afficher les ${n} articles`,
-    external: (source) => `(sur ${source ?? "un site externe"}, s’ouvre dans un nouvel onglet)`,
+    external: (source) => `(sur ${source ?? "un site externe"}, s’ouvre dans un nouvel onglet)`,
   },
   contact: {
     label: "Contact",
@@ -469,7 +469,7 @@ const fr: Dictionary = {
     light: "Clair",
     dark: "Sombre",
     components: "Les composants et leurs états",
-    states: (name) => `États : ${name}`,
+    states: (name) => `États : ${name}`,
     motion: "Animation",
     builtIn: "Ce que nous avons intégré",
     audit: "Ce que mon audit a relevé, et la correction",
@@ -483,7 +483,7 @@ const fr: Dictionary = {
     comingNext: "À venir",
     next: "Étude de cas suivante",
     onThisPage: "Sur cette page",
-    shareAlt: (title) => `Étude de cas : ${title}`,
+    shareAlt: (title) => `Étude de cas : ${title}`,
   },
   article: {
     allWriting: "Tous les articles",

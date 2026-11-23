@@ -19,7 +19,7 @@ export default function Article() {
     <>
       <p>
         J’ai appris Flexbox avant l’Auto Layout, surtout par entêtement. Je voulais comprendre
-        pourquoi les développeurs répétaient que mes maquettes étaient « difficiles à construire ».
+        pourquoi les développeurs répétaient que mes maquettes étaient « difficiles à construire ».
         Puis Figma a lancé l’Auto Layout fin 2019, et j’ai eu une étrange impression de déjà-vu. Le
         panneau de droite, c’était Flexbox en veste de designer.
       </p>
@@ -33,7 +33,7 @@ export default function Article() {
       <p>
         Flexbox dispose les enfants le long d’un axe, avec des règles d’espacement et d’alignement,
         et laisse les éléments grandir ou rétrécir pour s’adapter. L’Auto Layout fait exactement la
-        même chose. Une fois la correspondance vue, impossible de l’oublier :
+        même chose. Une fois la correspondance vue, impossible de l’oublier :
       </p>
 
       <div className="not-prose my-10 overflow-x-auto rounded-2xl border border-line">
@@ -66,7 +66,7 @@ export default function Article() {
         vous écririez en code et ce que vous régleriez dans Figma. Le même conteneur, deux
         vocabulaires.
       </p>
-      <Figure caption="Interactif : un conteneur flex, décrit à la fois en CSS et dans les termes de Figma.">
+      <Figure caption="Interactif : un conteneur flex, décrit à la fois en CSS et dans les termes de Figma.">
         <FlexDemo />
       </Figure>
 
@@ -80,8 +80,8 @@ export default function Article() {
       </p>
       <h3>La passation devient une conversation, pas une traduction</h3>
       <p>
-        Quand je dis « c’est une pile verticale, écart de 16, marge de 24, les enfants remplissent la
-        largeur », un développeur peut l’écrire presque mot pour mot :
+        Quand je dis « c’est une pile verticale, écart de 16, marge de 24, les enfants remplissent la
+        largeur », un développeur peut l’écrire presque mot pour mot :
       </p>
       <Code label="card.css">{`.card {
   display: flex;
@@ -96,7 +96,7 @@ export default function Article() {
       <p>
         La plupart des frustrations avec l’Auto Layout viennent de l’imbrication. En CSS, personne
         ne construit une page avec un seul conteneur flex géant; on imbrique de petits conteneurs.
-        Traitez les cadres de la même façon : une ligne dans une colonne dans une carte. Chacun a
+        Traitez les cadres de la même façon : une ligne dans une colonne dans une carte. Chacun a
         un seul rôle.
       </p>
 

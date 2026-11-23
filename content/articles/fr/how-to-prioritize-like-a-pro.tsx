@@ -15,7 +15,7 @@ export default function Article() {
       <p>
         Avant que le design ne prenne toute ma vie, j’étais traiteur pour des événements. Des foules
         nombreuses, plusieurs plats, une seule cuisine, et un client qui veut le jollof en premier.
-        Ce qui me sauvait, ce n’était pas la vitesse. C’était la <strong>mise en place</strong> :
+        Ce qui me sauvait, ce n’était pas la vitesse. C’était la <strong>mise en place</strong> :
         avant d’allumer le feu, tout est coupé, mesuré et aligné dans l’ordre où on en aura besoin.
       </p>
       <p>
@@ -31,25 +31,25 @@ export default function Article() {
 
       <h2>1. Tout sortir de votre tête</h2>
       <p>
-        Chaque lundi, je vide ma tête : chaque tâche, demande, demi-promesse et « petit service »,
+        Chaque lundi, je vide ma tête : chaque tâche, demande, demi-promesse et « petit service »,
         sur une seule liste. On ne peut pas prioriser ce qu’on ne voit pas, et une tête pleine de
         choses en suspens donne l’impression que tout est urgent.
       </p>
 
       <h2>2. Placer l’impact face à l’effort</h2>
       <p>
-        Ensuite, je trie la liste selon deux questions : à quel point cela fera-t-il avancer le
+        Ensuite, je trie la liste selon deux questions : à quel point cela fera-t-il avancer le
         résultat qui compte, et combien cela coûtera-t-il? Ça paraît basique. Ça l’est. Mais ça met
-        fin à la plupart des débats, parce que « le mien est plus important » devient une image que
+        fin à la plupart des débats, parce que « le mien est plus important » devient une image que
         tout le monde peut regarder ensemble.
       </p>
       <Figure caption="Une matrice impact-effort d’une semaine typique. Les gains rapides d’abord, les grands paris planifiés, les gouffres remis en question.">
         <svg viewBox="0 0 640 380" role="img" aria-labelledby="matrix-desc-fr" className="h-auto w-full">
           <desc id="matrix-desc-fr">
-            Gains rapides, fort impact et faible effort : corriger le message d’erreur du paiement,
-            mettre à jour les états vides. Grands paris, fort impact et effort important : repenser
-            l’inscription, audit du design system. Bouche-trous, faible impact et faible effort :
-            ranger les icônes. Gouffre, faible impact et effort important : refaire les paramètres
+            Gains rapides, fort impact et faible effort : corriger le message d’erreur du paiement,
+            mettre à jour les états vides. Grands paris, fort impact et effort important : repenser
+            l’inscription, audit du design system. Bouche-trous, faible impact et faible effort :
+            ranger les icônes. Gouffre, faible impact et effort important : refaire les paramètres
             de zéro.
           </desc>
           <rect width="640" height="380" fill="rgb(var(--surface))" />
@@ -91,7 +91,7 @@ export default function Article() {
       <h2>4. Protéger le travail de fond comme une réunion</h2>
       <p>
         Le design demande de longues plages de réflexion sans interruption. Je bloque deux matinées
-        par semaine en « concentration » dans mon agenda, notifications coupées, et je les traite
+        par semaine en « concentration » dans mon agenda, notifications coupées, et je les traite
         exactement comme une réunion avec ma partie prenante la plus importante. Parce que c’en est
         une.
       </p>
@@ -100,23 +100,23 @@ export default function Article() {
       <p>
         La plupart des douleurs de priorisation sont en réalité des douleurs de communication. Quand
         quelqu’un vous confie une nouvelle demande, ne vous contentez pas de dire oui ou non. Rendez
-        le compromis visible :
+        le compromis visible :
       </p>
       <figure className="not-prose my-8 rounded-2xl border border-line bg-surface p-6">
         <figcaption className="eyebrow mb-3">Une formule que j’utilise</figcaption>
         <p className="font-display text-xl font-medium leading-relaxed text-ink">
-          « Avec plaisir. Pour le faire cette semaine, il faudrait repousser le parcours
-          d’inscription au prochain sprint. Qu’est-ce qui compte le plus pour vous en ce moment? »
+          « Avec plaisir. Pour le faire cette semaine, il faudrait repousser le parcours
+          d’inscription au prochain sprint. Qu’est-ce qui compte le plus pour vous en ce moment? »
         </p>
       </figure>
       <p>
-        Neuf fois sur dix, la réponse est « ah, l’inscription, ça peut attendre », et personne ne
+        Neuf fois sur dix, la réponse est « ah, l’inscription, ça peut attendre », et personne ne
         s’est senti ignoré.
       </p>
 
       <Callout label="Mes 15 minutes du vendredi">
         <ul className="list-disc space-y-2 pl-5 marker:text-accent">
-          <li>Vider la liste : fait, déléguer, abandonner ou planifier.</li>
+          <li>Vider la liste : fait, déléguer, abandonner ou planifier.</li>
           <li>Placer toute nouvelle tâche sur la matrice impact-effort.</li>
           <li>Choisir la priorité unique du lundi suivant avant de me déconnecter.</li>
           <li>Bloquer les matinées de concentration de la semaine suivante si ce n’est pas déjà fait.</li>

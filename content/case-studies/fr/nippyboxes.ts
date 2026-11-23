@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/lib/case-study";
 const img = (name: string) => `/images/work/nippyboxes/${name}.jpg`;
 
 export const nippyboxesFr: CaseStudy = {
-  headline: "Conception d’un « Uber de la livraison » qui a dépassé 10 000 utilisateurs dès son premier mois.",
+  headline: "Conception d’un « Uber de la livraison » qui a dépassé 10 000 utilisateurs dès son premier mois.",
   roles: ["Designer produit", "Application client et plateforme partenaires", "De la recherche aux tests d’utilisabilité"],
   summary: {
     problem:
@@ -11,13 +11,13 @@ export const nippyboxesFr: CaseStudy = {
     did:
       "J’ai interrogé 15 expéditeurs, cartographié les parcours de trois types d’utilisateurs, et conçu une application mobile client ainsi qu’une plateforme Web permettant aux propriétaires de flottes de gérer leurs véhicules, leurs chauffeurs et leurs livraisons.",
     result:
-      "Les deux côtés de la plateforme étaient au rendez-vous au lancement : plus de 50 fournisseurs et plus de 200 coursiers et chauffeurs côté offre, et plus de 10 000 utilisateurs qui ont réservé des livraisons dès le premier mois.",
+      "Les deux côtés de la plateforme étaient au rendez-vous au lancement : plus de 50 fournisseurs et plus de 200 coursiers et chauffeurs côté offre, et plus de 10 000 utilisateurs qui ont réservé des livraisons dès le premier mois.",
   },
   metrics: [
     { value: "10 000+", label: "utilisateurs le premier mois" },
     { value: "200+", label: "coursiers et chauffeurs au lancement" },
     { value: "50+", label: "fournisseurs au lancement" },
-    { value: "2", label: "produits : application client et application Web partenaires" },
+    { value: "2", label: "produits : application client et application Web partenaires" },
   ],
   hero: {
     mobile: { src: img("compare-services"), alt: "Réservation de livraison NippyBoxes comparant les prix de quatre transporteurs" },
@@ -34,8 +34,8 @@ export const nippyboxesFr: CaseStudy = {
   context: {
     takeaway: "Au Nigeria, envoyer un colis, c’était deviner le prix et espérer qu’il arrive.",
     body: [
-      "NippyBoxes est une plateforme de réservation et de gestion logistique : à la fois une entreprise de livraison avec sa propre flotte et un agrégateur de transporteurs tiers, pour les livraisons locales, entre États et internationales.",
-      "Elle devait fonctionner pour trois profils très différents : les particuliers qui envoient un colis, les entreprises qui expédient régulièrement, et les propriétaires de flottes qui gèrent véhicules et chauffeurs.",
+      "NippyBoxes est une plateforme de réservation et de gestion logistique : à la fois une entreprise de livraison avec sa propre flotte et un agrégateur de transporteurs tiers, pour les livraisons locales, entre États et internationales.",
+      "Elle devait fonctionner pour trois profils très différents : les particuliers qui envoient un colis, les entreprises qui expédient régulièrement, et les propriétaires de flottes qui gèrent véhicules et chauffeurs.",
     ],
   },
 
@@ -111,7 +111,7 @@ export const nippyboxesFr: CaseStudy = {
   },
 
   mobile: {
-    takeaway: "Pour les clients : réserver, comparer, payer et suivre depuis une seule application.",
+    takeaway: "Pour les clients : réserver, comparer, payer et suivre depuis une seule application.",
     shots: [
       { src: img("register"), alt: "Inscription avec seulement un nom et un numéro de téléphone", caption: "S’inscrire avec un nom et un numéro." },
       { src: img("home"), alt: "Accueil avec livraison locale, entre États et internationale", caption: "Local, entre États ou international." },
@@ -121,7 +121,7 @@ export const nippyboxesFr: CaseStudy = {
   },
 
   web: {
-    takeaway: "Pour les partenaires : une plateforme Web pour gérer une entreprise de livraison.",
+    takeaway: "Pour les partenaires : une plateforme Web pour gérer une entreprise de livraison.",
     shots: [
       { src: img("web-dashboard"), alt: "Tableau de bord partenaire avec statistiques de livraison", caption: "Les statistiques de livraison d’un coup d’œil." },
       { src: img("web-onboarding"), alt: "Inscription partenaire avec choix du type de partenaire", caption: "Une inscription partenaire guidée." },

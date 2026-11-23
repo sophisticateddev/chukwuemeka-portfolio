@@ -19,7 +19,7 @@ export const africhangeFr: CaseStudy = {
     { value: "~1 min", label: "par transfert, contre ~2 heures" },
     { value: "10", label: "utilisateurs interrogés au Canada et en Afrique" },
     { value: "4", label: "façons d’envoyer de l’argent" },
-    { value: "3", label: "supports : application mobile, application Web, site Web" },
+    { value: "3", label: "supports : application mobile, application Web, site Web" },
   ],
   hero: {
     mobile: { src: img("wallet"), alt: "Portefeuille Africhange affichant le solde en dollars canadiens et les transferts récents" },
@@ -37,7 +37,7 @@ export const africhangeFr: CaseStudy = {
     takeaway: "Envoyer de l’argent à sa famille ne devrait pas prendre plus de temps qu’une pause café.",
     body: [
       "Africhange permet aux personnes vivant en Amérique du Nord d’envoyer de l’argent vers l’Afrique. Le marché est encombré, mais le problème des transferts rapides et fluides vers et depuis l’Afrique n’était toujours pas résolu.",
-      "La mission : repenser l’expérience pour que le produit se démarque sur ce qui compte le plus pour ses utilisateurs : la rapidité, la confiance et de bons taux.",
+      "La mission : repenser l’expérience pour que le produit se démarque sur ce qui compte le plus pour ses utilisateurs : la rapidité, la confiance et de bons taux.",
     ],
   },
 
@@ -63,7 +63,7 @@ export const africhangeFr: CaseStudy = {
       { title: "La rapidité, c’est le produit", body: "Attendre jusqu’à deux heures pour un transfert était de loin le plus gros point de friction." },
       { title: "Une inscription laborieuse fait fuir", body: "Certains utilisaient des services informels sans aucune inscription, juste pour éviter une inscription et un KYC interminables." },
       { title: "La confiance se gagne par la fiabilité", body: "Les utilisateurs faisaient confiance à Africhange parce que leurs transferts aboutissaient toujours. Il fallait préserver cela." },
-      { title: "L’argent circule selon un calendrier", body: "Beaucoup de transferts sont récurrents, comme l’aide à la famille : les programmer ferait gagner un vrai temps." },
+      { title: "L’argent circule selon un calendrier", body: "Beaucoup de transferts sont récurrents, comme l’aide à la famille : les programmer ferait gagner un vrai temps." },
     ],
   },
 
@@ -97,8 +97,8 @@ export const africhangeFr: CaseStudy = {
       },
       {
         title: "Envoyer de l’argent comme on pense à ses proches",
-        context: "Les utilisateurs envoient à leur famille, à leurs amis et à des comptes bancaires, pas à des « bénéficiaires ».",
-        choice: "Quatre façons d’envoyer : à des utilisateurs d’Africhange, à des bénéficiaires enregistrés, à des contacts du téléphone et à des comptes bancaires.",
+        context: "Les utilisateurs envoient à leur famille, à leurs amis et à des comptes bancaires, pas à des « bénéficiaires ».",
+        choice: "Quatre façons d’envoyer : à des utilisateurs d’Africhange, à des bénéficiaires enregistrés, à des contacts du téléphone et à des comptes bancaires.",
         why: "Moins d’étapes pour les transferts les plus fréquents.",
       },
       {
@@ -136,7 +136,7 @@ export const africhangeFr: CaseStudy = {
     items: [
       "Un système de portefeuille qui ramène le délai de transfert d’environ 2 heures à environ une minute",
       "Une inscription rapide, avec un minimum d’informations",
-      "Quatre façons d’envoyer : utilisateurs d’Africhange, bénéficiaires, contacts et comptes bancaires",
+      "Quatre façons d’envoyer : utilisateurs d’Africhange, bénéficiaires, contacts et comptes bancaires",
       "Un système de parrainage pour stimuler l’acquisition organique",
       "Livré sur le mobile, l’application Web et le site vitrine",
     ],

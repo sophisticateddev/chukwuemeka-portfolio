@@ -20,44 +20,44 @@ export const characterGuessFr: CaseStudy = {
   metrics: [
     { value: "100+", label: "joueurs bêta, tous par bouche-à-oreille" },
     { value: "3 000+", label: "questions dans 6 catégories en ligne" },
-    { value: "3", label: "langues : anglais, espagnol, français" },
+    { value: "3", label: "langues : anglais, espagnol, français" },
     { value: "320px–4K", label: "un seul design system adaptatif" },
   ],
   hero: {
     mobile: {
       src: img("game-correct-mobile-dark"),
-      alt: "Character Guess sur un téléphone : une bonne réponse surlignée en vert avec une notification de succès Speed Demon",
+      alt: "Character Guess sur un téléphone : une bonne réponse surlignée en vert avec une notification de succès Speed Demon",
     },
     desktop: {
       src: img("landing-desktop-dark"),
-      alt: "Page d’accueil de Character Guess sur ordinateur avec une carte de démonstration jouable « Qui suis-je? »",
+      alt: "Page d’accueil de Character Guess sur ordinateur avec une carte de démonstration jouable « Qui suis-je? »",
     },
   },
   meta: [
     { label: "Rôle", value: "Cofondateur · design produit et front-end (avec l’IA)" },
-    { label: "Équipe", value: "Nous trois : design, ingénierie et produit" },
+    { label: "Équipe", value: "Nous trois : design, ingénierie et produit" },
     { label: "Période", value: "août 2025 – aujourd’hui" },
     { label: "Livraison", value: "Travail commencé en août 2025 · en ligne en juin 2026" },
-    { label: "Plateforme", value: "Application Web installable (PWA) : mobile, tablette, ordinateur" },
+    { label: "Plateforme", value: "Application Web installable (PWA) : mobile, tablette, ordinateur" },
   ],
 
   origin: {
     takeaway: "Tout a commencé autour de notre table, et c’est toujours le test que chaque fonctionnalité doit réussir.",
     body: [
-      "Lors de nos soirées de jeux en famille, ma femme écrivait des citations et des indices sur des personnages, et nous devinions à tour de rôle qui les avait prononcés. Ça marchait à tous les coups. Enfants, adultes, cousins compétitifs : tout le monde se prenait au jeu, parce qu’un bon indice vous donne l’impression d’être malin à l’instant où ça fait tilt.",
+      "Lors de nos soirées de jeux en famille, ma femme écrivait des citations et des indices sur des personnages, et nous devinions à tour de rôle qui les avait prononcés. Ça marchait à tous les coups. Enfants, adultes, cousins compétitifs : tout le monde se prenait au jeu, parce qu’un bon indice vous donne l’impression d’être malin à l’instant où ça fait tilt.",
       "Le problème, c’est que ça ne fonctionnait que dans cette pièce, et seulement si quelqu’un se chargeait d’écrire les indices. Je voulais capturer cette sensation dans quelque chose que n’importe qui pourrait ouvrir sur un téléphone, jouer en deux minutes et partager avec ses proches.",
     ],
   },
 
   context: {
-    takeaway: "Le défi : qu’un jeu d’apprentissage ait l’air d’un jeu de société, pour les 10 à 70 ans, sur n’importe quel appareil.",
+    takeaway: "Le défi : qu’un jeu d’apprentissage ait l’air d’un jeu de société, pour les 10 à 70 ans, sur n’importe quel appareil.",
     body: [
-      "La plupart des jeux de connaissances tombent dans l’un de deux pièges : éducatifs mais ennuyeux, ou amusants mais superficiels. Nous voulions la curiosité qu’éveille un bon indice, la compétition d’un classement, et des contenus qui comptent vraiment pour les gens, en commençant par la Bible et le football.",
-      "Notre public est inhabituellement large : familles, groupes de jeunes d’Église, fans de football, salles de classe. La plupart jouent sur téléphone avec des données mobiles : le jeu devait donc être rapide, léger et fonctionner sans passer par une boutique d’applications.",
+      "La plupart des jeux de connaissances tombent dans l’un de deux pièges : éducatifs mais ennuyeux, ou amusants mais superficiels. Nous voulions la curiosité qu’éveille un bon indice, la compétition d’un classement, et des contenus qui comptent vraiment pour les gens, en commençant par la Bible et le football.",
+      "Notre public est inhabituellement large : familles, groupes de jeunes d’Église, fans de football, salles de classe. La plupart jouent sur téléphone avec des données mobiles : le jeu devait donc être rapide, léger et fonctionner sans passer par une boutique d’applications.",
     ],
     constraints: [
       "Seulement trois personnes, sans testeur dédié ni budget marketing",
-      "De jeunes joueurs : consentement parental et sécurité dès le premier jour",
+      "De jeunes joueurs : consentement parental et sécurité dès le premier jour",
       "Doit tolérer une connexion instable sur des téléphones d’entrée de gamme et être superbe sur ordinateur",
       "Le contenu doit pouvoir s’étendre à de nouvelles catégories sans refonte",
     ],
@@ -90,11 +90,11 @@ export const characterGuessFr: CaseStudy = {
     items: [
       {
         title: "La première partie doit avoir lieu avant toute inscription",
-        body: "Les gens voulaient jouer dès qu’on leur partageait un lien. Demander un compte d’abord rompait le charme : les invités peuvent donc jouer tout de suite.",
+        body: "Les gens voulaient jouer dès qu’on leur partageait un lien. Demander un compte d’abord rompait le charme : les invités peuvent donc jouer tout de suite.",
       },
       {
         title: "Les indices valent mieux que les questions",
-        body: "Révéler les indices un par un recréait le moment « oh, je sais! » des soirées de jeux. Les réponses rapides rapportent plus de points, ce qui récompense la connaissance sans pénaliser les lecteurs plus lents.",
+        body: "Révéler les indices un par un recréait le moment « oh, je sais! » des soirées de jeux. Les réponses rapides rapportent plus de points, ce qui récompense la connaissance sans pénaliser les lecteurs plus lents.",
       },
       {
         title: "Tout le monde ne peut pas être premier",
@@ -115,8 +115,8 @@ export const characterGuessFr: CaseStudy = {
         context: "Les nouveaux joueurs arrivent souvent par un lien partagé dans une discussion de famille ou d’Église. Un mur d’inscription à ce moment-là tue le plaisir.",
         options: ["Exiger un compte dès le départ", "Jeu illimité pour les invités", "Jeu limité pour les invités, puis une raison de s’inscrire"],
         choice: "Les invités ont droit à 3 parties complètes. Leur progression est enregistrée localement, avec une invitation discrète à créer un compte pour la conserver.",
-        why: "La barrière tombe à zéro, avec une raison claire et honnête de s’inscrire : ne pas perdre ce qu’on a gagné.",
-        tradeoff: "Plus de complexité : la progression d’un invité doit migrer proprement vers un nouveau compte, et les abus doivent être limités côté serveur.",
+        why: "La barrière tombe à zéro, avec une raison claire et honnête de s’inscrire : ne pas perdre ce qu’on a gagné.",
+        tradeoff: "Plus de complexité : la progression d’un invité doit migrer proprement vers un nouveau compte, et les abus doivent être limités côté serveur.",
       },
       {
         title: "Rester un quiz, pas un jeu de dessin",
@@ -128,7 +128,7 @@ export const characterGuessFr: CaseStudy = {
       },
       {
         title: "Geler les fonctionnalités de la V1 pour consolider les fondations",
-        context: "Après 11 sprints, les retours des testeurs étaient clairs : les nouvelles fonctionnalités arrivaient plus vite que les anciennes ne devenaient solides.",
+        context: "Après 11 sprints, les retours des testeurs étaient clairs : les nouvelles fonctionnalités arrivaient plus vite que les anciennes ne devenaient solides.",
         choice: "Plus aucune nouvelle fonctionnalité dans la V1. Seulement des corrections de bogues, les retours des testeurs et des finitions. Tout le reste est passé au carnet de la V2.",
         why: "La confiance, c’est le produit. Un jeu qui vous fait perdre votre série une fois n’aura pas de seconde chance.",
         tradeoff: "Certaines fonctionnalités attendues ont patienté des mois, une conversation difficile avec nos joueurs les plus engagés.",
@@ -151,7 +151,7 @@ export const characterGuessFr: CaseStudy = {
         context: "La bibliothèque audio ajoutait 180 Ko et une douzaine de téléchargements, pénible sur les téléphones d’entrée de gamme qu’utilisent beaucoup de nos joueurs.",
         choice: "Les 12 effets sonores sont synthétisés dans le navigateur avec la Web Audio API.",
         why: "Aucune requête réseau, une lecture instantanée et une application plus légère. Le son ne se lance jamais tout seul, et les joueurs le règlent dans les paramètres.",
-        tradeoff: "Les sons synthétisés sont plus simples qu’un son produit : nous les avons réglés pour qu’ils soient ludiques plutôt que réalistes.",
+        tradeoff: "Les sons synthétisés sont plus simples qu’un son produit : nous les avons réglés pour qu’ils soient ludiques plutôt que réalistes.",
       },
     ],
   },
@@ -170,11 +170,11 @@ export const characterGuessFr: CaseStudy = {
   },
 
   mobile: {
-    takeaway: "Conçu pour le pouce : tout ce qui compte se trouve dans la moitié inférieure de l’écran.",
+    takeaway: "Conçu pour le pouce : tout ce qui compte se trouve dans la moitié inférieure de l’écran.",
     intro:
       "La plupart des joueurs sont sur téléphone, souvent d’une main, sur un canapé ou en groupe. La navigation se trouve dans une barre en bas, les réponses sont des cibles pleine largeur, et les retours sont instantanés et lisibles à bout de bras. Les captures d’écran sont en anglais.",
     shots: [
-      { src: img("levels-mobile-dark"), alt: "Carte des niveaux montrant le parcours du joueur, de Seeker I aux niveaux Learner", caption: "Votre parcours : la progression est un chemin, pas une liste." },
+      { src: img("levels-mobile-dark"), alt: "Carte des niveaux montrant le parcours du joueur, de Seeker I aux niveaux Learner", caption: "Votre parcours : la progression est un chemin, pas une liste." },
       { src: img("game-question-mobile-dark"), alt: "Une question avec une barre de compte à rebours, un multiplicateur de vitesse et quatre réponses possibles", caption: "Un indice, un chrono et quatre grandes cibles de réponse." },
       { src: img("game-correct-mobile-light"), alt: "Bonne réponse en mode clair avec une référence biblique et une notification de succès", caption: "Un retour instantané, avec la source." },
       { src: img("results-mobile-dark"), alt: "Carte Niveau débloqué pour Seeker II", caption: "Les petites victoires, célébrées." },
@@ -187,12 +187,12 @@ export const characterGuessFr: CaseStudy = {
   web: {
     takeaway: "Sur les grands écrans, la navigation passe dans une barre latérale et le jeu reste centré.",
     intro:
-      "Sous 1024 px, une barre en bas garde la navigation à portée de pouce. Au-delà, une barre latérale fixe prend le relais. La carte de question ne s’étire jamais sur un écran large : elle reste dans une colonne lisible, pour que vos yeux n’aient pas à voyager.",
+      "Sous 1024 px, une barre en bas garde la navigation à portée de pouce. Au-delà, une barre latérale fixe prend le relais. La carte de question ne s’étire jamais sur un écran large : elle reste dans une colonne lisible, pour que vos yeux n’aient pas à voyager.",
     shots: [
-      { src: img("landing-desktop-dark"), alt: "Page d’accueil sur ordinateur avec des catégories et une démo jouable", caption: "Accueil : jouer une vraie question avant de s’inscrire." },
+      { src: img("landing-desktop-dark"), alt: "Page d’accueil sur ordinateur avec des catégories et une démo jouable", caption: "Accueil : jouer une vraie question avant de s’inscrire." },
       { src: img("levels-desktop-dark"), alt: "Carte des niveaux sur ordinateur avec navigation latérale en mode sombre", caption: "Navigation latérale à partir de 1024 px." },
       { src: img("levels-desktop-light"), alt: "Carte des niveaux sur ordinateur en mode clair", caption: "Le même écran en mode clair, piloté par les tokens." },
-      { src: img("game-question-desktop-dark"), alt: "Écran de jeu sur ordinateur avec la question dans une colonne centrée", caption: "Mode concentration : une seule colonne lisible." },
+      { src: img("game-question-desktop-dark"), alt: "Écran de jeu sur ordinateur avec la question dans une colonne centrée", caption: "Mode concentration : une seule colonne lisible." },
     ],
   },
 
@@ -221,7 +221,7 @@ export const characterGuessFr: CaseStudy = {
       { name: "Récompenses", states: ["Anneau de pièces", "Notification de succès", "Niveau débloqué", "Badge de ligue"] },
     ],
     motion:
-      "Plus de 15 animations nommées partagent une même courbe d’accélération élastique : arrivée de la question, apparition de la réponse, secousse en cas d’erreur, révélation du personnage, urgence du chrono. Toutes sont désactivées pour les personnes qui demandent moins d’animations à leur appareil.",
+      "Plus de 15 animations nommées partagent une même courbe d’accélération élastique : arrivée de la question, apparition de la réponse, secousse en cas d’erreur, révélation du personnage, urgence du chrono. Toutes sont désactivées pour les personnes qui demandent moins d’animations à leur appareil.",
   },
 
   accessibility: {
@@ -234,7 +234,7 @@ export const characterGuessFr: CaseStudy = {
       { title: "Des formulaires qui s’expliquent", body: "Les erreurs sont annoncées aux lecteurs d’écran et liées au champ concerné." },
     ],
     gaps: [
-      { title: "Le texte de faible emphase est trop pâle", body: "Notre token de texte le plus faible donne un contraste de 3,5:1 en mode sombre et de 2,4:1 en mode clair, sous le minimum de 4,5:1. La solution : le renforcer et le réserver au texte non essentiel." },
+      { title: "Le texte de faible emphase est trop pâle", body: "Notre token de texte le plus faible donne un contraste de 3,5:1 en mode sombre et de 2,4:1 en mode clair, sous le minimum de 4,5:1. La solution : le renforcer et le réserver au texte non essentiel." },
       { title: "Le texte secondaire en mode clair", body: "Le texte d’emphase moyenne en mode clair est à 4,0:1. Le foncer légèrement l’amène au niveau AA sans coût visuel." },
       { title: "Le repère de l’écran de jeu", body: "L’écran de jeu n’a pas de repère principal, donc le lien d’évitement n’a nulle part où atterrir. Une correction d’une ligne, désormais sur la liste." },
     ],
@@ -243,7 +243,7 @@ export const characterGuessFr: CaseStudy = {
   build: {
     takeaway: "L’IA écrit le code vite. Mon travail, c’est de décider ce qui est juste, et de le prouver.",
     intro:
-      "Character Guess a commencé comme un prototype généré par l’IA dans Lovable, puis est passé à Claude Code une fois que nous savions que le jeu valait la peine d’être bien construit. Je conçois dans le navigateur, je donne mes consignes à Claude en langage courant, et je traite tout ce qu’il écrit comme une demande de fusion venant d’un junior rapide et sûr de lui : utile, et assez souvent dans l’erreur pour que rien ne parte en production sans vérification.",
+      "Character Guess a commencé comme un prototype généré par l’IA dans Lovable, puis est passé à Claude Code une fois que nous savions que le jeu valait la peine d’être bien construit. Je conçois dans le navigateur, je donne mes consignes à Claude en langage courant, et je traite tout ce qu’il écrit comme une demande de fusion venant d’un junior rapide et sûr de lui : utile, et assez souvent dans l’erreur pour que rien ne parte en production sans vérification.",
     stats: [
       { value: "1 006", label: "commits dans le dépôt" },
       { value: "735", label: "de ma main" },
@@ -253,7 +253,7 @@ export const characterGuessFr: CaseStudy = {
     steps: [
       { title: "Prototyper pour apprendre", body: "Un prototype généré par l’IA nous a permis de tester la boucle de jeu lors de vraies soirées en quelques jours, avant de concevoir quoi que ce soit de soigné." },
       { title: "Rédiger les consignes comme un designer", body: "Chaque requête porte le problème de l’utilisateur, l’écran et l’état concernés, la contrainte qui compte (navigation mobile, mode sombre, chiffres gérés par le serveur) et la façon dont nous saurons que ça marche. Les consignes de correction partent du signalement du joueur, pas de mon hypothèse sur la cause." },
-      { title: "Des composants issus du système", body: "Les nouvelles interfaces sont construites à partir des design tokens et des composants existants, jamais avec des couleurs ponctuelles. Un skill de projet indique à Claude les pièges avant qu’il écrive une ligne : le z-index de la barre du bas, la hauteur des panneaux sur les petits téléphones, et ne jamais calculer les pièces ou les vies côté client." },
+      { title: "Des composants issus du système", body: "Les nouvelles interfaces sont construites à partir des design tokens et des composants existants, jamais avec des couleurs ponctuelles. Un skill de projet indique à Claude les pièges avant qu’il écrive une ligne : le z-index de la barre du bas, la hauteur des panneaux sur les petits téléphones, et ne jamais calculer les pièces ou les vies côté client." },
       { title: "Reproduire, puis corriger", body: "Claude doit reproduire un bogue avant de le corriger, retrouver son origine dans l’historique git et expliquer la cause dans le commit. La plupart des commits de correction se lisent comme un court rapport d’incident." },
       { title: "Vérifier dans le navigateur", body: "Une vérification de types réussie ne suffit pas. Les changements sont vérifiés en direct dans le navigateur, sur les vrais parcours, avant d’être considérés comme terminés." },
       { title: "Relire et publier", body: "Patrick relit les changements backend et d’infrastructure. L’intégration continue bloque les fusions sur la vérification des types, le lint, le lint des traductions, les tests unitaires et les tests E2E Playwright, puis les versions passent du développement à la bêta, puis à la production." },
@@ -263,7 +263,7 @@ export const characterGuessFr: CaseStudy = {
         title: "Une mémoire partagée",
         items: [
           "Une banque de mémoire de contexte, de décisions, de modèles et de journaux de session que chaque session d’IA lit en premier",
-          "Une règle : la banque de mémoire est mise à jour avant qu’une tâche soit considérée comme terminée",
+          "Une règle : la banque de mémoire est mise à jour avant qu’une tâche soit considérée comme terminée",
           "Un journal des décisions qui consigne le pourquoi, pas seulement le quoi, pour que l’IA ne défasse pas des choix délibérés",
         ],
       },
@@ -292,14 +292,14 @@ export const characterGuessFr: CaseStudy = {
         guardrail: "Un test fait désormais échouer l’intégration continue si le texte nomme une catégorie qui n’est pas en ligne. C’est l’extrait ci-dessous.",
       },
       {
-        title: "Une correction de « sécurité des types » a cassé la passation d’hôte",
+        title: "Une correction de « sécurité des types » a cassé la passation d’hôte",
         wrong: "Claude a ajouté une conversion en uuid à un appel de base de données dont le paramètre est du texte. Chaque tentative de reprendre l’animation d’un salon multijoueur échouait.",
-        caught: "En testant localement une nouvelle étape de connexion, j’ai obtenu une erreur 422 inattendue. L’historique git montrait que la version précédente était correcte : la correction l’a rétablie.",
+        caught: "En testant localement une nouvelle étape de connexion, j’ai obtenu une erreur 422 inattendue. L’historique git montrait que la version précédente était correcte : la correction l’a rétablie.",
       },
       {
         title: "Les vies affichaient une recharge complète qui n’avait jamais eu lieu",
-        wrong: "Le nouveau système de cœurs ne mettait jamais à jour son horodatage de régénération : après une mauvaise réponse, les joueurs pouvaient voir 5 vies alors qu’il leur en restait 1.",
-        caught: "Reproduit sur une base Postgres locale : passer de 5 vies à 1 affichait toujours 5.",
+        wrong: "Le nouveau système de cœurs ne mettait jamais à jour son horodatage de régénération : après une mauvaise réponse, les joueurs pouvaient voir 5 vies alors qu’il leur en restait 1.",
+        caught: "Reproduit sur une base Postgres locale : passer de 5 vies à 1 affichait toujours 5.",
         guardrail: "Les vies sont désormais gérées par le serveur, et le skill de projet interdit à l’IA de les calculer côté client.",
       },
       {
@@ -315,9 +315,9 @@ export const characterGuessFr: CaseStudy = {
       },
       {
         title: "La mémoire de l’IA était périmée",
-        wrong: "La banque de mémoire avait 33 jours et plus de 60 commits de retard sur le code : les nouvelles sessions travaillaient à partir d’une image obsolète du produit.",
+        wrong: "La banque de mémoire avait 33 jours et plus de 60 commits de retard sur le code : les nouvelles sessions travaillaient à partir d’une image obsolète du produit.",
         caught: "En comparant la documentation à l’historique git, j’ai trouvé plus de 60 commits dont la banque de mémoire ignorait tout.",
-        guardrail: "Mettre à jour la banque de mémoire fait désormais partie de la définition de « terminé ».",
+        guardrail: "Mettre à jour la banque de mémoire fait désormais partie de la définition de « terminé ».",
       },
     ],
     snippet: characterGuess.build?.snippet && {
@@ -350,7 +350,7 @@ export const characterGuessFr: CaseStudy = {
     ],
     next: {
       title: "La V2 arrive",
-      body: "Nous reconstruisons Character Guess comme une plateforme : une nouvelle application joueur, un tableau de bord d’administration du contenu, un site vitrine et une API dédiée, prêts pour le multijoueur en temps réel à grande échelle, un mode classe et beaucoup plus de catégories.",
+      body: "Nous reconstruisons Character Guess comme une plateforme : une nouvelle application joueur, un tableau de bord d’administration du contenu, un site vitrine et une API dédiée, prêts pour le multijoueur en temps réel à grande échelle, un mode classe et beaucoup plus de catégories.",
     },
   },
 };

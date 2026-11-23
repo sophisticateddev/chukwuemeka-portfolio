@@ -10,14 +10,14 @@ export const carbonLoansFr: CaseStudy = {
   roles: ["Designer produit principal", "Direction d’une équipe de 2 designers", "De la recherche à la livraison aux développeurs"],
   summary: {
     problem:
-      "Les prêts sont au cœur de l’activité de Carbon, mais les clients étaient perdus face à des écrans verbeux, des offres floues et des refus sans explication : beaucoup ne contractaient jamais les prêts auxquels ils avaient droit.",
+      "Les prêts sont au cœur de l’activité de Carbon, mais les clients étaient perdus face à des écrans verbeux, des offres floues et des refus sans explication : beaucoup ne contractaient jamais les prêts auxquels ils avaient droit.",
     did:
-      "J’ai dirigé la refonte de bout en bout : entretiens avec les parties prenantes, recherche auprès de 15 clients et plus de 2 700 réponses à un sondage, puis un nouveau tableau de bord des prêts et de nouveaux parcours de demande, d’offre, de relevé bancaire et de remboursement.",
+      "J’ai dirigé la refonte de bout en bout : entretiens avec les parties prenantes, recherche auprès de 15 clients et plus de 2 700 réponses à un sondage, puis un nouveau tableau de bord des prêts et de nouveaux parcours de demande, d’offre, de relevé bancaire et de remboursement.",
     result:
-      "Chaque objectif atteint ou dépassé : demandes de prêt en hausse de 20 % pour un objectif de 15 %, abandons en baisse de 10 % et prêts non performants en baisse de 10 %. Plus de gens ont emprunté, et plus d’entre eux ont remboursé.",
+      "Chaque objectif atteint ou dépassé : demandes de prêt en hausse de 20 % pour un objectif de 15 %, abandons en baisse de 10 % et prêts non performants en baisse de 10 %. Plus de gens ont emprunté, et plus d’entre eux ont remboursé.",
   },
   metrics: [
-    { value: "+20 %", label: "de demandes de prêt (objectif : +15 %)" },
+    { value: "+20 %", label: "de demandes de prêt (objectif : +15 %)" },
     { value: "−10 %", label: "d’abandons de prêt (objectif atteint)" },
     { value: "−10 %", label: "de prêts non performants" },
     { value: "3 M+", label: "clients sur la plateforme" },
@@ -36,13 +36,13 @@ export const carbonLoansFr: CaseStudy = {
   context: {
     takeaway: "Le crédit fait tourner l’économie, et le produit de prêt de Carbon gênait ses propres clients.",
     body: [
-      "Carbon est une banque numérique axée sur le crédit : prêts instantanés, paiement différé et épargne. Les prêts sont au cœur de l’activité, donc la moindre confusion se traduit directement par des revenus et de la confiance perdus.",
-      "L’objectif : repenser l’expérience pour récompenser les clients fidèles, rendre le parcours plus facile à comprendre et améliorer les marges en réduisant les prêts proposés mais jamais contractés.",
+      "Carbon est une banque numérique axée sur le crédit : prêts instantanés, paiement différé et épargne. Les prêts sont au cœur de l’activité, donc la moindre confusion se traduit directement par des revenus et de la confiance perdus.",
+      "L’objectif : repenser l’expérience pour récompenser les clients fidèles, rendre le parcours plus facile à comprendre et améliorer les marges en réduisant les prêts proposés mais jamais contractés.",
     ],
     constraints: [
-      "Un produit en production avec des millions de clients : pas de changement brutal",
+      "Un produit en production avec des millions de clients : pas de changement brutal",
       "Les règles de prêt et les décisions de crédit relevaient d’une autre équipe",
-      "Sous accord de confidentialité : les données sensibles des écrans ci-dessous sont floutées",
+      "Sous accord de confidentialité : les données sensibles des écrans ci-dessous sont floutées",
     ],
   },
 
@@ -66,9 +66,9 @@ export const carbonLoansFr: CaseStudy = {
       "Nous avons interrogé 15 clients sur les raisons pour lesquelles ils ne contractaient pas de prêt, et un sondage a recueilli plus de 2 700 réponses. Un diagramme d’affinités a transformé ce que nous avions entendu en thèmes clairs.",
     items: [
       { title: "Les offres ne correspondaient pas au montant", body: "Les durées n’étaient pas adaptées au prêt. Un prêt de 2 000 ₦ ne devrait pas s’accompagner d’une durée de 3 mois." },
-      { title: "Un refus ressemblait à une impasse", body: "Les clients étaient refusés sans raison : ils ne savaient ni quoi changer ni s’il valait la peine de réessayer." },
+      { title: "Un refus ressemblait à une impasse", body: "Les clients étaient refusés sans raison : ils ne savaient ni quoi changer ni s’il valait la peine de réessayer." },
       { title: "Les bons emprunteurs voulaient de la reconnaissance", body: "Les clients fiables s’attendaient à de meilleures offres, à des compléments sur leurs limites inutilisées et à des récompenses comme une remise en argent pour un paiement anticipé." },
-      { title: "Les mots faisaient obstacle", body: "Un écran d’accueil verbeux et des boutons « Passer et continuer » sur des étapes obligatoires rendaient le parcours peu digne de confiance." },
+      { title: "Les mots faisaient obstacle", body: "Un écran d’accueil verbeux et des boutons « Passer et continuer » sur des étapes obligatoires rendaient le parcours peu digne de confiance." },
     ],
   },
 
@@ -88,7 +88,7 @@ export const carbonLoansFr: CaseStudy = {
     takeaway: "Six changements, chacun lié à quelque chose que les clients nous ont dit.",
     items: [
       {
-        title: "Donner aux prêts un endroit à eux : un tableau de bord dédié",
+        title: "Donner aux prêts un endroit à eux : un tableau de bord dédié",
         context: "Il n’existait aucun chemin clair pour demander un prêt ou consulter son historique.",
         choice: "Un tableau de bord des prêts qui montre le montant restant à payer, les prêts actifs, l’historique, le score de remboursement à temps et le dossier auprès du bureau de crédit.",
         why: "Une demande démarre plus vite, et les clients connaissent leur situation de crédit avant de décider.",
@@ -108,7 +108,7 @@ export const carbonLoansFr: CaseStudy = {
       },
       {
         title: "Dire ce que fait vraiment chaque étape",
-        context: "Des étapes obligatoires affichaient encore « Passer et continuer », même une fois remplies.",
+        context: "Des étapes obligatoires affichaient encore « Passer et continuer », même une fois remplies.",
         choice: "Réécriture des textes d’interface pour que les boutons et la progression reflètent l’état réel de chaque étape.",
         why: "Un langage honnête crée la confiance dans un produit qui gère l’argent des gens.",
       },
@@ -121,17 +121,17 @@ export const carbonLoansFr: CaseStudy = {
       {
         title: "Faire du remboursement l’écran le plus simple de l’application",
         context: "Le remboursement est le moment le plus important du parcours de prêt pour l’entreprise.",
-        choice: "Un écran de remboursement clair avec un montant total ou partiel, l’approvisionnement du portefeuille sur place et une option « payer au fil des revenus ».",
+        choice: "Un écran de remboursement clair avec un montant total ou partiel, l’approvisionnement du portefeuille sur place et une option « payer au fil des revenus ».",
         why: "Si rembourser ne demande aucun effort, plus de prêts sont remboursés à temps, et les clients ont accès à davantage.",
       },
     ],
   },
 
   before: {
-    takeaway: "Le point de départ : verbeux, ambigu et facile à abandonner.",
+    takeaway: "Le point de départ : verbeux, ambigu et facile à abandonner.",
     shots: [
       { src: img("before-welcome"), alt: "Ancien écran d’accueil des prêts avec un long texte explicatif", caption: "Un écran d’accueil trop verbeux pour être utile." },
-      { src: img("before-steps"), alt: "Ancien écran des étapes avec un bouton Passer et continuer", caption: "« Passer et continuer » sur une étape obligatoire." },
+      { src: img("before-steps"), alt: "Ancien écran des étapes avec un bouton Passer et continuer", caption: "« Passer et continuer » sur une étape obligatoire." },
       { src: img("before-offers"), alt: "Ancien écran des offres de prêt avec des durées fixes", caption: "Des offres difficiles à comparer." },
     ],
   },

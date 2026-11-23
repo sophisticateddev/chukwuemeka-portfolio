@@ -14,7 +14,7 @@ export default function Article() {
       </p>
       <p>
         La grille de 8 pt a réglé ça. Pas parce qu’elle est magique, mais parce qu’elle m’a retiré
-        mille petites décisions pour les remplacer par une seule :{" "}
+        mille petites décisions pour les remplacer par une seule :{" "}
         <strong>tout est un multiple de 8.</strong>
       </p>
 
@@ -22,7 +22,7 @@ export default function Article() {
       <p>
         La plupart des tailles d’écran courantes se divisent proprement par 8, tout comme les
         facteurs d’échelle des appareils (1x, 1,5x, 2x, 3x). Une valeur de 8 pt à 1,5x donne 12 px
-        pile : on évite les demi-pixels flous des nombres impairs. C’est aussi assez grand pour
+        pile : on évite les demi-pixels flous des nombres impairs. C’est aussi assez grand pour
         rendre les écarts visibles. Passer de 8 à 16 est un vrai pas; passer de 10 à 12, un
         haussement d’épaules.
       </p>
@@ -38,19 +38,19 @@ export default function Article() {
         l’œil. La seconde cale tout sur 8. Affichez la grille et regardez la seconde se mettre en
         place.
       </p>
-      <Figure caption="Interactif : passez de l’espacement à l’œil à l’espacement de 8 pt, et affichez ou masquez la grille.">
+      <Figure caption="Interactif : passez de l’espacement à l’œil à l’espacement de 8 pt, et affichez ou masquez la grille.">
         <GridDemo />
       </Figure>
       <p>
         Aucune des deux cartes n’est laide. Mais la version 8 pt a un rythme que votre œil perçoit
-        même si vous ne savez pas le nommer. Tout l’enjeu est là :{" "}
+        même si vous ne savez pas le nommer. Tout l’enjeu est là :{" "}
         <strong>une cohérence qu’on ressent, sans la voir.</strong>
       </p>
 
       <h2>Les règles que je suis vraiment</h2>
       <ol>
         <li>
-          <strong>L’espacement est toujours un multiple de 8 :</strong> 8, 16, 24, 32, 40, 48, 64,
+          <strong>L’espacement est toujours un multiple de 8 :</strong> 8, 16, 24, 32, 40, 48, 64,
           80. Si j’ai besoin de plus petit pour des composants serrés comme les puces et la marge
           des icônes, je m’autorise 4 comme demi-pas. Rien d’autre.
         </li>
@@ -77,7 +77,7 @@ export default function Article() {
       <p>
         Une grille dans votre tête est une suggestion. Une grille dans vos design tokens est un
         système. Je nomme les espacements par pas, pas par pixel, pour que personne ne soit tenté de
-        taper un nombre au hasard :
+        taper un nombre au hasard :
       </p>
       <Code label="tokens.css">{`:root {
   --space-1: 4px;   /* demi-pas, avec parcimonie */
@@ -94,7 +94,7 @@ export default function Article() {
         mêmes noms, les échanges lors de la passation raccourcissent nettement.
       </p>
 
-      <h2>« Mais c’est contraignant »</h2>
+      <h2>« Mais c’est contraignant »</h2>
       <p>
         J’entends souvent ça chez les designers que j’accompagne. C’est contraignant, pendant à peu
         près une semaine. Ensuite, vous remarquez que vous avez arrêté de vous torturer entre 14 et

@@ -54,7 +54,7 @@ export const projectsFr: Record<string, ProjectText> = {
   "carbon-zero": {
     category: "Fintech · Design produit",
     description:
-      "Conception du produit « Achetez maintenant, payez plus tard » de Carbon, de l’idée au lancement : un crédit sans intérêt qui permet d’acheter aujourd’hui et d’étaler les paiements, en moins d’une minute.",
+      "Conception du produit « Achetez maintenant, payez plus tard » de Carbon, de l’idée au lancement : un crédit sans intérêt qui permet d’acheter aujourd’hui et d’étaler les paiements, en moins d’une minute.",
     tags: ["Paiement différé", "Fintech", "B2C"],
     highlight: { value: "< 1 min", label: "de l’achat au paiement" },
     caseStudy: carbonZeroFr,
@@ -73,7 +73,7 @@ export const projectsFr: Record<string, ProjectText> = {
     client: "SBSC (agence de conseil)",
     category: "Logistique · Design produit",
     description:
-      "Conception d’une plateforme logistique, un « Uber de la livraison », où l’on compare les transporteurs, réserve et suit ses colis. Lancée avec plus de 50 fournisseurs et plus de 200 coursiers et chauffeurs, elle a dépassé 10 000 utilisateurs le premier mois.",
+      "Conception d’une plateforme logistique, un « Uber de la livraison », où l’on compare les transporteurs, réserve et suit ses colis. Lancée avec plus de 50 fournisseurs et plus de 200 coursiers et chauffeurs, elle a dépassé 10 000 utilisateurs le premier mois.",
     tags: ["Logistique", "Mobile", "B2C"],
     highlight: { value: "10 000+", label: "utilisateurs le premier mois" },
     caseStudy: nippyboxesFr,
@@ -98,10 +98,10 @@ export const articlesFr: Record<string, ArticleText> = {
     readTime: "6 min de lecture",
     tag: "Recherche",
     excerpt:
-      "Ce qu’albert et Writesea m’ont appris : la personne qui a l’identifiant est rarement celle qui a les informations. Concevez pour les deux.",
+      "Ce qu’albert et Writesea m’ont appris : la personne qui a l’identifiant est rarement celle qui a les informations. Concevez pour les deux.",
   },
   "mastering-the-8pt-grid": {
-    title: "Maîtriser la grille de 8 pt : le secret d’une interface au pixel près",
+    title: "Maîtriser la grille de 8 pt : le secret d’une interface au pixel près",
     date: "21 avril 2025",
     readTime: "6 min de lecture",
     tag: "Design",
@@ -109,7 +109,7 @@ export const articlesFr: Record<string, ArticleText> = {
       "La grille de 8 pt n’est pas une contrainte, c’est un raccourci. Voici comment je l’utilise pour construire des interfaces d’une précision qui semble naturelle.",
   },
   "designing-for-everyone": {
-    title: "Concevoir pour tout le monde : 5 conseils d’accessibilité que tout designer devrait connaître",
+    title: "Concevoir pour tout le monde : 5 conseils d’accessibilité que tout designer devrait connaître",
     date: "13 mars 2025",
     readTime: "7 min de lecture",
     tag: "Accessibilité",
@@ -125,7 +125,7 @@ export const articlesFr: Record<string, ArticleText> = {
       "L’IA est déjà intégrée aux produits que nous concevons. La comprendre change la façon dont vous prenez vos décisions, pas seulement leur vitesse.",
   },
   "from-flexbox-to-figma": {
-    title: "De Flexbox à Figma : comment Flexbox a inspiré l’Auto Layout",
+    title: "De Flexbox à Figma : comment Flexbox a inspiré l’Auto Layout",
     date: "1er janvier 2025",
     readTime: "6 min de lecture",
     tag: "Figma",
@@ -133,7 +133,7 @@ export const articlesFr: Record<string, ArticleText> = {
       "L’Auto Layout ne vient pas de nulle part. Comprendre ses racines CSS vous rend bien meilleur pour l’utiliser, et pour parler aux développeurs.",
   },
   "how-to-prioritize-like-a-pro": {
-    title: "Prioriser comme un pro : mener plusieurs projets de design sans perdre la tête",
+    title: "Prioriser comme un pro : mener plusieurs projets de design sans perdre la tête",
     date: "5 décembre 2024",
     readTime: "6 min de lecture",
     tag: "Méthode",
@@ -164,7 +164,7 @@ export const experienceFr: Record<number, ExperienceText> = {
     location: "Londres, Royaume-Uni",
     period: "juil. 2024 — août 2025",
     description:
-      "Direction de l’UX d’albert, la plateforme de durabilité de BAFTA pour l’industrie audiovisuelle britannique, de la découverte à la livraison. Recherche avec des productions et des diffuseurs, et refonte de la boîte à outils carbone pour chaque rôle : le taux de conformité WCAG 2.2 AA est passé de 60 % à 85 %, la satisfaction de 3,3 à 4,3 sur 5, et les productions qui commencent en préproduction de 30 % à 55 %.",
+      "Direction de l’UX d’albert, la plateforme de durabilité de BAFTA pour l’industrie audiovisuelle britannique, de la découverte à la livraison. Recherche avec des productions et des diffuseurs, et refonte de la boîte à outils carbone pour chaque rôle : le taux de conformité WCAG 2.2 AA est passé de 60 % à 85 %, la satisfaction de 3,3 à 4,3 sur 5, et les productions qui commencent en préproduction de 30 % à 55 %.",
   },
   3: {
     role: "Designer produit principal",
@@ -192,7 +192,7 @@ export const experienceFr: Record<number, ExperienceText> = {
     location: "Lagos, Nigeria",
     period: "oct. 2020 — juin 2021",
     description:
-      "Conception d’E-Bills pour NIBSS (Nigeria Inter-Bank Settlement System), la plateforme commune que les banques nigérianes utilisent pour intégrer les facturiers et encaisser les paiements de factures : 19 rôles utilisateurs répartis entre NIBSS, les banques et les facturiers, avec des approbations à chaque niveau. Conception aussi de produits clients, dont NippyBoxes, une plateforme logistique, et Coinbycedar3, un portefeuille crypto, avec des tests d’utilisabilité et des itérations à partir des résultats.",
+      "Conception d’E-Bills pour NIBSS (Nigeria Inter-Bank Settlement System), la plateforme commune que les banques nigérianes utilisent pour intégrer les facturiers et encaisser les paiements de factures : 19 rôles utilisateurs répartis entre NIBSS, les banques et les facturiers, avec des approbations à chaque niveau. Conception aussi de produits clients, dont NippyBoxes, une plateforme logistique, et Coinbycedar3, un portefeuille crypto, avec des tests d’utilisabilité et des itérations à partir des résultats.",
   },
   7: {
     role: "Designer produit",
@@ -206,7 +206,7 @@ export const experienceFr: Record<number, ExperienceText> = {
     location: "Lagos, Nigeria",
     period: "juin 2019 — déc. 2019",
     description:
-      "Là où tout a commencé : concevoir et construire une plateforme pour faire passer la formation professionnelle au numérique. Design et code front-end pour plus de 40 enseignants et plus de 10 000 apprenants.",
+      "Là où tout a commencé : concevoir et construire une plateforme pour faire passer la formation professionnelle au numérique. Design et code front-end pour plus de 40 enseignants et plus de 10 000 apprenants.",
   },
 };
 

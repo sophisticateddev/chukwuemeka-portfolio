@@ -7,7 +7,7 @@ export default function Article() {
         Ce matin, avant même que j’aie fini mon thé, l’IA avait déjà pris une dizaine de décisions
         pour moi. Mon téléphone a trié mes notifications. Ma messagerie a filtré les pourriels. Mon
         application de musique a choisi une liste de lecture qui tombait, agaçant, exactement juste.
-        Mon clavier a terminé trois de mes phrases. Rien de tout ça ne s’annonçait comme de « l’IA ».
+        Mon clavier a terminé trois de mes phrases. Rien de tout ça ne s’annonçait comme de « l’IA ».
         On avait juste l’impression d’un bon produit.
       </p>
       <p>
@@ -22,8 +22,8 @@ export default function Article() {
 
       <h2>La couche que vous concevez déjà</h2>
       <p>
-        Chaque fois que vous concevez un fil, un résultat de recherche, une rangée « recommandé pour
-        vous » ou une valeur par défaut intelligente, vous concevez la surface d’un modèle.
+        Chaque fois que vous concevez un fil, un résultat de recherche, une rangée « recommandé pour
+        vous » ou une valeur par défaut intelligente, vous concevez la surface d’un modèle.
         L’interface est ce que les gens voient; les prédictions en dessous façonnent ce qu’ils
         vivent.
       </p>
@@ -31,7 +31,7 @@ export default function Article() {
         <svg
           viewBox="0 0 640 300"
           role="img"
-          aria-label="Trois couches empilées : l’interface en haut, les décisions au milieu, le modèle et les données en bas"
+          aria-label="Trois couches empilées : l’interface en haut, les décisions au milieu, le modèle et les données en bas"
           className="h-auto w-full"
         >
           <rect width="640" height="300" fill="rgb(var(--surface))" />
@@ -59,7 +59,7 @@ export default function Article() {
 
       <h2>Ce qui change quand le système peut se tromper</h2>
       <p>
-        Un logiciel traditionnel est prévisible : on appuie sur le bouton, on obtient le résultat.
+        Un logiciel traditionnel est prévisible : on appuie sur le bouton, on obtient le résultat.
         L’IA est probabiliste. Elle a généralement raison, et parfois tort avec aplomb. Cette seule
         différence change ma façon de concevoir de trois manières.
       </p>
@@ -67,7 +67,7 @@ export default function Article() {
       <h3>1. Montrez votre raisonnement</h3>
       <p>
         On fait davantage confiance à une suggestion quand on voit pourquoi elle est apparue. Une
-        courte ligne « parce que vous avez lu… » fait plus pour la confiance que n’importe quelle
+        courte ligne « parce que vous avez lu… » fait plus pour la confiance que n’importe quelle
         finition.
       </p>
       <DoDont
@@ -82,7 +82,7 @@ export default function Article() {
         }
         doThis={
           <div className="w-full rounded-xl border border-line bg-raised p-4">
-            <p className="text-sm font-semibold text-ink">Suggestion : une introduction plus courte</p>
+            <p className="text-sm font-semibold text-ink">Suggestion : une introduction plus courte</p>
             <p className="mt-1 text-xs text-muted">Parce que votre premier paragraphe est 3 fois plus long que d’habitude</p>
             <div className="mt-3 flex gap-2">
               <span className="rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-onaccent">Appliquer</span>
@@ -95,13 +95,13 @@ export default function Article() {
 
       <h3>2. Rendez l’annulation sans effort</h3>
       <p>
-        Si le système se trompe parfois, se rattraper ne doit presque rien coûter. Annuler, « pas
-        intéressé », des modifications faciles. Chez Writesea, où j’ai conçu des outils d’écriture
-        assistés par l’IA, ma règle est simple : l’auteur ne doit jamais avoir l’impression que
+        Si le système se trompe parfois, se rattraper ne doit presque rien coûter. Annuler, « pas
+        intéressé », des modifications faciles. Chez Writesea, où j’ai conçu des outils d’écriture
+        assistés par l’IA, ma règle est simple : l’auteur ne doit jamais avoir l’impression que
         l’IA lui a pris quelque chose.
       </p>
 
-      <h3>3. Concevez pour le « je ne sais pas »</h3>
+      <h3>3. Concevez pour le « je ne sais pas »</h3>
       <p>
         Les bons produits d’IA ont un état élégant pour les cas de faible confiance. Plutôt qu’une
         mauvaise supposition, ils posent une question, proposent deux ou trois options, ou se
@@ -117,7 +117,7 @@ export default function Article() {
         exemple, a été construit avec Claude Code.
       </p>
       <p>
-        Mais les arbitrages me reviennent : quel problème nous résolvons, qui nous risquons de
+        Mais les arbitrages me reviennent : quel problème nous résolvons, qui nous risquons de
         laisser de côté, et si la chose aide vraiment. L’IA me rend plus rapide. Elle ne me donne
         pas raison.
       </p>

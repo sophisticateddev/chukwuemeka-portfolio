@@ -5,7 +5,7 @@ export default function Article() {
     <>
       <p>
         Au milieu d’une séance de recherche sur albert, la boîte à outils carbone de BAFTA pour le
-        cinéma et la télévision, j’ai posé une question simple : qui sait vraiment ce qui s’est
+        cinéma et la télévision, j’ai posé une question simple : qui sait vraiment ce qui s’est
         passé sur le plateau la semaine dernière? D’une séance à l’autre, la réponse était la même.
         Pas la personne qui a l’identifiant. Le détail se trouvait chez l’équipe de tournage, les
         chefs de département, la comptabilité, et dans des reçus que personne n’avait le temps de
@@ -21,7 +21,7 @@ export default function Article() {
       <h2>L’identifiant et la connaissance ne sont pas au même endroit</h2>
       <p>
         La plupart des outils d’entreprise sont conçus pour la personne qui se connecte. Ça semble
-        évident : c’est elle qui utilise le produit. Mais dans beaucoup d’organisations, la
+        évident : c’est elle qui utilise le produit. Mais dans beaucoup d’organisations, la
         personne qui se connecte est un coordinateur. Elle rassemble des informations que
         d’autres détiennent, souvent des semaines après les faits.
       </p>
@@ -91,10 +91,10 @@ export default function Article() {
         existaient déjà. Nous avons simplement arrêté de demander aux gens de les ressaisir.
       </p>
 
-      <h3>3. Faire en sorte que « à peu près juste maintenant » vaille mieux que « parfait plus tard »</h3>
+      <h3>3. Faire en sorte que « à peu près juste maintenant » vaille mieux que « parfait plus tard »</h3>
       <p>
         Bien des productions n’ont pas de relevé de compteur pour un studio ou un bureau. Plutôt
-        qu’une impasse, nous avons proposé des références : choisir le type d’espace et consigner
+        qu’une impasse, nous avons proposé des références : choisir le type d’espace et consigner
         une estimation honnête le jour même. Une donnée enregistrée pendant la production vaut
         mieux que rien du tout à la fin.
       </p>
@@ -113,7 +113,7 @@ export default function Article() {
         doThis={
           <div className="w-full space-y-2 rounded-xl border border-line bg-raised p-4">
             <p className="text-sm font-semibold text-ink">Passer à l’éclairage LED</p>
-            <p className="text-xs text-muted">Confiée à : chef électricien · Hebdomadaire</p>
+            <p className="text-xs text-muted">Confiée à : chef électricien · Hebdomadaire</p>
             <span className="inline-block rounded-full bg-accent px-3 py-1 text-xs font-semibold text-onaccent">
               En cours
             </span>
@@ -127,7 +127,7 @@ export default function Article() {
         écran que j’ai conçu, parce que c’était le problème que la recherche avait désigné.
       </p>
 
-      <h2>Writesea : la même leçon, vue de l’autre côté</h2>
+      <h2>Writesea : la même leçon, vue de l’autre côté</h2>
       <p>
         Chez Writesea, je concevais pour les universités. Les conseillers d’orientation
         professionnelle fixent les normes, les étudiants écrivent, et les administrateurs des
@@ -144,7 +144,7 @@ export default function Article() {
       </p>
       <p>
         Les modules d’administration suivaient la même idée. Les personnes qui configurent une
-        université ne sont pas celles qui l’utilisent au quotidien : le côté administration
+        université ne sont pas celles qui l’utilisent au quotidien : le côté administration
         faisait le gros du travail une fois, et tous les autres avaient un produit plus simple.
       </p>
 
@@ -170,7 +170,7 @@ export default function Article() {
       <p>
         Je cartographierais dès le premier jour qui détient quelle information, avant de parler de
         fonctionnalités. Sur albert, nous avons trouvé l’écart grâce à la recherche, ce qui est la
-        bonne façon de le trouver, mais une simple carte « qui sait quoi, et quand » la première
+        bonne façon de le trouver, mais une simple carte « qui sait quoi, et quand » la première
         semaine nous y aurait menés plus vite.
       </p>
       <p>

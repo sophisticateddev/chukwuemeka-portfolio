@@ -68,12 +68,12 @@ export default function Experience({
             <a
               href={cv.href}
               download={cv.href.slice(1)}
-              className="group inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-muted transition-colors hover:text-ink focus-visible:text-ink"
+              className="group inline-flex items-start gap-2 text-muted transition-colors hover:text-ink focus-visible:text-ink sm:shrink-0 sm:items-center sm:whitespace-nowrap"
               data-track="cv-download"
               data-track-where="experience"
             >
               <span className="link-grow">{d.fullHistory}</span> <span className="sr-only">(PDF)</span>
-              <Arrow direction="down" className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-y-0.5" />
+              <Arrow direction="down" className="h-[1lh] shrink-0 items-center transition-transform duration-300 ease-out motion-safe:group-hover:translate-y-0.5" />
             </a>
           </FadeUp>
         )}
