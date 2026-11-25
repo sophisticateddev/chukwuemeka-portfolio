@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Shot } from "@/lib/case-study";
+import ZoomTrigger from "./ZoomTrigger";
 
 /** Phone mockup sized for 390×844 captures (9:19.5). */
 export function PhoneFrame({
@@ -19,6 +20,7 @@ export function PhoneFrame({
     >
       <div className="relative aspect-[390/844] overflow-hidden rounded-[1.9rem]">
         <Image src={shot.src} alt={shot.alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
+        <ZoomTrigger shot={shot} />
       </div>
       <span
         aria-hidden="true"
@@ -58,6 +60,7 @@ export function BrowserFrame({
       </div>
       <div className="relative aspect-[16/10]">
         <Image src={shot.src} alt={shot.alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
+        <ZoomTrigger shot={shot} />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import type { CaseStudy } from "@/lib/case-study";
 import type { Project } from "@/lib/data";
 import { BrowserFrame, PhoneFrame } from "./Frames";
 import Toc from "./Toc";
+import ZoomTrigger from "./ZoomTrigger";
 import Tag from "@/components/Tag";
 import { localeHref, t, type Locale } from "@/lib/i18n";
 
@@ -173,7 +174,7 @@ export default function CaseStudyView({
           </div>
 
           {/* The work, full width */}
-          <div className={`relative mt-14 md:mt-16 ${cs.hero.desktop ? "pb-10 pr-6 sm:pr-16" : ""}`}>
+          <div data-zoom-list className={`relative mt-14 md:mt-16 ${cs.hero.desktop ? "pb-10 pr-6 sm:pr-16" : ""}`}>
             {cs.hero.desktop && (
               <BrowserFrame shot={cs.hero.desktop} url={host} priority sizes="(min-width: 1152px) 1024px, 100vw" />
             )}
@@ -316,11 +317,12 @@ export default function CaseStudyView({
                 ))}
               </ol>
               {cs.process.artifacts && (
-                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <div data-zoom-list className="mt-8 grid gap-6 md:grid-cols-2">
                   {cs.process.artifacts.map((a) => (
                     <figure key={a.src}>
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-white">
                         <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 450px, 100vw" className="object-contain p-2" />
+                        <ZoomTrigger shot={a} />
                       </div>
                       {a.caption && <figcaption className="mt-3 text-sm text-muted">{a.caption}</figcaption>}
                     </figure>
@@ -405,7 +407,7 @@ export default function CaseStudyView({
             <Block {...blk("before")} pull={pullFor("before")} takeaway={cs.before.takeaway}>
               {cs.before.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.before.intro}</p>}
               {cs.before.frame === "browser" ? (
-                <ul className="grid gap-8 md:grid-cols-2">
+                <ul data-zoom-list className="grid gap-8 md:grid-cols-2">
                   {cs.before.shots.map((s) => (
                     <li key={s.src} className="min-w-0">
                       <figure>
@@ -416,7 +418,7 @@ export default function CaseStudyView({
                   ))}
                 </ul>
               ) : (
-                <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                <ul data-zoom-list className="grid grid-cols-2 gap-5 sm:grid-cols-3">
                   {cs.before.shots.map((s) => (
                     <li key={s.src}>
                       <figure>
@@ -434,6 +436,7 @@ export default function CaseStudyView({
             <Block {...blk("mobile")} pull={pullFor("mobile")} takeaway={cs.mobile.takeaway}>
               {cs.mobile.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.mobile.intro}</p>}
               <div
+                data-zoom-list
                 role="region"
                 aria-label={L.mobileRegion}
                 tabIndex={0}
@@ -455,7 +458,7 @@ export default function CaseStudyView({
           {cs.web && (
             <Block {...blk("web")} pull={pullFor("web")} takeaway={cs.web.takeaway}>
               {cs.web.intro && <p className="mb-10 max-w-[68ch] text-lg text-muted">{cs.web.intro}</p>}
-              <div className="grid gap-8 md:grid-cols-2">
+              <div data-zoom-list className="grid gap-8 md:grid-cols-2">
                 {cs.web.shots.map((s, i) => (
                   <figure key={s.src} className={`min-w-0 ${i === 0 ? "md:col-span-2" : ""}`}>
                     <BrowserFrame shot={s} url={host} sizes={i === 0 ? "(min-width: 1024px) 900px, 100vw" : "(min-width: 768px) 450px, 100vw"} />
