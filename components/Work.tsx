@@ -27,8 +27,8 @@ export default function Work({ locale }: { locale: Locale }) {
           intro={d.intro}
         />
 
-        <ul className="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
-          <li className="mb-6 md:col-span-2 lg:col-span-3">
+        <ul className="grid gap-x-10 gap-y-20 md:grid-cols-2 md:gap-y-24 lg:grid-cols-3">
+          <li className="md:col-span-2 lg:col-span-3">
             <FadeUp className="h-full">
               <WorkCard project={lead} index={0} featured />
             </FadeUp>
@@ -42,13 +42,20 @@ export default function Work({ locale }: { locale: Locale }) {
           ))}
         </ul>
 
-        <FadeUp className="mt-8">
+        <FadeUp className="mt-12 md:mt-16">
           <Link
             href={localeHref(locale, "/work")}
-            className="group inline-flex items-center gap-2 text-muted transition-colors hover:text-ink focus-visible:text-ink"
+            className="group flex min-h-[44px] items-center justify-between gap-6 border-y border-line py-6 transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:py-8"
           >
-            <span className="link-grow">{d.seeAll(workProjects.length)}</span>
-            <Arrow className="transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1" />
+            <span className="min-w-0">
+              <span className="block font-serif text-2xl font-medium leading-tight tracking-[-0.01em] md:text-4xl">
+                {d.seeAll(workProjects.length)}
+              </span>
+              <span className="mt-1.5 block text-sm text-muted md:text-base">{d.seeAllNote}</span>
+            </span>
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-onaccent transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1 md:h-14 md:w-14">
+              <Arrow />
+            </span>
           </Link>
         </FadeUp>
       </div>

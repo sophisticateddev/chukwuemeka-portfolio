@@ -7,7 +7,7 @@ export const albertFr: CaseStudy = {
   liveUrl: "https://wearealbert.org",
   liveLabel: "Visiter albert",
   headline: "Refonte de la boîte à outils carbone d’albert (BAFTA) pour que les productions consignent leur durabilité au fil du travail, pas après.",
-  roles: ["Designer produit senior (contrat)", "De la recherche à la livraison aux développeurs", "Web, mobile et outils d’administration"],
+  roles: ["Designer de produits senior (contrat)", "De la recherche à la livraison aux développeurs", "Web, mobile et outils d’administration"],
   summary: {
     problem:
       "Les productions de cinéma et de télévision utilisent albert pour mesurer leur empreinte carbone et obtenir une certification, mais la boîte à outils était difficile à parcourir et à lire : les équipes la remettaient à la postproduction et oubliaient l’essentiel de ce qu’elles avaient fait.",
@@ -28,7 +28,7 @@ export const albertFr: CaseStudy = {
   },
   meta: [
     { label: "Entreprise", value: "BAFTA albert (contrat)" },
-    { label: "Rôle", value: "Designer produit senior" },
+    { label: "Rôle", value: "Designer de produits senior" },
     { label: "Équipe", value: "Chef de produit, product owner, responsable technique, 2 développeurs" },
     { label: "Période", value: "juil. 2024 – août 2025" },
     { label: "Plateformes", value: "Application Web, Web mobile, outils d’administration" },
@@ -52,7 +52,7 @@ export const albertFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Designer produit senior",
+        role: "Designer de produits senior",
         owned: "Recherche, audit d’accessibilité, parcours pour chaque rôle, design d’interaction et d’interface, cas limites et livraison aux développeurs.",
         me: true,
       },

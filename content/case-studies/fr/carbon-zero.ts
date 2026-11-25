@@ -6,7 +6,7 @@ export const carbonZeroFr: CaseStudy = {
   liveUrl: "https://getcarbon.co",
   liveLabel: "Visiter Carbon",
   headline: "Achetez maintenant, payez plus tard à 0 % d’intérêt, de l’achat au paiement en moins d’une minute.",
-  roles: ["Designer produit principal", "Animateur du sprint de design", "De la recherche à la livraison aux développeurs"],
+  roles: ["Designer de produits principal", "Animateur du sprint de design", "De la recherche à la livraison aux développeurs"],
   summary: {
     problem:
       "Carbon Zero permet d’acheter aujourd’hui et de payer en plusieurs fois à 0 % d’intérêt, mais le parcours était lent, demandait trop d’informations et ne mettait pas le « zéro » en évidence.",
@@ -26,7 +26,7 @@ export const carbonZeroFr: CaseStudy = {
   },
   meta: [
     { label: "Entreprise", value: "Carbon MFB" },
-    { label: "Rôle", value: "Designer produit principal" },
+    { label: "Rôle", value: "Designer de produits principal" },
     { label: "Équipe", value: "3 designers, 1 chef de produit, 5 ingénieurs, 1 scrum master" },
     { label: "Plateformes", value: "iOS et Android" },
     { label: "Outils", value: "Figma, Miro, Confluence, Jira" },
@@ -50,11 +50,11 @@ export const carbonZeroFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Designer produit principal",
+        role: "Designer de produits principal",
         owned: "Découverte, animation du sprint, design d’interaction, interface et prototypes; direction de deux designers.",
         me: true,
       },
-      { name: "Design", role: "2 designers produit", owned: "Production des interfaces et contrôle qualité du design." },
+      { name: "Design", role: "2 designers de produits", owned: "Production des interfaces et contrôle qualité du design." },
       { name: "Produit et ingénierie", role: "Chef de produit, 5 ingénieurs, scrum master", owned: "Périmètre, développement et livraison." },
     ],
   },

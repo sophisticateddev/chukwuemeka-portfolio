@@ -22,7 +22,7 @@ export default function WorkIndexPage({ locale }: { locale: Locale }) {
       <section aria-labelledby="work-title" className="py-16 pt-32 md:py-24 md:pt-36">
         <div className="container-page">
           <SectionHeading as="h1" id="work-title" label={d.label} title={d.title} titleMuted={d.titleMuted} intro={d.intro} />
-          <ul className="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-x-10 gap-y-20 md:grid-cols-2 md:gap-y-24 lg:grid-cols-3">
             {projects.map((project, i) => (
               <li key={project.id}>
                 <FadeUp delay={(i % 3) * 0.08} className="h-full">
@@ -37,9 +37,9 @@ export default function WorkIndexPage({ locale }: { locale: Locale }) {
               href={componentLibraryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-4 inline-flex items-center gap-2 text-ink"
+              className="btn-secondary group mt-4"
             >
-              <span className="link-grow">{d.library.link}</span>
+              <span>{d.library.link}</span>
               <span className="sr-only">{t(locale).newTab}</span>
               <Arrow
                 direction="up-right"

@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
+import LanguageOffer from "./LanguageOffer";
 import BackToTop from "@/components/BackToTop";
 import PageReader from "@/components/PageReader";
 import Analytics from "@/components/Analytics";
@@ -100,6 +101,7 @@ export default function SiteShell({ locale, children }: { locale: Locale; childr
           {children}
           <Footer locale={locale} />
           <BackToTop />
+          {locale === "en" && <LanguageOffer />}
           <Analytics websiteId={umamiWebsiteId} domain={analyticsDomains} />
         </MotionProvider>
       </body>

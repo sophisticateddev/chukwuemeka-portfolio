@@ -6,31 +6,14 @@ const REGION_COOKIE = "region";
 // Set by the EN/FR switch (components/LanguageSwitch.tsx); must match LANG_COOKIE in lib/i18n.ts
 const LANG_COOKIE = "lang";
 
-/** True when French is the language the browser ranks highest, e.g. "fr-CA,fr;q=0.9,en;q=0.8". */
-function prefersFrench(header: string | null) {
-  if (!header) return false;
-  const ranked = header
-    .split(",")
-    .map((part) => {
-      const [tag, ...params] = part.trim().toLowerCase().split(";");
-      const q = params.map((p) => p.trim()).find((p) => p.startsWith("q="));
-      return { tag, q: q ? Number(q.slice(2)) : 1 };
-    })
-    .filter((l) => l.tag && l.tag !== "*")
-    .sort((a, b) => b.q - a.q);
-  return ranked[0]?.tag.startsWith("fr") ?? false;
-}
-
 /**
- * Send someone to French when they chose it, or when they haven't chosen and their browser
- * prefers French. Only on arrival: once they're browsing the site, links decide.
+ * Send someone to French only when they chose it with the EN/FR switch (or the offer bar).
+ * The browser's language is never enough: the French is a translation, and a wrong guess
+ * (for example a bilingual visitor whose browser lists French first) shows them the wrong site.
+ * Visitors whose browser prefers French are offered it instead (components/LanguageOffer.tsx).
  */
 function wantsFrench(req: NextRequest) {
-  const chosen = req.cookies.get(LANG_COOKIE)?.value;
-  if (chosen === "fr") return true;
-  if (chosen === "en") return false;
-  if (fromThisSite(req)) return false;
-  return prefersFrench(req.headers.get("accept-language"));
+  return req.cookies.get(LANG_COOKIE)?.value === "fr";
 }
 
 /** True when the visitor followed a link on this site, rather than typing the address or arriving from elsewhere. */
@@ -73,6 +56,12 @@ export function middleware(req: NextRequest) {
     const chosen = fromThisSite(req) ? req.cookies.get(REGION_COOKIE)?.value : undefined;
     const region =
       chosen === "ca" || chosen === "us" ? chosen : byCountry[req.headers.get("x-vercel-ip-country") ?? ""];
+    // Canada gets a visible /ca address (and /fr/ca in French) so the page can be shared as it is seen.
+    if (region === "ca") {
+      const url = req.nextUrl.clone();
+      url.pathname = `${prefix}/ca`;
+      return NextResponse.redirect(url);
+    }
     if (region) return NextResponse.rewrite(new URL(`${prefix}/${region}`, req.url));
   }
 

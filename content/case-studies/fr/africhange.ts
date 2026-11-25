@@ -50,7 +50,7 @@ export const africhangeFr: CaseStudy = {
         owned: "Plan de recherche, entretiens, synthèse, parcours utilisateurs, design system, interfaces mobile et Web, prototypes.",
         me: true,
       },
-      { name: "Design", role: "Designer produit", owned: "Collaboration sur les interfaces de tout le produit." },
+      { name: "Design", role: "Designer de produits", owned: "Collaboration sur les interfaces de tout le produit." },
       { name: "Produit et ingénierie", role: "Chef de produit, responsable croissance, 2 ingénieurs", owned: "Priorités, croissance et développement." },
     ],
   },

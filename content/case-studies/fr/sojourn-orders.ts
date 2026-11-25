@@ -31,7 +31,7 @@ export const sojournOrdersFr: CaseStudy = {
   },
   meta: [
     { label: "Client", value: "Sojourn Limited, une entreprise de construction britannique" },
-    { label: "Rôle", value: "Designer produit et développeur (avec l’IA)" },
+    { label: "Rôle", value: "Designer de produits et développeur (avec l’IA)" },
     { label: "Équipe", value: "Moi, en lien direct avec le propriétaire" },
     { label: "Période", value: "Oct. 2026 – aujourd’hui" },
     { label: "Plateforme", value: "Application web installable (PWA) pour téléphone et ordinateur" },
@@ -56,7 +56,7 @@ export const sojournOrdersFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Designer produit et développeur",
+        role: "Designer de produits et développeur",
         owned:
           "Définir les besoins avec le propriétaire, le design system, chaque écran et parcours, le développement avec Claude Code, les tests, la sécurité et la mise en ligne.",
         me: true,

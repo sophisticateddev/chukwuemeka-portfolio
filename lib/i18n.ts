@@ -85,6 +85,7 @@ const en = {
     titleMuted: "and build with AI.",
     intro: "Four case studies in depth. A game, a document tool and a purchase-order app I designed and built with Claude Code, plus a sustainability platform I led the UX for.",
     seeAll: (n: number) => `See all ${n} projects`,
+    seeAllNote: "From banking to a game built with AI",
     featured: "Featured case study",
     tags: "Tags",
   },
@@ -279,11 +280,11 @@ const fr: Dictionary = {
   htmlLang: "fr-CA",
   ogLocale: "fr_CA",
   meta: {
-    title: "Chukwuemeka Iheonye — Designer produit qui livre du code en production",
+    title: "Chukwuemeka Iheonye — Designer de produits qui livre du code en production",
     description:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA. Basé au Royaume-Uni.",
+      "Designer de produits, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA. Basé au Royaume-Uni.",
     ogDescription:
-      "Designer produit, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA.",
+      "Designer de produits, plus de 7 ans d’expérience en fintech, SaaS et logiciels d’entreprise. Je conçois des produits, puis je livre le code, construit avec l’IA.",
   },
   skip: "Aller au contenu",
   newTab: "(s’ouvre dans un nouvel onglet)",
@@ -309,7 +310,7 @@ const fr: Dictionary = {
     line1: "Je conçois.",
     line2: "Puis je livre le code.",
     subhead:
-      "Designer produit qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
+      "Designer de produits qui livre du code en production. Plus de 7 ans en fintech, SaaS et logiciels d’entreprise : je conçois le produit, puis je le construis avec Claude Code.",
     viewWork: "Voir mes projets",
     shippedAt: "Produits livrés chez",
     portraitAlt: "Portrait de Chukwuemeka Iheonye, souriant, en polo",
@@ -335,6 +336,7 @@ const fr: Dictionary = {
     titleMuted: "et que je construis avec l’IA.",
     intro: "Quatre études de cas en profondeur. Un jeu, un outil de documents et une application de bons de commande que j’ai conçus et construits avec Claude Code, et une plateforme de durabilité dont j’ai dirigé l’UX.",
     seeAll: (n) => `Voir les ${n} projets`,
+    seeAllNote: "De la banque à un jeu construit avec l’IA",
     featured: "Étude de cas à la une",
     tags: "Étiquettes",
   },
@@ -383,7 +385,7 @@ const fr: Dictionary = {
     title: "Le soin du détail compte.",
     titleMuted: "Que ça fonctionne compte encore plus.",
     paragraphs: [
-      "Je m’appelle Chukwuemeka. Je suis designer produit, j’ai grandi au Nigeria et je vis aujourd’hui au Royaume-Uni. Depuis plus de 7 ans, je conçois des produits numériques pour des organisations comme BAFTA, Carbon MFB et Writesea, et je suis aujourd’hui cofondateur de Character Guess, un jeu que j’ai conçu et construit avec l’IA.",
+      "Je m’appelle Chukwuemeka. Je suis designer de produits, j’ai grandi au Nigeria et je vis aujourd’hui au Royaume-Uni. Depuis plus de 7 ans, je conçois des produits numériques pour des organisations comme BAFTA, Carbon MFB et Writesea, et je suis aujourd’hui cofondateur de Character Guess, un jeu que j’ai conçu et construit avec l’IA.",
       "Je travaille sur tout le cycle de vie : m’asseoir avec les utilisateurs pour trouver ce qui ne fonctionne vraiment pas, façonner le système, et désormais le construire moi-même avec l’IA, pour que les développeurs reçoivent quelque chose de concret plutôt que trois allers-retours.",
     ],
     closing: "Si le design est beau mais déroutant, il n’est pas encore terminé.",
@@ -487,10 +489,10 @@ const fr: Dictionary = {
   },
   article: {
     allWriting: "Tous les articles",
-    role: "Designer produit",
+    role: "Designer de produits",
     aboutAuthor: "À propos de l’auteur",
     writtenBy: "Écrit par Chukwuemeka Iheonye",
-    bio: "Designer produit basé au Royaume-Uni, qui livre du code en production.",
+    bio: "Designer de produits basé au Royaume-Uni, qui livre du code en production.",
     workWithMe: "Travaillons ensemble",
     nextLabel: "Article suivant",
     readNext: "À lire ensuite",

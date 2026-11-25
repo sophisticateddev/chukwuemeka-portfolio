@@ -7,7 +7,7 @@ export const carbonLoansFr: CaseStudy = {
   liveUrl: "https://getcarbon.co",
   liveLabel: "Visiter Carbon",
   headline: "+20 % de demandes de prêt et −10 % de mauvais prêts, pour une banque de plus de 3 millions de clients.",
-  roles: ["Designer produit principal", "Direction d’une équipe de 2 designers", "De la recherche à la livraison aux développeurs"],
+  roles: ["Designer de produits principal", "Direction d’une équipe de 2 designers", "De la recherche à la livraison aux développeurs"],
   summary: {
     problem:
       "Les prêts sont au cœur de l’activité de Carbon, mais les clients étaient perdus face à des écrans verbeux, des offres floues et des refus sans explication : beaucoup ne contractaient jamais les prêts auxquels ils avaient droit.",
@@ -27,7 +27,7 @@ export const carbonLoansFr: CaseStudy = {
   },
   meta: [
     { label: "Entreprise", value: "Carbon MFB" },
-    { label: "Rôle", value: "Designer produit principal" },
+    { label: "Rôle", value: "Designer de produits principal" },
     { label: "Équipe", value: "3 designers, 1 chef de produit, 6 ingénieurs, 1 testeur QA, 1 scrum master" },
     { label: "Plateformes", value: "iOS et Android" },
     { label: "Outils", value: "Figma, FigJam, Confluence, Jira" },
@@ -51,11 +51,11 @@ export const carbonLoansFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Designer produit principal",
+        role: "Designer de produits principal",
         owned: "Recherche, cadrage du problème, design d’interaction, interface et prototypes; direction de deux designers, en partenariat avec le produit et l’ingénierie.",
         me: true,
       },
-      { name: "Design", role: "2 designers produit", owned: "Production des interfaces et contrôle qualité du design sur tous les parcours." },
+      { name: "Design", role: "2 designers de produits", owned: "Production des interfaces et contrôle qualité du design sur tous les parcours." },
       { name: "Produit et ingénierie", role: "Chef de produit, 6 ingénieurs, QA, scrum master", owned: "Périmètre, développement, tests et livraison." },
     ],
   },

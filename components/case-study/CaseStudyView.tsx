@@ -215,11 +215,14 @@ export default function CaseStudyView({
             ))}
           </dl>
 
-          <dl className="mt-14 grid gap-6 border-t border-line pt-8 sm:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col">
+          <dl className="mt-14 grid border-t border-ink/40 sm:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col">
             {cs.meta.map((m) => (
-              <div key={m.label}>
-                <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted">{m.label}</dt>
-                <dd className="mt-2 text-sm text-ink">{m.value}</dd>
+              <div
+                key={m.label}
+                className="border-b border-line py-5 sm:py-6 sm:max-lg:odd:pr-6 sm:max-lg:even:border-l sm:max-lg:even:pl-6 lg:border-b-0 lg:border-l lg:px-6 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0"
+              >
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{m.label}</dt>
+                <dd className="mt-2 text-[0.9375rem] leading-snug text-ink">{m.value}</dd>
               </div>
             ))}
           </dl>

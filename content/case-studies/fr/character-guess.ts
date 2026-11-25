@@ -68,7 +68,7 @@ export const characterGuessFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Cofondateur · designer produit et développeur assisté par l’IA",
+        role: "Cofondateur · designer de produits et développeur assisté par l’IA",
         owned: "Direction produit et UX, design system, chaque écran et chaque parcours, développement front-end avec Claude Code, accessibilité.",
         me: true,
       },

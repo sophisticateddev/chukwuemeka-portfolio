@@ -99,9 +99,9 @@ export default function Testimonials({ locale, items }: { locale: Locale; /** Qu
             href={recommendationsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 text-muted transition-colors hover:text-ink focus-visible:text-ink"
+            className="btn-secondary group"
           >
-            <span className="link-grow">{d.all}</span>
+            <span>{d.all}</span>
             <span className="sr-only">{t(locale).newTab}</span>
             <Arrow
               direction="up-right"

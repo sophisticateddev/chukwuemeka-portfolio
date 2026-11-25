@@ -8,6 +8,6 @@ export default function OpengraphImage() {
   return homeImage(
     "Je conçois.",
     "Puis je livre le code.",
-    "Designer produit · plus de 7 ans · Fintech, SaaS et entreprise",
+    "Designer de produits · plus de 7 ans · Fintech, SaaS et entreprise",
   );
 }

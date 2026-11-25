@@ -173,21 +173,21 @@ export const experienceFr: Record<number, ExperienceText> = {
       "Cofondateur d’un quiz multijoueur en direct, je dirige le design produit de bout en bout, de la recherche et du design system jusqu’à chaque écran. Je construis le front-end avec Claude Code, avec un ingénieur backend et un chef de produit. Plus de 100 joueurs bêta par bouche-à-oreille, plus de 3 000 questions dans 6 catégories et 3 langues.",
   },
   1: {
-    role: "Designer produit",
+    role: "Designer de produits",
     location: "À distance",
     period: "oct. 2024 — sept. 2026",
     description:
       "Conception de parcours complets pour une plateforme d’écriture et de publication propulsée par l’IA, de l’inscription à la création de contenu. Lancement d’un générateur de modèles qui a raccourci les délais de mise en marché et allégé le support de 0,5 ETP, et conception de modules d’administration pour les universités et les revendeurs. Tests d’utilisabilité et contribution au design system.",
   },
   2: {
-    role: "Designer produit senior (contrat)",
+    role: "Designer de produits senior (contrat)",
     location: "Londres, Royaume-Uni",
     period: "juil. 2024 — août 2025",
     description:
       "Direction de l’UX d’albert, la plateforme de durabilité de BAFTA pour l’industrie audiovisuelle britannique, de la découverte à la livraison. Recherche avec des productions et des diffuseurs, et refonte de la boîte à outils carbone pour chaque rôle : le taux de conformité WCAG 2.2 AA est passé de 60 % à 85 %, la satisfaction de 3,3 à 4,3 sur 5, et les productions qui commencent en préproduction de 30 % à 55 %.",
   },
   3: {
-    role: "Designer produit principal",
+    role: "Designer de produits principal",
     location: "À distance",
     period: "nov. 2022 — mars 2024",
     description:
@@ -201,7 +201,7 @@ export const experienceFr: Record<number, ExperienceText> = {
       "Recherche qualitative et quantitative pour éclairer les décisions produit. Modèles d’architecture de l’information, optimisation des parcours d’inscription et itérations de design qui ont amélioré la rétention de 25 %.",
   },
   5: {
-    role: "Designer produit senior",
+    role: "Designer de produits senior",
     location: "Lagos, Nigeria",
     period: "juil. 2021 — mars 2022",
     description:
@@ -215,14 +215,14 @@ export const experienceFr: Record<number, ExperienceText> = {
       "Conception d’E-Bills pour NIBSS (Nigeria Inter-Bank Settlement System), la plateforme commune que les banques nigérianes utilisent pour intégrer les facturiers et encaisser les paiements de factures : 19 rôles utilisateurs répartis entre NIBSS, les banques et les facturiers, avec des approbations à chaque niveau. Conception aussi de produits clients, dont NippyBoxes, une plateforme logistique, et Coinbycedar3, un portefeuille crypto, avec des tests d’utilisabilité et des itérations à partir des résultats.",
   },
   7: {
-    role: "Designer produit",
+    role: "Designer de produits",
     location: "Lagos, Nigeria",
     period: "déc. 2019 — sept. 2020",
     description:
       "Conception d’expériences de fidélité et de récompenses pour plus de 400 commerçants, des stations-service aux marques de café, au service de plus de 200 000 clients. Façonné la manière dont les entreprises émettent des récompenses et dont les clients les gagnent et les utilisent, sur le Web et le mobile.",
   },
   8: {
-    role: "Designer produit et développeur front-end",
+    role: "Designer de produits et développeur front-end",
     location: "Lagos, Nigeria",
     period: "juin 2019 — déc. 2019",
     description:

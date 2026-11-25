@@ -52,7 +52,7 @@ export const coinbycedarFr: CaseStudy = {
         owned: "Recherche, analyse concurrentielle, design d’interaction, interfaces mobile et Web; direction de deux designers.",
         me: true,
       },
-      { name: "Design", role: "2 designers produit", owned: "Production des interfaces mobile et Web." },
+      { name: "Design", role: "2 designers de produits", owned: "Production des interfaces mobile et Web." },
       { name: "Produit et ingénierie", role: "Chef de produit, 2 ingénieurs, analyste d’affaires", owned: "Exigences et développement." },
     ],
   },

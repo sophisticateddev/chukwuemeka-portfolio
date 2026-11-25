@@ -4,7 +4,7 @@ const img = (name: string) => `/images/work/nippyboxes/${name}.jpg`;
 
 export const nippyboxesFr: CaseStudy = {
   headline: "Conception d’un « Uber de la livraison » qui a dépassé 10 000 utilisateurs dès son premier mois.",
-  roles: ["Designer produit", "Application client et plateforme partenaires", "De la recherche aux tests d’utilisabilité"],
+  roles: ["Designer de produits", "Application client et plateforme partenaires", "De la recherche aux tests d’utilisabilité"],
   summary: {
     problem:
       "Les particuliers et les entreprises qui expédiaient des colis ne pouvaient pas comparer les transporteurs, payaient trop cher parce que les colis étaient mal mesurés, et faisaient rarement confiance aux délais de livraison.",
@@ -25,7 +25,7 @@ export const nippyboxesFr: CaseStudy = {
   },
   meta: [
     { label: "Entreprise", value: "Chez SBSC, une agence de conseil en logiciels" },
-    { label: "Rôle", value: "Designer produit (UX et UI)" },
+    { label: "Rôle", value: "Designer de produits (UX et UI)" },
     { label: "Équipe", value: "2 designers, un chef de produit, 2 analystes d’affaires, 4 ingénieurs" },
     { label: "Plateformes", value: "Application mobile et application Web" },
     { label: "Outils", value: "Figma, Miro, Illustrator, Zoom" },
@@ -44,11 +44,11 @@ export const nippyboxesFr: CaseStudy = {
     members: [
       {
         name: "Chukwuemeka Iheonye",
-        role: "Designer produit",
+        role: "Designer de produits",
         owned: "Entretiens, parcours utilisateurs, design system, application mobile client, application Web partenaires, tests d’utilisabilité.",
         me: true,
       },
-      { name: "Design", role: "Designer produit", owned: "Collaboration sur l’interface et le site vitrine." },
+      { name: "Design", role: "Designer de produits", owned: "Collaboration sur l’interface et le site vitrine." },
       { name: "Produit et ingénierie", role: "Chef de produit, 2 analystes d’affaires, 4 ingénieurs", owned: "Exigences et développement." },
     ],
   },

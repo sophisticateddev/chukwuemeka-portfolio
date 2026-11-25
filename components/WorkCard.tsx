@@ -59,7 +59,7 @@ export default function WorkCard({
 
   if (featured) {
     return (
-      <article className="group relative">
+      <article className="group relative border-t border-ink/40 pt-6 md:pt-8">
         {screen}
         <div className="mt-8 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] md:gap-16">
           <div>
@@ -86,7 +86,7 @@ export default function WorkCard({
   }
 
   return (
-    <article className="group relative flex h-full flex-col">
+    <article className="group relative flex h-full flex-col border-t border-ink/40 pt-6">
       {screen}
       <p className="eyebrow mt-5">{project.category}</p>
       <Heading className="mt-2 font-serif text-[1.625rem] font-medium leading-tight tracking-[-0.01em]">{title}</Heading>

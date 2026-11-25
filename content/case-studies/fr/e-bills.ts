@@ -60,7 +60,7 @@ export const eBillsFr: CaseStudy = {
         me: true,
       },
       { name: "Samuel Olumoyeke", role: "Designer principal", owned: "Direction du design sur l’ensemble du produit." },
-      { name: "Design", role: "3 designers produit", owned: "Le reste des portails." },
+      { name: "Design", role: "3 designers de produits", owned: "Le reste des portails." },
       { name: "Analyse d’affaires", role: "Analystes d’affaires", owned: "Conduite de l’essentiel de la recherche et des exigences." },
       { name: "Client et partenaires", role: "Personnel de NIBSS et des banques", owned: "Règles, processus existants et revue des maquettes." },
     ],
